@@ -366,6 +366,17 @@ if (!localStorage.getItem("theme")) {
   }
 }
 
+function toggleCode(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function copyCode(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied!");
+}
+
 // Run on load
 loadTheme();
  
