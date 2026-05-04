@@ -4174,3 +4174,43 @@ select:focus {
 .main {
   padding: 20px;
 }
+/* ================= LIKE & SAVE BUTTONS ================= */
+
+.feature-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Base button */
+.like-btn,
+.save-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #aaa;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.like-btn:hover,
+.save-btn:hover {
+  transform: scale(1.15);
+  color: #fff;
+}
+
+/* Active (clicked) states */
+.like-btn.active {
+  color: #ff4d6d;
+  border-color: #ff4d6d;
+  background: rgba(255, 77, 109, 0.1);
+}
+
+.save-btn.active {
+  color: #4dabf7;
+  border-color: #4dabf7;
+  background: rgba(77, 171, 247, 0.1);
+}
