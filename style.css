@@ -1,3 +1,11 @@
+:root {
+  --sidebar-width: 240px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* RESET */
 html, body {
   height: 100%;
@@ -112,7 +120,7 @@ nav a:hover {
 
 /* ================= SIDEBAR ================= */
 .sidebar {
-  width: 240px;
+  width: var(--sidebar-width);
   height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
@@ -150,9 +158,9 @@ nav a:hover {
 }
 
 .main-home {
-  margin-left: 240px;
+  margin-left: var(--sidebar-width);
   padding: 40px;
-  width: calc(100% - 240px);
+  width: calc(100% - var(--sidebar-width));
   flex-direction: column; 
   /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
@@ -163,9 +171,9 @@ nav a:hover {
 
 /* Main */
 .main1 {
-  margin-left: 240px;
+  margin-left: var(--sidebar-width);
   padding: 40px;
-  width: calc(100% - 240px);
+  width: calc(100% - var(--sidebar-width));
   display: flex;
   flex-direction: column;
 } 
@@ -173,7 +181,7 @@ nav a:hover {
 .navbar {
   position: fixed;
   top: 0;
-  left: 240px;
+  left: var(--sidebar-width);
   right: 0;
   height: 70px;
   background: #111;
@@ -262,7 +270,7 @@ nav a:hover {
 
 /* ================= MAIN ================= */
 .main {
-  margin-left: 240px;
+  margin-left: var(--sidebar-width);
   margin-top: 80px;
   padding: 20px;
   flex: 1;
@@ -472,7 +480,7 @@ nav a:hover {
 }
 
 .full-page {
-  margin-left: 240px; 
+  margin-left: var(--sidebar-width); 
   margin-top: 100px;
   padding-left: 60px;
   padding-right:40px;
@@ -643,7 +651,7 @@ nav a:hover {
 /* ================= FOOTER ================= */
 .footer {
   margin-top: auto;
-  margin-left: 240px;
+  margin-left: var(--sidebar-width);
   padding: 60px 20px;
   background: transparent;
 }
@@ -2890,12 +2898,12 @@ body.dark-mode .hero-left p {
 
 .footer {
   margin-top: auto;
-  margin-left: 280px;
+  margin-left: var(--sidebar-width);
   background: #fff;
   border-top: 1px solid #eee;
   padding: 40px 60px;
   text-align: center;   
-  width: calc(100% - 280px);  
+  width: calc(100% - var(--sidebar-width));  
   display: block;              
   flex-basis: 100%;            
   clear: both; 
@@ -2952,7 +2960,7 @@ body.dark-mode .hero-left p {
   }
 
   .navbar {
-    left: 240px;
+    left: 0;
   }
 
   .main,
@@ -3392,8 +3400,8 @@ textarea {
 /* Global Footer*/
 /*clean structural footer with sidebar offset*/
   .footer {
-  width: calc(100% - 280px); 
-  margin-left: 280px; 
+  width: calc(100% - var(--sidebar-width)); 
+  margin-left: var(--sidebar-width); 
   background: #ffffff;
   padding: 40px 60px;
   border-top: 1px solid #e5e7eb;
@@ -3727,7 +3735,7 @@ body {
 
 /* ================= SIDEBAR ================= */
 .sidebar {
-  width: 220px;
+  width: var(--sidebar-width);
   background: #111;
   padding: 20px;
   border-right: 1px solid #222;
@@ -3885,24 +3893,6 @@ body {
 .footer-col h3 {
   margin-bottom: 10px;
 /* responsive-form */
-@media (max-width: 1024px) {
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .container2 {
-    margin-left: 0;
-    padding: 10px;
-  }
-
-  .options {
-    flex-direction: column;
-    gap: 5px;
-  }
-}
 
 /* badges */
 .badges-page {
@@ -3971,15 +3961,6 @@ body {
 
 /* badge responsive */
 
-@media (max-width: 1440px) {
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-}
 
 /* Color matching UI theme */
 .fa-layer-group { color: #5900ff; } 
