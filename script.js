@@ -3389,14 +3389,83 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function toggleCode(id) {
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === "block" ? "none" : "block";
+// ==============================
+// AUTO ASSIGN IDs FROM TITLE
+// ==============================
+document.querySelectorAll('.feature-card').forEach(card => {
+  const title = card.querySelector('h3').innerText;
+  const id = title.toLowerCase().replace(/\s+/g, '-');
+
+  const likeBtn = card.querySelector('.like-btn');
+  const saveBtn = card.querySelector('.save-btn');
+
+  if (likeBtn) likeBtn.dataset.id = id;
+  if (saveBtn) saveBtn.dataset.id = id;
+});
+
+// ==============================
+// LOAD DATA
+// ==============================
+let liked = JSON.parse(localStorage.getItem('liked-components')) || [];
+let saved = JSON.parse(localStorage.getItem('saved-components')) || [];
+
+// ==============================
+// TOGGLE LIKE
+// ==============================
+function toggleLike(btn) {
+  const id = btn.dataset.id;
+
+  if (liked.includes(id)) {
+    liked = liked.filter(item => item !== id);
+    btn.classList.remove('active');
+    btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+  } else {
+    liked.push(id);
+    btn.classList.add('active');
+    btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+  }
+
+  localStorage.setItem('liked-components', JSON.stringify(liked));
 }
 
-function copyCode(id, btn) {
-  const text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text);
-  btn.innerText = "Copied!";
-  setTimeout(() => btn.innerText = "Copy", 1500);
+// ==============================
+// TOGGLE SAVE
+// ==============================
+function toggleSave(btn) {
+  const id = btn.dataset.id;
+
+  if (saved.includes(id)) {
+    saved = saved.filter(item => item !== id);
+    btn.classList.remove('active');
+    btn.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+  } else {
+    saved.push(id);
+    btn.classList.add('active');
+    btn.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+  }
+
+  localStorage.setItem('saved-components', JSON.stringify(saved));
 }
+
+// ==============================
+// RESTORE STATE ON LOAD
+// ==============================
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.like-btn').forEach(btn => {
+    const id = btn.dataset.id;
+
+    if (liked.includes(id)) {
+      btn.classList.add('active');
+      btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    }
+  });
+
+  document.querySelectorAll('.save-btn').forEach(btn => {
+    const id = btn.dataset.id;
+
+    if (saved.includes(id)) {
+      btn.classList.add('active');
+      btn.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
+    }
+  });
+});
