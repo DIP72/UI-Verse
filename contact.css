@@ -197,3 +197,14 @@ button:hover {
   text-align: center;
   color: #16a34a;
 }
+.main {
+  margin-left: 240px; /* same as sidebar width */
+  padding: 40px;
+}
+
+.contact-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}

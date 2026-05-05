@@ -1,66 +1,69 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
+  <title>Contact Us - UIverse</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="contact.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
+
 <body>
 
-<section id="contact" class="contact-center">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2>UIverse</h2>
+  <ul>
+    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="button.html"><i class="fa-solid fa-mobile-button"></i> Buttons</a></li>
+    <li><a href="navbar.html"><i class="fa-solid fa-bars"></i> Navbar</a></li>
+    <li class="active"><a href="contact.html"><i class="fa-regular fa-user"></i> Contact</a></li>
+    <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i> Forms</a></li>
+  </ul>
+</aside>
 
+<!-- ================= MAIN ================= -->
+<main class="main">
 
-  <aside class="sidebar">
-    <h2>UIverse</h2>
-    <ul>
-      <li><a href="index.html"><i class="fa-solid fa-house"></i><p>Home</p></a></li>
-      <li><a href="button.html"><i class="fa-solid fa-mobile-button"></i><p>Butttons</p></a></li>
-      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><p>Navbar</p></a></li>
-      <li><a href="contact.html"><i class="fa-regular fa-user"></i><p>Contact Us</p></a></li>
-      <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><p>Forms</p></a></li>
-    </ul>
-  </aside> 
+  <section id="contact" class="contact-center">
+    <div class="contact-box">
 
-    <section id="contact" class="contact-center">
-  <div class="contact-box">
-    
-    <h2>Get in Touch</h2>
-    <p class="subtitle">We’d love to hear from you. Fill out the form below.</p>
+      <h2>Get in Touch</h2>
+      <p class="subtitle">We’d love to hear from you. Fill out the form below.</p>
 
-    <form id="contactForm">
+      <form id="contactForm">
 
-      <div class="input-group">
-        <input type="text" id="name" required>
-        <label for="name">Full Name</label>
-      </div>
+        <div class="input-group">
+          <input type="text" id="name" required>
+          <label for="name">Full Name</label>
+        </div>
 
-      <div class="input-group">
-        <input type="email" id="email" required>
-        <label for="email">Email Address</label>
-      </div>
+        <div class="input-group">
+          <input type="email" id="email" required>
+          <label for="email">Email Address</label>
+        </div>
 
-      <div class="input-group">
-        <textarea id="message" rows="5" required></textarea>
-        <label for="message">Your Message</label>
-      </div>
+        <div class="input-group">
+          <textarea id="message" rows="5" required></textarea>
+          <label for="message">Your Message</label>
+        </div>
 
-      <button type="submit">Send Message</button>
+        <button type="submit">Send Message</button>
+        <p id="formStatus" class="status"></p>
 
-      <p id="formStatus" class="status"></p>
+      </form>
 
-    </form>
+    </div>
+  </section>
 
-  </div>
-</section>
+</main>
 
+<!-- ================= SCRIPT ================= -->
 <script>
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
@@ -69,11 +72,11 @@
     e.preventDefault();
 
     status.textContent = "Sending...";
-    status.style.color = "#555";
+    status.style.color = "#64748b";
 
     setTimeout(() => {
       status.textContent = "✅ Message sent successfully!";
-      status.style.color = "green";
+      status.style.color = "#22c55e";
       form.reset();
     }, 1500);
   });
