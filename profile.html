@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Badges</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
-
     <aside class="sidebar">
     <h2>UIverse</h2>
     <ul>
@@ -23,57 +21,38 @@
       <li><a href="About.html"><i class="fa-solid fa-mobile-button"></i><p>About</p></a></li>
       <li><a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a></li>
     </ul>
-    </ul>
   </aside>
 
-<section class="badges-page">
-  <h1>🏆 My Badges</h1>
+  <div class="profile-container">
+  <div class="profile-card">
 
-  <h2>Earned Badges</h2>
-  <div class="badge-container">
-    
-    <div class="badge">
-      <img src="badge1.jpg" alt="">
-      <h3>First PR</h3>
-      <p>Completed your first pull request</p>
+    <div class="profile-header">
+      <img src="profile.jpeg" alt="Profile">
+      <h2>Azhar</h2>
+      <p>azhar@hello.com</p>
     </div>
 
-    <div class="badge">
-       <img src="badge2.jpg" alt="">
-      <h3>Contributor</h3>
-      <p>Contributed to 10 PRs</p>
+    <div class="profile-info">
+      <div class="info">
+        <span>Full Name</span>
+        <p>Azhar</p>
+      </div>
+
+      <div class="info">
+        <span>Email</span>
+        <p>azhar@hello.com</p>
+      </div>
+
+      <div class="info">
+        <span>Username</span>
+        <p>@Azhar</p>
+      </div>
     </div>
+
+    <button class="btnn">Edit Profile</button>
 
   </div>
+</div>
 
-  <!-- In Progress -->
-  <h2 class="prog-1">In Progress</h2>
-  <div class="badge-container">
-
-    <div class="badge progress">
-       <img src="time.png" alt="">
-      <h3>Top Contributor</h3>
-      <p>14/50 PRs completed</p>
-      <progress value="14" max="50"></progress>
-    </div>
-
-  </div>
-
-  <!-- Locked Badges -->
-  <h2 class="prog-2">Locked Badges</h2>
-  <div class="badge-container">
-
-    <div class="badge locked">
-      <img src="lock.jpg" alt="">
-      <h3>Elite Hacker</h3>
-      <p>Complete 100 PRs</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-  
 </body>
 </html>
