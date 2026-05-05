@@ -71,7 +71,7 @@
     <div class="actions">
       <button class="btn outline">+ Add</button>
       <button class="btn primary">Save</button>
-      <button class="icon"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
     </div>
   </header>
 
@@ -96,6 +96,8 @@
           </div>
         </nav>
       </div>
+      <div class="actions-row"> <button onclick="toggleCode('c1')">View Code</button> <button onclick="copyCode('c1', this)">Copy</button> 
+      </div>
     </div>
 
     <!-- CENTER -->
@@ -107,6 +109,8 @@
           <a href="#">Docs</a>
         </nav>
       </div>
+      <div class="actions-row"> <button onclick="toggleCode('c2')">View Code</button> <button onclick="copyCode('c2', this)">Copy</button> 
+      </div>
     </div>
 
     <!-- BUTTON -->
@@ -117,6 +121,10 @@
           <span>UIverse</span>
           <button class="btn primary">Login</button>
         </nav>
+      </div>
+      <div class="actions-row">
+         <button onclick="toggleCode('c3')">View Code</button> 
+         <button onclick="copyCode('c3', this)">Copy</button> 
       </div>
     </div>
 
