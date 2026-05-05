@@ -456,6 +456,67 @@ nav a:hover {
   font-size: 32px;
 }
 
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #020617; /* darker background */
+  padding: 20px 10px;
+}
+
+/* TITLE */
+.sidebar h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+/* LINKS */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 14px;
+  margin: 6px 8px;
+
+  color: #e2e8f0; /* HIGH CONTRAST */
+  text-decoration: none;
+
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* ICON */
+.sidebar ul li a i {
+  color: #94a3b8;
+}
+
+/* HOVER */
+.sidebar ul li a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.sidebar ul li a:hover i {
+  color: #3b82f6;
+}
+
+/* ACTIVE */
+.sidebar ul li.active a {
+  background: #3b82f6;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.sidebar ul li.active a i {
+  color: #ffffff;
+}
+
 .explore-btn {
   display: inline-block;
   padding: 12px 20px;
