@@ -4203,6 +4203,75 @@ select:focus {
 }
 /* ================= LIKE & SAVE BUTTONS ================= */
 
+/* about */
+
+.container-2 {
+width: 800px;
+margin: auto;
+padding: 40px 0;
+}
+
+.about-head {
+text-align: center;
+margin-bottom: 20px;
+font-size: 40px;
+color: rgb(67, 67, 130);
+}
+
+.about-section {
+background: rgba(255, 255, 255, 0.1);
+padding: 30px;
+border-radius: 15px;
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+transition: 0.3s;
+}
+
+.about-section {
+transform: scale(1.02);
+}
+
+.about-section p {
+font-size: 18px;
+margin-bottom: 15px;
+}
+
+
+.sec-tions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.section-ca-rd {
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 15px;
+  width: 30%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.section-ca-rd:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.2);
+}
+
+.btn2 {
+  display: inline-block;
+  padding: 10px 18px;
+  background: white;
+  color: #2a5298;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.btn2:hover {
+  background: #2a5298;
+  color: white;
+}
+
 .feature-actions {
   display: flex;
   gap: 10px;
