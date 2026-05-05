@@ -4008,8 +4008,69 @@ body {
 
 }
 
+
+.sidebar {
+  width: 80px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.open {
+  width: 220px;
+}
+
+.sidebar .brand-text,
+.sidebar-nav span {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sidebar.open .brand-text,
+.sidebar.open .sidebar-nav span {
+  opacity: 1;
+}
+
+.sidebar {
+  background: #0f172a; /* keep dark but softer */
+}
+
+.sidebar-nav a {
+  color: #94a3b8; /* muted text */
+}
+
+.sidebar-nav a:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,0.05);
+}
+
+.sidebar-nav i {
+  font-size: 16px;   /* smaller */
+  opacity: 0.7;      /* softer */
+}
+
+.sidebar-nav .active a {
+  background: rgba(255,255,255,0.08);
+  border-left: 3px solid #6366f1;
+}
+
+.sidebar-nav li {
+  margin: 6px 0;
+}
+
+.sidebar-nav a {
+  padding: 10px 14px;
+}
+
+.sidebar {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+}
+
 /* Color matching UI theme */
 .fa-layer-group { color: #5900ff; } 
 .fa-seedling   { color: #008ef3; } 
 .fa-bolt       { color: #ff0400; } 
 .fa-rocket {color:rgb(190, 37, 63);}
+
+.sidebar {
+  width: 200px;   /* reduce from ~260–300px */
+}
