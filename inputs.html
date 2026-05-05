@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Footer - UIverse</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="playground.css">
 </head>
-<body>
-   <nav class="navbar">
+<body data-playground-type="input">
+  <nav class="navbar">
   <!-- Logo -->
   <div class="logo">Ulverse</div>
 
@@ -377,35 +378,69 @@
 </div>
 </div>
 <footer class="footer">
-  <div class="footer-container">
-
-    <!-- Brand -->
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="socials">
+  <div class="footer-card">
+    <div class="footer-brand">
+      <h2>Ulverse</h2>
+      <p>© 2026 Ulverse. All rights reserved.</p>
+      <div class="footer-socials">
         <span>🌐</span>
         <span>💼</span>
       </div>
     </div>
-
-    <!-- Pages -->
     <div class="footer-col">
       <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
-      <p>Buttons</p>
+      <a href="pricing.html">Pricing</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="alerts.html">Alerts</a>
     </div>
-
-    <!-- Legal -->
     <div class="footer-col">
       <h3>Legal</h3>
-       <p id="privacy-policy"><a href="privacypolicy.html">Privacy Policy</a></p>
-      <p id="Terms of Service"><a href="terms.html">Terms of Service</a></p>
+      <a href="privacypolicy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
     </div>
-
   </div>
 </footer>
+<div class="playground-drawer" id="playgroundDrawer" aria-hidden="true">
+  <div class="playground-header">
+    <div>
+      <span class="playground-title">Playground</span>
+      <span class="playground-subtitle" id="playgroundTitle">Select a component</span>
+    </div>
+    <div class="playground-header-actions">
+      <button type="button" class="playground-reset" id="playgroundReset">Reset</button>
+      <button type="button" class="playground-close" id="playgroundClose">Close</button>
+    </div>
+  </div>
+
+  <div class="playground-preview" id="playgroundPreview"></div>
+  <pre class="playground-code"><code id="playgroundCode"></code></pre>
+
+  <div class="playground-controls">
+    <label>Size <span class="playground-value" data-value="size"></span></label>
+    <input type="range" min="120" max="420" value="260" data-control="size">
+
+    <label>Radius <span class="playground-value" data-value="radius"></span></label>
+    <input type="range" min="0" max="30" value="10" data-control="radius">
+
+    <label>Padding <span class="playground-value" data-value="padding"></span></label>
+    <input type="range" min="0" max="24" value="10" data-control="padding">
+
+    <label>Font Size <span class="playground-value" data-value="fontSize"></span></label>
+    <input type="range" min="10" max="22" value="14" data-control="fontSize">
+
+    <label>Background</label>
+    <input type="color" value="#ffffff" data-control="background">
+
+    <label>Text Color</label>
+    <input type="color" value="#111111" data-control="textColor">
+
+    <label>Shadow <span class="playground-value" data-value="shadow"></span></label>
+    <input type="range" min="0" max="24" value="8" data-control="shadow">
+  </div>
+</div>
+
+<div class="playground-backdrop" id="playgroundBackdrop"></div>
 <script src="script.js"></script>
+<script src="playground.js"></script>
 </body>
 </html>
