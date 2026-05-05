@@ -4272,6 +4272,136 @@ margin-bottom: 15px;
   color: white;
 }
 
+/* settings.html */
+.settings-container {
+  margin-left: 240px;
+  padding: 40px;
+}
+
+.settings-container h1 {
+  margin-bottom: 20px;
+}
+
+.settings-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(118, 55, 55, 0.05);
+}
+
+.settings-card h2 {
+  margin-bottom: 15px;
+}
+
+.settings-card label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+.settings-card input[type="text"],
+.settings-card input[type="email"],
+.settings-card input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.settings-card button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: linear-gradient(90deg, #416778, #7a82c7);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.settings-card button:hover {
+  background: #8dbee6;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+}
+
+/* profile.html */
+.profile-container {
+  margin-left: 240px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  background: #feffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(104, 21, 172, 0.05);
+  text-align: center;
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  margin: 10px 0 5px;
+}
+
+.profile-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.profile-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+
+.info span {
+  font-size: 13px;
+  color: #888;
+}
+
+.info p {
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.btnn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(90deg, #546884, #6f75ae);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btnn:hover {
+  opacity: 0.7;
 .feature-actions {
   display: flex;
   gap: 10px;
