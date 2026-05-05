@@ -4334,6 +4334,74 @@ margin-bottom: 15px;
 .toggle input {
   width: 18px;
   height: 18px;
+}
+
+/* profile.html */
+.profile-container {
+  margin-left: 240px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  background: #feffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(104, 21, 172, 0.05);
+  text-align: center;
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  margin: 10px 0 5px;
+}
+
+.profile-header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.profile-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+
+.info span {
+  font-size: 13px;
+  color: #888;
+}
+
+.info p {
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.btnn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(90deg, #546884, #6f75ae);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btnn:hover {
+  opacity: 0.7;
 .feature-actions {
   display: flex;
   gap: 10px;
