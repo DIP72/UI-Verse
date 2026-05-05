@@ -399,6 +399,7 @@ nav a:hover {
   color: #000505;
   border: 2px solid #2a393a;
   border-radius: 6px;
+}
 .hero h1 {
   font-size: 32px;
 }
@@ -3489,6 +3490,144 @@ textarea {
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.744);
   text-align: left;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--nav-bg, #0f172a);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* SEARCH BAR FIX */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #1e293b;
+  border-radius: 999px;
+  padding: 6px 10px;
+  width: 40%;
+  max-width: 500px;
+  transition: 0.3s;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.search-bar input::placeholder {
+  color: #94a3b8;
+}
+
+.search-btn {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-btn:hover {
+  background: #2563eb;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: #1e293b;
+  border: none;
+  padding: 8px 14px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background: #334155;
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 0 0 2px #3b82f6;
+  background: #0f172a;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #0f172a;
+}
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 40px;              /* same as buttons */
+  padding: 0 14px;
+
+  background: #1e293b;
+  border-radius: 999px;
+
+  flex: 1;                   /* centers it */
+  max-width: 500px;
+  margin: 0 20px;
+}
+
+.search-bar i {
+  color: #94a3b8;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  flex: 1;
+}
+
+/* BUTTON ALIGNMENT */
+.nav-btn {
+  height: 40px;
+  padding: 0 14px;
+  background: #1e293b;
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+
+/* FOCUS EFFECT */
+.search-bar:focus-within {
+  background: #0f172a;
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 .form-card input,
