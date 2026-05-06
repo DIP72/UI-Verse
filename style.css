@@ -558,3 +558,60 @@ p {
   font-size: 1rem;
   line-height: 1.7;
 }
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+}
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+p {
+  margin-bottom: 12px;
+  color: #6b7280;
+}
