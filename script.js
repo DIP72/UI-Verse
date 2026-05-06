@@ -1,3 +1,11 @@
+// icon-
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("hide");
+});
+
 // settings.html
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
