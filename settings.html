@@ -14,6 +14,7 @@
     />
   </head>
   <body>
+    <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
     <aside class="sidebar">
       <h2>UIverse</h2>
       <ul>
@@ -76,23 +77,23 @@
       <div class="settings-card">
         <h2>Profile</h2>
         <label>Name</label>
-        <input type="text" placeholder="Enter your name" />
+        <input type="text" id="name" placeholder="Enter your name" />
 
         <label>Email</label>
-        <input type="email" placeholder="Enter your email" />
+        <input type="email" id="email" placeholder="Enter your email" />
 
-        <button>Save Changes</button>
+        <button id="saveBtn">Save Changes</button>
       </div>
 
       <div class="settings-card">
         <h2>Password</h2>
         <label>Current Password</label>
-        <input type="password" placeholder="Enter current password" />
+        <input type="password" id="currentPass" placeholder="Enter current password" autocomplete="off"/>
 
         <label>New Password</label>
-        <input type="password" placeholder="Enter new password" />
+        <input type="password" id="newPass" placeholder="Enter new password" autocomplete="off" />
 
-        <button>Password update</button>
+        <button id="passBtn">Password update</button>
       </div>
 
       <div class="settings-card">
@@ -100,15 +101,17 @@
 
         <div class="toggle">
           <span>Dark Mode</span>
-          <input type="checkbox" />
+          <input type="checkbox" id="dark-Toggle"/>
         </div>
 
         <div class="toggle">
           <span>Email</span>
-          <input type="checkbox" />
+          <input type="checkbox" id="emailToggle"/>
         </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
 </html>

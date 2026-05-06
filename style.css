@@ -167,17 +167,26 @@ nav a:hover {
 
 /* sidebar */
 
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  color: #333;
+}
+
 .sidebar {
   width: 220px;
   height: 100vh;
   background:  rgb(63, 81, 119);
   color: #fff;
   position: fixed;
-  left: 0;
   top: 0;
   padding: 20px 15px;
+  transition: 0.3s ease;
 }
-
 
 .sidebar h2 {
   text-align: center;
@@ -222,6 +231,10 @@ nav a:hover {
 .sidebar ul li a.active {
   background: #4e73df;
   color: #fff;
+}
+
+.sidebar.hide {
+  display: none;
 }
 
 
@@ -4982,6 +4995,30 @@ margin-bottom: 15px;
 .toggle input {
   width: 18px;
   height: 18px;
+}
+/* DARK MODE */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark * {
+  color: #ffffff;
+}
+
+body.dark .settings-card {
+  background-color: #1e1e1e;
+}
+
+body.dark input {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+body.dark button {
+  background: #444;
+  color: #fff;
 }
 
 /* HERO LAYOUT */

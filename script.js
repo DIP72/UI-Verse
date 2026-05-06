@@ -1,3 +1,80 @@
+// forms
+// login
+let loginBtn = document.querySelectorAll(".form-card button")[0];
+
+loginBtn.onclick = function () {
+  alert("Login button clicked");
+};
+// signup
+let signupBtn = document.querySelectorAll(".form-card button")[1];
+signupBtn.onclick = function () {
+  alert("Signup button clicked");
+};
+// contact form
+let contactBtn = document.querySelectorAll(".form-card button")[2];
+
+contactBtn.onclick = function () {
+  alert("Message sent");
+};
+//extra
+let extraBtn = document.querySelectorAll(".form-card button")[3];
+extraBtn.onclick = function () {
+  alert("Form submitted");
+};
+
+// icon-
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("hide");
+});
+
+// settings.html
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const saveBtn = document.getElementById("saveBtn");
+
+saveBtn.addEventListener("click", function () {
+  localStorage.setItem("name", nameInput.value);
+  localStorage.setItem("email", emailInput.value);
+  alert("Profile saved!");
+});
+// password
+const currentPass = document.getElementById("currentPass");
+const newPass = document.getElementById("newPass");
+const passBtn = document.getElementById("passBtn");
+
+passBtn.addEventListener("click", function () {
+  let savedPass = localStorage.getItem("password");
+  if (!savedPass) {
+    savedPass = "1234";
+  }
+
+  if (currentPass.value === savedPass) {
+    localStorage.setItem("password", newPass.value);
+    alert("Password updated!");
+  } else {
+    alert("Wrong current password!");
+  }
+});
+
+// darkmode
+const darkToggle = document.getElementById("dark-Toggle");
+darkToggle.addEventListener("change", function () {
+  document.body.classList.toggle("dark");
+});
+
+// email
+const emailToggle = document.getElementById("emailToggle");
+emailToggle.addEventListener("change", function () {
+  if (emailToggle.checked) {
+    alert("Email notifications ON");
+  } else {
+    alert("Email notifications OFF");
+  }
+});
+
 /* Toggle Sidebar on mobile and desktop */
 // popup
 
