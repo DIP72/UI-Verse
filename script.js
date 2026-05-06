@@ -1,3 +1,35 @@
+// forms
+// login
+let loginBtn = document.querySelectorAll(".form-card button")[0];
+
+loginBtn.onclick = function () {
+  alert("Login button clicked");
+};
+// signup
+let signupBtn = document.querySelectorAll(".form-card button")[1];
+signupBtn.onclick = function () {
+  alert("Signup button clicked");
+};
+// contact form
+let contactBtn = document.querySelectorAll(".form-card button")[2];
+
+contactBtn.onclick = function () {
+  alert("Message sent");
+};
+//extra
+let extraBtn = document.querySelectorAll(".form-card button")[3];
+extraBtn.onclick = function () {
+  alert("Form submitted");
+};
+
+// icon-
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("hide");
+});
+
 // settings.html
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");

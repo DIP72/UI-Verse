@@ -167,17 +167,26 @@ nav a:hover {
 
 /* sidebar */
 
+#menuToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  color: #333;
+}
+
 .sidebar {
   width: 220px;
   height: 100vh;
   background:  rgb(63, 81, 119);
   color: #fff;
   position: fixed;
-  left: 0;
   top: 0;
   padding: 20px 15px;
+  transition: 0.3s ease;
 }
-
 
 .sidebar h2 {
   text-align: center;
@@ -222,6 +231,10 @@ nav a:hover {
 .sidebar ul li a.active {
   background: #4e73df;
   color: #fff;
+}
+
+.sidebar.hide {
+  display: none;
 }
 
 
