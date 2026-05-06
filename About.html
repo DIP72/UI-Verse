@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
+    <title>ABOUT UI-verse</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -14,7 +14,6 @@
     />
   </head>
   <body>
-    <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
     <aside class="sidebar">
       <h2>UIverse</h2>
       <ul>
@@ -62,56 +61,54 @@
             <p>About</p></a
           >
         </li>
-        <li>
-          <a href="settings.html"
-            ><i class="fa-solid fa-gear"></i>
-            <p>Settings</p></a
-          >
-        </li>
+
+        <li><a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a></li>
       </ul>
     </aside>
 
-    <div class="settings-container">
-      <h1>Settings</h1>
+        <div class="container-2">
+          <h1 class="about-head">About UI-Verse</h1>
 
-      <div class="settings-card">
-        <h2>Profile</h2>
-        <label>Name</label>
-        <input type="text" id="name" placeholder="Enter your name" />
+          <div class="about-section">
+            <p>
+              <strong>UI-Verse</strong> is a creative platform designed to
+              showcase modern and beautiful user interface components
+            </p>
 
-        <label>Email</label>
-        <input type="email" id="email" placeholder="Enter your email" />
+            <p>
+              It helps developers and designers explore, learn, and build
+              stunning web designs using simple technologies like HTML and CSS.
+            </p>
 
-        <button id="saveBtn">Save Changes</button>
-      </div>
+            <p>
+              Our mission is to make UI design easy, attractive, and accessible
+              for everyone.
+            </p>
+          </div>
 
-      <div class="settings-card">
-        <h2>Password</h2>
-        <label>Current Password</label>
-        <input type="password" id="currentPass" placeholder="Enter current password" autocomplete="off"/>
 
-        <label>New Password</label>
-        <input type="password" id="newPass" placeholder="Enter new password" autocomplete="off" />
+        <div class="sec-tions">
+          <div class="section-ca-rd">
+            <h2>📩 Contact Us</h2>
+            <p>Have questions or suggestions? Reach out to us anytime.</p>
+            <a href="contact.html" class="btn2">Go to Contact Page</a>
+          </div>
 
-        <button id="passBtn">Password update</button>
-      </div>
+          <div class="section-ca-rd">
+            <h2>📝 Forms</h2>
+            <p>Fill clean and simple forms with modern UI design.</p>
+            <a href="forms.html" class="btn2">Fill the Form</a>
+          </div>
 
-      <div class="settings-card">
-        <h2>Preferences</h2>
-
-        <div class="toggle">
-          <span>Dark Mode</span>
-          <input type="checkbox" id="dark-Toggle"/>
+          <div class="section-ca-rd">
+            <h2>🏆 Badges</h2>
+            <p>Earn badges and showcase your achievements.</p>
+            <a href="badges.html" class="btn2">View Badges</a>
+          </div>
+        </div>
         </div>
 
-        <div class="toggle">
-          <span>Email</span>
-          <input type="checkbox" id="emailToggle"/>
-        </div>
-      </div>
-    </div>
-
-    <script src="script.js"></script>
+      </body>
+    </html>
   </body>
-</html>
 </html>
