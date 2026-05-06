@@ -582,6 +582,24 @@ function updateSidebarActiveLink() {
   });
 }
 
+function copyCode() {
+  const code = `<button class="gradient-btn">Click Me</button>`;
+  navigator.clipboard.writeText(code);
+  alert("Copied!");
+}
+
+const toggle = document.getElementById("darkModeToggle");
+
+toggle.onclick = () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark"));
+};
+
+window.onload = () => {
+  if (localStorage.getItem("theme") === "true") {
+    document.body.classList.add("dark");
+  }
+};
 
 function restoreSidebarState() {
   if (window.innerWidth > 900 && sessionStorage.getItem('sidebarHidden') === '1') {
@@ -695,6 +713,18 @@ function handleSearch(event) {
     footer: "footer.html",
     color: "color.html"
   };
+
+  function handleSearch(e) {
+  if (e.key === "Enter") {
+    const value = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? "block" : "none";
+    });
+  }
+}
 
   for (let key in routes) {
     if (query.includes(key)) {
