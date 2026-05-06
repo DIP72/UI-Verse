@@ -12,11 +12,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
 
+   <button id="darkModeToggle" class="toggle-btn">🌙</button>
+
+<div class="container">
+
+    <aside class="sidebar">
+    <h2>UIverse</h2>
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <div class="logo">UIverse</div>
@@ -123,6 +130,7 @@
       <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><p>Forms</p></a></li>
       <li><a href="badges.html"><i class="fa-solid fa-award"></i><p>Badges</p></a></li>
       <li><a href="About.html"><i class="fa-solid fa-mobile-button"></i><p>About</p></a></li>
+      <li><a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a></li>
       <li class="active">
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
@@ -190,6 +198,43 @@
     <i class="fa-solid fa-bars"></i>
   </button>
 
+  <!-- Main -->
+  <main class="main-home">
+
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+       <input type="text" placeholder="Search components..." />
+    </div>
+
+     <section class="hero">
+      <div class="hero-left">
+        <h1>Welcome to UIverse 🚀</h1>
+        <p>A collection of reusable UI components for developers.</p>
+      </div>
+      <!-- <h1>Welcome to UIverse 🚀</h1> -->
+      <!-- <p>A collection of reusable UI components for developers.</p> -->
+
+       <!-- <div class="check">
+        <button type="submit" class="btn" onclick="openPopup()">SUBMIT</button>
+        <div class="popup" id="popup">
+          <img src="checkmark.png">
+          <h2>Thank you!</h2>
+          <p>Yours details has been successfully submitted.Thanks!</p>
+          <button type="button" class="btn1" onclick="closePopup()">OK</button>
+        </div>
+      </div> -->
+
+      <div class="hero-right">
+        <a href="button.html" class="explore-btn">
+        Explore Components →
+      </a>
+      </div>
+    </section>
+
+
+    <!-- Features -->
+    <section class="features">
   <div class="logo">UIverse</div>
 
   <div class="search-bar">
@@ -310,6 +355,55 @@
       </div>
 
       <div class="feature-card">
+    <h3>📱 Responsive Design</h3>
+    <p>Works smoothly on mobile, tablet, and desktop devices.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🔒 Secure Code</h3>
+    <p>Follow best practices to keep your projects safe.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🚀 Easy Deployment</h3>
+    <p>Deploy your website quickly using GitHub Pages.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🌐 Cross Browser</h3>
+    <p>Compatible with all modern browsers.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>💡 Clean UI</h3>
+    <p>Simple and attractive user interface design.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>📚 Learning Support</h3>
+    <p>Helpful for beginners to improve coding skills.</p>
+  </div>
+
+
+  <div class="feature-card">
+    <h3>🛠️ Customization</h3>
+    <p>You can easily customize colors, fonts, layouts, and components according to your project needs.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🎯 Project Based Learning</h3>
+    <p>Practice by building real-world projects which helps in understanding concepts better and faster.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>📈 Performance Optimized</h3>
+    <p>Optimized code ensures faster loading times and smooth performance across devices.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🤝 Open Source Contribution</h3>
+    <p>Encourages collaboration and contributions from developers around the world to improve the project.</p>
+  </div>
         <div class="feature-icon-wrap" style="--icon-color: #55efc4;">📦</div>
         <div class="feature-card-body">
           <h3>Card UI</h3>
@@ -791,6 +885,43 @@
     });
   }, { threshold: 0.1 });
 
+      <section class="featured">
+  <h2>⭐Popular Components</h2>
+
+  <div class="featured-cards">
+    <div class="feature-card">
+      <h3>Gradient Button</h3>
+      <p>Modern colorful button design.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Glass Navbar</h3>
+      <p>Transparent blurred navigation bar.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Card UI</h3>
+      <p>Clean and reusable card layout.</p>
+    </div>
+  </div>
+</section>
+
+  
+<div class="feature-card">
+    <h3>🔄 Regular Updates</h3>
+    <p>New features and improvements are added regularly to keep the project up to date.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🎓 Skill Development</h3>
+    <p>Helps you improve HTML, CSS, and JavaScript skills with practical implementation.</p>
+  </div>
+
+
+    </section>
+    <button id="scrollTopBtn">↑</button>
+  </main>
+    
   document.querySelectorAll('.feature-card, .cat-card, .why-card').forEach(el => {
     observer.observe(el);
   });
@@ -801,6 +932,8 @@
       if (q) alert('Searching for: ' + q);
     }
   }
+
+<script src="script.js"></script>
 
   function subscribe() {
     const input = document.querySelector('.newsletter-form input');

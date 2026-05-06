@@ -11,6 +11,11 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
+  background: #e1e1e3;
+  background-color: #ffffff;
+  color: #000000;
+  transition: 0.3s;
+  height: 1000px;
   background-color: #f3f4f7;
   color: #000000;
   transition: 0.3s;
@@ -113,6 +118,8 @@ nav a:hover {
 }
 
 /* Sidebar */
+/* .sidebar {
+  width: 220px;
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -155,6 +162,97 @@ nav a:hover {
 .sidebar a:hover {
   background: rgba(255,255,255,0.1);
   color: white;
+  background: #333;
+} */
+
+/* sidebar */
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background:  rgb(63, 81, 119);
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 15px;
+}
+
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #ccc;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a i {
+  font-size: 18px;
+}
+
+.sidebar ul li a p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.sidebar ul li a:hover {
+  background: #c7d0ea;
+  color: #151515;
+}
+
+.sidebar ul li a.active {
+  background: #4e73df;
+  color: #fff;
+}
+
+
+/* Main */
+.main-home {
+  margin-left: 240px;
+  padding: 40px;
+  width: calc(100% - 240px);
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; */
+  gap: 20px;
+  flex-direction: column;
+}
+
+/* btn-page */
+.main1 {
+  margin-left: 240px;
+  padding: 40px;
+  width: calc(100% - 240px);
+  flex-direction: column; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+
+
+/* Header */
+.page-header {
+  grid-column: 1 / -1;
 }
 
 .main-home {
@@ -202,6 +300,201 @@ nav a:hover {
   color: #6c69a5;
 }
 
+
+/* HERO */
+.hero {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-left {
+  max-width: 60%;
+}
+
+.hero-left h1 {
+  color: #1e1e2f;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero-left p {
+  color: #080808;
+}
+
+/* BUTTON */
+.explore-btn {
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #ff6b6b, #6c5ce7);
+  color: white;
+}
+
+
+/* SEARCH BAR */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: 6px solid #ddd;
+  outline: none;
+}
+
+/* FEATURED SECTION */
+.featured {
+  margin-bottom: 30px;
+}
+
+.featured h2 {
+  margin-bottom: 15px;
+}
+
+.featured-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* IMPROVED HOVER */
+.feature-card {
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  background: #d5aade;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.search-bar input:hover {
+  border-color: #6c5ce7;
+}
+
+.btn {
+  padding: 10px 60px;
+  background: #3faffa6b;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.popup {
+  width: 400px;
+  background: #edf4fa;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.popup img {
+  width: 100px;
+  margin-top: -50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2 {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: #6fd649;
+  color: #fff;
+  border: 0;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  background-color: rgb(16, 15, 15);
+  color: rgba(249, 254, 255, 0.986);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .component-card,
+body.dark-mode .hero,
+body.dark-mode .feature-card {
+  background: rgb(192, 144, 207);
+  color: #0b0b0b;
+  border-color: #160dc5;
+}
+
+body.dark-mode .search-bar input {
+  background: #454141;
+  color: #ffffff;
+  border-color: #4f40a3;
+}
+
+body.dark-mode .page-header p,
+body.dark-mode .hero-left p {
+  color: #bdaeae;
+}
+
+
+/* Card */
+.component-card {
+  background: #b4c2e5;
+  padding: 20px;
+  border-radius: 16px;
 .component-card {
   /* background: #b4c2e5; */
   padding: 20px;
@@ -354,6 +647,7 @@ nav a:hover {
   }
 }
 
+
 /* Actions */
  .actions {
   gap: 12px;
@@ -491,6 +785,14 @@ nav a:hover {
   transition: all 0.2s ease;
 }
 
+/* Shadow */
+.shadow-btn {
+  padding: 10px 20px;
+  background: #6088cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 5px 0 #7e70ca;
 /* ICON */
 .sidebar ul li a i {
   color: #94a3b8;
@@ -502,6 +804,16 @@ nav a:hover {
   color: #ffffff;
 }
 
+/* Hero Section */
+.hero {
+  background: rgb(93, 118, 171);
+  padding: 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 .sidebar ul li a:hover i {
   color: #3b82f6;
 }
@@ -513,14 +825,20 @@ nav a:hover {
   font-weight: 500;
 }
 
+.hero-right {
+  margin-top: 20px;
+}
+
+.hero p {
+  color: #666;
+  margin-bottom: 20px;
 .sidebar ul li.active a i {
   color: #ffffff;
 }
 
 .explore-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: linear-gradient(45deg, #ff6b6b, #6c5ce7);
+   padding: 12px 20px;
+  background: linear-gradient(45deg, #7273df, #8580b0);
   color: white;
   border-radius: 8px;
   text-decoration: none;
@@ -549,6 +867,15 @@ nav a:hover {
   min-height:calc(100vh-70px);
   display:flex;
   flex-direction:column;
+}
+
+/* Feature Card */
+.feature-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1.5px solid #8e90a9;
+  transition: 0.3s;
 }
 
 .privacy-wrapper {
@@ -779,6 +1106,24 @@ nav a:hover {
   background: rgb(126, 150, 199);
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .component-card,
+body.dark-mode .hero,
+body.dark-mode .feature-card
+  {
+  background: rgb(106, 131, 180);
+  color: white;
+  border-color: #454185;
+  }
+
+
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: 3px solid #ddd;
+  outline: none;
 } 
 
 .search-bar input:hover {
@@ -3624,6 +3969,7 @@ textarea {
   }
 }
 
+
 /* contact */
 .contact-center {
   height: 100vh; 
@@ -3884,6 +4230,16 @@ textarea {
   margin-top: 10px;
 }
 
+.form-card button:hover {
+  background: rgb(135, 160, 215);
+}
+
+.radio-group,
+.checkbox-group {
+  margin: 10px 0;
+}
+
+/* badges.html */
 .form-card button:hover {
   background: rgb(135, 160, 215);
 }
@@ -4203,6 +4559,38 @@ body {
   margin-top: 10px;
 } 
 
+/* form-responsive */
+
+@media (max-width: 1024px) {
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .container2 {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* badge responsive */
+
+@media (max-width: 1440px) {
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+}
 /* badge responsive */
 
 
@@ -4532,6 +4920,7 @@ margin-bottom: 15px;
 }
 
 /* settings.html */
+
 .settings-container {
   margin-left: 240px;
   padding: 40px;

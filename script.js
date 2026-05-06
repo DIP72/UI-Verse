@@ -11,6 +11,47 @@ function closePopup(){
   popup.classList.remove("open-popup");
 }
 
+const btn = document.getElementById("scrollTopBtn");
+
+// show btn when scrolling down
+window.onscroll = function () {
+  if (document.documentElement.scrollTop > 50) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// scroll to top
+btn.onclick = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+// darkmode
+
+const toggleBtn = document.getElementById("darkModeToggle");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  toggleBtn.textContent = "☀️";
+}
+
+// Toggle dark mode
+toggleBtn.onclick = function () {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.textContent = "🌙";
+  }
+};
 
 
 
