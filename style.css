@@ -269,3 +269,195 @@ body {
 .socials span:hover {
   transform: scale(1.2);
 }
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
+body {
+  background: #f5f7fb;
+  color: #222;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #111827;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 12px 0;
+}
+
+.sidebar a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar .active a {
+  color: #fff;
+}
+
+/* Main Content */
+.main {
+  margin-left: 240px;
+  padding: 40px;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Tagline */
+.tagline {
+  font-weight: 600;
+  color: #777;
+}
+
+/* Button */
+.explore-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  background: #4338ca;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.feature-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #555;
+}
+
+/* Video Section */
+video {
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+  background: #111827;
+  color: #fff;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  margin: 10px 0;
+}
+
+.footer-col h3 {
+  margin-bottom: 10px;
+}
+
+.footer-col p {
+  color: #9ca3af;
+}
+
+/* Social */
+.socials span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Dark Mode */
+.dark {
+  background: #0f172a;
+  color: #fff;
+}
+
+.dark .feature-card {
+  background: #1e293b;
+}
+
+.dark .sidebar {
+  background: #020617;
+}
+
+.dark .footer {
+  background: #020617;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+}
