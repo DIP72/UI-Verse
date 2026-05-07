@@ -4,146 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buttons - UIverse</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  
 </head>
+
 <body>
 
 <div class="container">
 
-  <!-- Sidebar -->
+  <!-- SIDEBAR (MATCHED WITH HOME PAGE STYLE) -->
   <aside class="sidebar">
-    <h2>UIverse</h2>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
-      <li class="active"><a href="button.html">Buttons</a></li>
-    </ul>
+
+    <div class="logo">
+      <h2>UIverse</h2>
+      <p>Modern UI Library</p>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+
+        <li class="nav-section">🧩 Components</li>
+        <li class="active"><a href="button.html">🔘 Buttons</a></li>
+        <li><a href="cards.html">🪪 Cards</a></li>
+        <li><a href="form.html">📝 Forms</a></li>
+        <li><a href="navbar.html">📑 Navbars</a></li>
+        <li><a href="footer.html">📌 Footer</a></li>
+        <li><a href="color.html">🎨 Colors</a></li>
+
+        <li class="nav-section">📚 Resources</li>
+        <li><a href="about.html">ℹ️ About</a></li>
+        <li><a href="faq.html">❓ FAQ</a></li>
+        <li><a href="guidelines.html">📘 Guidelines</a></li>
+        <li><a href="contribute.html">❤️ Contribute</a></li>
+      </ul>
+    </nav>
+
   </aside>
 
-  <!-- Main -->
+  <!-- MAIN -->
   <main class="main">
 
-    <!-- Header -->
-    <div class="page-header">
-      <h1>Buttons</h1>
-      <p>Explore beautiful and reusable button components</p>
-    </div>
+    <!-- HERO (ADDED FOR CONSISTENCY WITH HOME PAGE) -->
+    <section class="hero">
 
-    <!-- Gradient -->
-    <div class="component-card">
-      <h3>Gradient Button</h3>
-      <button class="gradient-btn">Click Me</button>
-
-      <div class="actions">
-        <button onclick="toggleCode('c1')">View Code</button>
-        <button onclick="copyCode('c1',this)">Copy</button>
+      <div class="hero-badge">
+        🔘 UI Components Library
       </div>
 
-      <pre id="c1" class="code-block">
+      <h1>
+        Beautiful <span>Button Components</span>
+      </h1>
+
+      <p>
+        Explore reusable, modern, and interactive button styles designed for real-world UI development.
+      </p>
+
+    </section>
+
+    <!-- BUTTON GRID -->
+    <section class="features">
+
+      <!-- Gradient -->
+      <div class="feature-card">
+        <div class="icon">🌈</div>
+        <h3>Gradient Button</h3>
+        <button class="gradient-btn">Click Me</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c1')">View Code</button>
+          <button onclick="copyCode('c1',this)">Copy</button>
+        </div>
+
+        <pre id="c1" class="code-block">
 &lt;button class="gradient-btn"&gt;Click Me&lt;/button&gt;
-      </pre>
-    </div>
-
-    <!-- Outline -->
-    <div class="component-card">
-      <h3>Outline Button</h3>
-      <button class="outline-btn">Click Me</button>
-
-      <div class="actions">
-        <button onclick="toggleCode('c2')">View Code</button>
-        <button onclick="copyCode('c2',this)">Copy</button>
+        </pre>
       </div>
 
-      <pre id="c2" class="code-block">
+      <!-- Outline -->
+      <div class="feature-card">
+        <div class="icon">⬜</div>
+        <h3>Outline Button</h3>
+        <button class="outline-btn">Click Me</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c2')">View Code</button>
+          <button onclick="copyCode('c2',this)">Copy</button>
+        </div>
+
+        <pre id="c2" class="code-block">
 &lt;button class="outline-btn"&gt;Click Me&lt;/button&gt;
-      </pre>
-    </div>
-
-    <!-- Neon -->
-    <div class="component-card">
-      <h3>Neon Button</h3>
-      <button class="neon-btn">Glow</button>
-
-      <div class="actions">
-        <button onclick="toggleCode('c3')">View Code</button>
-        <button onclick="copyCode('c3',this)">Copy</button>
+        </pre>
       </div>
 
-      <pre id="c3" class="code-block">
+      <!-- Neon -->
+      <div class="feature-card">
+        <div class="icon">💡</div>
+        <h3>Neon Button</h3>
+        <button class="neon-btn">Glow</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c3')">View Code</button>
+          <button onclick="copyCode('c3',this)">Copy</button>
+        </div>
+
+        <pre id="c3" class="code-block">
 &lt;button class="neon-btn"&gt;Glow&lt;/button&gt;
-      </pre>
-    </div>
-
-    <!-- Glass -->
-    <div class="component-card">
-      <h3>Glass Button</h3>
-      <button class="glass-btn">Glass</button>
-
-      <div class="actions">
-        <button onclick="toggleCode('c4')">View Code</button>
-        <button onclick="copyCode('c4',this)">Copy</button>
+        </pre>
       </div>
 
-      <pre id="c4" class="code-block">
+      <!-- Glass -->
+      <div class="feature-card">
+        <div class="icon">🪟</div>
+        <h3>Glass Button</h3>
+        <button class="glass-btn">Glass</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c4')">View Code</button>
+          <button onclick="copyCode('c4',this)">Copy</button>
+        </div>
+
+        <pre id="c4" class="code-block">
 &lt;button class="glass-btn"&gt;Glass&lt;/button&gt;
-      </pre>
-    </div>
-
-    <!-- Shadow -->
-    <div class="component-card">
-      <h3>Shadow Button</h3>
-      <button class="shadow-btn">Lift</button>
-
-      <div class="actions">
-        <button onclick="toggleCode('c5')">View Code</button>
-        <button onclick="copyCode('c5',this)">Copy</button>
+        </pre>
       </div>
 
-      <pre id="c5" class="code-block">
+      <!-- Shadow -->
+      <div class="feature-card">
+        <div class="icon">⬆️</div>
+        <h3>Shadow Button</h3>
+        <button class="shadow-btn">Lift</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c5')">View Code</button>
+          <button onclick="copyCode('c5',this)">Copy</button>
+        </div>
+
+        <pre id="c5" class="code-block">
 &lt;button class="shadow-btn"&gt;Lift&lt;/button&gt;
-      </pre>
-    </div>
+        </pre>
+      </div>
+
+    </section>
 
   </main>
-
 </div>
+
+<!-- FOOTER (MATCHED STYLE) -->
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- Brand -->
     <div class="footer-col">
       <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="socials">
-        <span>🌐</span>
-        <span>💼</span>
-      </div>
+      <p>Modern UI component library for developers.</p>
     </div>
 
-    <!-- Pages -->
     <div class="footer-col">
-      <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
+      <h3>Components</h3>
       <p>Buttons</p>
+      <p>Cards</p>
+      <p>Forms</p>
     </div>
 
-    <!-- Legal -->
     <div class="footer-col">
-      <h3>Legal</h3>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
+      <h3>Resources</h3>
+      <p>Docs</p>
+      <p>FAQ</p>
+      <p>Contribute</p>
     </div>
 
   </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
