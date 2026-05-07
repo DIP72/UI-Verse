@@ -1,0 +1,246 @@
+/* =========================
+   GLOBAL (safe overrides)
+========================= */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  margin: 0;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR (already used in your project)
+========================= */
+
+.sidebar {
+  width: 260px;
+  background: #0b1220;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar .logo h2 {
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.sidebar .logo p {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #cbd5e1;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: #fff;
+}
+
+.sidebar ul li.active a {
+  background: #7c3aed;
+  color: white;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  margin-bottom: 40px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.hero h1 span {
+  color: #a78bfa;
+}
+
+.hero p {
+  color: #94a3b8;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* =========================
+   DOCUMENTATION BLOCKS
+========================= */
+
+.documentation {
+  margin-top: 20px;
+}
+
+.doc-block {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  transition: 0.2s ease;
+}
+
+.doc-block:hover {
+  transform: translateY(-2px);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.doc-block h3 {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+/* =========================
+   LISTS
+========================= */
+
+.doc-list {
+  list-style: none;
+  padding: 0;
+}
+
+.doc-list li {
+  padding: 8px 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+/* =========================
+   CODE BOX
+========================= */
+
+.code-box {
+  background: #0b1220;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.code-box pre {
+  margin: 0;
+  color: #a78bfa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================
+   CTA BOX
+========================= */
+
+.doc-cta {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(15,23,42,0.8));
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  text-align: center;
+}
+
+.doc-cta h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.doc-cta p {
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   BUTTONS (shared style)
+========================= */
+
+.primary-btn {
+  display: inline-block;
+  background: #7c3aed;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
