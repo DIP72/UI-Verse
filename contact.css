@@ -935,3 +935,244 @@ body::after {
   }
 
 }
+/* =========================================================
+   ANIMATED BLOB BACKGROUND
+========================================================= */
+
+/* Prevent overflow */
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Blob Base */
+body::before,
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  z-index: -1;
+
+  opacity: 0.65;
+
+  animation-duration: 14s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Orange Blob */
+body::before {
+  top: -120px;
+  left: -120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(235,104,53,0.55) 0%,
+      rgba(235,104,53,0.18) 45%,
+      transparent 75%
+    );
+
+  animation-name: blobMoveOne;
+}
+
+/* Purple Blob */
+body::after {
+  bottom: -140px;
+  right: -120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(108,92,231,0.55) 0%,
+      rgba(108,92,231,0.18) 45%,
+      transparent 75%
+    );
+
+  animation-name: blobMoveTwo;
+}
+
+/* Extra Floating Blob */
+.contact-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  top: -80px;
+  right: 10%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,184,148,0.30),
+      transparent 70%
+    );
+
+  filter: blur(70px);
+
+  z-index: -1;
+
+  animation: floatingBlob 10s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes blobMoveOne {
+
+  0% {
+    transform:
+      translate(0px, 0px)
+      scale(1);
+  }
+
+  25% {
+    transform:
+      translate(40px, 20px)
+      scale(1.08);
+  }
+
+  50% {
+    transform:
+      translate(80px, -20px)
+      scale(1.15);
+  }
+
+  75% {
+    transform:
+      translate(20px, -60px)
+      scale(1.05);
+  }
+
+  100% {
+    transform:
+      translate(100px, -40px)
+      scale(1.2);
+  }
+}
+
+@keyframes blobMoveTwo {
+
+  0% {
+    transform:
+      translate(0px, 0px)
+      scale(1);
+  }
+
+  25% {
+    transform:
+      translate(-40px, -20px)
+      scale(1.05);
+  }
+
+  50% {
+    transform:
+      translate(-80px, 30px)
+      scale(1.12);
+  }
+
+  75% {
+    transform:
+      translate(-20px, 60px)
+      scale(1.08);
+  }
+
+  100% {
+    transform:
+      translate(-100px, 40px)
+      scale(1.18);
+  }
+}
+
+@keyframes floatingBlob {
+
+  0% {
+    transform:
+      translateY(0px)
+      translateX(0px)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-30px)
+      translateX(20px)
+      scale(1.1);
+  }
+
+  100% {
+    transform:
+      translateY(20px)
+      translateX(-10px)
+      scale(1.18);
+  }
+}
+
+/* =========================================================
+   DARK MODE BLOBS
+========================================================= */
+
+.dark-mode body::before {
+  background:
+    radial-gradient(
+      circle,
+      rgba(235,104,53,0.32) 0%,
+      rgba(235,104,53,0.12) 45%,
+      transparent 75%
+    );
+}
+
+.dark-mode body::after {
+  background:
+    radial-gradient(
+      circle,
+      rgba(108,92,231,0.32) 0%,
+      rgba(108,92,231,0.12) 45%,
+      transparent 75%
+    );
+}
+
+.dark-mode .contact-hero::after {
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,184,148,0.20),
+      transparent 70%
+    );
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+========================================================= */
+
+@media (max-width: 768px) {
+
+  body::before,
+  body::after {
+    width: 260px;
+    height: 260px;
+
+    filter: blur(70px);
+  }
+
+  .contact-hero::after {
+    width: 180px;
+    height: 180px;
+  }
+
+}
