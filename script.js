@@ -27,3 +27,7 @@ function copyCode(id, btn) {
       btn.innerText = "Error";
     });
 }
+
+function toggleMenu() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}

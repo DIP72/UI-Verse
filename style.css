@@ -1685,3 +1685,132 @@ body{
   letter-spacing: 1px;
   padding-left: 10px;
 }
+
+/* =========================
+   RESPONSIVE UIVERSE SYSTEM
+   ========================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  /* Sidebar becomes top nav */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar nav ul li {
+    font-size: 13px;
+  }
+
+  /* Main spacing */
+  .main {
+    padding: 15px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: left;
+    padding: 20px 10px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* Feature grid → single column */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Buttons stack */
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+  }
+
+  .feature-card {
+    padding: 15px;
+  }
+
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar nav {
+    display: none;
+  }
+
+  .sidebar.active nav {
+    display: block;
+    width: 100%;
+  }
+}
