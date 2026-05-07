@@ -1,133 +1,401 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About UIverse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>About — UIverse</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Global CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+
+  <!-- About Page CSS -->
+  <link rel="stylesheet" href="about.css">
 </head>
+
 <body>
 
-<div class="container">
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+<aside class="sidebar" id="sidebar">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>UIverse</h2>
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+  </div>
+
+  <nav class="sidebar-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li class="active"><a href="about.html">About</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
+
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="about.html">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li>
+
     </ul>
-  </aside>
+  </nav>
 
-  <!-- Main -->
-  <main class="main">
+  <div class="sidebar-footer">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+  </div>
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1>About UIverse 🚀</h1>
-      <p class="subheading">
-        UIverse is a lightweight UI component library designed to help developers 
-        build modern interfaces faster — without relying on heavy frameworks.
-      </p>
+</aside>
 
-      <p class="tagline">
-        Copy • Paste • Customize • Ship
-      </p>
-    </section>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
-    <!-- Story -->
-    <section class="section">
-      <h2>Why UIverse Exists</h2>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="navbar" id="navbar">
+
+  <button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="logo">UIverse</div>
+
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" placeholder="Search components..." />
+    <kbd class="search-kbd">⌘K</kbd>
+  </div>
+
+  <div class="nav-right">
+
+    <button class="nav-btn outline-nav-btn">
+      <i class="fa-solid fa-plus"></i>
+      Add Component
+    </button>
+
+    <button class="nav-btn primary-nav-btn">
+      <i class="fa-solid fa-bookmark"></i>
+      My Collection
+    </button>
+
+    <button id="darkModeToggle" class="theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
+  </div>
+
+</header>
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>About UIverse 🚀</h1>
+
+    <p class="subheading">
+      UIverse is a modern component library crafted for developers who want
+      beautiful UI without the complexity of massive frameworks.
+      Fast, minimal, reusable, and developer-first.
+    </p>
+
+    <div class="tagline">
+      Copy • Paste • Customize • Ship
+    </div>
+
+  </section>
+
+  <!-- STORY -->
+  <section class="section">
+
+    <h2>Why UIverse Exists</h2>
+
+    <p>
+      Most UI libraries today are powerful but often overwhelming for beginners
+      and unnecessarily heavy for smaller projects.
+      UIverse was built to create a faster, cleaner, and simpler development experience.
+      Instead of fighting complex setups, developers can instantly use ready-made components
+      and focus on building real products.
+    </p>
+
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="feature-card">
+      <h3>⚡ Fast & Lightweight</h3>
       <p>
-        Many UI libraries are powerful but often overwhelming for beginners 
-        and slow down simple projects. UIverse was created to solve this problem —
-        by providing clean, minimal, and reusable components that work instantly.
+        No dependencies, no bloated packages — just clean components ready to use instantly.
       </p>
-    </section>
+    </div>
 
-    <!-- Features -->
-    <section class="features">
-
-      <div class="feature-card">
-        <h3>⚡ Fast & Simple</h3>
-        <p>No installation. No setup. Just copy and use.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>🎨 Clean Design</h3>
-        <p>Modern UI components that look good in real projects.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>🧩 Developer Friendly</h3>
-        <p>Easy to understand code, perfect for beginners.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>🤝 Open to Contributions</h3>
-        <p>Anyone can contribute and improve the library.</p>
-      </div>
-
-    </section>
-
-    <!-- Who it's for -->
-    <section class="hero">
-      <h2>Who Is It For?</h2>
+    <div class="feature-card">
+      <h3>🎨 Modern UI</h3>
       <p>
-        UIverse is built for students, beginners, and developers who want 
-        quick UI solutions without spending hours on design or setup.
+        Carefully crafted designs inspired by modern interfaces and real-world products.
       </p>
-    </section>
+    </div>
 
-    <!-- CTA -->
-    <section class="hero">
-      <h2>Want to Contribute?</h2>
+    <div class="feature-card">
+      <h3>🧩 Beginner Friendly</h3>
       <p>
-        UIverse grows with the community. You can add your own components 
-        and help others build better interfaces.
+        Simple structure and readable code that anyone can understand and customize.
       </p>
+    </div>
 
-      <a href="contribute.html" class="explore-btn">
-        Start Contributing →
-      </a>
-    </section>
+    <div class="feature-card">
+      <h3>🤝 Community Driven</h3>
+      <p>
+        UIverse grows through contributions from developers around the world.
+      </p>
+    </div>
 
-  </main>
+  </section>
 
-</div>
+  <!-- WHO IS IT FOR -->
+  <section class="hero">
 
-<!-- Footer -->
+    <h2>Who Is UIverse For?</h2>
+
+    <p class="subheading">
+      Students, frontend beginners, indie hackers, and developers who want
+      elegant UI components without wasting hours designing everything from scratch.
+    </p>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="hero">
+
+    <h2>Want to Contribute?</h2>
+
+    <p class="subheading">
+      Help improve UIverse by contributing components, ideas,
+      fixes, or entirely new UI concepts.
+    </p>
+
+    <a href="contribute.html" class="explore-btn">
+      Start Contributing →
+    </a>
+
+  </section>
+
+</main>
+
+<!-- =========================================================
+     SCROLL TO TOP
+========================================================= -->
+<button id="scrollTopBtn" onclick="scrollToTop()">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 <footer class="footer">
+
   <div class="footer-container">
 
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
+    <div class="footer-col brand">
+
+      <h2 class="footer-logo">⬡ UIverse</h2>
+
+      <p>
+        Build modern reusable UI components with clean HTML,
+        CSS and JavaScript.
+      </p>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+
     </div>
 
     <div class="footer-col">
-      <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
-      <p>Buttons</p>
+
+      <h3>Explore</h3>
+
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+
     </div>
 
     <div class="footer-col">
+
       <h3>Legal</h3>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
+
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+
+    </div>
+
+    <div class="footer-col newsletter">
+
+      <h3>Stay Updated</h3>
+
+      <p>Get notified when new components drop.</p>
+
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com">
+        <button type="button">Subscribe</button>
+      </div>
+
     </div>
 
   </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+  </div>
+
 </footer>
+
+<!-- =========================================================
+     SCRIPT
+========================================================= -->
+<script>
+
+  /* =========================================
+     DARK MODE
+  ========================================= */
+  const toggle = document.getElementById('darkModeToggle');
+  const icon = toggle.querySelector('i');
+
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.className = 'fa-solid fa-sun';
+  }
+
+  toggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    const isDark = document.body.classList.contains('dark-mode');
+
+    icon.className = isDark
+      ? 'fa-solid fa-sun'
+      : 'fa-solid fa-moon';
+
+    localStorage.setItem(
+      'theme',
+      isDark ? 'dark' : 'light'
+    );
+
+  });
+
+  /* =========================================
+     SIDEBAR
+  ========================================= */
+  function toggleSidebar() {
+
+    document
+      .getElementById('sidebar')
+      .classList.toggle('open');
+
+    document
+      .getElementById('sidebarBackdrop')
+      .classList.toggle('visible');
+
+  }
+
+  /* =========================================
+     SCROLL TOP
+  ========================================= */
+  function scrollToTop() {
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+  }
+
+  window.addEventListener('scroll', () => {
+
+    document
+      .getElementById('scrollTopBtn')
+      .classList.toggle(
+        'visible',
+        window.scrollY > 400
+      );
+
+    document
+      .getElementById('navbar')
+      .classList.toggle(
+        'scrolled',
+        window.scrollY > 40
+      );
+
+  });
+
+</script>
 
 </body>
 </html>
