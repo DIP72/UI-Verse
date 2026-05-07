@@ -6770,6 +6770,7 @@ body{
   text-transform: uppercase;
   letter-spacing: 1px;
   padding-left: 10px;
+    0 0 20px rgba(168,85,247,0.25);
 }
 .card {
   transition: all 0.3s ease;
