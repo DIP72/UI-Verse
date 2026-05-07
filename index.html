@@ -1,108 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/Public/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>UIverse</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>UIverse</h2>
-    <ul>
-      <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
-    </ul>
-  </aside>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-  <!-- Main -->
-  <main class="main home">
+      <div class="logo">
+        <h2>UIverse</h2>
+        <p>Modern UI Library</p>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Welcome to UIverse 🚀</h1>
-      <p>A collection of reusable UI components for developers.</p>
+      <nav>
+        <ul>
 
-      <a href="button.html" class="explore-btn">
-        Explore Components →
-      </a>
+          <li class="active">
+            <a href="index.html">🏠 Home</a>
+          </li>
 
+          <li>
+            <a href="button.html">🔘 Buttons</a>
+          </li>
+
+          <li>
+            <a href="navbar.html">📑 Navbars</a>
+          </li>
+
+          <li>
+            <a href="cards.html">🪪 Cards</a>
+          </li>
+
+          <li>
+            <a href="footer.html">📌 Footer</a>
+          </li>
+
+          <li>
+            <a href="form.html">📝 Forms</a>
+          </li>
+
+          <li>
+            <a href="color.html">🎨 Colors</a>
+          </li>
+
+          <li>
+            <a href="about.html">ℹ️ About</a>
+          </li>
+
+          <li>
+            <a href="contribute.html">❤️ Contribute</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- HERO -->
+      <section class="hero">
+
+        <div class="hero-badge">
+          ✨ Open Source UI Components
+        </div>
+
+        <h1>
+          Build Faster With Beautiful
+          <span>Reusable Components</span>
+        </h1>
+
+        <p>
+          UIverse helps developers create modern interfaces using clean,
+          reusable, and beginner-friendly UI components.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="button.html" class="primary-btn">
+            Explore Components →
+          </a>
+
+          <a href="contribute.html" class="secondary-btn">
+            Start Contributing
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- STATS -->
+      <section class="stats">
+
+        <div class="stat-card">
+          <h2>100+</h2>
+          <p>Reusable Components</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>50+</h2>
+          <p>Open Source Contributors</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>24/7</h2>
+          <p>Developer Friendly</p>
+        </div>
+
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features">
+
+        <div class="feature-card">
+          <div class="icon">🎨</div>
+
+          <h3>Reusable Components</h3>
+
+          <p>
+            Use professionally designed UI components instantly in your projects.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🧩</div>
+
+          <h3>Beginner Friendly</h3>
+
+          <p>
+            Clean code structure makes learning and contributing easy.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+
+          <h3>Fast & Lightweight</h3>
+
+          <p>
+            No unnecessary frameworks. Pure HTML, CSS, and JavaScript.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- CONTRIBUTION -->
       <section class="contribute-box">
-  <h2>Want to Contribute?</h2>
-  <p>Help improve UIverse by adding your own components.</p>
 
-<a href="contribute.html" class="explore-btn">
-    Contribute Now →
-  </a>
-</div>
-</section>
-    </section>
+        <div class="contribute-content">
 
-    <!-- Features -->
-    <section class="features">
+          <h2>Want to Contribute?</h2>
 
-      <div class="feature-card">
-        <h3>🎨 Reusable Components</h3>
-        <p>Use ready-made UI components in your projects instantly.</p>
-      </div>
+          <p>
+            Share your creativity with the community by adding modern UI
+            components to UIverse.
+          </p>
 
-      <div class="feature-card">
-        <h3>🧩 Beginner Friendly</h3>
-        <p>Perfect for learning and contributing to open source.</p>
-      </div>
+        </div>
 
-      <div class="feature-card">
-        <h3>⚡ Fast & Simple</h3>
-        <p>No frameworks, just clean HTML, CSS, and JS.</p>
-      </div>
+        <a href="contribute.html" class="primary-btn">
+          Contribute Now →
+        </a>
 
-    </section>
+      </section>
 
-  </main>
-
-</div>
-<footer class="footer">
-  <div class="footer-container">
-
-    <!-- Brand -->
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="socials">
-        <span>🌐</span>
-        <span>💼</span>
-      </div>
-    </div>
-
-    <!-- Pages -->
-    <div class="footer-col">
-      <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
-      <p>Buttons</p>
-    </div>
-
-    <!-- Legal -->
-    <div class="footer-col">
-      <h3>Legal</h3>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
-    </div>
+    </main>
 
   </div>
-</footer>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <h2>UIverse</h2>
+
+        <p>
+          Build modern user interfaces faster with reusable UI components.
+        </p>
+
+        <div class="socials">
+          <span>🌐</span>
+          <span>💼</span>
+          <span>📱</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+
+        <h3>Components</h3>
+
+        <a href="#">Buttons</a>
+        <a href="#">Cards</a>
+        <a href="#">Forms</a>
+        <a href="#">Navbars</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h3>Resources</h3>
+
+        <a href="#">Documentation</a>
+        <a href="#">Contribute</a>
+        <a href="#">Guidelines</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h3>Legal</h3>
+
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 UIverse. All rights reserved.
+    </div>
+
+  </footer>
+
 </body>
 </html>
