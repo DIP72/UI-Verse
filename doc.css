@@ -1,0 +1,79 @@
+/* DOC PAGE */
+
+.doc-hero{
+  margin-bottom: 60px;
+}
+
+.doc-badge{
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(124,58,237,0.15);
+  color: #a855f7;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.doc-hero h1{
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.doc-hero h1 span{
+  color: #a855f7;
+}
+
+.doc-hero p{
+  color: rgba(255,255,255,0.7);
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+/* sections */
+
+.doc-section{
+  margin-top: 50px;
+}
+
+.doc-section h2{
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* code box */
+
+.code-box{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.code-box pre{
+  margin: 0;
+  color: #e5e7eb;
+  overflow-x: auto;
+}
+
+/* list */
+
+.doc-list{
+  list-style: none;
+  padding: 0;
+}
+
+.doc-list li{
+  margin-bottom: 12px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* highlight section */
+
+.highlight{
+  background: rgba(124,58,237,0.08);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(124,58,237,0.2);
+}
