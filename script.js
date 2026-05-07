@@ -149,6 +149,11 @@ function initSidebarLinkClose() {
         document.querySelector(".sidebar-backdrop")?.classList.remove("active");
       }
     });
+}
+
+function toggleMenu() {
+  document.querySelector(".sidebar").classList.toggle("active");
+}
   });
 }
 
