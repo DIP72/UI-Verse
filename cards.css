@@ -1315,3 +1315,126 @@ body.dark-mode .social-card { background: #1e1e24; border-color: #2a2a30; }
   }
 
 }
+/* =========================================================
+   ANIMATED GRADIENT TEXT FOR TITLES
+  
+========================================================= */
+
+/* Main Title */
+
+.card-label {
+
+  position: relative;
+
+  display: inline-block;
+
+  font-weight: 700;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eb6835,
+      #6c5ce7,
+      #00b894,
+      #fd79a8,
+      #eb6835
+    );
+
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation:
+    gradientTextFlow 6s linear infinite;
+
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.component-card:hover .card-label {
+
+  transform:
+    translateX(2px);
+
+  text-shadow:
+    0 0 12px rgba(235,104,53,0.18);
+}
+
+/* =========================================================
+   GRADIENT ANIMATION
+========================================================= */
+
+@keyframes gradientTextFlow {
+
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 300% center;
+  }
+
+}
+
+/* =========================================================
+   OPTIONAL UNDERLINE EFFECT
+========================================================= */
+
+.card-label::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eb6835,
+      #6c5ce7
+    );
+
+  transition:
+    width 0.35s ease;
+}
+
+.component-card:hover .card-label::after {
+
+  width: 100%;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .card-label {
+
+  filter:
+    brightness(1.15);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .card-label {
+
+    font-size: 15px;
+  }
+
+}
