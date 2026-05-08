@@ -4525,6 +4525,7 @@ margin-bottom: 15px;
 
 .btnn:hover {
   opacity: 0.7;
+}
 .feature-actions {
   display: flex;
   gap: 10px;
@@ -4562,5 +4563,74 @@ margin-bottom: 15px;
   color: #4dabf7;
   border-color: #4dabf7;
   background: rgba(77, 171, 247, 0.1);
->>>>>>> 7ed299e70dc82f77f84211deab041571a0e28cb2
+}
+
+
+.dark-mode .tag {
+  color: #fff;
+  font-weight: 600;
+}
+
+.dark-mode .tag-popular {
+  background: #7c2d12;
+  color: #fed7aa;
+}
+
+.dark-mode .tag-trending {
+  background: #1e3a8a;
+  color: #bfdbfe;
+}
+
+.dark-mode .tag-new {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+.dark-mode .tag-essential {
+  background: #581c87;
+  color: #e9d5ff;
+}
+
+.dark-mode input::placeholder {
+  color: #cbd5e1;
+  opacity: 1;
+}
+.dark-mode .like-btn,
+.dark-mode .save-btn,
+.dark-mode .theme-toggle {
+  background: #1f2937;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+}
+
+.dark-mode .like-btn:hover,
+.dark-mode .save-btn:hover {
+  background: #374151;
+}
+
+.dark-mode .footer a {
+  color: #f3f4f6;
+}
+
+.dark-mode .footer a:hover {
+  color: #60a5fa;
+}
+.dark-mode .stat-divider,
+.dark-mode .feature-card,
+.dark-mode .cat-card {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.btn-primary {
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
