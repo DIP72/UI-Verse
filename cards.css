@@ -1126,3 +1126,192 @@ body.dark-mode .social-card { background: #1e1e24; border-color: #2a2a30; }
 
   width: 100%;
 }
+/* =========================================================
+   FROSTED GLASS EFFECT
+  
+========================================================= */
+
+/* Main Card */
+
+.component-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(180%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(180%);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.08),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+/* =========================================================
+   GLASS SHINE OVERLAY
+========================================================= */
+
+.component-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.16),
+      rgba(255,255,255,0.02)
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   SOFT HOVER EFFECT
+========================================================= */
+
+.component-card:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.015);
+
+  background:
+    rgba(255,255,255,0.12);
+
+  border-color:
+    rgba(235,104,53,0.25);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.16),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+}
+
+/* =========================================================
+   PREVIEW SMOOTH SCALE
+========================================================= */
+
+.card-preview {
+
+  transition:
+    transform 0.35s ease;
+}
+
+.component-card:hover .card-preview {
+
+  transform:
+    scale(1.03);
+}
+
+/* =========================================================
+   LABEL GLOW
+========================================================= */
+
+.card-label {
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.component-card:hover .card-label {
+
+  color: #eb6835;
+
+  text-shadow:
+    0 0 12px rgba(235,104,53,0.22);
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.card-desc {
+
+  opacity: 0.78;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.component-card:hover .card-desc {
+
+  opacity: 1;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .component-card {
+
+  background:
+    rgba(20,20,30,0.62);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.42);
+}
+
+.dark-mode .component-card:hover {
+
+  background:
+    rgba(28,28,40,0.78);
+
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.55);
+}
+
+.dark-mode .component-card::before {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.01)
+    );
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .component-card {
+
+    border-radius: 22px;
+  }
+
+  .component-card:hover {
+
+    transform:
+      translateY(-4px)
+      scale(1.01);
+  }
+
+}
