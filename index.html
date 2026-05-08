@@ -492,10 +492,59 @@
     observer.observe(el);
   });
 
+  
   function handleSearch(e) {
-    if (e.key === 'Enter') {
-      const q = document.getElementById('searchInput').value.trim();
-      if (q) alert('Searching for: ' + q);
+    if (e.key === "Enter") {
+      const query = document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+      // Search mapping
+      const pages = {
+        button: "button.html",
+        buttons: "button.html",
+
+        navbar: "navbar.html",
+        navbars: "navbar.html",
+
+        card: "cards.html",
+        cards: "cards.html",
+
+        input: "inputs.html",
+        inputs: "inputs.html",
+
+        form: "forms.html",
+        forms: "forms.html",
+
+        badge: "badges.html",
+        badges: "badges.html",
+
+        loader: "loaders.html",
+        loaders: "loaders.html",
+
+        about: "about.html",
+
+        contact: "contact.html",
+
+        footer: "footer.html",
+
+        color: "color.html",
+        colors: "color.html",
+
+        pricing: "pricing.html",
+
+        alert: "alerts.html",
+        alerts: "alerts.html"
+      };
+
+      // Match keyword
+      if (pages[query]) {
+        window.location.href = pages[query];
+      } else {
+        alert("No matching component found!");
+      }
     }
   }
 
