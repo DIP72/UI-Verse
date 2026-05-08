@@ -300,3 +300,292 @@
 }
 .btn-3d:hover  { transform: translateY(-2px); box-shadow: 0 8px 0 #9e3d18; }
 .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #9e3d18; }
+/* =========================================================
+   PREMIUM COMPONENT CARD HOVER
+========================================================= */
+
+.component-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  padding: 24px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+/* =========================================================
+   GRADIENT BORDER GLOW
+========================================================= */
+
+.component-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -2px;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      45deg,
+      #eb6835,
+      #6c5ce7,
+      #00b894,
+      #fd79a8,
+      #eb6835
+    );
+
+  background-size: 300% 300%;
+
+  animation:
+    gradientBorder 8s linear infinite;
+
+  z-index: -2;
+
+  opacity: 0;
+
+  filter: blur(16px);
+
+  transition: opacity 0.4s ease;
+}
+
+/* =========================================================
+   SHINE OVERLAY
+========================================================= */
+
+.component-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.14),
+      rgba(255,255,255,0.02)
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.component-card:hover {
+
+  transform:
+    translateY(-10px)
+    scale(1.015);
+
+  background:
+    rgba(255,255,255,0.12);
+
+  border-color:
+    rgba(235,104,53,0.28);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.18);
+}
+
+.component-card:hover::before {
+  opacity: 0.75;
+}
+
+/* =========================================================
+   CARD CONTENT ANIMATION
+========================================================= */
+
+.component-card:hover .card-preview {
+
+  transform:
+    scale(1.03);
+}
+
+.component-card:hover .card-label {
+
+  color: #eb6835;
+}
+
+.component-card:hover .card-desc {
+
+  opacity: 0.92;
+}
+
+/* =========================================================
+   PREVIEW AREA
+========================================================= */
+
+.card-preview {
+
+  transition:
+    transform 0.35s ease;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.card-label {
+
+  font-weight: 700;
+
+  transition:
+    color 0.3s ease;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.card-desc {
+
+  line-height: 1.7;
+
+  opacity: 0.8;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-btn {
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.action-btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.35),
+      transparent
+    );
+
+  transition: 0.8s;
+}
+
+.action-btn:hover::before {
+  left: 120%;
+}
+
+.action-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes gradientBorder {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .component-card {
+
+  background:
+    rgba(20,20,30,0.55);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 12px 38px rgba(0,0,0,0.35);
+}
+
+.dark-mode .component-card:hover {
+
+  background:
+    rgba(28,28,40,0.72);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.5);
+}
+
+.dark-mode .component-card::after {
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.01)
+    );
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .component-card {
+
+    padding: 20px;
+
+    border-radius: 22px;
+  }
+
+}
