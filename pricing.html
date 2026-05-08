@@ -168,70 +168,21 @@
       <button class="action-btn copy-btn" onclick="copyCode('pc1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
     </div>
 
-    <pre id="pc1" class="code-block"><code>&lt;!-- Billing Toggle --&gt;
-&lt;div class="billing-toggle"&gt;
-  &lt;button class="toggle-btn active" data-period="month"&gt;Monthly&lt;/button&gt;
-  &lt;button class="toggle-btn" data-period="quarter"&gt;Quarterly&lt;/button&gt;
-  &lt;button class="toggle-btn" data-period="year"&gt;Yearly&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;!-- Pricing Card --&gt;
-&lt;div class="plan-card pro-card"&gt;
-  &lt;div class="recommended-badge"&gt;★ Most Popular&lt;/div&gt;
-  &lt;div class="plan-name"&gt;Pro&lt;/div&gt;
-  &lt;p&gt;Best for scaling teams&lt;/p&gt;
-  &lt;div class="plan-price-wrap"&gt;
-    &lt;span class="plan-old" data-month="$49" data-year="$39"&gt;$49&lt;/span&gt;
-    &lt;span class="plan-amount" data-month="$29" data-year="$19"&gt;$29&lt;/span&gt;
-    &lt;span&gt;/ month&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;ul class="plan-features"&gt;
-    &lt;li&gt;✓ Unlimited projects&lt;/li&gt;
-    &lt;li&gt;✓ Advanced analytics&lt;/li&gt;
-    &lt;li&gt;✓ Priority support&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;button&gt;Choose Pro&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;!-- Toggle Script --&gt;
-&lt;script&gt;
-  document.querySelectorAll('.toggle-btn').forEach(btn =&gt; {
-    btn.addEventListener('click', () =&gt; {
-      document.querySelectorAll('.toggle-btn').forEach(b =&gt; b.classList.remove('active'));
-      btn.classList.add('active');
-      const period = btn.dataset.period;
-      document.querySelectorAll('.plan-amount').forEach(el =&gt; {
-        el.textContent = el.dataset[period] || el.textContent;
-      });
-      document.querySelectorAll('.plan-old').forEach(el =&gt; {
-        el.textContent = el.dataset[period] || el.textContent;
-      });
-    });
-  });
-&lt;/script&gt;</code></pre>
-
-  </div><!-- /pricing-component -->
-
-  <!-- ===== SIMPLE 2-CARD VARIANT ===== -->
-  <div class="component-card">
-    <div class="card-top">
-      <span class="card-label">Simple Two-Plan Card</span>
-      <span class="card-tag tag-essential">Essential</span>
-    </div>
-    <p class="card-desc">A minimal two-plan pricing layout — ideal for smaller products with just a free and paid tier.</p>
-
-    <div class="card-preview">
-      <div class="simple-pricing-row">
-
-        <div class="simple-plan">
-          <h4>Starter</h4>
-          <div class="simple-price">$12<span>/mo</span></div>
-          <ul>
-            <li><i class="fa-solid fa-check"></i> 3 projects</li>
-            <li><i class="fa-solid fa-check"></i> Email support</li>
-            <li><i class="fa-solid fa-check"></i> Basic analytics</li>
-          </ul>
-          <button class="simple-btn simple-outline">Get Started</button>
+    <footer class="footer">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <h2>UIverse</h2>
+          <p>© 2026 UIverse. All rights reserved.</p>
+          <div class="footer-socials">
+            <span>🌐</span>
+            <span>💼</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <a href="pricing.html">Pricing</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="alerts.html">Alerts</a>
         </div>
 
         <div class="simple-plan simple-plan-highlighted">
