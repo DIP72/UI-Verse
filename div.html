@@ -12,6 +12,93 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elements - UIverse</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <h2>UIverse</h2>
+      <p>Modern UI Library</p>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+
+        <li class="nav-section">🧩 Components</li>
+        <li><a href="button.html">🔘 Buttons</a></li>
+        <li><a href="cards.html">🪪 Cards</a></li>
+        <li><a href="badge.html">🏷️ Badges</a></li>
+        <li class="active"><a href="div.html">🧱 Elements</a></li>
+        <li><a href="form.html">📝 Forms</a></li>
+
+        <li class="nav-section">📚 Resources</li>
+        <li><a href="about.html">ℹ️ About</a></li>
+        <li><a href="faq.html">❓ FAQ</a></li>
+        <li><a href="contribute.html">❤️ Contribute</a></li>
+      </ul>
+    </nav>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-badge">🧱 Layout Elements</div>
+
+      <h1>
+        UI <span>Building Blocks</span>
+      </h1>
+
+      <p>
+        Core structural elements used to design layouts, spacing systems, and UI containers.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#elements" class="primary-btn">Explore Elements</a>
+      </div>
+
+    </section>
+
+    <!-- ELEMENTS SECTION -->
+    <section class="features" id="elements">
+
+      <div class="feature-card">
+        <div class="icon">📦</div>
+        <h3>Container Box</h3>
+        <div class="box-demo">Content inside container</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">➖</div>
+        <h3>Divider</h3>
+        <div class="divider-demo"></div>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🧊</div>
+        <h3>Panel Block</h3>
+        <div class="demo-box">Reusable UI block</div>
+      </div>
+
+    </section>
+
+  </main>
+  <title>Div Components - UIverse</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="div.css">
@@ -21,6 +108,9 @@
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">UIverse</div>
 
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
@@ -563,6 +653,61 @@
       </ul>
 
     </div>
+
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="license.html">License</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button" onclick="subscribe()">Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+  </div>
+</footer>
 
     <div class="footer-col">
 
