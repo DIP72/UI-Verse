@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>License — UIverse</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="license.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="button.html"><i class="fa-solid fa-hand-pointer"></i><span>Buttons</span></a></li>
+      <li><a href="cards.html"><i class="fa-solid fa-table-cells-large"></i><span>Cards</span></a></li>
+      <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><span>Forms</span></a></li>
+      <li><a href="inputs.html"><i class="fa-solid fa-keyboard"></i><span>Inputs</span></a></li>
+      <li class="active"><a href="license.html"><i class="fa-solid fa-scale-balanced"></i><span>License</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</aside>
+
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="logo">UIverse</div>
+
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" placeholder="Search components..." />
+    <kbd class="search-kbd">⌘K</kbd>
+  </div>
+
+  <div class="nav-right">
+    <button class="nav-btn outline-nav-btn">
+      <i class="fa-solid fa-book"></i> Docs
+    </button>
+
+    <button class="nav-btn primary-nav-btn">
+      <i class="fa-solid fa-layer-group"></i> Components
+    </button>
+
+    <button id="darkModeToggle" class="theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main-home">
+
+  <!-- HERO -->
+  <section class="license-hero">
+
+    <div class="license-badge">
+      <i class="fa-solid fa-scale-balanced"></i>
+      Open Source Friendly
+    </div>
+
+    <h1 class="license-title">
+      Simple & Transparent <span>Licensing</span>
+    </h1>
+
+    <p class="license-desc">
+      UIverse components are designed to be easy to use in personal,
+      commercial, and client projects without unnecessary restrictions.
+    </p>
+
+    <div class="hero-license-cards">
+
+      <div class="hero-mini-card">
+        <i class="fa-solid fa-check"></i>
+        <span>Commercial Use</span>
+      </div>
+
+      <div class="hero-mini-card">
+        <i class="fa-solid fa-check"></i>
+        <span>Modify Freely</span>
+      </div>
+
+      <div class="hero-mini-card">
+        <i class="fa-solid fa-check"></i>
+        <span>No Attribution Required</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LICENSE GRID -->
+  <section class="license-grid">
+
+    <!-- Allowed -->
+    <div class="license-card allowed">
+      <div class="license-card-top">
+        <div class="license-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div>
+          <h2>What You Can Do</h2>
+          <p>Everything below is fully allowed.</p>
+        </div>
+      </div>
+
+      <ul class="license-list">
+        <li><i class="fa-solid fa-check"></i> Use in personal projects</li>
+        <li><i class="fa-solid fa-check"></i> Use in commercial websites</li>
+        <li><i class="fa-solid fa-check"></i> Modify components freely</li>
+        <li><i class="fa-solid fa-check"></i> Use for client work</li>
+        <li><i class="fa-solid fa-check"></i> Learn from the source code</li>
+        <li><i class="fa-solid fa-check"></i> Build your own designs</li>
+      </ul>
+    </div>
+
+    <!-- Restricted -->
+    <div class="license-card restricted">
+      <div class="license-card-top">
+        <div class="license-icon">
+          <i class="fa-solid fa-ban"></i>
+        </div>
+
+        <div>
+          <h2>Restrictions</h2>
+          <p>Please avoid these actions.</p>
+        </div>
+      </div>
+
+      <ul class="license-list">
+        <li><i class="fa-solid fa-xmark"></i> Reselling components as-is</li>
+        <li><i class="fa-solid fa-xmark"></i> Re-uploading full UIverse collections</li>
+        <li><i class="fa-solid fa-xmark"></i> Claiming ownership of original designs</li>
+        <li><i class="fa-solid fa-xmark"></i> Using branding without permission</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- LICENSE DETAILS -->
+  <section class="license-details">
+
+    <div class="details-header">
+      <span class="section-tag">LICENSE TERMS</span>
+      <h2>Quick Overview</h2>
+    </div>
+
+    <div class="details-box">
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <i class="fa-solid fa-code"></i>
+          Source Code
+        </div>
+
+        <div class="detail-right success">
+          Fully Editable
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <i class="fa-solid fa-building"></i>
+          Commercial Usage
+        </div>
+
+        <div class="detail-right success">
+          Allowed
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <i class="fa-solid fa-user"></i>
+          Attribution
+        </div>
+
+        <div class="detail-right neutral">
+          Appreciated but Optional
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <i class="fa-solid fa-copy"></i>
+          Redistribution
+        </div>
+
+        <div class="detail-right danger">
+          Restricted
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="license-cta">
+
+    <div class="cta-content">
+      <h2>Build Faster with UIverse</h2>
+
+      <p>
+        Create modern interfaces using reusable components
+        crafted for developers and designers.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="index.html" class="btn-primary">
+          <i class="fa-solid fa-layer-group"></i>
+          Explore Components
+        </a>
+
+        <a href="contact.html" class="btn-ghost">
+          <i class="fa-solid fa-envelope"></i>
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+
+      <p>
+        Beautiful reusable UI components crafted with
+        clean HTML, CSS and JavaScript.
+      </p>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Explore</h3>
+
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="forms.html">Forms</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+
+      <ul>
+        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+
+      <p>Get notified when new UI components are released.</p>
+
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com">
+        <button>Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Crafted for developers worldwide.</p>
+  </div>
+
+</footer>
+
+<script>
+
+const toggle = document.getElementById('darkModeToggle');
+const icon = toggle.querySelector('i');
+
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+  icon.className = 'fa-solid fa-sun';
+}
+
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  const isDark = document.body.classList.contains('dark-mode');
+
+  icon.className = isDark
+    ? 'fa-solid fa-sun'
+    : 'fa-solid fa-moon';
+
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebarBackdrop').classList.toggle('visible');
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar')
+    .classList.toggle('scrolled', window.scrollY > 40);
+});
+
+</script>
+
+</body>
+</html>
