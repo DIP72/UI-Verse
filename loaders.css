@@ -1,0 +1,565 @@
+/* =========================================================
+   LOADERS.CSS — UIverse Premium Loaders Page
+   ========================================================= */
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+  margin-left:240px;
+
+  padding:42px;
+
+  background:var(--body-bg);
+
+  min-height:100vh;
+}
+
+body.dark-mode .main{
+  background:#0f0f12;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.main h1{
+  font-size:clamp(54px,7vw,92px);
+
+  line-height:.92;
+  letter-spacing:-5px;
+
+  margin-bottom:34px;
+
+  color:var(--text-primary);
+
+  position:relative;
+}
+
+.main h1::after{
+  content:"";
+
+  position:absolute;
+  bottom:-12px;
+  left:0;
+
+  width:120px;
+  height:6px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      #ff9d73
+    );
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.loaders-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+  gap:28px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.component-card{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle at top right,
+    rgba(235,104,53,.08),
+    transparent 26%),
+    var(--card-bg);
+
+  border:1px solid var(--card-border);
+
+  border-radius:30px;
+
+  padding:28px;
+
+  transition:all .28s cubic-bezier(.4,0,.2,1);
+}
+
+.component-card::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.03),
+      transparent
+    );
+
+  pointer-events:none;
+}
+
+.component-card:hover{
+  transform:translateY(-8px);
+
+  border-color:rgba(235,104,53,.18);
+
+  box-shadow:
+    0 24px 44px rgba(0,0,0,.08);
+}
+
+body.dark-mode .component-card:hover{
+  box-shadow:
+    0 24px 44px rgba(0,0,0,.34);
+}
+
+.component-card h3{
+  font-size:32px;
+
+  line-height:1.1;
+  letter-spacing:-1px;
+
+  margin-bottom:24px;
+
+  color:var(--text-primary);
+}
+
+/* =========================================================
+   DEMO BOX
+========================================================= */
+
+.loader-demo-box{
+  position:relative;
+  overflow:hidden;
+
+  min-height:190px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:22px;
+
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108,92,231,.05),
+      rgba(235,104,53,.04)
+    );
+
+  border:1px solid rgba(255,255,255,.04);
+}
+
+body.dark-mode .loader-demo-box{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.01)
+    );
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions{
+  display:flex;
+  gap:14px;
+}
+
+.actions button{
+  flex:1;
+
+  padding:14px 18px;
+
+  border:none;
+
+  border-radius:16px;
+
+  font-size:14px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:var(--transition);
+}
+
+.actions button:first-child{
+  background:rgba(108,92,231,.12);
+  color:#6c5ce7;
+}
+
+.actions button:last-child{
+  background:rgba(235,104,53,.12);
+  color:var(--accent);
+}
+
+.actions button:hover{
+  transform:translateY(-2px);
+}
+
+/* =========================================================
+   CODE BLOCK
+========================================================= */
+
+.code-block{
+  max-height:0;
+
+  overflow:hidden;
+
+  margin-top:0;
+
+  transition:.35s ease;
+
+  border-radius:20px;
+}
+
+.code-block.show{
+  max-height:300px;
+
+  margin-top:22px;
+
+  padding:22px;
+
+  background:#111827;
+
+  color:#f8f8f2;
+}
+
+.code-block code,
+.code-block{
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* =========================================================
+   SPIN LOADER
+========================================================= */
+
+.loader-spin{
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  border:5px solid rgba(108,92,231,.12);
+
+  border-top-color:#6c5ce7;
+
+  animation:spin .8s linear infinite;
+}
+
+/* =========================================================
+   GRADIENT LOADER
+========================================================= */
+
+.loader-gradient{
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  border:5px solid rgba(108,92,231,.1);
+
+  border-top-color:#fd79a8;
+  border-right-color:#6c5ce7;
+
+  animation:spin 1s linear infinite;
+}
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.loader-dots{
+  display:flex;
+  gap:10px;
+}
+
+.loader-dots span{
+  width:14px;
+  height:14px;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #a29bfe
+    );
+
+  animation:bounce .6s infinite alternate;
+}
+
+.loader-dots span:nth-child(2){
+  animation-delay:.2s;
+  opacity:.7;
+}
+
+.loader-dots span:nth-child(3){
+  animation-delay:.4s;
+  opacity:.5;
+}
+
+/* =========================================================
+   PULSE
+========================================================= */
+
+.loader-pulse{
+  width:64px;
+  height:64px;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #fd79a8
+    );
+
+  animation:pulse 1s infinite ease-in-out;
+
+  box-shadow:
+    0 0 40px rgba(108,92,231,.28);
+}
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.loader-bar-wrap{
+  width:260px;
+  height:10px;
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  background:rgba(108,92,231,.12);
+}
+
+.loader-bar{
+  width:40%;
+  height:100%;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c5ce7,
+      #fd79a8
+    );
+
+  animation:slide 1.4s infinite;
+}
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.skeleton-card{
+  width:140px;
+
+  border-radius:18px;
+
+  padding:16px;
+
+  background:rgba(255,255,255,.45);
+
+  backdrop-filter:blur(10px);
+}
+
+body.dark-mode .skeleton-card{
+  background:rgba(255,255,255,.04);
+}
+
+.skeleton-avatar,
+.skeleton-line{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.18),
+      rgba(255,255,255,.06)
+    );
+
+  background-size:200% 100%;
+
+  animation:shimmer 1.5s infinite linear;
+
+  border-radius:999px;
+}
+
+.skeleton-avatar{
+  width:52px;
+  height:52px;
+
+  margin-bottom:14px;
+}
+
+.skeleton-line{
+  height:10px;
+
+  margin-bottom:10px;
+}
+
+.l1{ width:72%; }
+.l2{ width:92%; }
+.l3{ width:58%; }
+
+/* =========================================================
+   AUDIO BARS
+========================================================= */
+
+.loader-bars{
+  display:flex;
+  align-items:end;
+  gap:6px;
+
+  height:54px;
+}
+
+.loader-bars span{
+  width:7px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6c5ce7,
+      #fd79a8
+    );
+
+  animation:bars .8s infinite alternate;
+}
+
+.loader-bars span:nth-child(1){
+  height:12px;
+}
+
+.loader-bars span:nth-child(2){
+  height:24px;
+  animation-delay:.1s;
+}
+
+.loader-bars span:nth-child(3){
+  height:40px;
+  animation-delay:.2s;
+}
+
+.loader-bars span:nth-child(4){
+  height:24px;
+  animation-delay:.3s;
+}
+
+.loader-bars span:nth-child(5){
+  height:12px;
+  animation-delay:.4s;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes bounce{
+  to{
+    transform:translateY(-10px);
+  }
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.15);
+  }
+}
+
+@keyframes slide{
+
+  0%{
+    transform:translateX(-100%);
+  }
+
+  100%{
+    transform:translateX(320%);
+  }
+
+}
+
+@keyframes bars{
+  to{
+    transform:scaleY(.5);
+  }
+}
+
+@keyframes shimmer{
+
+  0%{
+    background-position:200% 0;
+  }
+
+  100%{
+    background-position:-200% 0;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+  .main{
+    margin-left:0;
+    padding:24px;
+  }
+
+  .main h1{
+    font-size:62px;
+    letter-spacing:-3px;
+  }
+
+  .loaders-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .actions{
+    flex-direction:column;
+  }
+
+  .component-card{
+    padding:22px;
+  }
+
+  .loader-demo-box{
+    min-height:170px;
+  }
+
+}

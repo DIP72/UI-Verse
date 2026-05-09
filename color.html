@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colors - UIverse</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="colors.css"/>
+</head>
+
+<body>
+   <nav class="navbar">
+  <!-- Logo -->
+  <div class="logo">UIverse</div>
+
+  <!-- Center Search Bar -->
+  <div class="search-bar">
+    <span class="nav-link active">Explore</span>
+    <input type="text" id="searchInput" placeholder="Search Components" />
+    <button class="search-btn">🔍</button>
+  </div>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <div class="logo">UIverse</div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search color palettes..." />
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn">Add Palette</button>
+      <button class="nav-btn">Collections</button>
+    </div>
+
+  </nav>
+
+  <!-- LAYOUT -->
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <h2>Explore</h2>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Buttons</a></li>
+        <li><a href="#">Cards</a></li>
+        <li class="active"><a href="#">Colors</a></li>
+        <li><a href="#">Forms</a></li>
+        <li><a href="#">Inputs</a></li>
+        <li><a href="#">Loaders</a></li>
+        <li><a href="#">Navbars</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Testimonials</a></li>
+      </ul>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+      <!-- HERO -->
+
+      <section class="hero">
+        <h1>Modern Color Library</h1>
+
+        <p>
+          Discover beautiful palettes, gradients,
+          dark themes, neon combinations,
+          and modern UI color systems.
+        </p>
+      </section>
+
+      <!-- TRENDING COLORS -->
+
+      <h2 class="section-title">🔥 Trending Colors</h2>
+
+      <div class="color-grid">
+
+        <!-- CARD -->
+
+        <div class="color-card">
+
+          <div class="color-box purple">
+            <span class="copy-badge">Popular</span>
+          </div>
+
+          <div class="color-content">
+            <h3>Electric Purple</h3>
+
+            <p class="hex">#8b5cf6</p>
+
+            <p class="rgb">
+              rgb(139, 92, 246)
+            </p>
+
+            <div class="actions">
+              <button>Copy HEX</button>
+              <button>Preview</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="color-card">
+
+          <div class="color-box cyan">
+            <span class="copy-badge">New</span>
+          </div>
+
+          <div class="color-content">
+            <h3>Ocean Cyan</h3>
+
+            <p class="hex">#06b6d4</p>
+
+            <p class="rgb">
+              rgb(6, 182, 212)
+            </p>
+
+            <div class="actions">
+              <button>Copy HEX</button>
+              <button>Preview</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="color-card">
+
+          <div class="color-box red">
+            <span class="copy-badge">Hot</span>
+          </div>
+
+          <div class="color-content">
+            <h3>Rose Red</h3>
+
+            <p class="hex">#f43f5e</p>
+
+            <p class="rgb">
+              rgb(244, 63, 94)
+            </p>
+
+            <div class="actions">
+              <button>Copy HEX</button>
+              <button>Preview</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- COLOR SCHEMES -->
+
+      <h2 class="section-title">
+        🎨 Color Schemes
+      </h2>
+
+      <h3 class="scheme-title">Neon Theme</h3>
+
+      <div class="palette-strip">
+        <div style="background:#ff00ff;"></div>
+        <div style="background:#00ffff;"></div>
+        <div style="background:#39ff14;"></div>
+        <div style="background:#fffb00;"></div>
+      </div>
+
+      <h3 class="scheme-title">Dark UI Theme</h3>
+
+      <div class="palette-strip">
+        <div style="background:#0f172a;"></div>
+        <div style="background:#1e293b;"></div>
+        <div style="background:#334155;"></div>
+        <div style="background:#475569;"></div>
+      </div>
+
+      <h3 class="scheme-title">Pastel Theme</h3>
+
+      <div class="palette-strip">
+        <div style="background:#ffadad;"></div>
+        <div style="background:#ffd6a5;"></div>
+        <div style="background:#fdffb6;"></div>
+        <div style="background:#caffbf;"></div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <div class="color-actions">
+    <button onclick="copyColor('#6c5ce7')">HEX</button>
+    <button onclick="copyRGB('108,92,231')">RGB</button>
+  </div>
+</div>
+
+  </main>
+
+</div>
+<footer class="footer">
+  <div class="footer-card">
+    <div class="footer-brand">
+      <h2>UIverse</h2>
+      <p>© 2026 UIverse. All rights reserved.</p>
+      <div class="footer-socials">
+        <span>🌐</span>
+        <span>💼</span>
+      </div>
+
+      <div class="footer-col">
+        <h3>Pages</h3>
+
+        <a href="#">Pricing</a>
+        <a href="#">Alerts</a>
+        <a href="#">Testimonials</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Legal</h3>
+
+        <a href="#">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="license.html">License</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
