@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons - UIverse</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="button.css">
   <title>Buttons — UIverse</title>
 
   <!-- Fonts -->
@@ -12,15 +17,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared-page.css">
   <link rel="stylesheet" href="buttons.css">
-  <link rel="stylesheet" href="playground.css">
 </head>
-<body>
-  <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
 
-<body data-playground-type="button">
+<body>
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
@@ -29,30 +31,91 @@
     <span class="brand-text">UIverse</span>
   </div>
 
-  <!-- Sidebar -->
-   <aside class="sidebar">
-    <h2>UIverse</h2>
+  <!-- SIDEBAR (MATCHED WITH HOME PAGE STYLE) -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <h2>UIverse</h2>
+      <p>Modern UI Library</p>
+    </div>
+<nav class="sidebar-nav">
+    <ul>
+      <li class="active">
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-user"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+      <li>
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Badges</span>
+        </a>
+      </li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Loaders</span>
+        </a>
+        <li>
+        <a href="about.html">
+          <i class="fa-solid fa-award"></i>
+          <span>About us</span>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </nav>
+    
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO (ADDED FOR CONSISTENCY WITH HOME PAGE) -->
+    <section class="hero">
+
+      <div class="hero-badge">
+        🔘 UI Components Library
   <nav class="sidebar-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
-      <li class="active"><a href="button.html">Buttons</a></li>
-      <li><a href="profile.html"><i class="fa-regular fa-circle-user"></i><p>Profile</p></a></li>
-      <li><a href="index.html"><i class="fa-solid fa-house"></i><p>Home</p></a></li>
-      <li><a href="button.html"><i class="fa-solid fa-mobile-button"></i><p>Butttons</p></a></li>
-      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><p>Navbar</p></a></li>
-      <li><a href="contact.html"><i class="fa-regular fa-user"></i><p>Contact Us</p></a></li>
-      <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><p>Forms</p></a></li>
-      <li><a href="badges.html"><i class="fa-solid fa-award"></i><p>Badges</p></a></li>
-      <li><a href="About.html"><i class="fa-solid fa-mobile-button"></i><p>About</p></a></li>
-      <li><a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a></li>
       <li>
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
@@ -122,8 +185,6 @@
 
   <div class="logo">UIverse</div>
 
-  <!-- Main -->
-  <main class="main1">
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
     <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
@@ -205,6 +266,33 @@
       </div>
       <pre id="c1" class="code-block"><code>&lt;button class="gradient-btn"&gt;Click Me&lt;/button&gt;
 
+      <h1>
+        Beautiful <span>Button Components</span>
+      </h1>
+
+      <p>
+        Explore reusable, modern, and interactive button styles designed for real-world UI development.
+      </p>
+
+    </section>
+
+    <!-- BUTTON GRID -->
+    <section class="features">
+
+      <!-- Gradient -->
+      <div class="feature-card">
+        <div class="icon">🌈</div>
+        <h3>Gradient Button</h3>
+        <button class="gradient-btn">Click Me</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c1', this)">View Code</button>
+          <button onclick="copyCode('c1', this)">Copy</button>
+        </div>
+
+        <pre id="c1" class="code-block">
+&lt;button class="gradient-btn"&gt;Click Me&lt;/button&gt;
+        </pre>
 .gradient-btn {
   padding: 10px 24px;
   border: none;
@@ -240,6 +328,20 @@
       </div>
       <pre id="c2" class="code-block"><code>&lt;button class="outline-btn"&gt;Click Me&lt;/button&gt;
 
+      <!-- Outline -->
+      <div class="feature-card">
+        <div class="icon">⬜</div>
+        <h3>Outline Button</h3>
+        <button class="outline-btn">Click Me</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c2', this)">View Code</button>
+          <button onclick="copyCode('c2', this)">Copy</button>
+        </div>
+
+        <pre id="c2" class="code-block">
+&lt;button class="outline-btn"&gt;Click Me&lt;/button&gt;
+        </pre>
 .outline-btn {
   padding: 10px 24px;
   border: 2px solid #eb6835;
@@ -274,6 +376,20 @@
       </div>
       <pre id="c3" class="code-block"><code>&lt;button class="neon-btn"&gt;Glow&lt;/button&gt;
 
+      <!-- Neon -->
+      <div class="feature-card">
+        <div class="icon">💡</div>
+        <h3>Neon Button</h3>
+        <button class="neon-btn">Glow</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c3', this)">View Code</button>
+          <button onclick="copyCode('c3', this)">Copy</button>
+        </div>
+
+        <pre id="c3" class="code-block">
+&lt;button class="neon-btn"&gt;Glow&lt;/button&gt;
+        </pre>
 .neon-btn {
   padding: 10px 24px;
   background: transparent;
@@ -308,6 +424,20 @@
       </div>
       <pre id="c4" class="code-block"><code>&lt;button class="glass-btn"&gt;Glass&lt;/button&gt;
 
+      <!-- Glass -->
+      <div class="feature-card">
+        <div class="icon">🪟</div>
+        <h3>Glass Button</h3>
+        <button class="glass-btn">Glass</button>
+
+        <div class="actions">
+          <button onclick="toggleCode('c4', this)">View Code</button>
+          <button onclick="copyCode('c4', this)">Copy</button>
+        </div>
+
+        <pre id="c4" class="code-block">
+&lt;button class="glass-btn"&gt;Glass&lt;/button&gt;
+        </pre>
 .glass-btn {
   padding: 10px 24px;
   background: rgba(255,255,255,0.15);
@@ -556,6 +686,7 @@
   &lt;span class="spinner"&gt;&lt;/span&gt; Loading...
 &lt;/button&gt;
 
+
 .loading-btn {
   padding: 10px 24px;
   background: #aaa;
@@ -599,18 +730,18 @@
       </div>
       <pre id="c12" class="code-block"><code>&lt;button class="ghost-btn"&gt;Ghost&lt;/button&gt;
 
-.ghost-btn {
-  padding: 10px 24px;
-  background: transparent;
-  color: #555;
-  border: 1.5px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-.ghost-btn:hover { border-color: #eb6835; color: #eb6835; }</code></pre>
-    </div>
+      <!-- Shadow -->
+      <div class="feature-card">
+        <div class="icon">⬆️</div>
+        <h3>Shadow Button</h3>
+        <button class="shadow-btn">Lift</button>
+
+
+        <div class="actions">
+          <button onclick="toggleCode('c5')">View Code</button>
+          <button onclick="copyCode('c5',this)">Copy</button>
+        </div>
+
 
     <!-- Animated Pulse -->
     <div class="component-card" data-name="animated button pulse" data-cat="effect">
@@ -630,8 +761,13 @@
           <i class="fa-solid fa-copy"></i> Copy
         </button>
         <button onclick="addToCollection('Pulse Button')">Add to My Collection</button>
+
+        <pre id="c5" class="code-block">
+&lt;button class="shadow-btn"&gt;Lift&lt;/button&gt;
+        </pre>
+
       </div>
-      <pre id="c13" class="code-block"><code>&lt;button class="animated-btn"&gt;Pulse&lt;/button&gt;
+
 
 .animated-btn {
   padding: 10px 24px;
@@ -670,29 +806,13 @@
       </div>
       <pre id="c14" class="code-block"><code>&lt;button class="btn-3d"&gt;3D Effect&lt;/button&gt;
 
-.btn-3d {
-  padding: 10px 24px;
-  background: #eb6835;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 700;
-  box-shadow: 0 6px 0 #9e3d18;
-  transform: translateY(0);
-  transition: 0.15s;
-}
-.btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #9e3d18; }</code></pre>
-    </div>
+    </section>
 
-  </div><!-- /button-grid -->
 
-</main>
+  </main>
+</div>
 
-<!-- ===== SCROLL TO TOP ===== -->
-<button id="scrollTopBtn" onclick="scrollToTop()" title="Back to top">
-  <i class="fa-solid fa-chevron-up"></i>
-</button>
+
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
@@ -734,7 +854,7 @@
       <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="#">License</a></li>
+        <li><a href="license.css">License</a></li>
       </ul>
     </div>
 
@@ -746,52 +866,12 @@
         <button type="button">Subscribe</button>
       </div>
     </div>
+
   </div>
   <div class="footer-bottom">
     <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
-
-<div class="playground-drawer" id="playgroundDrawer" aria-hidden="true">
-  <div class="playground-header">
-    <div>
-      <span class="playground-title">Playground</span>
-      <span class="playground-subtitle" id="playgroundTitle">Select a component</span>
-    </div>
-    <div class="playground-header-actions">
-      <button type="button" class="playground-reset" id="playgroundReset">Reset</button>
-      <button type="button" class="playground-close" id="playgroundClose">Close</button>
-    </div>
-  </div>
-
-  <div class="playground-preview" id="playgroundPreview"></div>
-  <pre class="playground-code"><code id="playgroundCode"></code></pre>
-
-  <div class="playground-controls">
-    <label>Size <span class="playground-value" data-value="size"></span></label>
-    <input type="range" min="80" max="420" value="160" data-control="size">
-
-    <label>Radius <span class="playground-value" data-value="radius"></span></label>
-    <input type="range" min="0" max="40" value="10" data-control="radius">
-
-    <label>Padding <span class="playground-value" data-value="padding"></span></label>
-    <input type="range" min="0" max="32" value="12" data-control="padding">
-
-    <label>Font Size <span class="playground-value" data-value="fontSize"></span></label>
-    <input type="range" min="10" max="24" value="14" data-control="fontSize">
-
-    <label>Background</label>
-    <input type="color" value="#eb6835" data-control="background">
-
-    <label>Text Color</label>
-    <input type="color" value="#ffffff" data-control="textColor">
-
-    <label>Shadow <span class="playground-value" data-value="shadow"></span></label>
-    <input type="range" min="0" max="30" value="12" data-control="shadow">
-  </div>
-</div>
-
-<div class="playground-backdrop" id="playgroundBackdrop"></div>
 
 <script src="script.js"></script>
 <script>
@@ -808,12 +888,6 @@
     icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-
-  /* ---------- Sidebar ---------- */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
-  }
 
   /* ---------- Scroll Top ---------- */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -874,6 +948,7 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
 </script>
+
 <script src="playground.js"></script>
 <script>
 window.addToCollectionFromCard = function(button, name) {
@@ -952,6 +1027,6 @@ function copyCode(id,btn){
   padding: 8px 16px;
   }
 
-</style>
+
 </body>
 </html>
