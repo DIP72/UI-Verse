@@ -19,82 +19,6 @@
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
-  <h2>UIverse</h2>
-
-  <ul>
-    <li class="active">
-      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-    </li>
-    <li>
-      <a href="button.html"><i class="fa-solid fa-mobile-button"></i> Buttons</a>
-    </li>
-    <li>
-      <a href="navbar.html"><i class="fa-solid fa-bars"></i> Navbars</a>
-    </li>
-    <li>
-      <a href="cards.html"><i class="fa-solid fa-id-card"></i> Cards</a>
-    </li>
-    <li>
-      <a href="inputs.html"><i class="fa-solid fa-keyboard"></i> Inputs</a>
-    </li>
-    <li>
-      <a href="footer.html"><i class="fa-solid fa-table"></i> Footer</a>
-    </li>
-    <li>
-      <a href="form.html"><i class="fa-brands fa-wpforms"></i> Forms</a>
-    </li>
-    <li>
-      <a href="color.html"><i class="fa-solid fa-palette"></i> Colors</a>
-
-    </li>
-
-    <li>
-  <a href="article.html">
-    <i class="fa-solid fa-newspaper"></i> Articles
-  </a>
-</li>
-  </ul>
-</aside>
-
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-<!-- ================= MAIN ================= -->
-<main class="main">
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Build UI Faster 🚀</h1>
-    <p>Reusable UI components made with clean HTML, CSS & JavaScript.</p>
-
-    <div class="hero-actions">
-      <a href="button.html" class="primary-btn">Explore Components</a>
-      <a href="form.html" class="secondary-btn">Start Learning</a>
-    </div>
-  </section>
-
-  <!-- ================= POPULAR ================= -->
-  <section class="section">
-    <h2>⭐ Popular Components</h2>
-<body>
-
-<!-- ===== TOP CONTROLS ===== -->
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-<button id="themeToggle" class="toggle-btn" title="Toggle Theme">
-  🌙
-</button>
-
-<div class="container">
-
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="logo">UIverse</div>
-
-  <!-- Center Search Bar -->
-  <div class="search-bar">
-    <span class="nav-link active">Explore</span>
-    <input type="text" id="searchInput" placeholder="Search Components" onkeydown="handleSearch(event)" />
-    <button class="search-btn">🔍</button>
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
     <span class="brand-text">UIverse</span>
@@ -149,18 +73,6 @@
           <i class="fa-solid fa-award"></i>
           <span>Badges</span>
         </a>
-      </li>
-      <li>
-        <a href="loaders.html">
-          <i class="fa-solid fa-award"></i>
-          <span>Loaders</span>
-        </a>
-        <li>
-        <a href="about.html">
-          <i class="fa-solid fa-award"></i>
-          <span>About us</span>
-        </a>
-      </li>
       </li>
     </ul>
   </nav>
@@ -568,59 +480,10 @@
     observer.observe(el);
   });
 
-  
   function handleSearch(e) {
-    if (e.key === "Enter") {
-      const query = document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
-
-      // Search mapping
-      const pages = {
-        button: "button.html",
-        buttons: "button.html",
-
-        navbar: "navbar.html",
-        navbars: "navbar.html",
-
-        card: "cards.html",
-        cards: "cards.html",
-
-        input: "inputs.html",
-        inputs: "inputs.html",
-
-        form: "forms.html",
-        forms: "forms.html",
-
-        badge: "badges.html",
-        badges: "badges.html",
-
-        loader: "loaders.html",
-        loaders: "loaders.html",
-
-        about: "about.html",
-
-        contact: "contact.html",
-
-        footer: "footer.html",
-
-        color: "color.html",
-        colors: "color.html",
-
-        pricing: "pricing.html",
-
-        alert: "alerts.html",
-        alerts: "alerts.html"
-      };
-
-      // Match keyword
-      if (pages[query]) {
-        window.location.href = pages[query];
-      } else {
-        showToastSafe("No matching component found!");
-      }
+    if (e.key === 'Enter') {
+      const q = document.getElementById('searchInput').value.trim();
+      if (q) alert('Searching for: ' + q);
     }
   }
 
