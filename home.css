@@ -1222,3 +1222,80 @@ body.dark-mode .feature-card:hover {
 .dark-mode .ui-table td{
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
+
+/* ===== LAYOUT FIX ===== */
+body {
+  margin: 0;
+  display: flex;
+  background: #0f172a;
+  overflow-x: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #111827;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-home,
+.main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 900px) {
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-home,
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.section,
+.hero,
+.footer {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.featured-cards,
+.categories-grid,
+.grid,
+.why-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
