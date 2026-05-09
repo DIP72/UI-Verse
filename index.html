@@ -490,7 +490,7 @@
   function subscribe() {
     const input = document.querySelector('.newsletter-form input');
     if (input.value) {
-      alert('Thanks for subscribing with ' + input.value);
+      showToastSafe('Thanks for subscribing with ' + input.value);
       input.value = '';
     }
   }
