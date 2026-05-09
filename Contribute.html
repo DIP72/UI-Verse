@@ -638,14 +638,14 @@
   function handleSearch(e) {
     if (e.key === 'Enter') {
       const q = document.getElementById('searchInput').value.trim();
-      if (q) alert('Searching for: ' + q);
+      if (q) showToastSafe('Searching for: ' + q);
     }
   }
 
   function subscribe() {
     const input = document.querySelector('.newsletter-form input');
     if (input.value) {
-      alert('Thanks for subscribing with ' + input.value);
+      showToastSafe('Thanks for subscribing with ' + input.value);
       input.value = '';
     }
   }
