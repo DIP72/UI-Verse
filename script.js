@@ -134,13 +134,16 @@ function copyRGB(value) { navigator.clipboard.writeText(`rgb(${value})`); showTo
 
 // Sidebar
 function toggleSidebar() {
-  const backdrop = document.querySelector('.sidebar-backdrop');
-  if (window.innerWidth <= 900) {
-    document.body.classList.toggle('sidebar-open');
-    backdrop?.classList.toggle('active');
-  } else {
-    const isHidden = document.body.classList.toggle('sidebar-hidden');
-    sessionStorage.setItem('sidebarHidden', isHidden ? '1' : '0');
+  const sidebar = document.getElementById('sidebar') || document.querySelector('.sidebar');
+  const backdrop = document.getElementById('sidebarBackdrop') || document.querySelector('.sidebar-backdrop');
+  if (!sidebar) return;
+
+  const isOpen = sidebar.classList.toggle('open');
+  document.body.classList.toggle('sidebar-open', isOpen);
+
+  if (backdrop) {
+    backdrop.classList.toggle('visible', isOpen);
+    backdrop.classList.toggle('active', isOpen);
   }
 }
 function updateSidebarActiveLink() {
@@ -150,8 +153,8 @@ function updateSidebarActiveLink() {
     a.getAttribute('href').toLowerCase() === currentPage ? li.classList.add('active') : li.classList.remove('active');
   });
 }
-function restoreSidebarState() { if (window.innerWidth > 900 && sessionStorage.getItem('sidebarHidden') === '1') document.body.classList.add('sidebar-hidden'); }
-function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', () => { if (window.innerWidth <= 900) { document.body.classList.remove('sidebar-open'); document.querySelector('.sidebar-backdrop')?.classList.remove('active'); } })); }
+function restoreSidebarState() { sessionStorage.removeItem('sidebarHidden'); }
+function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('sidebar-open'); document.querySelector('#sidebarBackdrop')?.classList.remove('visible'); document.querySelector('.sidebar-backdrop')?.classList.remove('active'); document.getElementById('sidebar')?.classList.remove('open'); document.querySelector('.sidebar')?.classList.remove('open'); })); }
 function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); }
 
 // Live sandboxes

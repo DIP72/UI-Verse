@@ -408,11 +408,6 @@ toggle.addEventListener('click', () => {
 
 });
 
-function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sidebarBackdrop').classList.toggle('visible');
-}
-
 window.addEventListener('scroll', () => {
   document.getElementById('navbar')
     .classList.toggle('scrolled', window.scrollY > 40);

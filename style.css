@@ -7422,6 +7422,74 @@ table td{
   outline:none;
 }
 
+/* notification */
+
+.notification-panel{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  margin-top:30px;
+}
+
+.panel-header{
+  margin-bottom:20px;
+}
+
+.panel-header h2{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#333;
+}
+
+.notification-item{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.notification-item:hover{
+  background:#f4f7fc;
+}
+
+.notification-item .icon{
+  width:45px;
+  height:45px;
+  background:#3f5177;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.notification-item .content h4{
+  margin-bottom:5px;
+  color:#222;
+}
+
+.notification-item .content p{
+  color:#666;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.notification-item .content span{
+  font-size:12px;
+  color:#999;
+}
+
+.unread{
+  border-left:4px solid #3f5177;
+  background:#eef2ff;
+}
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
