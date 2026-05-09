@@ -774,12 +774,6 @@
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
-  /* ---------- Sidebar ---------- */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
-  }
-
   /* ---------- Scroll Top ---------- */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   window.addEventListener('scroll', () => {
