@@ -52,7 +52,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a1')">View Code</button>
+          <button onclick="toggleCode('a1', this)">View Code</button>
           <button onclick="copyCode('a1', this)">Copy</button>
         </div>
 
@@ -74,7 +74,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a2')">View Code</button>
+          <button onclick="toggleCode('a2', this)">View Code</button>
           <button onclick="copyCode('a2', this)">Copy</button>
         </div>
 
@@ -96,7 +96,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a3')">View Code</button>
+          <button onclick="toggleCode('a3', this)">View Code</button>
           <button onclick="copyCode('a3', this)">Copy</button>
         </div>
 
@@ -106,29 +106,63 @@
   &lt;p&gt;There was an issue submitting the form. Please try again.&lt;/p&gt;
 &lt;/div&gt;
       </pre>
+    </div>
+    <div class="component-card">
+  <h3>Confirmation Alert</h3>
+  <div class="alert-box alert-confirmation">
+    <div>
+      <strong>Confirmation</strong>
+      <p>Are you sure you want to delete this item?</p>
+      <div class="alert-actions">
+        <button class="btn-confirm">Yes</button>
+        <button class="btn-cancel">No</button>
       </div>
+    </div>
+  </div>
 
-      <div class="component-card">
-        <h3>Info Alert</h3>
-        <div class="alert-box alert-info">
-          <div>
-            <strong>Info</strong>
-            <p>This is an informational message. Learn more about our new features.</p>
-          </div>
-        </div>
+  <div class="actions">
+    <button onclick="toggleCode('a4')">View Code</button>
+    <button onclick="copyCode('a4', this)">Copy</button>
+  </div>
 
-        <div class="actions">
-          <button onclick="toggleCode('a4')">View Code</button>
-          <button onclick="copyCode('a4', this)">Copy</button>
-        </div>
-
-        <pre id="a4" class="code-block">
-&lt;div class="alert-box alert-info"&gt;
-  &lt;strong&gt;Info&lt;/strong&gt;
-  &lt;p&gt;This is an informational message. Learn more about our new features.&lt;/p&gt;
+  <pre id="a4" class="code-block">
+&lt;div class="alert-box alert-confirmation"&gt;
+  &lt;strong&gt;Confirmation&lt;/strong&gt;
+  &lt;p&gt;Are you sure you want to delete this item?&lt;/p&gt;
+  &lt;div class="alert-actions"&gt;
+    &lt;button class="btn-confirm"&gt;Yes&lt;/button&gt;
+    &lt;button class="btn-cancel"&gt;No&lt;/button&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
-      </pre>
-      </div>
+  </pre>
+</div>
+
+<div class="component-card">
+  <h3>Loading/Progress Alert</h3>
+  <div class="alert-box alert-loading">
+    <div>
+      <strong>Loading</strong>
+      <p>Uploading your file, please wait…</p>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button onclick="toggleCode('a5-loading')">View Code</button>
+    <button onclick="copyCode('a5-loading', this)">Copy</button>
+  </div>
+
+  <pre id="a5-loading" class="code-block">
+&lt;div class="alert-box alert-loading"&gt;
+  &lt;strong&gt;Loading&lt;/strong&gt;
+  &lt;p&gt;Uploading your file, please wait…&lt;/p&gt;
+  &lt;div class="spinner"&gt;&lt;/div&gt;
+&lt;/div&gt;
+  </pre>
+</div>
+
+
+      
 
       <div class="component-card">
         <h3>Critical Alert</h3>
@@ -140,7 +174,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a5')">View Code</button>
+          <button onclick="toggleCode('a5', this)">View Code</button>
           <button onclick="copyCode('a5', this)">Copy</button>
         </div>
 
@@ -162,7 +196,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a6')">View Code</button>
+          <button onclick="toggleCode('a6', this)">View Code</button>
           <button onclick="copyCode('a6', this)">Copy</button>
         </div>
 
@@ -185,7 +219,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a7')">View Code</button>
+          <button onclick="toggleCode('a7', this)">View Code</button>
           <button onclick="copyCode('a7', this)">Copy</button>
         </div>
 
@@ -211,7 +245,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a8')">View Code</button>
+          <button onclick="toggleCode('a8', this)">View Code</button>
           <button onclick="copyCode('a8', this)">Copy</button>
         </div>
 
@@ -233,7 +267,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a9')">View Code</button>
+          <button onclick="toggleCode('a9', this)">View Code</button>
           <button onclick="copyCode('a9', this)">Copy</button>
         </div>
 
@@ -254,7 +288,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a10')">View Code</button>
+          <button onclick="toggleCode('a10', this)">View Code</button>
           <button onclick="copyCode('a10', this)">Copy</button>
         </div>
 
@@ -278,7 +312,7 @@
         </div>
 
         <div class="actions">
-          <button onclick="toggleCode('a11')">View Code</button>
+          <button onclick="toggleCode('a11', this)">View Code</button>
           <button onclick="copyCode('a11', this)">Copy</button>
         </div>
 
@@ -299,8 +333,8 @@
   <footer class="footer">
     <div class="footer-card">
       <div class="footer-brand">
-        <h2>Ulverse</h2>
-        <p>© 2026 Ulverse. All rights reserved.</p>
+        <h2>UIverse</h2>
+        <p>© 2026 UIverse. All rights reserved.</p>
         <div class="footer-socials">
           <span>🌐</span>
           <span>💼</span>
@@ -316,6 +350,7 @@
         <h3>Legal</h3>
         <a href="privacypolicy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
+        <a href="license.html">License</a>
       </div>
     </div>
   </footer>
