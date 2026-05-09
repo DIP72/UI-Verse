@@ -3,6 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute - UIverse</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contribute.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>UIverse</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="button.html">Buttons</a></li>
+      <li><a href="navbar.html">Navbars</a></li>
+      <li><a href="cards.html">Cards</a></li>
+      <li><a href="footer.html">Footer</a></li>
+      <li><a href="form.html">Forms</a></li>
+      <li><a href="color.html">Colors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="active"><a href="contribute.html">Contribute</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Contribute to UIverse 🤝</h1>
+      <p>
+        UIverse is open for everyone. Whether you're a beginner or experienced developer,
+        you can contribute and improve this UI library.
+      </p>
+    </section>
+
+    <!-- Steps -->
+    <section class="features">
+
+      <div class="feature-card">
+        <h3>1️⃣ Fork the Repository</h3>
+        <p>
+          Go to the GitHub repository and click on "Fork" to create your own copy.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>2️⃣ Clone the Project</h3>
+        <p>
+          Download your forked repository to your local machine using Git.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>3️⃣ Add Your Component</h3>
+        <p>
+          Create a new UI component (button, card, form, etc.) using clean HTML, CSS, and JS.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>4️⃣ Follow Structure</h3>
+        <p>
+          Keep your code simple, reusable, and properly organized with clear class names.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>5️⃣ Commit & Push</h3>
+        <p>
+          Save your changes and push them to your GitHub fork.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>6️⃣ Create Pull Request</h3>
+        <p>
+          Submit a Pull Request so your component can be reviewed and added to UIverse.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Guidelines -->
+    <section class="hero">
+      <h2>Contribution Guidelines</h2>
+      <p>
+        ✔ Use clean and readable code <br>
+        ✔ Avoid unnecessary libraries <br>
+        ✔ Make components responsive <br>
+        ✔ Add comments where needed <br>
+        ✔ Keep UI modern and simple
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="hero">
+      <h2>Ready to Contribute?</h2>
+      <a href="#" class="explore-btn">Go to GitHub →</a>
+    </section>
+
+  </main>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h2>UIverse</h2>
+      <p>© 2026 UIverse. All rights reserved.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Pages</h3>
+      <p>Navbars</p>
+      <p>Forms</p>
+      <p>Buttons</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <p>Privacy Policy</p>
+      <p>Terms of Service</p>
+    </div>
+    <div class="footer-col">
+    <h3>Legal</h3>
+        <a href="privacypolicy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="license.html">License</a>
+      </div>
+
+
+  </div>
+</footer>
+
+</body>
+</html> Contribute html       <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UIverse — UI Component Library</title>
 
   <!-- Fonts -->
@@ -19,82 +162,6 @@
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
-  <h2>UIverse</h2>
-
-  <ul>
-    <li class="active">
-      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-    </li>
-    <li>
-      <a href="button.html"><i class="fa-solid fa-mobile-button"></i> Buttons</a>
-    </li>
-    <li>
-      <a href="navbar.html"><i class="fa-solid fa-bars"></i> Navbars</a>
-    </li>
-    <li>
-      <a href="cards.html"><i class="fa-solid fa-id-card"></i> Cards</a>
-    </li>
-    <li>
-      <a href="inputs.html"><i class="fa-solid fa-keyboard"></i> Inputs</a>
-    </li>
-    <li>
-      <a href="footer.html"><i class="fa-solid fa-table"></i> Footer</a>
-    </li>
-    <li>
-      <a href="form.html"><i class="fa-brands fa-wpforms"></i> Forms</a>
-    </li>
-    <li>
-      <a href="color.html"><i class="fa-solid fa-palette"></i> Colors</a>
-
-    </li>
-
-    <li>
-  <a href="article.html">
-    <i class="fa-solid fa-newspaper"></i> Articles
-  </a>
-</li>
-  </ul>
-</aside>
-
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-<!-- ================= MAIN ================= -->
-<main class="main">
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Build UI Faster 🚀</h1>
-    <p>Reusable UI components made with clean HTML, CSS & JavaScript.</p>
-
-    <div class="hero-actions">
-      <a href="button.html" class="primary-btn">Explore Components</a>
-      <a href="form.html" class="secondary-btn">Start Learning</a>
-    </div>
-  </section>
-
-  <!-- ================= POPULAR ================= -->
-  <section class="section">
-    <h2>⭐ Popular Components</h2>
-<body>
-
-<!-- ===== TOP CONTROLS ===== -->
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-<button id="themeToggle" class="toggle-btn" title="Toggle Theme">
-  🌙
-</button>
-
-<div class="container">
-
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="logo">UIverse</div>
-
-  <!-- Center Search Bar -->
-  <div class="search-bar">
-    <span class="nav-link active">Explore</span>
-    <input type="text" id="searchInput" placeholder="Search Components" onkeydown="handleSearch(event)" />
-    <button class="search-btn">🔍</button>
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
     <span class="brand-text">UIverse</span>
@@ -150,12 +217,6 @@
           <span>Badges</span>
         </a>
       </li>
-
-      <li>
-  <a href="map.html">
-    <i class="fa-solid fa-map-location-dot"></i> Map
-  </a>
-</li>
       <li>
         <a href="loaders.html">
           <i class="fa-solid fa-award"></i>
@@ -574,59 +635,10 @@
     observer.observe(el);
   });
 
-  
   function handleSearch(e) {
-    if (e.key === "Enter") {
-      const query = document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
-
-      // Search mapping
-      const pages = {
-        button: "button.html",
-        buttons: "button.html",
-
-        navbar: "navbar.html",
-        navbars: "navbar.html",
-
-        card: "cards.html",
-        cards: "cards.html",
-
-        input: "inputs.html",
-        inputs: "inputs.html",
-
-        form: "forms.html",
-        forms: "forms.html",
-
-        badge: "badges.html",
-        badges: "badges.html",
-
-        loader: "loaders.html",
-        loaders: "loaders.html",
-
-        about: "about.html",
-
-        contact: "contact.html",
-
-        footer: "footer.html",
-
-        color: "color.html",
-        colors: "color.html",
-
-        pricing: "pricing.html",
-
-        alert: "alerts.html",
-        alerts: "alerts.html"
-      };
-
-      // Match keyword
-      if (pages[query]) {
-        window.location.href = pages[query];
-      } else {
-        alert("No matching component found!");
-      }
+    if (e.key === 'Enter') {
+      const q = document.getElementById('searchInput').value.trim();
+      if (q) alert('Searching for: ' + q);
     }
   }
 
@@ -639,4 +651,4 @@
   }
 </script>
 </body>
-</html>
+</html>   
