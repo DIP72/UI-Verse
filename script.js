@@ -1,28 +1,111 @@
 const editBtn = document.querySelector(".btnn");
-editBtn.addEventListener("click", () => {
 
-  const info = document.querySelectorAll(".info p");
-  const newName = prompt("Enter Full Name", info[0].textContent);
-  const newEmail = prompt("Enter Email", info[1].textContent);
-  const newUsername = prompt("Enter Username", info[2].textContent);
+function escapeAttr(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
 
-  if (newName) {
-    info[0].textContent = newName;
-    document.querySelector(".profile-header h2").textContent = newName;
-  }
+if (editBtn) {
+  editBtn.addEventListener("click", () => {
+  const openProfileEditor = () => {
+    const currentInfo = document.querySelectorAll(".info p");
+    if (!currentInfo || currentInfo.length < 3) return;
 
-  if (newEmail) {
-    info[1].textContent = newEmail;
-    document.querySelector(".profile-header p").textContent = newEmail;
-  }
 
-  if (newUsername) {
-    info[2].textContent = newUsername;
-  }
+    const currentName = currentInfo[0].textContent;
+    const currentEmail = currentInfo[1].textContent;
+    const currentUsername = currentInfo[2].textContent;
 
-  alert("Profile Updated Successfully!");
+    // Non-blocking inline editor (modal)
+    const existing = document.getElementById("profile-editor-modal");
+    if (existing) existing.remove();
 
-});
+    const modal = document.createElement("div");
+    modal.id = "profile-editor-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.innerHTML = `
+      <div class="modal-backdrop" data-close="1" aria-hidden="true"></div>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Edit Profile</h3>
+          <button type="button" class="modal-close" aria-label="Close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <label>
+            <span>Full Name</span>
+            <input type="text" id="profile-editor-name" value="${escapeAttr(currentName)}" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" id="profile-editor-email" value="${escapeAttr(currentEmail)}" />
+          </label>
+
+          <label>
+            <span>Username</span>
+            <input type="text" id="profile-editor-username" value="${escapeAttr(currentUsername)}" />
+          </label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" data-cancel="1">Cancel</button>
+          <button type="button" class="btn-primary" data-save="1">Save</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const closeModal = () => {
+      modal.remove();
+    };
+
+    const backdrop = modal.querySelector(".modal-backdrop");
+    const closeBtn = modal.querySelector(".modal-close");
+    const cancelBtn = modal.querySelector("[data-cancel='1']");
+
+    backdrop?.addEventListener("click", closeModal);
+    closeBtn?.addEventListener("click", closeModal);
+    cancelBtn?.addEventListener("click", closeModal);
+
+    // Save
+    const saveBtn = modal.querySelector("[data-save='1']");
+    saveBtn?.addEventListener("click", () => {
+      const newName = modal.querySelector("#profile-editor-name")?.value?.trim();
+      const newEmail = modal.querySelector("#profile-editor-email")?.value?.trim();
+      const newUsername = modal.querySelector("#profile-editor-username")?.value?.trim();
+
+      if (newName) {
+        currentInfo[0].textContent = newName;
+        document.querySelector(".profile-header h2").textContent = newName;
+      }
+      if (newEmail) {
+        currentInfo[1].textContent = newEmail;
+        document.querySelector(".profile-header p").textContent = newEmail;
+      }
+      if (newUsername) {
+        currentInfo[2].textContent = newUsername;
+      }
+
+      showToastSafe("Profile Updated Successfully! ✅");
+      modal.remove();
+    });
+
+    // Focus management (best effort)
+    setTimeout(() => {
+      modal.querySelector("#profile-editor-name")?.focus?.();
+    }, 0);
+  };
+
+  openProfileEditor();
+
+  });
+}
 
 
 // forms
@@ -30,23 +113,23 @@ editBtn.addEventListener("click", () => {
 let loginBtn = document.querySelectorAll(".form-card button")[0];
 
 loginBtn.onclick = function () {
-  alert("Login button clicked");
+  showToastSafe("Login button clicked");
 };
 // signup
 let signupBtn = document.querySelectorAll(".form-card button")[1];
 signupBtn.onclick = function () {
-  alert("Signup button clicked");
+  showToastSafe("Signup button clicked");
 };
 // contact form
 let contactBtn = document.querySelectorAll(".form-card button")[2];
 
 contactBtn.onclick = function () {
-  alert("Message sent");
+  showToastSafe("Message sent");
 };
 //extra
 let extraBtn = document.querySelectorAll(".form-card button")[3];
 extraBtn.onclick = function () {
-  alert("Form submitted");
+  showToastSafe("Form submitted");
 };
 
 // icon-
@@ -105,6 +188,13 @@ function showToast(message) {
   }, 2000);
 }
 
+// Defensive wrapper: if toast fails/unavailable, do nothing (no blocking UX)
+function showToastSafe(message) {
+  try {
+    if (typeof showToast === "function") showToast(message);
+  } catch (e) {}
+}
+
 
 /* ================= TOGGLE CODE BLOCK ================= */
 function toggleCode(id) {
@@ -133,7 +223,7 @@ function copyCode(id, btn) {
 
   navigator.clipboard.writeText(code)
     .then(() => {
-      showToast("Code copied!");
+      showToastSafe("Code copied!");
 
       if (btn) {
         const originalText = btn.innerText;
@@ -147,7 +237,7 @@ function copyCode(id, btn) {
       }
     })
     .catch(() => {
-      showToast("Failed to copy ❌");
+      showToastSafe("Failed to copy ❌");
       if (btn) btn.innerText = "Error";
     });
 }
@@ -156,12 +246,12 @@ function copyCode(id, btn) {
 /* ================= COPY COLOR ================= */
 function copyColor(color) {
   navigator.clipboard.writeText(color);
-  showToast(color + " copied!");
+  showToastSafe(color + " copied!");
 }
 
 function copyRGB(value) {
   navigator.clipboard.writeText(`rgb(${value})`);
-  showToast(`rgb(${value}) copied!`);
+  showToastSafe(`rgb(${value}) copied!`);
 }
 
 
@@ -207,12 +297,11 @@ function initSidebarLinkClose() {
         document.querySelector(".sidebar-backdrop")?.classList.remove("active");
       }
     });
+  });
 }
 
 function toggleMenu() {
-  document.querySelector(".sidebar").classList.toggle("active");
-}
-  });
+  document.querySelector(".sidebar")?.classList.toggle("active");
 }
 
 function initSidebar() {
@@ -374,7 +463,7 @@ function handleSearch(event) {
     }
   }
 
-  showToast("No component found 😢");
+  showToastSafe("No component found 😢");
 }
 
 
@@ -454,7 +543,7 @@ function closeAlert(alertId) {
 /* ================= SUBSCRIBE ================= */
 function subscribe(e) {
   e.preventDefault();
-  showToast("Subscribed successfully! 🎉");
+  showToastSafe("Subscribed successfully! 🎉");
 }
 
 

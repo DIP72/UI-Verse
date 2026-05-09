@@ -619,7 +619,7 @@
       if (pages[query]) {
         window.location.href = pages[query];
       } else {
-        alert("No matching component found!");
+        showToastSafe("No matching component found!");
       }
     }
   }
@@ -627,7 +627,7 @@
   function subscribe() {
     const input = document.querySelector('.newsletter-form input');
     if (input.value) {
-      alert('Thanks for subscribing with ' + input.value);
+      showToastSafe('Thanks for subscribing with ' + input.value);
       input.value = '';
     }
   }
