@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menus - UIverse</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="menu.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>UIverse</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="button.html">Buttons</a></li>
+      <li><a href="cards.html">Cards</a></li>
+      <li><a href="inputs.html">Inputs</a></li>
+      <li><a href="forms.html">Forms</a></li>
+      <li><a href="loaders.html">Loaders</a></li>
+      <li class="active"><a href="menu.html">Menus</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h1>Menus</h1>
+
+    <!-- 1 Dropdown Menu -->
+    <div class="component-card">
+      <h3>Dropdown Menu</h3>
+
+      <div class="menu-box">
+        <div class="dropdown">
+          <button class="dropbtn">Options ▼</button>
+          <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+
+<pre id="m1" class="code-block">
+&lt;div class="dropdown"&gt;
+  &lt;button&gt;Options&lt;/button&gt;
+  &lt;div class="dropdown-content"&gt;
+    &lt;a&gt;Profile&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+
+    <!-- 2 Sidebar Menu -->
+    <div class="component-card">
+      <h3>Mini Sidebar Menu</h3>
+
+      <div class="mini-sidebar">
+        <a href="#">🏠 Home</a>
+        <a href="#">📦 Products</a>
+        <a href="#">💬 Messages</a>
+        <a href="#">⚙ Settings</a>
+      </div>
+
+<pre id="m2" class="code-block">
+&lt;div class="mini-sidebar"&gt;
+  &lt;a&gt;Home&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+
+    <!-- 3 Context Menu -->
+    <div class="component-card">
+      <h3>Context Menu</h3>
+
+      <div class="context-box">
+        Right click area
+        <div class="context-menu">
+          <div>Copy</div>
+          <div>Edit</div>
+          <div>Delete</div>
+        </div>
+      </div>
+
+<pre id="m3" class="code-block">
+Context menu UI
+</pre>
+    </div>
+
+    <!-- 4 Hamburger Menu -->
+    <div class="component-card">
+      <h3>Hamburger Menu</h3>
+
+      <div class="hamburger-menu">
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="burger">☰</label>
+
+        <div class="menu-links">
+          <a href="#">Home</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+
+<pre id="m4" class="code-block">
+&lt;input type="checkbox"&gt;
+&lt;label&gt;☰&lt;/label&gt;
+</pre>
+    </div>
+
+    <!-- 5 Horizontal Menu -->
+    <div class="component-card">
+      <h3>Horizontal Menu Bar</h3>
+
+      <div class="horizontal-menu">
+        <a href="#">Home</a>
+        <a href="#">Docs</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+      </div>
+
+<pre id="m5" class="code-block">
+&lt;div class="horizontal-menu"&gt;
+  &lt;a&gt;Home&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
