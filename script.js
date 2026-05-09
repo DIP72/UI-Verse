@@ -1,3 +1,61 @@
+const editBtn = document.querySelector(".btnn");
+editBtn.addEventListener("click", () => {
+
+  const info = document.querySelectorAll(".info p");
+  const newName = prompt("Enter Full Name", info[0].textContent);
+  const newEmail = prompt("Enter Email", info[1].textContent);
+  const newUsername = prompt("Enter Username", info[2].textContent);
+
+  if (newName) {
+    info[0].textContent = newName;
+    document.querySelector(".profile-header h2").textContent = newName;
+  }
+
+  if (newEmail) {
+    info[1].textContent = newEmail;
+    document.querySelector(".profile-header p").textContent = newEmail;
+  }
+
+  if (newUsername) {
+    info[2].textContent = newUsername;
+  }
+
+  alert("Profile Updated Successfully!");
+
+});
+
+
+// forms
+// login
+let loginBtn = document.querySelectorAll(".form-card button")[0];
+
+loginBtn.onclick = function () {
+  alert("Login button clicked");
+};
+// signup
+let signupBtn = document.querySelectorAll(".form-card button")[1];
+signupBtn.onclick = function () {
+  alert("Signup button clicked");
+};
+// contact form
+let contactBtn = document.querySelectorAll(".form-card button")[2];
+
+contactBtn.onclick = function () {
+  alert("Message sent");
+};
+//extra
+let extraBtn = document.querySelectorAll(".form-card button")[3];
+extraBtn.onclick = function () {
+  alert("Form submitted");
+};
+
+// icon-
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("hide");
+});
 /* =================================================================
    script.js  –  UI-Verse
    Single consolidated file. Each function is declared exactly once.
