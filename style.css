@@ -1067,3 +1067,31 @@ textarea {
 .fa-seedling   { color: #008ef3; } 
 .fa-bolt       { color: #ff0400; } 
 .fa-rocket {color:rgb(190, 37, 63)}
+
+/* Transparent Navbar */
+.nav-transparent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(100px); /* glass effect */
+  border-radius: 8px;
+}
+
+.nav-transparent h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:black;
+}
+
+.nav-transparent a {
+  margin: 0 12px;
+  text-decoration: none;
+  color:gray;
+  transition: color 0.3s ease;
+}
+
+.nav-transparent a:hover {
+  color: #ffd700; /* gold highlight on hover */
+}
