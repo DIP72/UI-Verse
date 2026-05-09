@@ -530,14 +530,6 @@
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 
-  // Sidebar toggle
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    const backdrop = document.getElementById('sidebarBackdrop');
-    sidebar.classList.toggle('open');
-    backdrop.classList.toggle('visible');
-  }
-
   // Scroll to top
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
