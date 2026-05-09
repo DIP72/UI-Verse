@@ -1,3 +1,30 @@
+const editBtn = document.querySelector(".btnn");
+editBtn.addEventListener("click", () => {
+
+  const info = document.querySelectorAll(".info p");
+  const newName = prompt("Enter Full Name", info[0].textContent);
+  const newEmail = prompt("Enter Email", info[1].textContent);
+  const newUsername = prompt("Enter Username", info[2].textContent);
+
+  if (newName) {
+    info[0].textContent = newName;
+    document.querySelector(".profile-header h2").textContent = newName;
+  }
+
+  if (newEmail) {
+    info[1].textContent = newEmail;
+    document.querySelector(".profile-header p").textContent = newEmail;
+  }
+
+  if (newUsername) {
+    info[2].textContent = newUsername;
+  }
+
+  alert("Profile Updated Successfully!");
+
+});
+
+
 // forms
 // login
 let loginBtn = document.querySelectorAll(".form-card button")[0];
