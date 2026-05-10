@@ -3,237 +3,911 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footer - UIverse</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   <nav class="navbar">
-  <!-- Logo -->
-  <div class="logo">Ulverse</div>
+  <title>Inputs — UIverse</title>
 
-  <!-- Center Search Bar -->
-  <div class="search-bar">
-    <span class="nav-link active">Explore</span>
-    <input type="text" id="searchInput" placeholder="Search Components" />
-    <button class="search-btn">🔍</button>
-  </div>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="input.css">
+</head>
+
+<body>
+
 
   <!-- Right Section -->
   <div class="nav-right">
     <button class="nav-btn">Add Component</button>
-    <button class="nav-btn">My Collection</button>
+    <button onclick="location.href='MyCollection.html'">My Collection</button>
     <a href="#"></a>
     <a href="#"></a>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+
   </div>
-</nav>
-
-<div class="container">
-  <button class="hamburger" type="button" aria-label="Toggle menu" onclick="toggleSidebar()">☰</button>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>UIverse</h2>
+  <nav class="sidebar-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="alerts.html">Alerts</a></li>
-      <li><a href="badges.html">Badges</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li class="active"><a href="inputs.html">Inputs</a></li>
-      <li><a href="loaders.html">Loaders</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="button.html"><i class="fa-solid fa-hand-pointer"></i><span>Buttons</span></a></li>
+      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><span>Navbar</span></a></li>
+      <li><a href="cards.html"><i class="fa-solid fa-table-cells-large"></i><span>Cards</span></a></li>
+      <li class="active"><a href="inputs.html"><i class="fa-solid fa-keyboard"></i><span>Inputs</span></a></li>
+      <li><a href="contact.html"><i class="fa-regular fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><span>Forms</span></a></li>
+      <li><a href="badges.html"><i class="fa-solid fa-award"></i><span>Badges</span></a></li>
     </ul>
-  </aside>
-  <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
-<div class="main">
-
-  <!-- FOR TEXT -->
-  <div class="component-card" data-name="text input">
-    <h3>Text Input</h3>
-    <input type="text" placeholder="Enter text" />
-
-    <div class="actions">
-      <button onclick="toggleCode('c1')">View Code</button>
-      <button onclick="copyCode('c1', this)">Copy Code</button>
-    </div>
-
-    <pre id="c1" style="display:none;">
-&lt;input type="text" placeholder="Enter text"&gt;
-    </pre>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
   </div>
+</aside>
 
-  <!-- FOR PASSWORD -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+
   <div class="component-card" data-name="password input">
     <h3>Password Input</h3>
-    <input type="password" placeholder="Enter password" />
-
-    <div class="actions">
-      <button onclick="toggleCode('c2')">View Code</button>
-      <button onclick="copyCode('c2', this)">Copy Code</button>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" placeholder="Enter password">
     </div>
-
-    <pre id="c2" style="display:none;">
+    <div class="actions">
+      <button onclick="toggleCode('c3')">View Code</button>
+      <button onclick="copyCode('c3', this)">Copy Code</button>
+      <button onclick="addToCollection('Password Input')">Add to My Collection</button>
+    
+    </div>
+    <pre id="c3" style="display:none;">
 &lt;input type="password" placeholder="Enter password"&gt;
     </pre>
   </div>
 
-  <!-- FOR EMAIL -->
-  <div class="component-card" data-name="email input">
-    <h3>Email Input</h3>
-    <input type="email" placeholder="Enter email" />
+  <!-- 🔹 DATE & TIME -->
+  <h2 class="section-title">Date & Time</h2>
 
-    <div class="actions">
-      <button onclick="toggleCode('c3')">View Code</button>
-      <button onclick="copyCode('c3', this)">Copy Code</button>
+  <div class="component-card" data-name="date input">
+    <h3>Date Input</h3>
+    <div class="input-group">
+      <label>Date</label>
+      <input type="date">
     </div>
-
-    <pre id="c3" style="display:none;">
-&lt;input type="email" placeholder="Enter email"&gt;
-    </pre>
-  </div>
-
-  <!-- FOR NUMBER -->
-  <div class="component-card" data-name="number input">
-    <h3>Number Input</h3>
-    <input type="number" placeholder="Enter number" />
-
     <div class="actions">
       <button onclick="toggleCode('c4')">View Code</button>
       <button onclick="copyCode('c4', this)">Copy Code</button>
+      <button onclick="addToCollection('Date Input')">Add to My Collection</button>
+    
     </div>
-
     <pre id="c4" style="display:none;">
-&lt;input type="number" placeholder="Enter number"&gt;
+&lt;input type="date"&gt;
     </pre>
-  </div>
 
-  <!-- FOR SEARCH -->
-  <div class="component-card" data-name="search input">
-    <h3>Search Input</h3>
-    <input type="search" placeholder="Search..." />
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <div class="logo">UIverse</div>
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" />
+    <kbd class="search-kbd">⌘K</kbd>
+  </div>
+  <div class="nav-right">
+    <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
+    <button class="nav-btn primary-nav-btn"><i class="fa-solid fa-bookmark"></i> My Collection</button>
+    <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main-home">
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Inputs</span>
+      </div>
+      <h1 class="page-title">Input Components</h1>
+      <p class="page-desc">Every HTML input type you'll ever need — text, email, password, date, range, file, select, checkbox, radio and more. Click to copy.</p>
+      <div class="page-meta">
+        <span class="meta-badge"><i class="fa-solid fa-layer-group"></i> 18 Components</span>
+        <span class="meta-badge"><i class="fa-solid fa-code"></i> Pure HTML</span>
+        <span class="meta-badge"><i class="fa-solid fa-bolt"></i> No JS Required</span>
+      </div>
+    </div>
 
     <div class="actions">
       <button onclick="toggleCode('c5')">View Code</button>
       <button onclick="copyCode('c5', this)">Copy Code</button>
-    </div>
+      <button onclick="addToCollection('Time Input')">Add to My Collection</button>
 
-    <pre id="c5" style="display:none;">
-&lt;input type="search" placeholder="Search..."&gt;
-    </pre>
+    <div class="page-hero-right">
+      <div class="hero-inputs-preview">
+        <div class="preview-input-wrap">
+          <i class="fa-solid fa-user preview-icon"></i>
+          <input class="preview-input" type="text" placeholder="Username" readonly />
+        </div>
+        <div class="preview-input-wrap">
+          <i class="fa-solid fa-lock preview-icon"></i>
+          <input class="preview-input" type="password" placeholder="Password" readonly />
+        </div>
+        <input class="preview-range" type="range" value="60" readonly />
+      </div>
+
+    </div>
   </div>
 
-  <!-- FOR DATE -->
-  <div class="component-card" data-name="date input">
-    <h3>Date Input</h3>
-    <input type="date" />
 
+  <!-- 🔹 ADVANCED INPUTS -->
+  <h2 class="section-title">Advanced Inputs</h2>
+
+  <div class="component-card" data-name="file input">
+    <h3>File Input</h3>
+    <div class="input-group">
+      <label>Upload File</label>
+      <input type="file">
+    </div>
     <div class="actions">
       <button onclick="toggleCode('c6')">View Code</button>
       <button onclick="copyCode('c6', this)">Copy Code</button>
-    </div>
+      <button onclick="addToCollection('File Input')">Add to My Collection</button>
 
-    <pre id="c6" style="display:none;">
-&lt;input type="date"&gt;
-    </pre>
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterSection('all', this)">All</button>
+    <button class="filter-btn" onclick="filterSection('basic', this)">Basic</button>
+    <button class="filter-btn" onclick="filterSection('datetime', this)">Date & Time</button>
+    <button class="filter-btn" onclick="filterSection('advanced', this)">Advanced</button>
+    <button class="filter-btn" onclick="filterSection('selection', this)">Selection</button>
+    <button class="filter-btn" onclick="filterSection('attributes', this)">Attributes</button>
+    <div class="filter-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Filter inputs..." oninput="liveFilter(this.value)" />
+
+    </div>
   </div>
 
-  <!-- FOR TIME -->
-  <div class="component-card" data-name="time input">
-    <h3>Time Input</h3>
-    <input type="time" />
 
+  <div class="component-card" data-name="range input">
+    <h3>Range Input</h3>
+    <div class="input-group">
+      <label>Range</label>
+      <input type="range" min="0" max="100">
+    </div>
     <div class="actions">
       <button onclick="toggleCode('c7')">View Code</button>
       <button onclick="copyCode('c7', this)">Copy Code</button>
+      <button onclick="addToCollection('Range Input')">Add to My Collection</button>
     </div>
-
     <pre id="c7" style="display:none;">
-&lt;input type="time"&gt;
-    </pre>
-  </div>
-
-  <!-- FOR FILE -->
-  <div class="component-card" data-name="file input">
-    <h3>File Input</h3>
-    <input type="file" />
-
-    <div class="actions">
-      <button onclick="toggleCode('c8')">View Code</button>
-      <button onclick="copyCode('c8', this)">Copy Code</button>
-    </div>
-
-    <pre id="c8" style="display:none;">
-&lt;input type="file"&gt;
-    </pre>
-  </div>
-
-  <!-- RANGE -->
-  <div class="component-card" data-name="range input">
-    <h3>Range Input</h3>
-    <input type="range" min="0" max="100" />
-
-    <div class="actions">
-      <button onclick="toggleCode('c9')">View Code</button>
-      <button onclick="copyCode('c9', this)">Copy Code</button>
-    </div>
-
-    <pre id="c9" style="display:none;">
 &lt;input type="range" min="0" max="100"&gt;
     </pre>
   </div>
 
-  <!-- COLOR -->
-  <div class="component-card" data-name="color input">
-    <h3>Color Input</h3>
-    <input type="color" />
-
-    <div class="actions">
-      <button onclick="toggleCode('c10')">View Code</button>
-      <button onclick="copyCode('c10', this)">Copy Code</button>
+  <!-- ===== BASIC INPUTS ===== -->
+  <div class="inputs-section" data-section="basic">
+    <div class="section-header-row">
+      <h2 class="inputs-section-title">Basic Inputs</h2>
+      <span class="section-count">3 components</span>
     </div>
+    <div class="inputs-grid">
 
-    <pre id="c10" style="display:none;">
-&lt;input type="color"&gt;
+      <div class="component-card" data-name="text input basic" data-sec="basic">
+        <div class="card-top">
+          <span class="card-label">Text Input</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="text" placeholder="Enter text" />
+        </div>
+        <p class="card-desc">The most basic input — accepts any text value.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c1', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c1" class="code-block"><code>&lt;input type="text" placeholder="Enter text"&gt;</code></pre>
+      </div>
+
+
+      <div class="component-card" data-name="email input" data-sec="basic">
+        <div class="card-top">
+          <span class="card-label">Email Input</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="email" placeholder="you@example.com" />
+        </div>
+        <p class="card-desc">Validates email format on submission automatically.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c2', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c2', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c2" class="code-block"><code>&lt;input type="email" placeholder="you@example.com"&gt;</code></pre>
+      </div>
+
+
+  <div class="component-card" data-name="checkbox input">
+    <h3>Checkbox</h3>
+    <div class="input-group">
+      <label>
+        <input type="checkbox"> Accept terms
+      </label>
+    </div>
+    <div class="actions">
+      <button onclick="toggleCode('c8')">View Code</button>
+      <button onclick="copyCode('c8', this)">Copy Code</button>
+      <button onclick="addToCollection('Checkbox Input')">Add to My Collection</button>
+    </div>
+    <pre id="c8" style="display:none;">
+&lt;input type="checkbox"&gt;
     </pre>
   </div>
 
-</div>
-</div>
+  <div class="component-card" data-name="radio input">
+    <h3>Radio Input</h3>
+    <div class="input-group">
+      <label><input type="radio" name="opt"> Option 1</label>
+      <label><input type="radio" name="opt"> Option 2</label>
+    </div>
+    <div class="actions">
+      <button onclick="toggleCode('c9')">View Code</button>
+      <button onclick="copyCode('c9', this)">Copy Code</button>
+      <button onclick="addToCollection('Radio Input')">Add to My Collection</button>
+
+      <div class="component-card" data-name="password input" data-sec="basic">
+        <div class="card-top">
+          <span class="card-label">Password Input</span>
+          <span class="card-tag tag-popular">Popular</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="password" placeholder="••••••••" />
+        </div>
+        <p class="card-desc">Masks characters as the user types for secure entry.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c3', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c3', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c3" class="code-block"><code>&lt;input type="password" placeholder="••••••••"&gt;</code></pre>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== DATE & TIME ===== -->
+  <div class="inputs-section" data-section="datetime">
+    <div class="section-header-row">
+      <h2 class="inputs-section-title">Date &amp; Time</h2>
+      <span class="section-count">2 components</span>
+    </div>
+    <div class="inputs-grid">
+
+      <div class="component-card" data-name="date input datetime" data-sec="datetime">
+        <div class="card-top">
+          <span class="card-label">Date Input</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="date" />
+        </div>
+        <p class="card-desc">Opens a native date picker in supported browsers.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c4', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c4', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c4" class="code-block"><code>&lt;input type="date"&gt;</code></pre>
+      </div>
+
+
+  <div class="component-card" data-name="textarea input">
+    <h3>Textarea</h3>
+    <div class="input-group">
+      <label>Message</label>
+      <textarea rows="4" placeholder="Enter message"></textarea>
+    </div>
+    <div class="actions">
+      <button onclick="toggleCode('c10')">View Code</button>
+      <button onclick="copyCode('c10', this)">Copy Code</button>
+      <button onclick="addToCollection('Textarea Input')">Add to My Collection</button>
+    </div>
+    <pre id="c10" style="display:none;">
+&lt;textarea&gt;&lt;/textarea&gt;
+    </pre>
+  </div>
+
+  <div class="component-card" data-name="select input">
+    <h3>Select Dropdown</h3>
+    <div class="input-group">
+      <label>Select Option</label>
+      <select>
+        <option>Select</option>
+        <option>Option 1</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button onclick="toggleCode('c11')">View Code</button>
+      <button onclick="copyCode('c11', this)">Copy Code</button>
+      <button onclick="addToCollection('Select Dropdown')">Add to My Collection</button>
+
+      <div class="component-card" data-name="time input datetime" data-sec="datetime">
+        <div class="card-top">
+          <span class="card-label">Time Input</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="time" />
+        </div>
+        <p class="card-desc">Opens a native time picker for hour/minute selection.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c5', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c5', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c5" class="code-block"><code>&lt;input type="time"&gt;</code></pre>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- DISABLED INPUT -->
+  <div class="component-card" data-name="disabled input">
+    <h3>Disabled Input</h3>
+    <input type="text" placeholder="Disabled field" disabled />
+
+    <div class="actions">
+      <button onclick="toggleCode('c20')">View Code</button>
+      <button onclick="copyCode('c20', this)">Copy Code</button>
+      <button onclick="addToCollection('Disabled Input')">Add to My Collection</button>
+    </div>
+
+
+  <!-- ===== ADVANCED INPUTS ===== -->
+  <div class="inputs-section" data-section="advanced">
+    <div class="section-header-row">
+      <h2 class="inputs-section-title">Advanced Inputs</h2>
+      <span class="section-count">4 components</span>
+    </div>
+    <div class="inputs-grid">
+
+      <div class="component-card" data-name="file input upload advanced" data-sec="advanced">
+        <div class="card-top">
+          <span class="card-label">File Input</span>
+          <span class="card-tag tag-popular">Popular</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="file" />
+        </div>
+        <p class="card-desc">Lets users browse and select files from their device.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c6', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c6', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c6" class="code-block"><code>&lt;input type="file"&gt;</code></pre>
+      </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c21')">View Code</button>
+      <button onclick="copyCode('c21', this)">Copy Code</button>
+      <button onclick="addToCollection('Readonly Input')">Add to My Collection</button>
+    </div>
+
+      <div class="component-card" data-name="range input slider advanced" data-sec="advanced">
+        <div class="card-top">
+          <span class="card-label">Range / Slider</span>
+          <span class="card-tag tag-trending">Trending</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-range" type="range" min="0" max="100" value="60" />
+        </div>
+        <p class="card-desc">A draggable slider for picking a numeric value within a range.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c7', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c7', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c7" class="code-block"><code>&lt;input type="range" min="0" max="100" value="60"&gt;</code></pre>
+      </div>
+
+
+      <div class="component-card" data-name="number input step advanced" data-sec="advanced">
+        <div class="card-top">
+          <span class="card-label">Number with Step</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="number" placeholder="0.0" step="0.5" />
+        </div>
+        <p class="card-desc">Numeric input with a step attribute — increments by 0.5.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c8', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c8', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c8" class="code-block"><code>&lt;input type="number" placeholder="0.0" step="0.5"&gt;</code></pre>
+      </div>
+
+      <div class="component-card" data-name="color input picker advanced" data-sec="advanced">
+        <div class="card-top">
+          <span class="card-label">Color Picker</span>
+          <span class="card-tag tag-trending">Trending</span>
+        </div>
+        <div class="card-preview">
+          <div class="color-preview-wrap">
+            <input class="demo-color" type="color" value="#eb6835" />
+            <span>Pick a color</span>
+          </div>
+        </div>
+        <p class="card-desc">Opens a native color picker — great for theme customization.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c9', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c9', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c9" class="code-block"><code>&lt;input type="color" value="#eb6835"&gt;</code></pre>
+      </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c22')">View Code</button>
+      <button onclick="copyCode('c22', this)">Copy Code</button>
+      <button onclick="addToCollection('Labeled Input')">Add to My Collection</button>
+
+    </div>
+  </div>
+
+  <!-- ===== SELECTION INPUTS ===== -->
+  <div class="inputs-section" data-section="selection">
+    <div class="section-header-row">
+      <h2 class="inputs-section-title">Selection Inputs</h2>
+      <span class="section-count">4 components</span>
+    </div>
+    <div class="inputs-grid">
+
+      <div class="component-card" data-name="checkbox selection" data-sec="selection">
+        <div class="card-top">
+          <span class="card-label">Checkbox</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <div class="demo-checks">
+            <label class="demo-check-label"><input type="checkbox" checked /> Accept terms &amp; conditions</label>
+            <label class="demo-check-label"><input type="checkbox" /> Subscribe to newsletter</label>
+          </div>
+        </div>
+        <p class="card-desc">Used for multi-select boolean options.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c10', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c10', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c10" class="code-block"><code>&lt;label&gt;&lt;input type="checkbox"&gt; Accept terms&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox"&gt; Subscribe&lt;/label&gt;</code></pre>
+      </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c23')">View Code</button>
+      <button onclick="copyCode('c23', this)">Copy Code</button>
+      <button onclick="addToCollection('Required Input')">Add to My Collection</button>
+    </div>
+      <div class="component-card" data-name="radio selection" data-sec="selection">
+        <div class="card-top">
+          <span class="card-label">Radio Input</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <div class="demo-checks">
+            <label class="demo-check-label"><input type="radio" name="demo-radio" checked /> Option 1</label>
+            <label class="demo-check-label"><input type="radio" name="demo-radio" /> Option 2</label>
+            <label class="demo-check-label"><input type="radio" name="demo-radio" /> Option 3</label>
+          </div>
+        </div>
+        <p class="card-desc">Used for single-choice selection from a group.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c11', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c11', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c11" class="code-block"><code>&lt;label&gt;&lt;input type="radio" name="opt"&gt; Option 1&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="opt"&gt; Option 2&lt;/label&gt;</code></pre>
+      </div>
+
+      <div class="component-card" data-name="textarea selection form" data-sec="selection">
+        <div class="card-top">
+          <span class="card-label">Textarea</span>
+          <span class="card-tag tag-popular">Popular</span>
+        </div>
+        <div class="card-preview">
+          <textarea class="demo-textarea" rows="3" placeholder="Type your message here..."></textarea>
+        </div>
+        <p class="card-desc">Multi-line text input for longer content like messages.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c12', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c12', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c12" class="code-block"><code>&lt;textarea rows="4" placeholder="Enter message"&gt;&lt;/textarea&gt;</code></pre>
+      </div>
+
+      <div class="component-card" data-name="select dropdown selection" data-sec="selection">
+        <div class="card-top">
+          <span class="card-label">Select Dropdown</span>
+          <span class="card-tag tag-popular">Popular</span>
+        </div>
+        <div class="card-preview">
+          <select class="demo-input">
+            <option value="" disabled selected>Select an option</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>Germany</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <p class="card-desc">Dropdown for selecting one option from a list.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c13', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c13', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c13" class="code-block"><code>&lt;select&gt;
+  &lt;option&gt;Select&lt;/option&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+      </div>
+    <div class="actions">
+      <button onclick="toggleCode('c24')">View Code</button>
+      <button onclick="copyCode('c24', this)">Copy Code</button>
+
+    </div>
+  </div>
+
+
+  <!-- INPUT WITH PATTERN -->
+  <div class="component-card" data-name="pattern input">
+    <h3>Input with Pattern</h3>
+    <input type="text" placeholder="Uppercase letters only" pattern="[A-Z]+" />
+
+    <div class="actions">
+      <button onclick="toggleCode('c25')">View Code</button>
+      <button onclick="copyCode('c25', this)">Copy Code</button>
+      <button onclick="addToCollection('Pattern Input')">Add to My Collection</button>
+    </div>
+
+    <pre id="c25" style="display:none;">
+&lt;input type="text" placeholder="Uppercase letters only" pattern="[A-Z]+"&gt;
+    </pre>
+  </div>
+
+  <!-- ===== ATTRIBUTE INPUTS ===== -->
+  <div class="inputs-section" data-section="attributes">
+    <div class="section-header-row">
+      <h2 class="inputs-section-title">Attribute Examples</h2>
+      <span class="section-count">5 components</span>
+    </div>
+    <div class="inputs-grid">
+
+      <div class="component-card" data-name="disabled input attribute" data-sec="attributes">
+        <div class="card-top">
+          <span class="card-label">Disabled</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="text" placeholder="This field is disabled" disabled />
+        </div>
+        <p class="card-desc">A disabled input — cannot be interacted with or submitted.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c14', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c14', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c14" class="code-block"><code>&lt;input type="text" placeholder="Disabled" disabled&gt;</code></pre>
+      </div>
+
+      <div class="component-card" data-name="readonly input attribute" data-sec="attributes">
+        <div class="card-top">
+          <span class="card-label">Readonly</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="text" value="This is readonly" readonly />
+        </div>
+        <p class="card-desc">Readonly — visible and selectable but not editable.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c15', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c15', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c15" class="code-block"><code>&lt;input type="text" value="Readonly value" readonly&gt;</code></pre>
+      </div>
+
+
+    <div class="actions">
+      <button onclick="toggleCode('c26')">View Code</button>
+      <button onclick="copyCode('c26', this)">Copy Code</button>
+      <button onclick="addToCollection('Min/Max Length Input')">Add to My Collection</button>
+    </div>
+
+      <div class="component-card" data-name="required input attribute" data-sec="attributes">
+        <div class="card-top">
+          <span class="card-label">Required</span>
+          <span class="card-tag tag-popular">Popular</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="email" placeholder="Email is required *" required />
+        </div>
+        <p class="card-desc">Blocks form submission if this field is left empty.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c16', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c16', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c16" class="code-block"><code>&lt;input type="email" placeholder="Email" required&gt;</code></pre>
+      </div>
+
+
+      <div class="component-card" data-name="minlength maxlength input attribute" data-sec="attributes">
+        <div class="card-top">
+          <span class="card-label">Min / Max Length</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="text" placeholder="3 to 10 characters" minlength="3" maxlength="10" />
+        </div>
+        <p class="card-desc">Restricts the character count between a min and max value.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c17', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c17', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c17" class="code-block"><code>&lt;input type="text" minlength="3" maxlength="10"&gt;</code></pre>
+      </div>
+
+      <div class="component-card" data-name="pattern input attribute" data-sec="attributes">
+        <div class="card-top">
+          <span class="card-label">Pattern</span>
+          <span class="card-tag tag-essential">Essential</span>
+        </div>
+        <div class="card-preview">
+          <input class="demo-input" type="text" placeholder="Uppercase only (A-Z)" pattern="[A-Z]+" title="Only uppercase letters" />
+        </div>
+        <p class="card-desc">Validates input against a regex pattern on submit.</p>
+        <div class="actions">
+          <button class="action-btn view-btn" onclick="toggleCode('c18', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('c18', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        </div>
+        <pre id="c18" class="code-block"><code>&lt;input type="text" pattern="[A-Z]+" placeholder="Uppercase only"&gt;</code></pre>
+      </div>
+
+
+    <div class="actions">
+      <button onclick="toggleCode('c27')">View Code</button>
+      <button onclick="copyCode('c27', this)">Copy Code</button>
+      <button onclick="addToCollection('Step Input')">Add to My Collection</button>
+
+    </div>
+  </div>
+
+
+  <!-- INPUT WITH AUTOCOMPLETE -->
+  <div class="component-card" data-name="autocomplete input">
+    <h3>Input with Autocomplete</h3>
+    <input type="email" placeholder="Autocomplete enabled" autocomplete="email" />
+
+    <div class="actions">
+      <button onclick="toggleCode('c28')">View Code</button>
+      <button onclick="copyCode('c28', this)">Copy Code</button>
+      <button onclick="addToCollection('Autocomplete Input')">Add to My Collection</button>
+    </div>
+
+</main>
+
+
+<!-- Scroll to Top -->
+<button id="scrollTopBtn" onclick="scrollToTop()">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
-    <!-- Brand -->
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
-        <span>🌐</span>
-        <span>💼</span>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
-
-    <!-- Pages -->
     <div class="footer-col">
-      <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
-      <p>Buttons</p>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
     </div>
-
-    <!-- Legal -->
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
     <div class="footer-col">
       <h3>Legal</h3>
-       <p id="privacy-policy"><a href="privacypolicy.html">Privacy Policy</a></p>
-      <p id="Terms of Service"><a href="terms.html">Terms of Service</a></p>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
     </div>
-
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
+
+
+<div class="playground-backdrop" id="playgroundBackdrop"></div>
 <script src="script.js"></script>
+<script src="playground.js"></script>
+<script>
+window.addToCollectionFromCard = function(button, name) {
+  const card = button.closest('.component-card');
+  const previewBox = card.querySelector('.preview-box');
+  const html = previewBox.innerHTML;
+  
+  console.log("Button clicked:", name);
+  console.log("Preview HTML:", html);
+  
+  addToCollection(name, html);
+};
+
+window.addToCollection = function(name, html) {
+  let items = JSON.parse(localStorage.getItem("collection")) || [];
+
+  let newItem = {
+    title: name.trim(),
+    content: html,
+    id: Date.now()
+  };
+
+  console.log("Adding item:", newItem);
+
+  if (!items.some(item => item.title === newItem.title)) {
+    items.push(newItem);
+    localStorage.setItem("collection", JSON.stringify(items));
+    showToast(name + " added to collection ✓");
+    console.log("Total items saved:", items.length);
+  } else {
+    showToast("Already in collection");
+  }
+};
+
+window.goToCollection = function() {
+  window.location.href = "MyCollection.html";
+};
+
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.innerText = message;
+
+  toast.style.position = "fixed";
+  toast.style.bottom = "20px";
+  toast.style.right = "20px";
+  toast.style.background = "#111";
+  toast.style.color = "#fff";
+  toast.style.padding = "10px 14px";
+  toast.style.borderRadius = "8px";
+  toast.style.fontSize = "14px";
+  toast.style.zIndex = "9999";
+  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 1500);
+}
+
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function copyCode(id,btn){
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  btn.innerText = "Copied!";
+  setTimeout(()=>btn.innerText="Copy",1000);
+}
+</script>
+<style>
+  button{
+  background:  #a29bfe;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  }
+
+</style>
+
+<script>
+  /* Dark Mode */
+  const toggle = document.getElementById('darkModeToggle');
+  const icon = toggle.querySelector('i');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.className = 'fa-solid fa-sun';
+  }
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  /* Scroll Top */
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 400);
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* Code Toggle */
+  function toggleCode(id, btn) {
+    const block = document.getElementById(id);
+    const isOpen = block.classList.toggle('open');
+    btn.innerHTML = isOpen
+      ? '<i class="fa-solid fa-eye-slash"></i> Hide Code'
+      : '<i class="fa-solid fa-code"></i> View Code';
+  }
+
+  /* Copy */
+  function copyCode(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  /* Filter by section */
+  function filterSection(sec, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.inputs-section').forEach(s => {
+      s.style.display = (sec === 'all' || s.dataset.section === sec) ? '' : 'none';
+    });
+  }
+
+  /* Live search */
+  function liveFilter(val) {
+    const q = val.toLowerCase();
+    document.querySelectorAll('.component-card').forEach(card => {
+      const match = card.dataset.name.toLowerCase().includes(q) ||
+                    (card.querySelector('.card-label')?.textContent.toLowerCase().includes(q));
+      card.closest('.inputs-section') && (card.style.display = match ? '' : 'none');
+    });
+    // show all sections when searching
+    document.querySelectorAll('.inputs-section').forEach(s => s.style.display = '');
+  }
+
+  /* Scroll animations */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>

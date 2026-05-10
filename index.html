@@ -1,181 +1,1106 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/Public/favicon.ico" />
-  <title>UIverse</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>UIverse — Modern UI Component Library</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="home.css">
+</button>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="layout.css" />
+
 </head>
+
 <body>
 
-  <nav class="navbar">
-  <!-- Logo -->
-  <div class="logo">Ulverse</div>
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
 
-  <!-- Center Search Bar -->
-  <div class="search-bar">
-    <span class="nav-link active">Explore</span>
-    <input type="text" id="searchInput" placeholder="Search Components" onkeydown="handleSearch(event)" />
-    <button class="search-btn">🔍</button>
-  </div>
-
-  <!-- Right Section -->
-  <div class="nav-right">
-    <button class="nav-btn">Add Component</button>
-    <button class="nav-btn">My Collection</button>
-    <a href="#"></a>
-    <a href="#"></a>
-  </div>
-</nav>
-
-
- 
-
-  <!-- Sidebar -->
-   <div>
-  <aside class="sidebar">
-    <h2>UIverse</h2>
-
-    <!-- 🌙 DARK MODE TOGGLE (ADDED) -->
-    <button id="theme-toggle" style="margin:10px 0; padding:8px; cursor:pointer;">
-      🌙 Dark Mode
-    </button>
-
-    <ul>
-      <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="inputs.html">Inputs</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-    </ul>
-  </aside>
-  <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
-
-  <!-- Main -->
-   <div class="content">
-  <main class="main home">
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-       <input type="text" placeholder="Search components..." />
+    <div class="sidebar-brand">
+      <span class="brand-icon">⬡</span>
+      <span class="brand-text">UIverse</span>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-left">
-        <h1>Welcome to UIverse 🚀</h1>
-        <p>A collection of reusable UI components for developers.</p>
-      </div>
-      <!-- <h1>Welcome to UIverse 🚀</h1> -->
-      <!-- <p>A collection of reusable UI components for developers.</p> -->
-      <div class="check">
-        <button type="submit" class="btn" onclick="openPopup()">SUBMIT</button>
-        <div class="popup" id="popup">
-          <img src="checkmark.png">
-          <h2>Thank you!</h2>
-          <p>Yours details has been successfully submitted.Thanks!</p>
-          <button type="button" class="btn1" onclick="closePopup()">OK</button>
-        </div>
-      </div>
+    <nav class="sidebar-nav">
 
-      <div class="hero-right">
-        <a href="button.html" class="explore-btn">
-        Explore Components →
+      <ul>
+
+        <li class="active">
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="button.html">
+            <i class="fa-solid fa-mobile-button"></i>
+            <span>Buttons</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="navbar.html">
+            <i class="fa-solid fa-bars"></i>
+            <span>Navbars</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="cards.html">
+            <i class="fa-solid fa-table-cells-large"></i>
+            <span>Cards</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="inputs.html">
+            <i class="fa-solid fa-keyboard"></i>
+            <span>Inputs</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="forms.html">
+            <i class="fa-brands fa-wpforms"></i>
+            <span>Forms</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="badges.html">
+            <i class="fa-solid fa-award"></i>
+            <span>Badges</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="loaders.html">
+            <i class="fa-solid fa-spinner"></i>
+            <span>Loaders</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="pricing.html">
+            <i class="fa-solid fa-money-bill"></i>
+            <span>Pricing</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="alerts.html">
+            <i class="fa-solid fa-bell"></i>
+            <span>Alerts</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="footer.html">
+            <i class="fa-solid fa-table"></i>
+            <span>Footers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="article.html">
+            <i class="fa-solid fa-newspaper"></i>
+            <span>Articles</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Contact</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <a href="#">
+        <i class="fab fa-github"></i>
       </a>
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a href="profile.html"><i class="fa-regular fa-circle-user"></i><p>Profile</p></a></li>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i><p>Home</p></a></li>
+      <li><a href="button.html"><i class="fa-solid fa-mobile-button"></i><p>Butttons</p></a></li>
+      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><p>Navbar</p></a></li>
+      <li><a href="contact.html"><i class="fa-regular fa-user"></i><p>Contact Us</p></a></li>
+      <li><a href="forms.html"><i class="fa-brands fa-wpforms"></i><p>Forms</p></a></li>
+      <li><a href="badges.html"><i class="fa-solid fa-award"></i><p>Badges</p></a></li>
+      <li><a href="menu.html"><i class="fa-solid fa-bars-staggered"></i><p>Menus</p></a></li>
+      <li><a href="map.html"><i class="fa-solid fa-map-location-dot"></i><p>Map</p></a></li>
+      <li><a href="About.html"><i class="fa-solid fa-mobile-button"></i><p>About</p></a></li>
+      <li class="active">
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-user"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+      <li>
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Badges</span>
+        </a>
+      </li>
+
+      <li>
+  <a href="map.html">
+    <i class="fa-solid fa-map-location-dot"></i> Map
+  </a>
+</li>
+
+<li>
+  <a href="menu.html">
+    <i class="fa-solid fa-bars-staggered"></i> Menus
+  </a>
+</li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Loaders</span>
+        </a>
+        <li>
+        <a href="about.html">
+          <i class="fa-solid fa-award"></i>
+          <span>About us</span>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</aside>
+
+      <a href="#">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+
+    </div>
+
+  </aside>
+
+  <!-- ================= BACKDROP ================= -->
+  <div
+    class="sidebar-backdrop"
+    id="sidebarBackdrop"
+    onclick="toggleSidebar()"
+  ></div>
+
+  <!-- ================= MAIN WRAPPER ================= -->
+  <div class="layout">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+
+      <button
+        class="menu-toggle"
+        onclick="toggleSidebar()"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="logo">
+        UIverse
       </div>
-    </section>
 
+      <div class="search-bar">
 
-    <!-- featured -->
+        <i
+          class="fa-solid fa-magnifying-glass search-icon"
+        ></i>
 
-    <section class="featured">
-  <h2>⭐Popular Components</h2>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search components..."
+          onkeydown="handleSearch(event)"
+        />
 
-  <div class="featured-cards">
-    <div class="feature-card">
-      <h3>Gradient Button</h3>
-      <p>Modern colorful button design.</p>
-    </div>
+        <kbd>⌘K</kbd>
 
-    <div class="feature-card">
-      <h3>Glass Navbar</h3>
-      <p>Transparent blurred navigation bar.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>Card UI</h3>
-      <p>Clean and reusable card layout.</p>
-    </div>
-  </div>
-</section>
-
-
-
-  <h1>Build UI Faster <i class="fas fa-rocket"></i></h1>
-  <p>Clean, reusable components for developers.</p>
-
-  <div class="hero-actions">
-    <a href="button.html" class="explore-btn">Explore Components</a>
-    <a href="form.html" class="secondary-btn">Start Learning</a>
-  </div>
-</section>
-
- 
-    <!-- Features -->
-    <section class="features">
-
-  <div class="feature-card component-card" data-name="components reusable ui">
-    <h3><i class="fas fa-layer-group"></i> Reusable Components</h3>
-    <p>Use ready-made UI components in your projects instantly.</p>
-  </div>
-
-  <div class="feature-card component-card" data-name="beginner learning">
-    <h3><i class="fas fa-seedling"></i> Beginner Friendly</h3>
-    <p>Perfect for learning and contributing to open source.</p>
-  </div>
-
-  <div class="feature-card component-card" data-name="fast simple html css js">
-    <h3><i class="fas fa-bolt"></i> Fast & Simple</h3>
-    <p>No frameworks, just clean HTML, CSS, and JS.</p>
-  </div>
-
-</section>
-
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="socials">
-        <span>🌐</span>
-        <span>💼</span>
       </div>
-    </div>
 
-    <div class="footer-col">
-      <h3>Pages</h3>
-      <p>Navbars</p>
-      <p>Forms</p>
-      <p>Buttons</p>
-    </div>
+      <div class="nav-right">
 
-    <div class="footer-col">
-      <h3>Legal</h3>
-      <p id="privacy-policy"><a href="privacypolicy.html">Privacy Policy</a></p>
-      <p id="Terms of Service"><a href="terms.html">Terms of Service</a></p>
-    </div>
+        <button class="nav-btn outline-btn">
+          <i class="fa-solid fa-plus"></i>
+          Add Component
+        </button>
+
+         <a href="contributorss.html"> 
+       <button  class="nav-btn primary-nav-btn">
+      Contributors
+    </button>
+      
+  </a>
+
+        <button
+          class="theme-toggle"
+          id="darkModeToggle"
+        >
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-home">
+
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+
+        <div class="hero-badge">
+          🚀 Version 2.0 — 120+ Components
+        </div>
+
+        <h1 class="hero-title">
+          Build
+          <span>beautiful UIs</span>
+          faster than ever.
+        </h1>
+
+        <p class="hero-desc">
+          A modern collection of reusable UI components
+          built using pure HTML, CSS & JavaScript.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="button.html"
+            class="btn-primary"
+          >
+            Explore Components
+          </a>
+
+          <a
+            href="forms.html"
+            class="btn-secondary"
+          >
+            Start Learning
+          </a>
+
+        </div>
+
+        <!-- GRID SYSTEM -->
+        <div class="hero-grid">
+
+          <div class="hero-card">
+            <h3>120+</h3>
+            <p>Components</p>
+          </div>
+
+          <div class="hero-card">
+            <h3>8</h3>
+            <p>Categories</p>
+          </div>
+
+          <div class="hero-card">
+            <h3>100%</h3>
+            <p>Open Source</p>
+          </div>
+
+          <div class="hero-card">
+            <h3>24/7</h3>
+            <p>Community Support</p>
+          </div>
+
+        </div>
+
+        <!-- Decorative Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+      </section>
+
+      <!-- ================= FEATURED ================= -->
+      <section class="section">
+
+        <div class="section-header">
+
+          <span class="section-tag">
+            Most Popular
+          </span>
+
+          <h2 class="section-title">
+            ⭐ Featured Components
+          </h2>
+
+          <p class="section-subtitle">
+            Handpicked UI blocks developers love.
+          </p>
+
+        </div>
+
+        <!-- GRID LAYOUT -->
+        <div class="grid-layout">
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🎯
+            </div>
+
+            <h3>Gradient Buttons</h3>
+
+            <p>
+              Beautiful gradient buttons with hover effects.
+            </p>
+
+            <div class="card-tags">
+              <span>Popular</span>
+              <span>Trending</span>
+            </div>
+
+            <a href="button.html">
+              View Component
+            </a>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🎨
+            </div>
+
+            <h3>Glass Navbar</h3>
+
+            <p>
+              Transparent navbar with blur glass effect.
+            </p>
+
+            <div class="card-tags">
+              <span>Modern</span>
+            </div>
+
+            <a href="navbar.html">
+              View Component
+            </a>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              📦
+            </div>
+
+            <h3>Card Layouts</h3>
+
+            <p>
+              Reusable card systems for any project.
+            </p>
+
+            <div class="card-tags">
+              <span>Responsive</span>
+            </div>
+
+            <a href="cards.html">
+              View Component
+            </a>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              ⚡
+            </div>
+
+            <h3>Loaders</h3>
+
+            <p>
+              Smooth loading animations and spinners.
+            </p>
+
+            <div class="card-tags">
+              <span>New</span>
+            </div>
+
+            <a href="loaders.html">
+              View Component
+            </a>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              💰
+            </div>
+
+            <h3>Pricing Cards</h3>
+
+            <p>
+              Clean SaaS pricing layouts and sections.
+            </p>
+
+            <div class="card-tags">
+              <span>Business</span>
+            </div>
+
+            <a href="pricing.html">
+              View Component
+            </a>
+
+          </div>
+
+          <!-- CARD -->
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🔔
+            </div>
+
+            <h3>Alerts</h3>
+
+            <p>
+              Responsive alerts and notification boxes.
+            </p>
+
+            <div class="card-tags">
+              <span>Essential</span>
+            </div>
+
+            <a href="alerts.html">
+              View Component
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= CATEGORIES ================= -->
+      <section class="section">
+
+        <div class="section-header">
+
+          <span class="section-tag">
+            Browse
+          </span>
+        <a href="cards.html" class="feature-link">View <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+          <h2 class="section-title">
+            📦 Explore Categories
+          </h2>
+
+        </div>
+
+        <!-- GRID SYSTEM -->
+        <div class="categories-grid">
+
+          <a
+            href="button.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">🔘</div>
+            <h3>Buttons</h3>
+            <p>Interactive button styles</p>
+            <span>24 Components</span>
+          </a>
+
+          <a
+            href="navbar.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">☰</div>
+            <h3>Navbars</h3>
+            <p>Navigation components</p>
+            <span>12 Components</span>
+          </a>
+
+          <a
+            href="cards.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">🃏</div>
+            <h3>Cards</h3>
+            <p>Reusable card designs</p>
+            <span>18 Components</span>
+          </a>
+
+          <a
+            href="inputs.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">⌨️</div>
+            <h3>Inputs</h3>
+            <p>Modern input elements</p>
+            <span>20 Components</span>
+          </a>
+
+          <a
+            href="forms.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">📋</div>
+            <h3>Forms</h3>
+            <p>Complete form layouts</p>
+            <span>10 Components</span>
+          </a>
+
+          <a
+            href="badges.html"
+            class="cat-card"
+          >
+            <div class="cat-icon">🏅</div>
+            <h3>Badges</h3>
+            <p>Labels and tags</p>
+            <span>15 Components</span>
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- ================= GRID SYSTEM SECTION ================= -->
+      <section class="section">
+
+        <div class="section-header">
+
+          <span class="section-tag">
+            Layout
+          </span>
+
+          <h2 class="section-title">
+            🧱 CSS Grid System
+          </h2>
+
+          <p class="section-subtitle">
+            Fully responsive modern layout structure.
+          </p>
+
+        </div>
+
+        <!-- GRID FIX -->
+        <div class="layout-grid">
+
+          <div class="layout-box large">
+            Large Grid Area
+          </div>
+
+          <div class="layout-box">
+            Box 1
+          </div>
+
+          <div class="layout-box">
+            Box 2
+          </div>
+
+          <div class="layout-box">
+            Box 3
+          </div>
+
+          <div class="layout-box">
+            Box 4
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= WHY SECTION ================= -->
+      <section class="section">
+
+        <div class="section-header">
+
+          <span class="section-tag">
+            Benefits
+          </span>
+
+          <h2 class="section-title">
+            ✨ Why UIverse?
+          </h2>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="why-grid">
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              ⚡
+            </div>
+
+            <h3>Fast & Lightweight</h3>
+
+            <p>
+              Pure HTML CSS JavaScript with zero dependencies.
+            </p>
+
+          </div>
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              📱
+            </div>
+
+            <h3>Responsive</h3>
+
+            <p>
+              Every component works perfectly on all devices.
+            </p>
+
+          </div>
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              🎯
+            </div>
+
+            <h3>Easy to Use</h3>
+
+            <p>
+              Beginner friendly clean reusable code.
+            </p>
+
+          </div>
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              🔄
+            </div>
+
+            <h3>Regular Updates</h3>
+
+            <p>
+              New components added frequently.
+            </p>
+
+          </div>
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              🤝
+            </div>
+
+            <h3>Open Source</h3>
+
+            <p>
+              Completely free for personal and commercial use.
+            </p>
+
+          </div>
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              🎨
+            </div>
+
+            <h3>Customizable</h3>
+
+            <p>
+              Easily adapt colors, spacing and layouts.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= TESTIMONIALS ================= -->
+      <section class="section">
+
+        <div class="section-header">
+
+          <span class="section-tag">
+            Community
+          </span>
+
+          <h2 class="section-title">
+            💬 Developer Reviews
+          </h2>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="testimonial-grid">
+
+          <div class="testimonial-card">
+
+            <div class="stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              “UIverse helped me build landing pages faster than ever.”
+            </p>
+
+            <h4>— Alex</h4>
+
+          </div>
+
+          <div class="testimonial-card">
+
+            <div class="stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              “Clean code structure and beautiful modern design.”
+            </p>
+
+            <h4>— Sarah</h4>
+
+          </div>
+
+          <div class="testimonial-card">
+
+            <div class="stars">
+              ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+              “Best free HTML CSS UI component library.”
+            </p>
+
+            <h4>— John</h4>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <section class="cta-banner">
+
+        <div class="cta-content">
+
+          <h2>
+            Ready to build something amazing?
+          </h2>
+
+          <p>
+            Start creating modern websites using reusable UI components.
+          </p>
+
+          <a
+            href="button.html"
+            class="btn-primary"
+          >
+            Get Started
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <h2 class="footer-logo">
+            ⬡ UIverse
+          </h2>
+
+          <p>
+            Build modern reusable UI components using pure HTML CSS JavaScript.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3>Explore</h3>
+
+          <ul>
+
+            <li>
+              <a href="button.html">
+                Buttons
+              </a>
+            </li>
+
+            <li>
+              <a href="navbar.html">
+                Navbars
+              </a>
+            </li>
+
+            <li>
+              <a href="cards.html">
+                Cards
+              </a>
+            </li>
+
+            <li>
+              <a href="forms.html">
+                Forms
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Resources</h3>
+
+          <ul>
+
+            <li>
+              <a href="#">
+                Documentation
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Community
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                GitHub
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Legal</h3>
+
+          <ul>
+
+            <li>
+              <a href="privacypolicy.html">
+                Privacy Policy
+              </a>
+            </li>
+
+            <li>
+              <a href="terms.html">
+                Terms
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 UIverse — Made with ❤️
+      </div>
+
+    </footer>
 
   </div>
-</footer>
-<script src="script.js"></script>
+  <!-- ===== WHY UIVERSE ===== -->
+  <section class="section why-section">
+    <div class="section-header">
+      <span class="section-tag">Why choose us</span>
+      <h2 class="section-title">✨ Why UIverse?</h2>
+    </div>
+
+  <!-- ================= SCROLL TOP ================= -->
+  <button
+    id="scrollTopBtn"
+    onclick="scrollToTop()"
+  >
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+
+    // ================= SIDEBAR =================
+    function toggleSidebar() {
+
+      document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+      document
+        .getElementById("sidebarBackdrop")
+        .classList.toggle("show");
+    }
+
+    // ================= SEARCH =================
+    function handleSearch(e) {
+
+      if (e.key === "Enter") {
+
+        const value =
+          document.getElementById("searchInput").value;
+
+        alert("Searching for: " + value);
+      }
+    }
+
+    // ================= DARK MODE =================
+    const darkToggle =
+      document.getElementById("darkModeToggle");
+
+    darkToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark-mode");
+
+      const icon =
+        darkToggle.querySelector("i");
+
+      if (
+        document.body.classList.contains("dark-mode")
+      ) {
+
+        icon.className = "fa-solid fa-sun";
+
+      } else {
+
+        icon.className = "fa-solid fa-moon";
+
+      }
+    });
+
+    // ================= SCROLL TOP =================
+    function scrollToTop() {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    // ================= SHOW BUTTON =================
+    window.addEventListener("scroll", () => {
+
+      const btn =
+        document.getElementById("scrollTopBtn");
+
+      if (window.scrollY > 400) {
+
+        btn.classList.add("show");
+
+      } else {
+
+        btn.classList.remove("show");
+      }
+    });
+
+  </script>
+
+  function subscribe() {
+    const input = document.querySelector('.newsletter-form input');
+    if (input.value) {
+      showToastSafe('Thanks for subscribing with ' + input.value);
+      input.value = '';
+    }
+  }
+</script>
 </body>
 </html>
