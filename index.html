@@ -75,15 +75,15 @@
         </a>
       </li>
       <li>
-        <a href="loaders.html">
-          <i class="fa-solid fa-spinner"></i>
-          <span>Loaders</span>
+        <a href="menu.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Menu</span>
         </a>
       </li>
       <li>
-        <a href="about.html">
-          <i class="fa-solid fa-circle-info"></i>
-          <span>About Us</span>
+        <a href="pricing.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Pricing</span>
         </a>
       </li>
     </ul>
@@ -117,9 +117,12 @@
     <button class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
     </button>
+    <a href="contributorss.html" >
     <button class="nav-btn primary-nav-btn">
-      <i class="fa-solid fa-bookmark"></i> My Collection
+       Contribution
     </button>
+    </a>
+    
     <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
       <i class="fa-solid fa-moon"></i>
     </button>
@@ -440,10 +443,31 @@
 
 <script src="script.js"></script>
 <script>
-  // Sidebar backdrop close handler
-  const sidebarBackdrop = document.getElementById('sidebarBackdrop');
-  if (sidebarBackdrop) {
-    sidebarBackdrop.addEventListener('click', toggleSidebar);
+  // Dark mode toggle
+  const toggle = document.getElementById('darkModeToggle');
+  const icon = toggle.querySelector('i');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.className = 'fa-solid fa-sun';
+  }
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Sidebar toggle
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    sidebar.classList.toggle('open');
+    backdrop.classList.toggle('visible');
+  }
+
+  // Scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Newsletter subscribe handler
@@ -456,6 +480,25 @@
         input.value = '';
       }
     });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .cat-card, .why-card').forEach(el => {
+    observer.observe(el);
+  });
+
+  function handleSearch(e) {
+    if (e.key === 'Enter') {
+      const q = document.getElementById('searchInput').value.trim();
+      if (q) alert('Searching for: ' + q);
+    }
+  }
+
+  function subscribe() {
+    const input = document.querySelector('.newsletter-form input');
+    if (input.value) {
+      alert('Thanks for subscribing with ' + input.value);
+      input.value = '';
+    }
   }
 </script>
 </body>

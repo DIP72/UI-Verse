@@ -190,9 +190,7 @@
     <button class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
     </button>
-    <button class="nav-btn primary-nav-btn">
-      <i class="fa-solid fa-bookmark"></i> My Collection
-    </button>
+    <button onclick="location.href='MyCollection.html'">My Collection</button>
     <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
       <i class="fa-solid fa-moon"></i>
     </button>
@@ -259,6 +257,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c1', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Gradient Button')">Add to My Collection</button>
       </div>
       <pre id="c1" class="code-block"><code>&lt;button class="gradient-btn"&gt;Click Me&lt;/button&gt;
 
@@ -319,6 +318,8 @@
         <button class="action-btn copy-btn" onclick="copyCode('c2', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Outline Button')">Add to My Collection</button>
+  
       </div>
       <pre id="c2" class="code-block"><code>&lt;button class="outline-btn"&gt;Click Me&lt;/button&gt;
 
@@ -366,6 +367,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c3', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Neon Button')">Add to My Collection</button>
       </div>
       <pre id="c3" class="code-block"><code>&lt;button class="neon-btn"&gt;Glow&lt;/button&gt;
 
@@ -413,6 +415,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c4', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Glass Button')">Add to My Collection</button>
       </div>
       <pre id="c4" class="code-block"><code>&lt;button class="glass-btn"&gt;Glass&lt;/button&gt;
 
@@ -461,6 +464,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c5', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Shadow Button')">Add to My Collection</button>
       </div>
       <pre id="c5" class="code-block"><code>&lt;button class="shadow-btn"&gt;Lift&lt;/button&gt;
 
@@ -495,6 +499,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c6', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Pill Button')">Add to My Collection</button>
       </div>
       <pre id="c6" class="code-block"><code>&lt;button class="rounded-btn"&gt;Rounded&lt;/button&gt;
 
@@ -528,6 +533,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c7', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Icon Button')">Add to My Collection</button>
       </div>
       <pre id="c7" class="code-block"><code>&lt;button class="icon-btn"&gt;★&lt;/button&gt;
 
@@ -565,6 +571,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c8', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Success Button')">Add to My Collection</button>
       </div>
       <pre id="c8" class="code-block"><code>&lt;button class="success-btn"&gt;✓ Success&lt;/button&gt;
 
@@ -598,6 +605,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c9', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Danger Button')">Add to My Collection</button>
       </div>
       <pre id="c9" class="code-block"><code>&lt;button class="danger-btn"&gt;⚠ Danger&lt;/button&gt;
 
@@ -631,6 +639,7 @@
         <button class="action-btn copy-btn" onclick="copyCode('c10', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Warning Button')">Add to My Collection</button>
       </div>
       <pre id="c10" class="code-block"><code>&lt;button class="warning-btn"&gt;⚠ Warning&lt;/button&gt;
 
@@ -666,10 +675,55 @@
         <button class="action-btn copy-btn" onclick="copyCode('c11', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
+        <button onclick="addToCollection('Loading Button')">Add to My Collection</button>
       </div>
       <pre id="c11" class="code-block"><code>&lt;button class="loading-btn" disabled&gt;
   &lt;span class="spinner"&gt;&lt;/span&gt; Loading...
 &lt;/button&gt;
+
+
+.loading-btn {
+  padding: 10px 24px;
+  background: #aaa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }</code></pre>
+    </div>
+
+    <!-- Ghost -->
+    <div class="component-card" data-name="ghost button transparent" data-cat="style">
+      <div class="card-top">
+        <span class="card-label">Ghost</span>
+        <span class="card-tag tag-essential">Essential</span>
+      </div>
+      <div class="card-preview">
+        <button class="ghost-btn">Ghost</button>
+      </div>
+      <p class="card-desc">A subtle ghost button with no fill — ideal for tertiary actions.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c12', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c12', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+        <button onclick="addToCollection('Ghost Button')">Add to My Collection</button>
+      </div>
+      <pre id="c12" class="code-block"><code>&lt;button class="ghost-btn"&gt;Ghost&lt;/button&gt;
 
       <!-- Shadow -->
       <div class="feature-card">
@@ -677,17 +731,78 @@
         <h3>Shadow Button</h3>
         <button class="shadow-btn">Lift</button>
 
+
         <div class="actions">
           <button onclick="toggleCode('c5')">View Code</button>
           <button onclick="copyCode('c5',this)">Copy</button>
         </div>
 
+
+    <!-- Animated Pulse -->
+    <div class="component-card" data-name="animated button pulse" data-cat="effect">
+      <div class="card-top">
+        <span class="card-label">Pulse</span>
+        <span class="card-tag tag-trending">Trending</span>
+      </div>
+      <div class="card-preview">
+        <button class="animated-btn">Pulse</button>
+      </div>
+      <p class="card-desc">A pulsing animated button that grabs attention — great for CTAs.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c13', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c13', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+        <button onclick="addToCollection('Pulse Button')">Add to My Collection</button>
+
         <pre id="c5" class="code-block">
 &lt;button class="shadow-btn"&gt;Lift&lt;/button&gt;
         </pre>
+
       </div>
 
+
+.animated-btn {
+  padding: 10px 24px;
+  background: #eb6835;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(235,104,53,0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(235,104,53,0); }
+}</code></pre>
+    </div>
+
+    <!-- 3D -->
+    <div class="component-card" data-name="3d button depth" data-cat="effect">
+      <div class="card-top">
+        <span class="card-label">3D</span>
+        <span class="card-tag tag-trending">Trending</span>
+      </div>
+      <div class="card-preview">
+        <button class="btn-3d">3D Effect</button>
+      </div>
+      <p class="card-desc">A tactile 3D push-down button with a solid shadow base.</p>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('c14', this)">
+          <i class="fa-solid fa-code"></i> View Code
+        </button>
+        <button class="action-btn copy-btn" onclick="copyCode('c14', this)">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+        <button onclick="addToCollection('3D Button')">Add to My Collection</button>
+      </div>
+      <pre id="c14" class="code-block"><code>&lt;button class="btn-3d"&gt;3D Effect&lt;/button&gt;
+
     </section>
+
 
   </main>
 </div>
@@ -828,5 +943,85 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
 </script>
+
+<script src="playground.js"></script>
+<script>
+window.addToCollectionFromCard = function(button, name) {
+  const card = button.closest('.component-card');
+  const previewBox = card.querySelector('.preview-box');
+  const html = previewBox.innerHTML;
+  
+  console.log("Button clicked:", name);
+  console.log("Preview HTML:", html);
+  
+  addToCollection(name, html);
+};
+
+window.addToCollection = function(name, html) {
+  let items = JSON.parse(localStorage.getItem("collection")) || [];
+
+  let newItem = {
+    title: name.trim(),
+    content: html,
+    id: Date.now()
+  };
+
+  console.log("Adding item:", newItem);
+
+  if (!items.some(item => item.title === newItem.title)) {
+    items.push(newItem);
+    localStorage.setItem("collection", JSON.stringify(items));
+    showToast(name + " added to collection ✓");
+    console.log("Total items saved:", items.length);
+  } else {
+    showToast("Already in collection");
+  }
+};
+
+window.goToCollection = function() {
+  window.location.href = "MyCollection.html";
+};
+
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.innerText = message;
+
+  toast.style.position = "fixed";
+  toast.style.bottom = "20px";
+  toast.style.right = "20px";
+  toast.style.background = "#111";
+  toast.style.color = "#fff";
+  toast.style.padding = "10px 14px";
+  toast.style.borderRadius = "8px";
+  toast.style.fontSize = "14px";
+  toast.style.zIndex = "9999";
+  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 1500);
+}
+
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function copyCode(id,btn){
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  btn.innerText = "Copied!";
+  setTimeout(()=>btn.innerText="Copy",1000);
+}
+</script>
+<style>
+  button{
+  background:  #a29bfe;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  }
+
+
 </body>
 </html>
