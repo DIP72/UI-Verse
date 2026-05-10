@@ -1123,3 +1123,102 @@ body.dark-mode .feature-card:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ================= TABLE WRAPPER ================= */
+
+.table-wrapper{
+  margin-top:20px;
+  overflow-x:auto;
+}
+
+/* ================= TABLE ================= */
+
+.ui-table{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,0.03);
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.ui-table th,
+.ui-table td{
+  padding:16px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.ui-table th{
+  color:#cbd5e1;
+  font-weight:600;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.status.active{ background:#14532d; color:#86efac; }
+.status.pending{ background:#3b2f0b; color:#fde68a; }
+.status.inactive{ background:#3f1d1d; color:#fca5a5; }
+
+/* ================= ADVANCED TABLE ================= */
+
+.user-cell{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+}
+
+/* ROLES */
+
+.role{
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+.role.admin{ background:#312e81; color:#c7d2fe; }
+.role.user{ background:#1e3a8a; color:#bfdbfe; }
+.role.editor{ background:#064e3b; color:#a7f3d0; }
+
+/* BUTTONS */
+
+.table-btn{
+  padding:6px 10px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:12px;
+  margin-right:6px;
+}
+
+.table-btn.edit{ background:#6366f1; color:white; }
+.table-btn.delete{ background:#ef4444; color:white; }
+
+/* ================= DARK MODE ALIGNMENT ================= */
+
+.dark-mode .ui-table{
+  background:rgba(17,24,39,0.6);
+}
+
+.dark-mode .ui-table th,
+.dark-mode .ui-table td{
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}

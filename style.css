@@ -4862,7 +4862,8 @@ body {
 .fa-rocket {color:rgb(190, 37, 63);}
 
 .sidebar {
-  width: 200px;   /* reduce from ~260–300px */
+  width: 200px;
+   }   /* reduce from ~260–300px */
 .fa-rocket {color:rgb(190, 37, 63);}
 .fa-rocket {color:rgb(190, 37, 63)}
 
@@ -5339,6 +5340,7 @@ body {
   color: var(--text);
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+}
 /* profile.html */
 .profile-container {
   margin-left: 240px;
@@ -5405,6 +5407,7 @@ body {
 
 .btnn:hover {
   opacity: 0.7;
+}
 .feature-actions {
   display: flex;
   gap: 10px;
@@ -5489,6 +5492,298 @@ body {
   background: rgba(77, 171, 247, 0.1);
 }
 
+/* MAIN DARK BACKGROUND */
+body.dark-mode {
+  background: #0f1117;
+  color: #f5f5f5;
+}
+
+/* ================= NAVBAR ================= */
+
+body.dark-mode .navbar {
+  background: #151922;
+  border-bottom: 1px solid #2a2f3a;
+}
+
+body.dark-mode .logo,
+body.dark-mode .nav-btn,
+body.dark-mode .search-icon,
+body.dark-mode .search-kbd {
+  color: #ffffff;
+}
+
+body.dark-mode .search-bar input {
+  background: #1c212b;
+  border: 1px solid #313846;
+  color: #ffffff;
+}
+
+body.dark-mode .search-bar input::placeholder {
+  color: #8f96a3;
+}
+
+/* ================= SIDEBAR ================= */
+
+body.dark-mode .sidebar {
+  background: #151922;
+  border-right: 1px solid #2a2f3a;
+}
+
+body.dark-mode .sidebar-nav ul li a {
+  color: #d6d9df;
+}
+
+body.dark-mode .sidebar-nav ul li.active a {
+  background: #232933;
+  color: #ffffff;
+}
+
+body.dark-mode .sidebar-nav ul li a:hover {
+  background: #20252f;
+}
+
+/* ================= HERO ================= */
+
+body.dark-mode .hero {
+  background: linear-gradient(
+    180deg,
+    #10141c 0%,
+    #151922 100%
+  );
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .hero h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .hero-desc,
+body.dark-mode .hero p {
+  color: #b5bcc9;
+}
+
+body.dark-mode .hero-badge {
+  background: #20252f;
+  color: #ffffff;
+  border: 1px solid #2d3442;
+}
+
+/* ================= FEATURE CARDS ================= */
+
+body.dark-mode .feature-card {
+  background: #1a1f28 !important;
+  border: 1px solid #2d3442;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+
+body.dark-mode .feature-card:hover {
+  background: #222834 !important;
+  border-color: #3a4354;
+}
+
+body.dark-mode .feature-card h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .feature-card p {
+  color: #b8bfcc;
+}
+
+body.dark-mode .feature-link {
+  color: #ffffff;
+}
+
+/* ================= CATEGORY CARDS ================= */
+
+body.dark-mode .cat-card {
+  background: #1a1f28 !important;
+  border: 1px solid #2d3442;
+  color: #ffffff;
+}
+
+body.dark-mode .cat-card:hover {
+  background: #222834 !important;
+}
+
+body.dark-mode .cat-card h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .cat-card p,
+body.dark-mode .cat-count {
+  color: #b8bfcc;
+}
+
+/* ================= COMPONENT CARDS ================= */
+
+body.dark-mode .component-card,
+body.dark-mode .span-card,
+body.dark-mode .div-card {
+  background: #1a1f28 !important;
+  border: 1px solid #2d3442;
+  color: #ffffff;
+}
+
+body.dark-mode .component-card h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .component-card p {
+  color: #b8bfcc;
+}
+
+/* ================= DEMO BOXES ================= */
+
+body.dark-mode .demo-box,
+body.dark-mode .demo-card,
+body.dark-mode .demo-flex div,
+body.dark-mode .demo-grid div,
+body.dark-mode .notification-box {
+  background: #242b36;
+  color: #ffffff;
+  border: 1px solid #343d4d;
+}
+
+/* ================= WHY CARDS ================= */
+
+body.dark-mode .why-card {
+  background: #1a1f28 !important;
+  border: 1px solid #2d3442;
+  color: #ffffff;
+}
+
+body.dark-mode .why-card:hover {
+  background: #222834 !important;
+}
+
+body.dark-mode .why-card p {
+  color: #b8bfcc;
+}
+
+/* ================= CTA BANNER ================= */
+
+body.dark-mode .cta-banner {
+  background: #161b24;
+  border: 1px solid #2d3442;
+}
+
+body.dark-mode .cta-banner h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .cta-banner p {
+  color: #b8bfcc;
+}
+
+/* ================= BUTTONS ================= */
+
+body.dark-mode .btn-primary,
+body.dark-mode .primary-btn,
+body.dark-mode .primary-nav-btn {
+  background: #2f6df6;
+  color: white;
+}
+
+body.dark-mode .btn-secondary,
+body.dark-mode .btn-ghost,
+body.dark-mode .outline-nav-btn,
+body.dark-mode .actions button {
+  background: #222834;
+  border: 1px solid #3b4352;
+  color: #ffffff;
+}
+
+body.dark-mode .btn-secondary:hover,
+body.dark-mode .btn-ghost:hover,
+body.dark-mode .outline-nav-btn:hover,
+body.dark-mode .actions button:hover {
+  background: #313949;
+}
+
+/* ================= TAGS & BADGES ================= */
+
+body.dark-mode .tag,
+body.dark-mode .badge {
+  background: #29303b;
+  color: #ffffff;
+}
+
+/* ================= CODE BLOCK ================= */
+
+body.dark-mode .code-block {
+  background: #11151c;
+  color: #d8dee9;
+  border: 1px solid #2f3744;
+}
+
+/* ================= FOOTER ================= */
+
+body.dark-mode .footer {
+  background: #151922;
+  border-top: 1px solid #2d3442;
+}
+
+body.dark-mode .footer h2,
+body.dark-mode .footer h3,
+body.dark-mode .footer-logo {
+  color: #ffffff;
+}
+
+body.dark-mode .footer p,
+body.dark-mode .footer a,
+body.dark-mode .footer li {
+  color: #b8bfcc;
+}
+
+body.dark-mode .footer a:hover {
+  color: #ffffff;
+}
+
+/* ================= SCROLL TOP ================= */
+
+body.dark-mode #scrollTopBtn {
+  background: #222834;
+  color: #ffffff;
+  border: 1px solid #394252;
+}
+
+/* ================= SECTION TEXT ================= */
+
+body.dark-mode .section-title,
+body.dark-mode .section h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .section-subtitle,
+body.dark-mode .stat-label {
+  color: #b8bfcc;
+}
+
+/* ================= HERO STATS ================= */
+
+body.dark-mode .hero-stats {
+  background: #1a1f28;
+  border: 1px solid #2d3442;
+}
+
+body.dark-mode .stat-number {
+  color: #ffffff;
+}
+
+/* ================= INPUTS ================= */
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #1c212b;
+  color: #ffffff;
+  border: 1px solid #313846;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #8f96a3;
+}
 /* Fix duplicate main spacing */
 .main {
   padding: 20px;
@@ -6910,4 +7205,74 @@ body{
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+
+.dark-mode .tag {
+  color: #fff;
+  font-weight: 600;
+}
+
+.dark-mode .tag-popular {
+  background: #7c2d12;
+  color: #fed7aa;
+}
+
+.dark-mode .tag-trending {
+  background: #1e3a8a;
+  color: #bfdbfe;
+}
+
+.dark-mode .tag-new {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+.dark-mode .tag-essential {
+  background: #581c87;
+  color: #e9d5ff;
+}
+
+.dark-mode input::placeholder {
+  color: #cbd5e1;
+  opacity: 1;
+}
+.dark-mode .like-btn,
+.dark-mode .save-btn,
+.dark-mode .theme-toggle {
+  background: #1f2937;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+}
+
+.dark-mode .like-btn:hover,
+.dark-mode .save-btn:hover {
+  background: #374151;
+}
+
+.dark-mode .footer a {
+  color: #f3f4f6;
+}
+
+.dark-mode .footer a:hover {
+  color: #60a5fa;
+}
+.dark-mode .stat-divider,
+.dark-mode .feature-card,
+.dark-mode .cat-card {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.btn-primary {
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
