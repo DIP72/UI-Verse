@@ -446,7 +446,7 @@
       <p>Get notified when new components drop.</p>
       <div class="newsletter-form">
         <input type="email" placeholder="your@email.com" />
-        <button type="button" onclick="subscribe()">Subscribe</button>
+        <button type="button">Subscribe</button>
       </div>
     </div>
 
@@ -486,17 +486,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Newsletter subscribe handler
-  const subscribeBtn = document.querySelector('.newsletter-form button');
-  if (subscribeBtn) {
-    subscribeBtn.addEventListener('click', function() {
-      const input = document.querySelector('.newsletter-form input');
-      if (input && input.value.trim()) {
-        showToastSafe('Thanks for subscribing with ' + input.value);
-        input.value = '';
-      }
-    });
-  }, { threshold: 0.1 });
+  // Newsletter subscribe handler removed from inline script — handled by script.js
 
   document.querySelectorAll('.feature-card, .cat-card, .why-card').forEach(el => {
     observer.observe(el);
@@ -504,13 +494,7 @@
 
   
 
-  function subscribe() {
-    const input = document.querySelector('.newsletter-form input');
-    if (input.value) {
-      alert('Thanks for subscribing with ' + input.value);
-      input.value = '';
-    }
-  }
+  // inline subscribe() removed — use centralized subscribe(e) in script.js
 </script>
 </body>
 </html>

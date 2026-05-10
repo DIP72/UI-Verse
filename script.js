@@ -292,6 +292,12 @@ window.addEventListener('DOMContentLoaded', () => {
   // Attach optional form-card buttons toast safely
   try { const btns = document.querySelectorAll('.form-card button'); if (btns[0]) btns[0].addEventListener('click', () => showToastSafe('Login button clicked')); if (btns[1]) btns[1].addEventListener('click', () => showToastSafe('Signup button clicked')); if (btns[2]) btns[2].addEventListener('click', () => showToastSafe('Message sent')); if (btns[3]) btns[3].addEventListener('click', () => showToastSafe('Form submitted')); } catch (e) {}
 
+  // Newsletter subscribe: delegate to centralized subscribe(e)
+  try {
+    const newsBtn = document.querySelector('.newsletter-form button');
+    if (newsBtn) newsBtn.addEventListener('click', (ev) => subscribe(ev));
+  } catch (e) {}
+
   // Menu toggle (legacy id)
   const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
 });
