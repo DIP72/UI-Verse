@@ -221,7 +221,7 @@
 
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
+    <input type="text" id="searchInput" placeholder="Search components..." />
     <kbd class="search-kbd">⌘K</kbd>
   </div>
 
@@ -676,7 +676,7 @@
       <p>Get notified when new components drop.</p>
       <div class="newsletter-form">
         <input type="email" placeholder="your@email.com" />
-        <button type="button" onclick="subscribe()">Subscribe</button>
+        <button type="button">Subscribe</button>
       </div>
     </div>
 
@@ -741,20 +741,9 @@
     observer.observe(el);
   });
 
-  function handleSearch(e) {
-    if (e.key === 'Enter') {
-      const q = document.getElementById('searchInput').value.trim();
-      if (q) alert('Searching for: ' + q);
-    }
-  }
+  
 
-  function subscribe() {
-    const input = document.querySelector('.newsletter-form input');
-    if (input.value) {
-      alert('Thanks for subscribing with ' + input.value);
-      input.value = '';
-    }
-  }
+  // inline subscribe() removed — use centralized subscribe(e) in script.js
 </script>
 </body>
 </html>

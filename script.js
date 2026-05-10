@@ -115,8 +115,15 @@ function toggleCode(id, btn) {
 function copyCode(id, btn) {
   const element = document.getElementById(id);
   if (!element) return;
-  const code = (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') ? element.value : element.innerText;
-  navigator.clipboard.writeText(code).then(() => {
+
+  // Prefer .value for form controls, otherwise use textContent which preserves formatting
+  let code;
+  const tag = (element.tagName || '').toUpperCase();
+  if (tag === 'TEXTAREA' || tag === 'INPUT') code = element.value;
+  else if (tag === 'CODE' || tag === 'PRE') code = element.textContent;
+  else code = element.textContent || '';
+
+  const finishSuccess = () => {
     showToastSafe('Code copied!');
     if (btn) {
       const orig = btn.innerHTML;
@@ -124,7 +131,37 @@ function copyCode(id, btn) {
       btn.classList.add('copied');
       setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 1500);
     }
-  }).catch(() => { showToastSafe('Failed to copy ❌'); if (btn) btn.innerText = 'Error'; });
+  };
+
+  const finishFail = () => { showToastSafe('Failed to copy ❌'); if (btn) btn.innerText = 'Error'; };
+
+  // Use Clipboard API when available, otherwise fallback to execCommand copy
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    navigator.clipboard.writeText(code).then(finishSuccess).catch(() => {
+      try {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = code;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        finishSuccess();
+      } catch (e) { finishFail(); }
+    });
+  } else {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = code;
+      ta.style.position = 'fixed'; ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      finishSuccess();
+    } catch (e) { finishFail(); }
+  }
 }
 
 // Copy color helpers
@@ -193,7 +230,32 @@ function initSearchFilter() {
   const searchInput = document.getElementById('searchInput'); if (!searchInput) return;
   searchInput.addEventListener('keyup', function () { const value = this.value.toLowerCase().trim(); document.querySelectorAll('.component-card').forEach(item => { const text = (item.dataset.name || item.innerText).toLowerCase(); item.style.display = text.includes(value) ? 'block' : 'none'; }); });
 }
-function handleSearch(event) { if (event.key !== 'Enter') return; const query = event.target.value.toLowerCase().trim(); const routes = { button: 'button.html', buttons: 'button.html', navbar: 'Navbar.html', navbars: 'Navbar.html', card: 'cards.html', cards: 'cards.html', form: 'form.html', forms: 'form.html', footer: 'footer.html', color: 'color.html', colors: 'color.html' }; for (const k in routes) if (query.includes(k)) { window.location.href = routes[k]; return; } showToastSafe('No component found 😢'); }
+function handleSearch(event) {
+  if (event.key !== 'Enter') return;
+  const query = (event.target.value || '').toLowerCase().trim();
+  const routes = {
+    button: 'button.html',
+    buttons: 'button.html',
+    navbar: 'navbar.html',
+    navbars: 'navbar.html',
+    card: 'cards.html',
+    cards: 'cards.html',
+    form: 'form.html',
+    forms: 'form.html',
+    footer: 'footer.html',
+    color: 'color.html',
+    colors: 'color.html'
+  };
+
+  for (const k in routes) {
+    if (query.includes(k)) {
+      window.location.href = routes[k];
+      return;
+    }
+  }
+
+  showToastSafe('No component found \u{1F622}');
+}
 
 // Dark mode
 function updateToggleVisual(toggleEl, isDark) { const icon = toggleEl?.querySelector?.('i'); if (icon) icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; else toggleEl.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode'; }
@@ -228,6 +290,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Attach optional form-card buttons toast safely
   try { const btns = document.querySelectorAll('.form-card button'); if (btns[0]) btns[0].addEventListener('click', () => showToastSafe('Login button clicked')); if (btns[1]) btns[1].addEventListener('click', () => showToastSafe('Signup button clicked')); if (btns[2]) btns[2].addEventListener('click', () => showToastSafe('Message sent')); if (btns[3]) btns[3].addEventListener('click', () => showToastSafe('Form submitted')); } catch (e) {}
+
+  // Newsletter subscribe: delegate to centralized subscribe(e)
+  try {
+    const newsBtn = document.querySelector('.newsletter-form button');
+    if (newsBtn) newsBtn.addEventListener('click', (ev) => subscribe(ev));
+  } catch (e) {}
 
   // Menu toggle (legacy id)
   const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
