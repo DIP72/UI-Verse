@@ -10,7 +10,6 @@ function escapeAttr(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
-
 // Profile editor (attached to button .btnn if present)
 const editBtn = document.querySelector('.btnn');
 if (editBtn) {
@@ -301,3 +300,68 @@ window.addEventListener('DOMContentLoaded', () => {
   // Menu toggle (legacy id)
   const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
 });
+
+
+// ================= SEARCH (ROUTING) =================
+function handleSearch(event) {
+  if (event.key === "Enter") {
+    const query = event.target.value.toLowerCase().trim();
+
+    const routes = {
+      "button": "button.html",
+      "buttons": "button.html",
+      "navbar": "navbar.html",
+      "navbars": "navbar.html",
+      "card": "cards.html",
+      "cards": "cards.html",
+      "form": "form.html",
+      "forms": "form.html",
+      "footer": "footer.html",
+      "color": "color.html",
+      "colors": "color.html"
+    };
+
+    for (let key in routes) {
+      if (query.includes(key)) {
+        window.location.href = routes[key];
+        return;
+      }
+    }
+
+    showToast("No component found 😢");
+  }
+}
+
+
+// ================= DARK MODE =================
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  if (toggleBtn) {
+    toggleBtn.innerText = document.body.classList.contains("dark-mode")
+      ? "☀️ Light Mode"
+      : "🌙 Dark Mode";
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.innerText = "☀️ Light Mode";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.innerText = "🌙 Dark Mode";
+      }
+    });
+  }
+
+// Init sidebar after DOM ready
+  restoreSidebarState();
+  updateSidebarActiveLink();
+  initSidebarLinkClose();
+});  
+
