@@ -194,7 +194,32 @@ function initSearchFilter() {
   const searchInput = document.getElementById('searchInput'); if (!searchInput) return;
   searchInput.addEventListener('keyup', function () { const value = this.value.toLowerCase().trim(); document.querySelectorAll('.component-card').forEach(item => { const text = (item.dataset.name || item.innerText).toLowerCase(); item.style.display = text.includes(value) ? 'block' : 'none'; }); });
 }
-function handleSearch(event) { if (event.key !== 'Enter') return; const query = event.target.value.toLowerCase().trim(); const routes = { button: 'button.html', buttons: 'button.html', navbar: 'Navbar.html', navbars: 'Navbar.html', card: 'cards.html', cards: 'cards.html', form: 'form.html', forms: 'form.html', footer: 'footer.html', color: 'color.html', colors: 'color.html' }; for (const k in routes) if (query.includes(k)) { window.location.href = routes[k]; return; } showToastSafe('No component found 😢'); }
+function handleSearch(event) {
+  if (event.key !== 'Enter') return;
+  const query = (event.target.value || '').toLowerCase().trim();
+  const routes = {
+    button: 'button.html',
+    buttons: 'button.html',
+    navbar: 'navbar.html',
+    navbars: 'navbar.html',
+    card: 'cards.html',
+    cards: 'cards.html',
+    form: 'form.html',
+    forms: 'form.html',
+    footer: 'footer.html',
+    color: 'color.html',
+    colors: 'color.html'
+  };
+
+  for (const k in routes) {
+    if (query.includes(k)) {
+      window.location.href = routes[k];
+      return;
+    }
+  }
+
+  showToastSafe('No component found \u{1F622}');
+}
 
 // Dark mode
 function updateToggleVisual(toggleEl, isDark) { const icon = toggleEl?.querySelector?.('i'); if (icon) icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; else toggleEl.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode'; }
