@@ -116,8 +116,15 @@ function toggleCode(id, btn) {
 function copyCode(id, btn) {
   const element = document.getElementById(id);
   if (!element) return;
-  const code = (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') ? element.value : element.innerText;
-  navigator.clipboard.writeText(code).then(() => {
+
+  // Prefer .value for form controls, otherwise use textContent which preserves formatting
+  let code;
+  const tag = (element.tagName || '').toUpperCase();
+  if (tag === 'TEXTAREA' || tag === 'INPUT') code = element.value;
+  else if (tag === 'CODE' || tag === 'PRE') code = element.textContent;
+  else code = element.textContent || '';
+
+  const finishSuccess = () => {
     showToastSafe('Code copied!');
     if (btn) {
       const orig = btn.innerHTML;
@@ -125,7 +132,37 @@ function copyCode(id, btn) {
       btn.classList.add('copied');
       setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 1500);
     }
-  }).catch(() => { showToastSafe('Failed to copy ❌'); if (btn) btn.innerText = 'Error'; });
+  };
+
+  const finishFail = () => { showToastSafe('Failed to copy ❌'); if (btn) btn.innerText = 'Error'; };
+
+  // Use Clipboard API when available, otherwise fallback to execCommand copy
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    navigator.clipboard.writeText(code).then(finishSuccess).catch(() => {
+      try {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = code;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        finishSuccess();
+      } catch (e) { finishFail(); }
+    });
+  } else {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = code;
+      ta.style.position = 'fixed'; ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      finishSuccess();
+    } catch (e) { finishFail(); }
+  }
 }
 
 // Copy color helpers
