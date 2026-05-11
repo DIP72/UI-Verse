@@ -540,6 +540,103 @@ function updateToggleVisual(toggleEl, isDark) { const icon = toggleEl?.querySele
 function loadTheme(toggleEl) { const saved = localStorage.getItem('theme'); if (saved === 'dark') { document.body.classList.add('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, true); } else if (saved === 'light') { document.body.classList.remove('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, false); } else { const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; document.body.classList.toggle('dark-mode', prefersDark); if (toggleEl) updateToggleVisual(toggleEl, prefersDark); } }
 function initDarkMode() { const toggleEl = document.getElementById('theme-toggle') || document.getElementById('themeToggle') || document.getElementById('darkModeToggle'); loadTheme(toggleEl); if (toggleEl) toggleEl.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateToggleVisual(toggleEl, isDark); }); }
 
+// Accessibility Mode
+function scanA11yIssues() {
+  // Clear previous flags
+  document.querySelectorAll('[data-a11y-flag]').forEach(el => {
+    el.removeAttribute('data-a11y-flag');
+  });
+  
+  const issues = [];
+  
+  // Check inputs/selects without labels
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    if (el.type === 'hidden' || el.closest('[data-no-a11y-scan]')) return;
+    
+    const hasLabel = el.id && document.querySelector(`label[for="${el.id}"]`);
+    const hasAriaLabel = el.getAttribute('aria-label');
+    const hasPlaceholder = el.getAttribute('placeholder');
+    const hasVisibleLabel = hasLabel || (hasAriaLabel && hasAriaLabel.trim());
+    
+    if (!hasVisibleLabel && !hasPlaceholder) {
+      el.setAttribute('data-a11y-flag', 'missing-label');
+      issues.push({ type: 'missing-label', element: el, label: 'Input without label' });
+    }
+  });
+  
+  // Check buttons without accessible names
+  document.querySelectorAll('button').forEach(el => {
+    if (el.closest('[data-no-a11y-scan]')) return;
+    
+    const hasText = el.textContent?.trim().length > 0;
+    const hasAriaLabel = el.getAttribute('aria-label')?.trim();
+    const hasTitle = el.getAttribute('title')?.trim();
+    const hasAccessibleName = hasText || hasAriaLabel || hasTitle;
+    
+    // Allow icon-only buttons with title/aria-label
+    const isIconOnly = el.querySelector('i, svg, img') && !hasText;
+    const isAccessibleIconBtn = isIconOnly && (hasAriaLabel || hasTitle);
+    
+    if (!hasAccessibleName && !isAccessibleIconBtn) {
+      el.setAttribute('data-a11y-flag', 'missing-name');
+      issues.push({ type: 'missing-name', element: el, label: 'Button without accessible name' });
+    }
+  });
+  
+  // Check images without alt text
+  document.querySelectorAll('img').forEach(el => {
+    if (el.closest('[data-no-a11y-scan]')) return;
+    
+    const hasAlt = el.hasAttribute('alt');
+    const hasTitle = el.getAttribute('title');
+    const isDecorative = el.hasAttribute('aria-hidden') || el.getAttribute('role') === 'presentation';
+    
+    if (!isDecorative && !hasAlt && !hasTitle) {
+      el.setAttribute('data-a11y-flag', 'missing-alt');
+      issues.push({ type: 'missing-alt', element: el, label: 'Image without alt text' });
+    }
+  });
+  
+  return issues;
+}
+
+function initAccessibilityMode() {
+  const toggle = document.getElementById('a11yModeToggle');
+  if (!toggle) return;
+  
+  // Load saved state
+  const saved = localStorage.getItem('a11y-mode');
+  if (saved === 'enabled') {
+    document.body.classList.add('a11y-mode');
+    updateA11yToggleVisual(toggle, true);
+    scanA11yIssues();
+  }
+  
+  toggle.addEventListener('click', () => {
+    const isEnabled = document.body.classList.toggle('a11y-mode');
+    localStorage.setItem('a11y-mode', isEnabled ? 'enabled' : 'disabled');
+    updateA11yToggleVisual(toggle, isEnabled);
+    
+    if (isEnabled) {
+      scanA11yIssues();
+      showToastSafe('✓ Accessibility Mode enabled - Issues highlighted');
+    } else {
+      document.querySelectorAll('[data-a11y-flag]').forEach(el => {
+        el.removeAttribute('data-a11y-flag');
+      });
+      showToastSafe('✓ Accessibility Mode disabled');
+    }
+  });
+}
+
+function updateA11yToggleVisual(toggleEl, isEnabled) {
+  const icon = toggleEl?.querySelector?.('i');
+  if (icon) {
+    icon.className = isEnabled ? 'fa-solid fa-universal-access' : 'fa-solid fa-universal-access';
+    toggleEl.classList.toggle('active', isEnabled);
+  }
+}
+
 // Scroll to top
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 function initScrollTop() { const btn = document.getElementById('scrollTopBtn'); if (!btn) return; window.addEventListener('scroll', () => { const visible = window.scrollY > 50; btn.style.display = visible ? 'block' : 'none'; btn.classList.toggle('visible', window.scrollY > 400); document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 40); }); btn.addEventListener('click', () => scrollToTop()); }
@@ -559,6 +656,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initSidebar();
   initLiveSandboxes();
   initDarkMode();
+  initAccessibilityMode();
   initScrollTop();
   initProgressBar();
   initSearchFilter();
