@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: Arial;
+
+  background-image: linear-gradient(to right, rgb(105, 105, 249), rgb(111, 244, 111));
+
+
+  color: white;
+}
+
+
+/* NAVBAR */
+.navbar {
+  padding: 18px;
+  text-align: center;
+  background: #111827;
+  font-size: 18px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 25px;
+}
+
+/* CARD */
+.card {
+  background: linear-gradient(145deg, #1e293b, #111827);
+  padding: 18px;
+  border-radius: 14px;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* BADGES */
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.success { background: #22c55e; }
+.warning { background: #facc15; color: black; }
+.error { background: #ef4444; }
+.info { background: #3b82f6; }
+
+/* BUTTONS */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.copy { background: #22c55e; color: white; }
+.view { background: #3b82f6; color: white; }
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  white-space: pre-wrap;
+  z-index: 9999;
+  border: 1px solid #334155;
+}
+
+.close {
+  margin-top: 10px;
+  padding: 8px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+/* TOAST */
+#toast-ui {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.toast {
+  background: #1f2937;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
