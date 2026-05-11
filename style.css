@@ -6228,6 +6228,137 @@ body {
   margin-bottom: 8px;
 }
 
+/* ============================================
+   COMPONENT GALLERY FILTERING STYLES
+   ============================================ */
+
+/* Filter controls container */
+.category-filters,
+.tag-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tag-filters {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Filter chips */
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 8px 14px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.filter-chip:hover {
+  background: #e8e8e8;
+  border-color: #d0d0d0;
+}
+
+.filter-chip.active {
+  background: #eb6835;
+  color: white;
+  border-color: #d45c28;
+  box-shadow: 0 2px 8px rgba(235, 104, 53, 0.3);
+}
+
+.filter-chip.active:hover {
+  background: #d45c28;
+  box-shadow: 0 4px 12px rgba(235, 104, 53, 0.4);
+}
+
+/* Dark mode filter styles */
+body.dark-mode .category-filters,
+body.dark-mode .tag-filters {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .filter-label {
+  color: #e0e0e0;
+}
+
+body.dark-mode .filter-chip {
+  background: #333;
+  border-color: #444;
+  color: #b0b0b0;
+}
+
+body.dark-mode .filter-chip:hover {
+  background: #3a3a3a;
+  border-color: #555;
+}
+
+body.dark-mode .filter-chip.active {
+  background: #eb6835;
+  color: white;
+  border-color: #d45c28;
+  box-shadow: 0 2px 8px rgba(235, 104, 53, 0.4);
+}
+
+body.dark-mode .filter-chip.active:hover {
+  background: #d45c28;
+  box-shadow: 0 4px 12px rgba(235, 104, 53, 0.5);
+}
+
+/* Responsive filter layout */
+@media (max-width: 768px) {
+  .category-filters,
+  .tag-filters {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .filter-label {
+    font-size: 12px;
+  }
+
+  .filter-chip {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-filters,
+  .tag-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-chips {
+    width: 100%;
+  }
+}
+
 .sidebar ul li a {
   display: flex;
   align-items: center;

@@ -226,11 +226,147 @@ function initLiveSandboxes() {
   });
 }
 
+// ============= COMPONENT GALLERY FILTERING =============
+// State for selected filters
+window.filterState = {
+  selectedCategory: null,
+  selectedTags: new Set(),
+  searchQuery: ''
+};
+
+// Extract unique categories and tags from component cards
+function extractFilterMetadata() {
+  const categories = new Set();
+  const tags = new Set();
+  
+  document.querySelectorAll('.component-card').forEach(card => {
+    if (card.dataset.cat) categories.add(card.dataset.cat);
+    if (card.dataset.tags) {
+      const cardTags = card.dataset.tags.split(',').map(t => t.trim());
+      cardTags.forEach(tag => tags.add(tag));
+    }
+  });
+  
+  return { categories: Array.from(categories).sort(), tags: Array.from(tags).sort() };
+}
+
+// Create filter controls UI
+function createFilterUI() {
+  const container = document.querySelector('.filter-bar');
+  if (!container) return; // Only add if filter-bar exists
+  
+  const metadata = extractFilterMetadata();
+  
+  // Create category filter section
+  const categoryContainer = document.createElement('div');
+  categoryContainer.className = 'category-filters';
+  categoryContainer.innerHTML = '<div class="filter-label">Categories:</div>';
+  
+  const categoryChips = document.createElement('div');
+  categoryChips.className = 'filter-chips';
+  
+  // Add "All" chip
+  const allChip = document.createElement('button');
+  allChip.className = 'filter-chip active';
+  allChip.textContent = 'All';
+  allChip.dataset.category = 'all';
+  allChip.addEventListener('click', (e) => selectCategory(e.target.dataset.category, e.target));
+  categoryChips.appendChild(allChip);
+  
+  // Add category chips
+  metadata.categories.forEach(cat => {
+    const chip = document.createElement('button');
+    chip.className = 'filter-chip';
+    chip.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+    chip.dataset.category = cat;
+    chip.addEventListener('click', (e) => selectCategory(e.target.dataset.category, e.target));
+    categoryChips.appendChild(chip);
+  });
+  
+  categoryContainer.appendChild(categoryChips);
+  container.appendChild(categoryContainer);
+  
+  // Create tag filter section
+  if (metadata.tags.length > 0) {
+    const tagContainer = document.createElement('div');
+    tagContainer.className = 'tag-filters';
+    tagContainer.innerHTML = '<div class="filter-label">Tags:</div>';
+    
+    const tagChips = document.createElement('div');
+    tagChips.className = 'filter-chips';
+    
+    metadata.tags.forEach(tag => {
+      const chip = document.createElement('button');
+      chip.className = 'filter-chip';
+      chip.textContent = tag;
+      chip.dataset.tag = tag;
+      chip.addEventListener('click', (e) => toggleTag(e.target.dataset.tag, e.target));
+      tagChips.appendChild(chip);
+    });
+    
+    tagContainer.appendChild(tagChips);
+    container.appendChild(tagContainer);
+  }
+}
+
+// Select a category (single select)
+function selectCategory(category, element) {
+  // Clear previous category selection
+  document.querySelectorAll('.category-filters .filter-chip').forEach(chip => {
+    chip.classList.remove('active');
+  });
+  
+  element.classList.add('active');
+  window.filterState.selectedCategory = category === 'all' ? null : category;
+  applyFilters();
+}
+
+// Toggle a tag (multi-select)
+function toggleTag(tag, element) {
+  element.classList.toggle('active');
+  if (element.classList.contains('active')) {
+    window.filterState.selectedTags.add(tag);
+  } else {
+    window.filterState.selectedTags.delete(tag);
+  }
+  applyFilters();
+}
+
+// Apply all active filters (categories + tags + search)
+function applyFilters() {
+  const cards = document.querySelectorAll('.component-card');
+  
+  cards.forEach(card => {
+    const cardCategory = card.dataset.cat;
+    const cardTags = card.dataset.tags ? card.dataset.tags.split(',').map(t => t.trim()) : [];
+    const cardName = (card.dataset.name || card.innerText).toLowerCase();
+    
+    // Check category filter
+    const categoryMatch = !window.filterState.selectedCategory || cardCategory === window.filterState.selectedCategory;
+    
+    // Check tag filters (OR logic - card must have at least one selected tag, or no tags selected)
+    const tagMatch = window.filterState.selectedTags.size === 0 || 
+                     Array.from(window.filterState.selectedTags).some(tag => cardTags.includes(tag));
+    
+    // Check search filter
+    const searchMatch = window.filterState.searchQuery === '' || cardName.includes(window.filterState.searchQuery);
+    
+    // Show card only if all filters match
+    card.style.display = (categoryMatch && tagMatch && searchMatch) ? '' : 'none';
+  });
+}
+
 // Search filter and routing
 function initSearchFilter() {
-  const searchInput = document.getElementById('searchInput'); if (!searchInput) return;
-  searchInput.addEventListener('keyup', function () { const value = this.value.toLowerCase().trim(); document.querySelectorAll('.component-card').forEach(item => { const text = (item.dataset.name || item.innerText).toLowerCase(); item.style.display = text.includes(value) ? 'block' : 'none'; }); });
+  const searchInput = document.getElementById('searchInput'); 
+  if (!searchInput) return;
+  
+  searchInput.addEventListener('keyup', function () { 
+    window.filterState.searchQuery = this.value.toLowerCase().trim();
+    applyFilters();
+  });
 }
+
 function handleSearch(event) {
   if (event.key !== 'Enter') return;
   const query = (event.target.value || '').toLowerCase().trim();
@@ -285,6 +421,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initScrollTop();
   initProgressBar();
   initSearchFilter();
+  createFilterUI();  // Initialize filter UI
 
   // Attach global search handler
   const searchEl = document.getElementById('searchInput'); if (searchEl) searchEl.addEventListener('keydown', handleSearch);
