@@ -40,6 +40,8 @@
   </div>
 </aside>
 
+  
+<div class="container2">
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
 <!-- NAVBAR -->
@@ -331,12 +333,6 @@
     icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-
-  /* Sidebar */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
-  }
 
   /* Scroll Top */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
