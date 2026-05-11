@@ -1317,3 +1317,328 @@ body.dark-mode .floating-dock a {
   }
 
 }
+/* =========================================================
+   COMMAND BUTTON
+========================================================= */
+
+.open-command-btn {
+
+  position: fixed;
+
+  top: 24px;
+
+  right: 24px;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.14);
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.12);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.open-command-btn:hover {
+
+  transform:
+    translateY(-4px);
+}
+
+.open-command-btn kbd {
+
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(0,0,0,0.08);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.command-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.45);
+
+  backdrop-filter:
+    blur(6px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease;
+
+  z-index: 1998;
+}
+
+.command-overlay.active {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+.command-palette {
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.9);
+
+  width: 680px;
+
+  max-width: 92%;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,0.16);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  border:
+    1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.2);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  z-index: 1999;
+}
+
+.command-palette.active {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.command-top {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 22px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.command-top i {
+
+  color:
+    #666;
+}
+
+.command-top input {
+
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 16px;
+}
+
+.command-top kbd {
+
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  background:
+    rgba(0,0,0,0.08);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.command-results {
+
+  padding: 18px;
+}
+
+.command-group {
+
+  margin-bottom: 24px;
+}
+
+.command-label {
+
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 13px;
+
+  color:
+    #777;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.command-item {
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  margin-bottom: 10px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.command-item:hover {
+
+  background:
+    rgba(255,255,255,0.12);
+
+  transform:
+    translateX(4px);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .command-palette,
+body.dark-mode .open-command-btn {
+
+  background:
+    rgba(31,31,31,0.75);
+
+  color: white;
+}
+
+body.dark-mode .command-top input {
+
+  color: white;
+}
+
+body.dark-mode .command-item {
+
+  color: white;
+}
+
+body.dark-mode .command-label {
+
+  color:
+    rgba(255,255,255,0.55);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .open-command-btn {
+
+    top: auto;
+
+    bottom: 100px;
+
+    right: 18px;
+  }
+
+  .command-palette {
+
+    width: 94%;
+  }
+
+}

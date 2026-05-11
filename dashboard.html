@@ -13,7 +13,93 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
+<!-- =========================================================
+     COMMAND PALETTE
+========================================================= -->
 
+<div class="command-overlay" id="commandOverlay"></div>
+
+<div class="command-palette" id="commandPalette">
+
+  <div class="command-top">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+      type="text"
+      placeholder="Search components, pages, actions..."
+    />
+
+    <kbd>ESC</kbd>
+
+  </div>
+
+  <div class="command-results">
+
+    <div class="command-group">
+
+      <span class="command-label">
+        Navigation
+      </span>
+
+      <button class="command-item">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+      </button>
+
+      <button class="command-item">
+        <i class="fa-solid fa-layer-group"></i>
+        Components
+      </button>
+
+      <button class="command-item">
+        <i class="fa-solid fa-bookmark"></i>
+        Favorites
+      </button>
+
+    </div>
+
+    <div class="command-group">
+
+      <span class="command-label">
+        Quick Actions
+      </span>
+
+      <button class="command-item">
+        <i class="fa-solid fa-plus"></i>
+        Add Component
+      </button>
+
+      <button class="command-item">
+        <i class="fa-solid fa-code"></i>
+        Generate Snippet
+      </button>
+
+      <button class="command-item">
+        <i class="fa-solid fa-palette"></i>
+        Change Theme
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- =========================================================
+     COMMAND BUTTON
+========================================================= -->
+
+<button
+  class="open-command-btn"
+  id="openCommandBtn"
+>
+  <i class="fa-solid fa-magnifying-glass"></i>
+
+  <span>Search...</span>
+
+  <kbd>Ctrl K</kbd>
+</button>
 <div class="dashboard-container">
 
   <!-- Header -->
