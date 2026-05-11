@@ -686,3 +686,280 @@ body.dark-mode .social-card { background: #1e1e24; border-color: #2a2a30; }
 .social-btn:hover { background: rgba(235,104,53,0.08); color: var(--accent); }
 
 .share-btn { margin-left: auto; }
+
+
+/*  GLASS CARD  */
+
+.glass-card{
+  width:260px;
+  padding:28px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.15);
+  text-align:center;
+  color:#fff;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  transition:0.35s ease;
+}
+
+.glass-card:hover{
+  transform:translateY(-8px) scale(1.02);
+}
+
+.glass-icon{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  margin:auto;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#fff;
+  background:linear-gradient(135deg,#6c5ce7,#a29bfe);
+}
+
+.glass-btn{
+  margin-top:18px;
+  padding:10px 22px;
+  border:none;
+  border-radius:999px;
+  background:#fff;
+  color:#111;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.glass-btn:hover{
+  transform:scale(1.05);
+}
+
+/* STATS CARD */
+
+.stats-card{
+  min-width:260px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:#fff;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.stats-card:hover{
+  transform:translateY(-6px);
+}
+
+.stats-icon{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#6c5ce7,#8e7dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:24px;
+}
+
+.stats-info h3{
+  font-size:28px;
+  margin-bottom:4px;
+}
+
+.stats-info p{
+  color:#666;
+}
+
+.stats-growth{
+  margin-left:auto;
+  color:#00b894;
+  font-weight:700;
+}
+
+/*TESTIMONIAL CARD */
+
+.testimonial-card{
+  max-width:300px;
+  background:#fff;
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.testimonial-card:hover{
+  transform:translateY(-6px);
+}
+
+.testimonial-stars{
+  color:#f39c12;
+  margin-bottom:14px;
+}
+
+.testimonial-text{
+  line-height:1.7;
+  margin-bottom:24px;
+  color:#444;
+}
+
+.testimonial-user{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.testimonial-avatar{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#6c5ce7,#a29bfe);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.testimonial-user span{
+  display:block;
+  color:#777;
+  margin-top:2px;
+}
+
+/* MUSIC CARD  */
+
+.music-card{
+  width:260px;
+  background:#111827;
+  color:#fff;
+  border-radius:24px;
+  padding:28px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+
+.music-card:hover{
+  transform:translateY(-8px);
+}
+
+.music-cover{
+  width:90px;
+  height:90px;
+  border-radius:22px;
+  margin:auto;
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  color:#fff;
+  background:linear-gradient(135deg,#6c5ce7,#a29bfe);
+}
+
+.music-card p{
+  color:#cbd5e1;
+}
+
+.music-controls{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:22px;
+}
+
+.music-controls button{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.music-controls button:hover{
+  transform:scale(1.08);
+}
+
+.play-btn{
+  transform:scale(1.15);
+  background:#6c5ce7;
+  color:#fff;
+}
+
+/* TEAM CARD */
+
+.team-card{
+  width:280px;
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.team-card:hover{
+  transform:translateY(-8px);
+}
+
+.team-cover{
+  height:100px;
+  background:linear-gradient(135deg,#6c5ce7,#a29bfe);
+}
+
+.team-avatar{
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  margin:-42px auto 14px;
+  background:#fff;
+  border:5px solid #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  font-weight:800;
+  color:#6c5ce7;
+}
+
+.team-body{
+  padding:0 20px 24px;
+}
+
+.team-body p{
+  color:#666;
+  margin-top:6px;
+}
+
+.team-socials{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:20px;
+}
+
+.team-socials a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#f3f3f3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#111;
+  transition:0.3s;
+  text-decoration:none;
+}
+
+.team-socials a:hover{
+  background:#6c5ce7;
+  color:#fff;
+}
