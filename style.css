@@ -1,5 +1,44 @@
 :root {
   --sidebar-width: 240px;
+  --sidebar-w: 240px;
+  
+  /* Core Colors - Light Mode */
+  --accent: #eb6835;
+  --text-primary: #111;
+  --text-secondary: #666;
+  --bg-primary: #f5f4f2;
+  --bg-secondary: #ffffff;
+  --border-primary: #ebebeb;
+  --card-bg: #ffffff;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  
+  /* Font */
+  --font-body: 'DM Sans', Arial, sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  
+  /* Transitions */
+  --transition: 0.25s ease;
+}
+
+body.dark-mode {
+  --bg-primary: #0f0f12;
+  --bg-secondary: #1a1a1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #999;
+  --border-primary: #2a2a30;
+  --card-bg: #1a1a1e;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 *, *::before, *::after {
@@ -10,34 +49,24 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #e1e1e3;
-  background-color: #ffffff;
-  color: #000000;
-  transition: 0.3s;
-  height: 1000px;
-  background-color: #f3f4f7;
-  color: #000000;
-  transition: 0.3s;
-  height: 1000px;
-  padding: 20px;
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
-  background: #ffffff;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f3f4f7;
+  background-color: var(--bg-primary);
 }
 
-h1 {
-  color: rgb(235, 104, 57);
-}
-
-h3 {
-  color: rgb(226, 133, 99);
+h1, h2, h3 {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  margin: 0;
 }
 
 /*navbar*/
@@ -2171,8 +2200,8 @@ label + input[type="checkbox"] {
 /* CODE BLOCK */
 .code-block {
   display: none;
-  background: #ffffff;
-  color: #000000;
+  background: var(--code-bg);
+  color: var(--code-text);
   padding: 15px;
   border-radius: 8px;
   margin-top: 15px;
@@ -2187,9 +2216,21 @@ label + input[type="checkbox"] {
 
 /* CARDS */
 .feature-card {
+  background: var(--feature-card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--feature-card-border);
+  padding: 20px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
 .code-block.show {
   display: block;
-}
 }
 
 /* ================= COLORS PAGE ================= */
