@@ -1,5 +1,147 @@
 /* UI-Verse - Consolidated script.js
    Single canonical implementations: toggleSidebar, toggleCode(id, btn), copyCode(id, btn), scrollToTop(), dark mode handlers, etc.
+
+   ============================================================================
+   COMPONENT DETAILS PAGE TEMPLATE GUIDE FOR CONTRIBUTORS
+   ============================================================================
+   
+   This guide helps you add new components consistently with proper structure,
+   styling, and functionality. Follow this template to maintain quality and
+   enable faster contributor onboarding.
+
+   TEMPLATE STRUCTURE:
+   ==================
+   
+   <div class="component-card" data-name="component name keywords" data-cat="category" data-tags="tag1, tag2, tag3">
+     
+     <!-- 1. COMPONENT HEADER -->
+     <div class="card-top">
+       <span class="card-label">Component Name</span>
+       <span class="card-tag tag-popular">Popular|Essential|Trending|New</span>
+     </div>
+
+     <!-- 2. LIVE PREVIEW -->
+     <div class="card-preview">
+       <!-- Add the live component HTML here -->
+     </div>
+
+     <!-- 3. DESCRIPTION -->
+     <p class="card-desc">Brief description (1-2 sentences) of what the component does.</p>
+
+     <!-- 4. ACTION BUTTONS -->
+     <div class="actions">
+       <button class="action-btn view-btn" onclick="toggleCode('unique-id', this)">
+         <i class="fa-solid fa-code"></i> View Code
+       </button>
+       <button class="action-btn copy-btn" onclick="copyCode('unique-id', this)">
+         <i class="fa-solid fa-copy"></i> Copy
+       </button>
+       <button onclick="addToCollection('Component Name')">Add to My Collection</button>
+     </div>
+
+     <!-- 5. CODE BLOCK (HIDDEN) -->
+     <pre id="unique-id" class="code-block"><code>
+       &lt;!-- Component HTML --&gt;
+       
+       /* Component CSS */
+       .component-class {
+         /* styles here */
+       }
+     </code></pre>
+
+     <!-- 6. CUSTOMIZATION SECTION (OPTIONAL) -->
+     <div class="component-customization">
+       <h4>✨ Customization</h4>
+       <div class="customization-item">
+         <p><strong>Property Name:</strong> Description of what can be customized</p>
+         <div class="customization-example">
+           CSS property example
+         </div>
+       </div>
+     </div>
+
+     <!-- 7. ACCESSIBILITY NOTES (RECOMMENDED) -->
+     <div class="component-a11y">
+       <h4><i class="fa-solid fa-universal-access"></i> Accessibility</h4>
+       <ul>
+         <li>Accessibility feature 1</li>
+         <li>Accessibility feature 2</li>
+         <li>Consider adding aria-label for screen readers</li>
+       </ul>
+     </div>
+
+     <!-- 8. BROWSER SUPPORT / VARIANTS (OPTIONAL) -->
+     <div class="component-variants">
+       <h4>🌐 Browser Support</h4>
+       <div class="browser-support">
+         <div class="browser-support-item supported">Chrome 26+</div>
+         <div class="browser-support-item supported">Firefox 16+</div>
+         <div class="browser-support-item supported">Safari 6.1+</div>
+       </div>
+     </div>
+
+   </div>
+
+   IMPORTANT ATTRIBUTES:
+   ====================
+   
+   data-cat="category": Used for category filtering
+     - Allowed: style, effect, status, profile, content, commerce, etc.
+   
+   data-tags="tag1, tag2, tag3": CSV of tags for advanced filtering
+     - Examples: modern, minimal, glowing, depth, interactive, animation
+   
+   data-name="component name keywords": Used for search filtering
+     - Include component name and related keywords for discoverability
+
+   CSS CLASSES:
+   ============
+   
+   .component-card - Main container (required for filtering)
+   .action-btn - Base button styling
+   .view-btn - View code button
+   .copy-btn - Copy button (shows "Copied!" feedback)
+   .code-block - Code display (hidden by default)
+   .component-customization - Props/customization section
+   .component-a11y - Accessibility notes section
+   .component-variants - Variants and browser support
+   
+   ID NAMING:
+   ==========
+   
+   Use sequential IDs: c1, c2, c3... for buttons
+                       a1, a2, a3... for alerts
+                       etc.
+   
+   Ensure each component has a UNIQUE ID for code block and button.onclick
+
+   FUNCTIONS USED:
+   ===============
+   
+   toggleCode('code-id', this) - Show/hide code block
+   copyCode('code-id', this) - Copy code to clipboard with feedback
+   addToCollection('Component Name') - Save to user collection
+   
+   DARK MODE:
+   ==========
+   
+   All template sections have built-in dark mode support via .dark-mode class.
+   No additional styling needed - handled in style.css automatically.
+
+   BEST PRACTICES:
+   ===============
+   
+   1. Always include alt text and proper semantic HTML
+   2. Add aria-labels for interactive elements
+   3. Test keyboard navigation (tab, enter)
+   4. Ensure sufficient color contrast (WCAG AA minimum)
+   5. Include browser support information
+   6. Document customization options clearly
+   7. Use simple, clear language in descriptions
+   8. Test copy functionality works correctly
+   9. Verify in both light and dark modes
+   10. Test on mobile devices for responsiveness
+
 */
 
 // Utility
@@ -225,11 +367,147 @@ function initLiveSandboxes() {
   });
 }
 
+// ============= COMPONENT GALLERY FILTERING =============
+// State for selected filters
+window.filterState = {
+  selectedCategory: null,
+  selectedTags: new Set(),
+  searchQuery: ''
+};
+
+// Extract unique categories and tags from component cards
+function extractFilterMetadata() {
+  const categories = new Set();
+  const tags = new Set();
+  
+  document.querySelectorAll('.component-card').forEach(card => {
+    if (card.dataset.cat) categories.add(card.dataset.cat);
+    if (card.dataset.tags) {
+      const cardTags = card.dataset.tags.split(',').map(t => t.trim());
+      cardTags.forEach(tag => tags.add(tag));
+    }
+  });
+  
+  return { categories: Array.from(categories).sort(), tags: Array.from(tags).sort() };
+}
+
+// Create filter controls UI
+function createFilterUI() {
+  const container = document.querySelector('.filter-bar');
+  if (!container) return; // Only add if filter-bar exists
+  
+  const metadata = extractFilterMetadata();
+  
+  // Create category filter section
+  const categoryContainer = document.createElement('div');
+  categoryContainer.className = 'category-filters';
+  categoryContainer.innerHTML = '<div class="filter-label">Categories:</div>';
+  
+  const categoryChips = document.createElement('div');
+  categoryChips.className = 'filter-chips';
+  
+  // Add "All" chip
+  const allChip = document.createElement('button');
+  allChip.className = 'filter-chip active';
+  allChip.textContent = 'All';
+  allChip.dataset.category = 'all';
+  allChip.addEventListener('click', (e) => selectCategory(e.target.dataset.category, e.target));
+  categoryChips.appendChild(allChip);
+  
+  // Add category chips
+  metadata.categories.forEach(cat => {
+    const chip = document.createElement('button');
+    chip.className = 'filter-chip';
+    chip.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+    chip.dataset.category = cat;
+    chip.addEventListener('click', (e) => selectCategory(e.target.dataset.category, e.target));
+    categoryChips.appendChild(chip);
+  });
+  
+  categoryContainer.appendChild(categoryChips);
+  container.appendChild(categoryContainer);
+  
+  // Create tag filter section
+  if (metadata.tags.length > 0) {
+    const tagContainer = document.createElement('div');
+    tagContainer.className = 'tag-filters';
+    tagContainer.innerHTML = '<div class="filter-label">Tags:</div>';
+    
+    const tagChips = document.createElement('div');
+    tagChips.className = 'filter-chips';
+    
+    metadata.tags.forEach(tag => {
+      const chip = document.createElement('button');
+      chip.className = 'filter-chip';
+      chip.textContent = tag;
+      chip.dataset.tag = tag;
+      chip.addEventListener('click', (e) => toggleTag(e.target.dataset.tag, e.target));
+      tagChips.appendChild(chip);
+    });
+    
+    tagContainer.appendChild(tagChips);
+    container.appendChild(tagContainer);
+  }
+}
+
+// Select a category (single select)
+function selectCategory(category, element) {
+  // Clear previous category selection
+  document.querySelectorAll('.category-filters .filter-chip').forEach(chip => {
+    chip.classList.remove('active');
+  });
+  
+  element.classList.add('active');
+  window.filterState.selectedCategory = category === 'all' ? null : category;
+  applyFilters();
+}
+
+// Toggle a tag (multi-select)
+function toggleTag(tag, element) {
+  element.classList.toggle('active');
+  if (element.classList.contains('active')) {
+    window.filterState.selectedTags.add(tag);
+  } else {
+    window.filterState.selectedTags.delete(tag);
+  }
+  applyFilters();
+}
+
+// Apply all active filters (categories + tags + search)
+function applyFilters() {
+  const cards = document.querySelectorAll('.component-card');
+  
+  cards.forEach(card => {
+    const cardCategory = card.dataset.cat;
+    const cardTags = card.dataset.tags ? card.dataset.tags.split(',').map(t => t.trim()) : [];
+    const cardName = (card.dataset.name || card.innerText).toLowerCase();
+    
+    // Check category filter
+    const categoryMatch = !window.filterState.selectedCategory || cardCategory === window.filterState.selectedCategory;
+    
+    // Check tag filters (OR logic - card must have at least one selected tag, or no tags selected)
+    const tagMatch = window.filterState.selectedTags.size === 0 || 
+                     Array.from(window.filterState.selectedTags).some(tag => cardTags.includes(tag));
+    
+    // Check search filter
+    const searchMatch = window.filterState.searchQuery === '' || cardName.includes(window.filterState.searchQuery);
+    
+    // Show card only if all filters match
+    card.style.display = (categoryMatch && tagMatch && searchMatch) ? '' : 'none';
+  });
+}
+
 // Search filter and routing
 function initSearchFilter() {
-  const searchInput = document.getElementById('searchInput'); if (!searchInput) return;
-  searchInput.addEventListener('keyup', function () { const value = this.value.toLowerCase().trim(); document.querySelectorAll('.component-card').forEach(item => { const text = (item.dataset.name || item.innerText).toLowerCase(); item.style.display = text.includes(value) ? 'block' : 'none'; }); });
+  const searchInput = document.getElementById('searchInput'); 
+  if (!searchInput) return;
+  
+  searchInput.addEventListener('keyup', function () { 
+    window.filterState.searchQuery = this.value.toLowerCase().trim();
+    applyFilters();
+  });
 }
+
 function handleSearch(event) {
   if (event.key !== 'Enter') return;
   const query = (event.target.value || '').toLowerCase().trim();
@@ -284,6 +562,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initScrollTop();
   initProgressBar();
   initSearchFilter();
+  createFilterUI();  // Initialize filter UI
 
   // Attach global search handler
   const searchEl = document.getElementById('searchInput'); if (searchEl) searchEl.addEventListener('keydown', handleSearch);

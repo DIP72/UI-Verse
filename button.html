@@ -133,7 +133,7 @@
   <div class="button-grid" id="buttonGrid">
 
     <!-- Gradient -->
-    <div class="component-card" data-name="gradient button colorful" data-cat="style">
+    <div class="component-card" data-name="gradient button colorful" data-cat="style" data-tags="modern, colorful, smooth">
       <div class="card-top">
         <span class="card-label">Gradient</span>
         <span class="card-tag tag-popular">Popular</span>
@@ -191,10 +191,57 @@
   transition: 0.3s;
 }
 .gradient-btn:hover { opacity: 0.85; transform: translateY(-2px); }</code></pre>
+
+      <!-- Customization Options -->
+      <div class="component-customization">
+        <h4>✨ Customization</h4>
+        <div class="customization-item">
+          <p><strong>Background Gradient:</strong> Change the gradient angle and colors</p>
+          <div class="customization-example">
+            background: linear-gradient(135deg, #eb6835, #6c5ce7);
+          </div>
+        </div>
+        <div class="customization-item">
+          <p><strong>Hover Effect:</strong> Modify opacity or add scale transform</p>
+          <div class="customization-example">
+            .gradient-btn:hover { transform: scale(1.05); }
+          </div>
+        </div>
+        <div class="customization-item">
+          <p><strong>Padding & Size:</strong> Adjust for different button sizes</p>
+          <div class="customization-example">
+            padding: 12px 28px; /* larger */ or 8px 16px; /* smaller */
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessibility Notes -->
+      <div class="component-a11y">
+        <h4><i class="fa-solid fa-universal-access"></i> Accessibility</h4>
+        <ul>
+          <li>Button has sufficient color contrast (white text on gradient background)</li>
+          <li>Includes visible focus state through transform on hover</li>
+          <li>Text label clearly indicates button purpose</li>
+          <li>Supports keyboard navigation (tab to focus, enter to activate)</li>
+          <li>Consider adding <code>aria-label</code> for icon-only variants</li>
+        </ul>
+      </div>
+
+      <!-- Browser Support -->
+      <div class="component-variants">
+        <h4>🌐 Browser Support</h4>
+        <div class="browser-support">
+          <div class="browser-support-item supported">Chrome 26+</div>
+          <div class="browser-support-item supported">Firefox 16+</div>
+          <div class="browser-support-item supported">Safari 6.1+</div>
+          <div class="browser-support-item supported">Edge 12+</div>
+          <div class="browser-support-item partial">IE 10 (no gradient)</div>
+        </div>
+      </div>
     </div>
 
     <!-- Outline -->
-    <div class="component-card" data-name="outline button border" data-cat="style">
+    <div class="component-card" data-name="outline button border" data-cat="style" data-tags="minimal, accessible, clean">
       <div class="card-top">
         <span class="card-label">Outline</span>
         <span class="card-tag tag-essential">Essential</span>
@@ -240,10 +287,60 @@
   transition: 0.3s;
 }
 .outline-btn:hover { background: #eb6835; color: #fff; }</code></pre>
+
+      <!-- Customization Options -->
+      <div class="component-customization">
+        <h4>✨ Customization</h4>
+        <div class="customization-item">
+          <p><strong>Border Color:</strong> Change the border and text color</p>
+          <div class="customization-example">
+            border: 2px solid #your-color; color: #your-color;
+          </div>
+        </div>
+        <div class="customization-item">
+          <p><strong>Hover Fill:</strong> Add background on hover or keep transparent</p>
+          <div class="customization-example">
+            .outline-btn:hover { background: rgba(235, 104, 53, 0.1); }
+          </div>
+        </div>
+        <div class="customization-item">
+          <p><strong>Border Width:</strong> Adjust thickness for different emphasis</p>
+          <div class="customization-example">
+            border: 1px solid... /* thinner */ or 3px solid... /* thicker */
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessibility Notes -->
+      <div class="component-a11y">
+        <h4><i class="fa-solid fa-universal-access"></i> Accessibility</h4>
+        <ul>
+          <li>Border provides visual distinction for focus state</li>
+          <li>Color contrast meets WCAG AA standards (dark border on light background)</li>
+          <li>Hover state provides clear feedback for interactive affordance</li>
+          <li>Works well for secondary and tertiary actions</li>
+          <li>Transparent background improves visual hierarchy</li>
+        </ul>
+      </div>
+
+      <!-- Variants -->
+      <div class="component-variants">
+        <h4>🎨 Variants</h4>
+        <span class="variant-tag">Default</span>
+        <span class="variant-tag active">Interactive</span>
+        <span class="variant-tag">Disabled</span>
+        <span class="variant-tag">Large</span>
+        <span class="variant-tag">Small</span>
+        <div class="browser-support" style="margin-top: 16px;">
+          <strong>Browser Support:</strong>
+          <div class="browser-support-item supported">All Modern Browsers</div>
+          <div class="browser-support-item supported">IE 9+</div>
+        </div>
+      </div>
     </div>
 
     <!-- Neon -->
-    <div class="component-card" data-name="neon button glow" data-cat="effect">
+    <div class="component-card" data-name="neon button glow" data-cat="effect" data-tags="glowing, dark-mode, trendy">
       <div class="card-top">
         <span class="card-label">Neon</span>
         <span class="card-tag tag-trending">Trending</span>
@@ -291,7 +388,7 @@
     </div>
 
     <!-- Glass -->
-    <div class="component-card" data-name="glass button transparent blur" data-cat="effect">
+    <div class="component-card" data-name="glass button transparent blur" data-cat="effect" data-tags="modern, blur, trendy">
       <div class="card-top">
         <span class="card-label">Glass</span>
         <span class="card-tag tag-trending">Trending</span>
@@ -340,7 +437,7 @@
     </div>
 
     <!-- Shadow -->
-    <div class="component-card" data-name="shadow button lift depth" data-cat="effect">
+    <div class="component-card" data-name="shadow button lift depth" data-cat="effect" data-tags="depth, interactive, modern">
       <div class="card-top">
         <span class="card-label">Shadow</span>
         <span class="card-tag tag-popular">Popular</span>
@@ -375,7 +472,7 @@
     </div>
 
     <!-- Rounded (Pill) -->
-    <div class="component-card" data-name="rounded button pill" data-cat="style">
+    <div class="component-card" data-name="rounded button pill" data-cat="style" data-tags="modern, minimal, friendly">
       <div class="card-top">
         <span class="card-label">Pill</span>
         <span class="card-tag tag-essential">Essential</span>
@@ -409,7 +506,7 @@
     </div>
 
     <!-- Icon -->
-    <div class="component-card" data-name="icon button circular" data-cat="style">
+    <div class="component-card" data-name="icon button circular" data-cat="style" data-tags="compact, minimal, accessible">
       <div class="card-top">
         <span class="card-label">Icon</span>
         <span class="card-tag tag-essential">Essential</span>
@@ -447,7 +544,7 @@
     </div>
 
     <!-- Success -->
-    <div class="component-card" data-name="success button green" data-cat="status">
+    <div class="component-card" data-name="success button green" data-cat="status" data-tags="confirmation, positive, feedback">
       <div class="card-top">
         <span class="card-label">Success</span>
         <span class="card-tag tag-new">Status</span>
@@ -481,7 +578,7 @@
     </div>
 
     <!-- Danger -->
-    <div class="component-card" data-name="danger button red" data-cat="status">
+    <div class="component-card" data-name="danger button red" data-cat="status" data-tags="destructive, alert, critical">
       <div class="card-top">
         <span class="card-label">Danger</span>
         <span class="card-tag tag-danger">Status</span>
@@ -515,7 +612,7 @@
     </div>
 
     <!-- Warning -->
-    <div class="component-card" data-name="warning button orange" data-cat="status">
+    <div class="component-card" data-name="warning button orange" data-cat="status" data-tags="caution, alert, warning">
       <div class="card-top">
         <span class="card-label">Warning</span>
         <span class="card-tag tag-warning">Status</span>
@@ -549,7 +646,7 @@
     </div>
 
     <!-- Loading -->
-    <div class="component-card" data-name="loading button spinner" data-cat="effect">
+    <div class="component-card" data-name="loading button spinner" data-cat="effect" data-tags="interactive, animation, state">
       <div class="card-top">
         <span class="card-label">Loading</span>
         <span class="card-tag tag-popular">Popular</span>
@@ -597,7 +694,7 @@
     </div>
 
     <!-- Ghost -->
-    <div class="component-card" data-name="ghost button transparent" data-cat="style">
+    <div class="component-card" data-name="ghost button transparent" data-cat="style" data-tags="minimal, subtle, transparent">
       <div class="card-top">
         <span class="card-label">Ghost</span>
         <span class="card-tag tag-essential">Essential</span>
@@ -631,7 +728,7 @@
 
 
     <!-- Animated Pulse -->
-    <div class="component-card" data-name="animated button pulse" data-cat="effect">
+    <div class="component-card" data-name="animated button pulse" data-cat="effect" data-tags="animation, interactive, attention">
       <div class="card-top">
         <span class="card-label">Pulse</span>
         <span class="card-tag tag-trending">Trending</span>
@@ -673,7 +770,7 @@
     </div>
 
     <!-- 3D -->
-    <div class="component-card" data-name="3d button depth" data-cat="effect">
+    <div class="component-card" data-name="3d button depth" data-cat="effect" data-tags="depth, tactile, modern">
       <div class="card-top">
         <span class="card-label">3D</span>
         <span class="card-tag tag-trending">Trending</span>
