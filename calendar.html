@@ -88,7 +88,231 @@
     <section class="calendar-section">
     <!-- ================= WEEKLY PLANNER VIEW ================= -->
   <!-- ================= PRODUCTIVITY ANALYTICS ================= -->
+<!-- ================= AGENDA VIEW ================= -->
 
+<section class="agenda-section">
+
+  <div class="section-header">
+
+    <span class="section-tag">
+      Daily Agenda
+    </span>
+
+    <h2>
+      Today's Schedule
+    </h2>
+
+  </div>
+
+  <div class="agenda-layout">
+
+    <!-- LEFT -->
+
+    <div class="agenda-timeline">
+
+      <!-- ITEM -->
+
+      <div class="agenda-item high-priority">
+
+        <div class="agenda-time">
+          09:00 AM
+        </div>
+
+        <div class="agenda-card">
+
+          <div class="agenda-top">
+
+            <h3>
+              Sprint Planning Meeting
+            </h3>
+
+            <span class="priority high">
+              High
+            </span>
+
+          </div>
+
+          <p>
+            Finalize sprint goals and assign
+            tasks to development team.
+          </p>
+
+          <div class="agenda-meta">
+
+            <span>
+              👥 6 Attendees
+            </span>
+
+            <span>
+              📝 Zoom Call
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+
+      <div class="agenda-item medium-priority">
+
+        <div class="agenda-time">
+          12:30 PM
+        </div>
+
+        <div class="agenda-card">
+
+          <div class="agenda-top">
+
+            <h3>
+              UI Design Review
+            </h3>
+
+            <span class="priority medium">
+              Medium
+            </span>
+
+          </div>
+
+          <p>
+            Review latest dashboard layouts
+            and interaction animations.
+          </p>
+
+          <div class="agenda-meta">
+
+            <span>
+              👥 4 Attendees
+            </span>
+
+            <span>
+              🎨 Figma Review
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+
+      <div class="agenda-item low-priority">
+
+        <div class="agenda-time">
+          04:00 PM
+        </div>
+
+        <div class="agenda-card">
+
+          <div class="agenda-top">
+
+            <h3>
+              Product Launch Call
+            </h3>
+
+            <span class="priority low">
+              Low
+            </span>
+
+          </div>
+
+          <p>
+            Discuss final launch timeline
+            and deployment checklist.
+          </p>
+
+          <div class="agenda-meta">
+
+            <span>
+              👥 8 Attendees
+            </span>
+
+            <span>
+              🚀 Launch Sync
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= EVENT MODAL ================= -->
+
+<div class="event-modal-overlay" id="eventModalOverlay"></div>
+
+<div class="event-modal" id="eventModal">
+
+  <div class="modal-top">
+
+    <h2>
+      Event Details
+    </h2>
+
+    <button id="closeEventModal">
+      ✕
+    </button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <div class="modal-badge">
+      High Priority
+    </div>
+
+    <h3>
+      Sprint Planning Meeting
+    </h3>
+
+    <p>
+      Discuss sprint backlog, assign tasks,
+      and review development milestones.
+    </p>
+
+    <div class="modal-info">
+
+      <div>
+        ⏰ 09:00 AM
+      </div>
+
+      <div>
+        👥 6 Attendees
+      </div>
+
+      <div>
+        📝 Zoom Meeting
+      </div>
+
+    </div>
+
+    <textarea
+      placeholder="Add notes..."
+    ></textarea>
+
+    <div class="modal-actions">
+
+      <button class="delete-btn">
+        Delete
+      </button>
+
+      <button class="save-btn">
+        Save Changes
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 <section class="productivity-section">
 
   <div class="section-header">
