@@ -40,6 +40,285 @@
   </div>
 </aside>
 
+    <!-- SEARCH INPUT -->
+  <div class="component-card" data-name="search input">
+    <h3>Search Input</h3>
+    <div class="input-group">
+      <label>Search</label>
+      <input type="search" placeholder="Search here...">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c29')">View Code</button>
+      <button onclick="copyCode('c29', this)">Copy Code</button>
+    </div>
+
+    <pre id="c29" style="display:none;">
+&lt;input type="search" placeholder="Search here..."&gt;
+    </pre>
+  </div>
+
+  <!-- TEL INPUT -->
+  <div class="component-card" data-name="telephone input">
+    <h3>Telephone Input</h3>
+    <div class="input-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="+91 9876543210">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c30')">View Code</button>
+      <button onclick="copyCode('c30', this)">Copy Code</button>
+    </div>
+
+    <pre id="c30" style="display:none;">
+&lt;input type="tel" placeholder="+91 9876543210"&gt;
+    </pre>
+  </div>
+
+  <!-- URL INPUT -->
+  <div class="component-card" data-name="url input">
+    <h3>URL Input</h3>
+    <div class="input-group">
+      <label>Website URL</label>
+      <input type="url" placeholder="https://example.com">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c31')">View Code</button>
+      <button onclick="copyCode('c31', this)">Copy Code</button>
+    </div>
+
+    <pre id="c31" style="display:none;">
+&lt;input type="url" placeholder="https://example.com"&gt;
+    </pre>
+  </div>
+
+  <!-- NUMBER INPUT -->
+  <div class="component-card" data-name="number input">
+    <h3>Number Input</h3>
+    <div class="input-group">
+      <label>Quantity</label>
+      <input type="number" min="1" max="10" placeholder="Enter number">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c32')">View Code</button>
+      <button onclick="copyCode('c32', this)">Copy Code</button>
+    </div>
+
+    <pre id="c32" style="display:none;">
+&lt;input type="number" min="1" max="10" placeholder="Enter number"&gt;
+    </pre>
+  </div>
+
+  <!-- COLOR PICKER -->
+  <div class="component-card" data-name="color input">
+    <h3>Color Picker</h3>
+    <div class="input-group">
+      <label>Choose Color</label>
+      <input type="color" value="#6c63ff">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c33')">View Code</button>
+      <button onclick="copyCode('c33', this)">Copy Code</button>
+    </div>
+
+    <pre id="c33" style="display:none;">
+&lt;input type="color" value="#6c63ff"&gt;
+    </pre>
+  </div>
+
+  <!-- MONTH INPUT -->
+  <div class="component-card" data-name="month input">
+    <h3>Month Input</h3>
+    <div class="input-group">
+      <label>Select Month</label>
+      <input type="month">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c34')">View Code</button>
+      <button onclick="copyCode('c34', this)">Copy Code</button>
+    </div>
+
+    <pre id="c34" style="display:none;">
+&lt;input type="month"&gt;
+    </pre>
+  </div>
+
+  <!-- WEEK INPUT -->
+  <div class="component-card" data-name="week input">
+    <h3>Week Input</h3>
+    <div class="input-group">
+      <label>Select Week</label>
+      <input type="week">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c35')">View Code</button>
+      <button onclick="copyCode('c35', this)">Copy Code</button>
+    </div>
+
+    <pre id="c35" style="display:none;">
+&lt;input type="week"&gt;
+    </pre>
+  </div>
+
+  <!-- DATETIME INPUT -->
+  <div class="component-card" data-name="datetime input">
+    <h3>DateTime Input</h3>
+    <div class="input-group">
+      <label>Date & Time</label>
+      <input type="datetime-local">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c36')">View Code</button>
+      <button onclick="copyCode('c36', this)">Copy Code</button>
+    </div>
+
+    <pre id="c36" style="display:none;">
+&lt;input type="datetime-local"&gt;
+    </pre>
+  </div>
+
+  <!-- MULTIPLE FILE INPUT -->
+  <div class="component-card" data-name="multiple file input">
+    <h3>Multiple File Upload</h3>
+    <div class="input-group">
+      <label>Upload Files</label>
+      <input type="file" multiple>
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c37')">View Code</button>
+      <button onclick="copyCode('c37', this)">Copy Code</button>
+    </div>
+
+    <pre id="c37" style="display:none;">
+&lt;input type="file" multiple&gt;
+    </pre>
+  </div>
+
+  <!-- DATALIST INPUT -->
+  <div class="component-card" data-name="datalist input">
+    <h3>Datalist Input</h3>
+    <div class="input-group">
+      <label>Choose Browser</label>
+
+      <input list="browsers" placeholder="Select browser">
+
+      <datalist id="browsers">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Edge">
+        <option value="Safari">
+      </datalist>
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c38')">View Code</button>
+      <button onclick="copyCode('c38', this)">Copy Code</button>
+    </div>
+
+    <pre id="c38" style="display:none;">
+&lt;input list="browsers" placeholder="Select browser"&gt;
+
+&lt;datalist id="browsers"&gt;
+  &lt;option value="Chrome"&gt;
+  &lt;option value="Firefox"&gt;
+  &lt;option value="Edge"&gt;
+  &lt;option value="Safari"&gt;
+&lt;/datalist&gt;
+    </pre>
+  </div>
+
+  <!-- FLOATING LABEL INPUT -->
+  <div class="component-card" data-name="floating label input">
+    <h3>Floating Label Input</h3>
+
+    <div class="floating-group">
+      <input type="text" required>
+      <label>Full Name</label>
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c39')">View Code</button>
+      <button onclick="copyCode('c39', this)">Copy Code</button>
+    </div>
+
+    <pre id="c39" style="display:none;">
+&lt;div class="floating-group"&gt;
+  &lt;input type="text" required&gt;
+  &lt;label&gt;Full Name&lt;/label&gt;
+&lt;/div&gt;
+    </pre>
+  </div>
+
+  <!-- OTP INPUT -->
+  <div class="component-card" data-name="otp input">
+    <h3>OTP Input</h3>
+
+    <div class="otp-group">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+      <input type="text" maxlength="1">
+    </div>
+
+    <div class="actions">
+      <button onclick="toggleCode('c40')">View Code</button>
+      <button onclick="copyCode('c40', this)">Copy Code</button>
+    </div>
+
+    <pre id="c40" style="display:none;">
+&lt;div class="otp-group"&gt;
+  &lt;input type="text" maxlength="1"&gt;
+  &lt;input type="text" maxlength="1"&gt;
+  &lt;input type="text" maxlength="1"&gt;
+  &lt;input type="text" maxlength="1"&gt;
+&lt;/div&gt;
+    </pre>
+  </div>
+
+  <!-- TOGGLE SWITCH -->
+  <div class="component-card" data-name="toggle switch">
+    <h3>Toggle Switch</h3>
+
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+
+    <div class="actions">
+      <button onclick="toggleCode('c41')">View Code</button>
+      <button onclick="copyCode('c41', this)">Copy Code</button>
+    </div>
+
+    <pre id="c41" style="display:none;">
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+    </pre>
+  </div>
+
+  <div class="component-card" data-name="email input">
+    <h3>Email Input</h3>
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" placeholder="Enter email">
+    </div>
+    <div class="actions">
+      <button onclick="toggleCode('c2')">View Code</button>
+      <button onclick="copyCode('c2', this)">Copy Code</button>
+    </div>
+    <pre id="c2" style="display:none;">
+&lt;input type="email" placeholder="Enter email"&gt;
+    </pre>
+  </div>
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
 <!-- NAVBAR -->
