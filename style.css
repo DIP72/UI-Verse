@@ -1,5 +1,44 @@
 :root {
   --sidebar-width: 240px;
+  --sidebar-w: 240px;
+  
+  /* Core Colors - Light Mode */
+  --accent: #eb6835;
+  --text-primary: #111;
+  --text-secondary: #666;
+  --bg-primary: #f5f4f2;
+  --bg-secondary: #ffffff;
+  --border-primary: #ebebeb;
+  --card-bg: #ffffff;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  
+  /* Font */
+  --font-body: 'DM Sans', Arial, sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  
+  /* Transitions */
+  --transition: 0.25s ease;
+}
+
+body.dark-mode {
+  --bg-primary: #0f0f12;
+  --bg-secondary: #1a1a1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #999;
+  --border-primary: #2a2a30;
+  --card-bg: #1a1a1e;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 *, *::before, *::after {
@@ -10,34 +49,24 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #e1e1e3;
-  background-color: #ffffff;
-  color: #000000;
-  transition: 0.3s;
-  height: 1000px;
-  background-color: #f3f4f7;
-  color: #000000;
-  transition: 0.3s;
-  height: 1000px;
-  padding: 20px;
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
-  background: #ffffff;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f3f4f7;
+  background-color: var(--bg-primary);
 }
 
-h1 {
-  color: rgb(235, 104, 57);
-}
-
-h3 {
-  color: rgb(226, 133, 99);
+h1, h2, h3 {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  margin: 0;
 }
 
 /*navbar*/
@@ -2167,8 +2196,8 @@ label + input[type="checkbox"] {
 /* CODE BLOCK */
 .code-block {
   display: none;
-  background: #ffffff;
-  color: #000000;
+  background: var(--code-bg);
+  color: var(--code-text);
   padding: 15px;
   border-radius: 8px;
   margin-top: 15px;
@@ -2183,9 +2212,21 @@ label + input[type="checkbox"] {
 
 /* CARDS */
 .feature-card {
+  background: var(--feature-card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--feature-card-border);
+  padding: 20px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
 .code-block.show {
   display: block;
-}
 }
 
 /* ================= COLORS PAGE ================= */
@@ -8167,4 +8208,289 @@ table td{
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ================= MODERN CSS VARIABLE REFACTOR ================= */
+/* This section modernizes major components to use CSS variables for */
+/* consistent theming. Variables are defined in home.css and handle */
+/* light/dark mode automatically. */
+
+/* Component Card - Unified styling using variables */
+.component-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.component-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hero Section - Variable-driven */
+.hero {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-md);
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+  color: var(--text-primary);
+}
+
+.hero p {
+  color: var(--text-secondary);
+}
+
+/* Feature Card - Variable-driven */
+.feature-card {
+  background: var(--feature-card-bg);
+  border: 1px solid var(--feature-card-border);
+  color: var(--text-primary);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card h3,
+.feature-card h4 {
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+}
+
+/* Footer - Variable-driven */
+.footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  color: var(--text-primary);
+  margin-top: auto;
+  margin-left: var(--sidebar-w);
+  padding: 60px 20px;
+  transition: all var(--transition);
+}
+
+.footer-brand h2 {
+  color: var(--accent);
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+}
+
+.footer-col h3 {
+  color: var(--accent);
+}
+
+.footer-col a {
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+/* Input/Form Elements - Variable-driven */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(235, 104, 53, 0.1);
+}
+
+/* Button Base Styles - Variable-driven */
+.btn-primary,
+.primary-nav-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all var(--transition);
+  font-weight: 500;
+}
+
+.btn-primary:hover,
+.primary-nav-btn:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline,
+.outline-nav-btn {
+  background: transparent;
+  border: 2px solid var(--btn-outline-border);
+  color: var(--btn-outline-text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all var(--transition);
+  font-weight: 500;
+}
+
+.btn-outline:hover,
+.outline-nav-btn:hover {
+  background: var(--btn-outline-hover-bg);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--btn-ghost-text);
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  font-weight: 500;
+}
+
+.btn-ghost:hover {
+  background: var(--btn-ghost-hover-bg);
+  transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.actions button {
+  background: var(--card-alt-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 9px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all var(--transition);
+}
+
+.actions button:hover {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+/* Code Block - Already updated above */
+.code-block {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  color: var(--code-text);
+}
+
+/* Sidebar - Dark theme specific but variable-friendly */
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-nav li a {
+  color: var(--sidebar-link);
+  transition: all var(--transition);
+}
+
+.sidebar-nav li a:hover {
+  color: var(--sidebar-link-hover);
+}
+
+.sidebar-nav li.active a {
+  color: var(--accent);
+}
+
+/* Navbar - Variable-driven */
+.navbar {
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  color: var(--text-primary);
+}
+
+.search-bar {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+}
+
+.search-bar input {
+  background: transparent;
+  color: var(--input-text);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Card Container */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Tag/Badge Styles */
+.card-tag {
+  background: var(--accent);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Smooth Theme Transitions */
+body {
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: var(--accent);
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent-dark);
 }
