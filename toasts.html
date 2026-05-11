@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Toast Library</title>
+<link rel="stylesheet" href="toasts.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+  <h2>🔥 Toast Component Library</h2>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+<h3 style="padding:20px;color:black">
+   <h2 style="text-align:center;color:black;font-size:30px;">What is a Toast Component?</h2> 
+<h3 style="color:black;padding:20px;>
+A Toast is a small, non-modal notification that appears on the screen to provide feedback about an operation. Unlike "Alert" boxes or
+     "Modals," toasts are designed to be unobtrusive—meaning they don't 
+     stop the user from continuing their work. They usually disappear automatically 
+     after a few seconds.</h3>
+</h3>
+  <h3 style="padding:20px;color:black">
+    A rich collection of reusable toast notifications — from success, warning,
+    error, and info alerts. Built for modern web apps with clean UI, smooth animations,
+    and easy copy-paste usage.
+  </h3>
+ 
+
+</section>
+
+<!-- ================= ABOUT ME ================= -->
+ <div style="border:black;">
+<section class="about">
+
+  <h2 style="text-align:center;color:black">About Me</h2>
+
+  <h3 style="padding:20px;color:black">
+    Hi 👋 I'm a CSE student passionate about frontend development, UI design,
+    and building real-world component libraries like UIverse.
+    I love creating reusable UI systems that help developers build faster.
+  </h3>
+
+</section>
+</div>
+</body>
+<!-- ================= GRID ================= -->
+<section class="grid">
+
+  <!-- SUCCESS -->
+  <div class="card" data-code='
+<div id="toast-container"></div>
+
+<script>
+function showToast(type, message){
+  const c=document.getElementById("toast-container");
+  const t=document.createElement("div");
+  t.className="toast "+type;
+  t.innerText=message;
+  c.appendChild(t);
+  setTimeout(()=>t.remove(),2500);
+}
+</script>
+
+<style>
+.toast{
+  padding:10px 15px;
+  margin:10px;
+  background:#1f2937;
+  color:white;
+  border-radius:8px;
+}
+.toast.success{border-left:4px solid #22c55e;}
+</style>
+'>
+
+    <span class="badge success">Success</span>
+    <h3>Success Toast</h3>
+
+    <div class="actions">
+      <button class="copy">Copy</button>
+      
+    </div>
+  </div>
+
+  <!-- WARNING -->
+  <div class="card" data-code='
+<div id="toast-container"></div>
+
+<script>
+function showToast(type,message){
+  const c=document.getElementById("toast-container");
+  const t=document.createElement("div");
+  t.className="toast "+type;
+  t.innerText=message;
+  c.appendChild(t);
+  setTimeout(()=>t.remove(),2500);
+}
+</script>
+
+<style>
+.toast.warning{border-left:4px solid #facc15;}
+</style>
+'>
+
+    <span class="badge warning">Warning</span>
+    <h3>Warning Toast</h3>
+
+    <div class="actions">
+      <button class="copy">Copy</button>
+      
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="card" data-code='
+<div id="toast-container"></div>
+
+<script>
+function showToast(type,message){
+  const c=document.getElementById("toast-container");
+  const t=document.createElement("div");
+  t.className="toast "+type;
+  t.innerText=message;
+  c.appendChild(t);
+  setTimeout(()=>t.remove(),2500);
+}
+</script>
+
+<style>
+.toast.error{border-left:4px solid #ef4444;}
+</style>
+'>
+
+    <span class="badge error">Error</span>
+    <h3>Error Toast</h3>
+
+    <div class="actions">
+      <button class="copy">Copy</button>
+      
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="card" data-code='
+<div id="toast-container"></div>
+
+<script>
+function showToast(type,message){
+  const c=document.getElementById("toast-container");
+  const t=document.createElement("div");
+  t.className="toast "+type;
+  t.innerText=message;
+  c.appendChild(t);
+  setTimeout(()=>t.remove(),2500);
+}
+</script>
+
+<style>
+.toast.info{border-left:4px solid #3b82f6;}
+</style>
+'>
+
+    <span class="badge info">Info</span>
+    <h3>Info Toast</h3>
+
+    <div class="actions">
+      <button class="copy">Copy</button>
+      
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= TOAST UI ================= -->
+<div id="toast-ui"></div>
+
+<script src="toasts.js"></script>
+</body>
+</html>
