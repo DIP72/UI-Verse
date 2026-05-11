@@ -980,3 +980,425 @@ body.dark-mode .time-column span {
   }
 
 }
+/* =========================================================
+   PRODUCTIVITY SECTION
+========================================================= */
+
+.productivity-section {
+
+  margin-top: 70px;
+}
+
+/* =========================================================
+   ANALYTICS GRID
+========================================================= */
+
+.analytics-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1.4fr 1fr 0.9fr;
+
+  gap: 24px;
+
+  margin-top: 30px;
+}
+
+/* =========================================================
+   ANALYTICS CARD
+========================================================= */
+
+.analytics-card {
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.analytics-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.analytics-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.analytics-top i {
+
+  font-size: 22px;
+
+  color:
+    #6c5ce7;
+}
+
+/* =========================================================
+   FOCUS CHART
+========================================================= */
+
+.focus-chart {
+
+  height: 240px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.focus-bar {
+
+  flex: 1;
+
+  position: relative;
+
+  border-radius: 18px 18px 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6c5ce7,
+      #8e7dff
+    );
+
+  animation:
+    riseUp 1s ease;
+}
+
+.focus-bar span {
+
+  position: absolute;
+
+  bottom: -34px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 13px;
+
+  color:
+    #777;
+}
+
+.active-bar {
+
+  background:
+    linear-gradient(
+      180deg,
+      #eb6835,
+      #ff9966
+    );
+
+  box-shadow:
+    0 0 24px rgba(235,104,53,0.4);
+}
+
+@keyframes riseUp {
+
+  from {
+
+    height: 0;
+  }
+
+}
+
+/* =========================================================
+   SCORE CARD
+========================================================= */
+
+.score-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.score-circle {
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    conic-gradient(
+      #6c5ce7 0% 60%,
+      #eb6835 60% 92%,
+      rgba(255,255,255,0.08) 92% 100%
+    );
+}
+
+.score-inner {
+
+  width: 160px;
+
+  height: 160px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    #fff;
+}
+
+.score-inner h2 {
+
+  font-size: 2.4rem;
+}
+
+/* =========================================================
+   SMALL ANALYTICS
+========================================================= */
+
+.small-analytics {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.small-box {
+
+  flex: 1;
+
+  padding: 24px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  text-align: center;
+}
+
+.small-box h2 {
+
+  font-size: 2rem;
+
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   AI INSIGHTS
+========================================================= */
+
+.ai-insights-section {
+
+  margin-top: 70px;
+}
+
+.insights-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+  gap: 24px;
+
+  margin-top: 30px;
+}
+
+/* =========================================================
+   INSIGHT CARD
+========================================================= */
+
+.insight-card {
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.insight-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+.insight-icon {
+
+  width: 68px;
+
+  height: 68px;
+
+  border-radius: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  color: white;
+
+  font-size: 24px;
+}
+
+.insight-icon.purple {
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #8e7dff
+    );
+}
+
+.insight-icon.orange {
+
+  background:
+    linear-gradient(
+      135deg,
+      #eb6835,
+      #ff9966
+    );
+}
+
+.insight-icon.green {
+
+  background:
+    linear-gradient(
+      135deg,
+      #00b894,
+      #00d4aa
+    );
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .analytics-card,
+body.dark-mode .insight-card,
+body.dark-mode .small-box {
+
+  background:
+    rgba(31,31,31,0.72);
+
+  color: white;
+}
+
+body.dark-mode .score-inner {
+
+  background:
+    #1f1f1f;
+
+  color: white;
+}
+
+body.dark-mode .focus-bar span {
+
+  color:
+    rgba(255,255,255,0.72);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+  .analytics-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .score-circle {
+
+    width: 180px;
+
+    height: 180px;
+  }
+
+  .score-inner {
+
+    width: 130px;
+
+    height: 130px;
+  }
+
+}
