@@ -6617,6 +6617,218 @@ body.dark-mode .component-a11y h4 {
   color: #5fa8d3;
 }
 
+/* ================= ACCESSIBILITY MODE ================= */
+
+/* Accessibility Mode Toggle Button */
+.a11y-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: #f3f4f6;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.a11y-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #60a5fa;
+}
+
+.a11y-toggle.active {
+  background: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+}
+
+/* Enhanced Focus Visibility in A11y Mode */
+body.a11y-mode *:focus-visible {
+  outline: 3px solid #0ea5e9 !important;
+  outline-offset: 2px !important;
+}
+
+body.a11y-mode input:focus-visible,
+body.a11y-mode select:focus-visible,
+body.a11y-mode textarea:focus-visible,
+body.a11y-mode button:focus-visible {
+  outline: 3px solid #0ea5e9 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Flagged Elements - Missing Label */
+body.a11y-mode input[data-a11y-flag="missing-label"],
+body.a11y-mode select[data-a11y-flag="missing-label"],
+body.a11y-mode textarea[data-a11y-flag="missing-label"] {
+  position: relative;
+  outline: 2px dashed #f97316 !important;
+  outline-offset: 1px !important;
+  background: rgba(249, 115, 22, 0.05) !important;
+}
+
+body.a11y-mode input[data-a11y-flag="missing-label"]::before,
+body.a11y-mode select[data-a11y-flag="missing-label"]::before,
+body.a11y-mode textarea[data-a11y-flag="missing-label"]::before {
+  content: attr(data-a11y-flag);
+}
+
+/* Flagged Elements - Missing Button Name */
+body.a11y-mode button[data-a11y-flag="missing-name"] {
+  position: relative;
+  outline: 2px dashed #f97316 !important;
+  outline-offset: 2px !important;
+  background: rgba(249, 115, 22, 0.05) !important;
+}
+
+body.a11y-mode button[data-a11y-flag="missing-name"]::after {
+  content: "⚠ No accessible name";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background: #f97316;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Flagged Elements - Missing Alt Text */
+body.a11y-mode img[data-a11y-flag="missing-alt"] {
+  outline: 2px dashed #f97316 !important;
+  outline-offset: 2px !important;
+  opacity: 0.8;
+  filter: hue-rotate(30deg) saturate(1.5);
+}
+
+body.a11y-mode img[data-a11y-flag="missing-alt"]::after {
+  content: "⚠ Missing alt text";
+  position: absolute;
+  background: #f97316;
+  color: white;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  z-index: 1000;
+}
+
+/* Warning Indicator Styling */
+body.a11y-mode [data-a11y-flag]::before {
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Accessibility Mode - Enhanced Keyboard Navigation */
+body.a11y-mode {
+  --focus-color: #0ea5e9;
+  --focus-width: 3px;
+}
+
+body.a11y-mode a:focus-visible {
+  outline: 3px solid #0ea5e9 !important;
+  outline-offset: 2px !important;
+}
+
+body.a11y-mode ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+body.a11y-mode ::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+body.a11y-mode ::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 8px;
+}
+
+body.a11y-mode ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Dark Mode + Accessibility Mode */
+body.dark-mode.a11y-mode *:focus-visible {
+  outline: 3px solid #60a5fa !important;
+  outline-offset: 2px !important;
+}
+
+body.dark-mode.a11y-mode input:focus-visible,
+body.dark-mode.a11y-mode select:focus-visible,
+body.dark-mode.a11y-mode textarea:focus-visible,
+body.dark-mode.a11y-mode button:focus-visible {
+  outline: 3px solid #60a5fa !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2) !important;
+}
+
+body.dark-mode.a11y-mode input[data-a11y-flag="missing-label"],
+body.dark-mode.a11y-mode select[data-a11y-flag="missing-label"],
+body.dark-mode.a11y-mode textarea[data-a11y-flag="missing-label"] {
+  outline: 2px dashed #fb923c !important;
+  background: rgba(251, 146, 60, 0.1) !important;
+}
+
+body.dark-mode.a11y-mode button[data-a11y-flag="missing-name"] {
+  outline: 2px dashed #fb923c !important;
+  background: rgba(251, 146, 60, 0.1) !important;
+}
+
+body.dark-mode.a11y-mode button[data-a11y-flag="missing-name"]::after {
+  background: #fb923c;
+}
+
+body.dark-mode.a11y-mode img[data-a11y-flag="missing-alt"] {
+  outline: 2px dashed #fb923c !important;
+  filter: hue-rotate(30deg) saturate(1.5) brightness(1.1);
+}
+
+body.dark-mode.a11y-mode img[data-a11y-flag="missing-alt"]::after {
+  background: #fb923c;
+}
+
+body.dark-mode .a11y-toggle {
+  color: #f3f4f6;
+}
+
+body.dark-mode .a11y-toggle:hover {
+  color: #93c5fd;
+}
+
+body.dark-mode .a11y-toggle.active {
+  background: rgba(147, 197, 253, 0.2);
+  color: #93c5fd;
+}
+
+body.dark-mode.a11y-mode ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+body.dark-mode.a11y-mode ::-webkit-scrollbar-thumb {
+  background: #60a5fa;
+}
+
+body.dark-mode.a11y-mode ::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  body.a11y-mode button[data-a11y-flag="missing-name"]::after {
+    content: "⚠";
+    top: -30px;
+    font-size: 16px;
+    padding: 4px 8px;
+    white-space: normal;
+  }
+}
+
 body.dark-mode .component-a11y li {
   color: #d0d0d0;
 }
