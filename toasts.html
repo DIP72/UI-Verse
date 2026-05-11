@@ -1,183 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Toast Library</title>
-<link rel="stylesheet" href="toasts.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UI Verse - Toast Library</title>
+
+  <link rel="stylesheet" href="toasts.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="navbar">
-  <h2>🔥 Toast Component Library</h2>
-</header>
-
-<!-- ================= HERO SECTION ================= -->
-<section class="hero">
-<h3 style="padding:20px;color:black">
-   <h2 style="text-align:center;color:black;font-size:30px;">What is a Toast Component?</h2> 
-<h3 style="color:black;padding:20px;>
-A Toast is a small, non-modal notification that appears on the screen to provide feedback about an operation. Unlike "Alert" boxes or
-     "Modals," toasts are designed to be unobtrusive—meaning they don't 
-     stop the user from continuing their work. They usually disappear automatically 
-     after a few seconds.</h3>
-</h3>
-  <h3 style="padding:20px;color:black">
-    A rich collection of reusable toast notifications — from success, warning,
-    error, and info alerts. Built for modern web apps with clean UI, smooth animations,
-    and easy copy-paste usage.
-  </h3>
- 
-
-</section>
-
-<!-- ================= ABOUT ME ================= -->
- <div style="border:black;">
-<section class="about">
-
-  <h2 style="text-align:center;color:black">About Me</h2>
-
-  <h3 style="padding:20px;color:black">
-    Hi 👋 I'm a CSE student passionate about frontend development, UI design,
-    and building real-world component libraries like UIverse.
-    I love creating reusable UI systems that help developers build faster.
-  </h3>
-
-</section>
-</div>
-</body>
-<!-- ================= GRID ================= -->
-<section class="grid">
-
-  <!-- SUCCESS -->
-  <div class="card" data-code='
-<div id="toast-container"></div>
-
-<script>
-function showToast(type, message){
-  const c=document.getElementById("toast-container");
-  const t=document.createElement("div");
-  t.className="toast "+type;
-  t.innerText=message;
-  c.appendChild(t);
-  setTimeout(()=>t.remove(),2500);
-}
-</script>
-
-<style>
-.toast{
-  padding:10px 15px;
-  margin:10px;
-  background:#1f2937;
-  color:white;
-  border-radius:8px;
-}
-.toast.success{border-left:4px solid #22c55e;}
-</style>
-'>
-
-    <span class="badge success">Success</span>
-    <h3>Success Toast</h3>
-
-    <div class="actions">
-      <button class="copy">Copy</button>
-      
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      ✨ UI Verse
     </div>
+
+    <nav>
+      <a href="#">Components</a>
+      <a href="#">Documentation</a>
+      <a href="#">GitHub</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        Modern Notification Components
+      </span>
+
+      <h1>
+        Beautiful Toast <br>
+        Components Library
+      </h1>
+
+      <p>
+        A premium collection of animated toast notifications for modern web apps.
+        Ready-to-use components with clean UI, smooth transitions, and developer-friendly code.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="primary-btn">
+          Explore Components
+        </button>
+
+        <button class="secondary-btn">
+          Documentation
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COMPONENT GRID -->
+  <section class="library">
+
+    <div class="section-title">
+      <h2>Toast Components</h2>
+      <p>Reusable notification UIs for every situation.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- SUCCESS -->
+      <div class="card">
+        <div class="card-top">
+          <span class="badge success">Success</span>
+        </div>
+
+        <div class="preview success-preview">
+          <div class="mini-toast">
+            ✅ Changes saved successfully
+          </div>
+        </div>
+
+        <h3>Success Toast</h3>
+
+        <p>
+          Ideal for confirmations, successful actions, and completed processes.
+        </p>
+
+        <div class="actions">
+          <button class="demo-btn success-demo">
+            Live Demo
+          </button>
+
+          <button class="copy-btn" data-copy="success">
+            Copy Code
+          </button>
+
+          <button class="view-btn" data-view="success">
+            View
+          </button>
+        </div>
+      </div>
+
+      <!-- ERROR -->
+      <div class="card">
+        <div class="card-top">
+          <span class="badge error">Error</span>
+        </div>
+
+        <div class="preview error-preview">
+          <div class="mini-toast">
+            ❌ Something went wrong
+          </div>
+        </div>
+
+        <h3>Error Toast</h3>
+
+        <p>
+          Display important errors and failed operations clearly.
+        </p>
+
+        <div class="actions">
+          <button class="demo-btn error-demo">
+            Live Demo
+          </button>
+
+          <button class="copy-btn" data-copy="error">
+            Copy Code
+          </button>
+
+          <button class="view-btn" data-view="error">
+            View
+          </button>
+        </div>
+      </div>
+
+      <!-- WARNING -->
+      <div class="card">
+        <div class="card-top">
+          <span class="badge warning">Warning</span>
+        </div>
+
+        <div class="preview warning-preview">
+          <div class="mini-toast">
+            ⚠ Please verify your input
+          </div>
+        </div>
+
+        <h3>Warning Toast</h3>
+
+        <p>
+          Perfect for warnings, validations, and caution messages.
+        </p>
+
+        <div class="actions">
+          <button class="demo-btn warning-demo">
+            Live Demo
+          </button>
+
+          <button class="copy-btn" data-copy="warning">
+            Copy Code
+          </button>
+
+          <button class="view-btn" data-view="warning">
+            View
+          </button>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="card">
+        <div class="card-top">
+          <span class="badge info">Info</span>
+        </div>
+
+        <div class="preview info-preview">
+          <div class="mini-toast">
+            ℹ New update available
+          </div>
+        </div>
+
+        <h3>Info Toast</h3>
+
+        <p>
+          Great for informational updates and helpful notifications.
+        </p>
+
+        <div class="actions">
+          <button class="demo-btn info-demo">
+            Live Demo
+          </button>
+
+          <button class="copy-btn" data-copy="info">
+            Copy Code
+          </button>
+
+          <button class="view-btn" data-view="info">
+            View
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="about-card">
+      <h2>Built for UI Verse</h2>
+
+      <p>
+        Crafted with modern frontend practices, reusable architecture,
+        and smooth UI interactions for developers who love beautiful interfaces.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <h3>Component Code</h3>
+
+        <button id="closeModal">
+          ✕
+        </button>
+      </div>
+
+      <pre id="modalCode"></pre>
+
+    </div>
+
   </div>
 
-  <!-- WARNING -->
-  <div class="card" data-code='
-<div id="toast-container"></div>
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container"></div>
 
-<script>
-function showToast(type,message){
-  const c=document.getElementById("toast-container");
-  const t=document.createElement("div");
-  t.className="toast "+type;
-  t.innerText=message;
-  c.appendChild(t);
-  setTimeout(()=>t.remove(),2500);
-}
-</script>
+  <script src="toasts.js"></script>
 
-<style>
-.toast.warning{border-left:4px solid #facc15;}
-</style>
-'>
-
-    <span class="badge warning">Warning</span>
-    <h3>Warning Toast</h3>
-
-    <div class="actions">
-      <button class="copy">Copy</button>
-      
-    </div>
-  </div>
-
-  <!-- ERROR -->
-  <div class="card" data-code='
-<div id="toast-container"></div>
-
-<script>
-function showToast(type,message){
-  const c=document.getElementById("toast-container");
-  const t=document.createElement("div");
-  t.className="toast "+type;
-  t.innerText=message;
-  c.appendChild(t);
-  setTimeout(()=>t.remove(),2500);
-}
-</script>
-
-<style>
-.toast.error{border-left:4px solid #ef4444;}
-</style>
-'>
-
-    <span class="badge error">Error</span>
-    <h3>Error Toast</h3>
-
-    <div class="actions">
-      <button class="copy">Copy</button>
-      
-    </div>
-  </div>
-
-  <!-- INFO -->
-  <div class="card" data-code='
-<div id="toast-container"></div>
-
-<script>
-function showToast(type,message){
-  const c=document.getElementById("toast-container");
-  const t=document.createElement("div");
-  t.className="toast "+type;
-  t.innerText=message;
-  c.appendChild(t);
-  setTimeout(()=>t.remove(),2500);
-}
-</script>
-
-<style>
-.toast.info{border-left:4px solid #3b82f6;}
-</style>
-'>
-
-    <span class="badge info">Info</span>
-    <h3>Info Toast</h3>
-
-    <div class="actions">
-      <button class="copy">Copy</button>
-      
-    </div>
-  </div>
-
-</section>
-
-<!-- ================= TOAST UI ================= -->
-<div id="toast-ui"></div>
-
-<script src="toasts.js"></script>
 </body>
 </html>
