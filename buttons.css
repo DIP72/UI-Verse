@@ -454,6 +454,7 @@
   cursor:pointer;
 }
 
+
 .ripple-btn::after{
   content:"";
   position:absolute;
