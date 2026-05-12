@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maps - UIverse</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="map.css" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- UIverse Modular CSS Architecture -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>UIverse</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="button.html">Buttons</a></li>
+      <li><a href="cards.html">Cards</a></li>
+      <li><a href="inputs.html">Inputs</a></li>
+      <li><a href="forms.html">Forms</a></li>
+      <li><a href="loaders.html">Loaders</a></li>
+      <li class="active"><a href="map.html">Maps</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <h1>Maps</h1>
+
+    <!-- Map 1 -->
+    <div class="component-card">
+      <h3>Basic Map</h3>
+
+      <div class="map-box">
+        <div id="map"></div>
+      </div>
+
+      <div class="actions">
+        <button onclick="toggleCode('m1')">View Code</button>
+        <button onclick="copyCode('m1')">Copy</button>
+      </div>
+
+<pre id="m1" class="code-block">
+&lt;div id="map"&gt;&lt;/div&gt;
+</pre>
+    </div>
+
+    <!-- Map 2 -->
+    <div class="component-card">
+      <h3>Search Map</h3>
+
+      <div class="map-search">
+        <input placeholder="Search location..." />
+        <button>Go</button>
+      </div>
+
+      <div class="map-box">
+        <div id="map2"></div>
+      </div>
+
+<pre id="m2" class="code-block">
+Search map component
+</pre>
+    </div>
+
+    <!-- Map 3 -->
+    <div class="component-card">
+      <h3>Map Card</h3>
+
+      <div class="map-card">
+        <div class="map-card-header">Live Location</div>
+        <div class="map-card-body">
+          <div id="map3"></div>
+        </div>
+        <div class="map-card-footer">📍 Kolkata</div>
+      </div>
+
+<pre id="m3" class="code-block">
+Map card layout
+</pre>
+    </div>
+
+    <!-- Pin -->
+    <div class="component-card">
+      <h3>Animated Pin</h3>
+
+      <div class="loader-demo-box">
+        <div class="pin"></div>
+      </div>
+
+<pre id="m4" class="code-block">
+&lt;div class="pin"&gt;&lt;/div&gt;
+</pre>
+    </div>
+
+  </main>
+</div>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  const map = L.map('map').setView([22.5726, 88.3639], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  const map2 = L.map('map2').setView([19.0760, 72.8777], 11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map2);
+
+  const map3 = L.map('map3').setView([28.7041, 77.1025], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3);
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
+

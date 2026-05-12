@@ -560,7 +560,6 @@ input[type="file"] {
 
 /* =========================
    RESPONSIVE
-========================= */
 
 @media (max-width: 1100px) {
   .footer-container {
@@ -582,4 +581,228 @@ input[type="file"] {
     justify-content: center;
     flex-wrap: wrap;
   }
+
+.step-indicator{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.step-indicator span{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#222;
+  color:#fff;
+  font-weight:bold;
+}
+
+.active-step{
+  background:linear-gradient(135deg,#6a5cff,#8b5cf6);
+}
+
+.otp-boxes{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin:20px 0;
+}
+
+.otp-input{
+  width:55px;
+  height:55px;
+  text-align:center;
+  font-size:1.4rem;
+  border-radius:12px;
+  border:1px solid #444;
+  background:#111;
+  color:#fff;
+}
+
+.payment-form .form-row{
+  display:flex;
+  gap:12px;
+}
+
+.payment-form .form-row div{
+  flex:1;
+}
+
+.survey-form label,
+.booking-form label,
+.payment-form label,
+.multi-step-form label{
+  display:block;
+  margin:10px 0 6px;
+}
+
+.component-card{
+  transition:0.3s ease;
+}
+
+.component-card:hover{
+  transform:translateY(-6px);
+/* =========================================================
+   PREMIUM SHIMMER EFFECT
+
+/* Cards */
+
+.form-component-card,
+.form-card,
+.form-btn,
+.action-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer Overlay */
+
+.form-component-card::before,
+.form-card::before,
+.form-btn::before,
+.action-btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.22),
+      transparent
+    );
+
+  transform: skewX(-25deg);
+
+  transition: 0.8s ease;
+}
+
+/* Hover Animation */
+
+.form-component-card:hover::before,
+.form-card:hover::before,
+.form-btn:hover::before,
+.action-btn:hover::before {
+
+  left: 140%;
+}
+
+/* =========================================================
+   EXTRA PREMIUM CARD EFFECT
+
+.form-component-card:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.01);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,0.14);
+}
+
+/* =========================================================
+   FORM CARD PREMIUM DEPTH
+
+.form-card {
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.form-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   BUTTON ENHANCEMENT
+
+.form-btn {
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 10px 24px rgba(235,104,53,0.24);
+}
+
+.form-btn:hover {
+
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 16px 36px rgba(235,104,53,0.34);
+}
+
+/* =========================================================
+   ACTION BUTTONS
+
+.action-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   DARK MODE
+
+body.dark-mode .form-card {
+
+  box-shadow:
+    0 14px 38px rgba(0,0,0,0.35);
+}
+
+body.dark-mode .form-component-card:hover {
+
+  box-shadow:
+    0 24px 55px rgba(0,0,0,0.45);
+}
+
+body.dark-mode .action-btn:hover {
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.35);
+}
+
+/* =========================================================
+   SMOOTH GLOBAL TRANSITIONS
+
+.form-component-card,
+.form-card,
+.form-btn,
+.action-btn,
+.form-field input,
+.form-field textarea,
+.form-field select {
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
