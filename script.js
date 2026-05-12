@@ -42,10 +42,10 @@
      <!-- 5. CODE BLOCK (HIDDEN) -->
      <pre id="unique-id" class="code-block"><code>
        &lt;!-- Component HTML --&gt;
-       
-       /* Component CSS */
+
+       Component CSS example
        .component-class {
-         /* styles here */
+         styles here
        }
      </code></pre>
 
@@ -153,6 +153,11 @@ function escapeAttr(value) {
     .replace(/>/g, "&gt;");
 }
 // Profile editor (attached to button .btnn if present)
+// Expected markup (profile.html):
+// - Button with class="btnn" to trigger edit mode
+// - Profile info in divs with class="info" containing <span> (label) and <p> (value)
+// - Expected order: Full Name, Email, Username (3+ fields required)
+// This feature is optional; pages without .btnn simply skip profile editing.
 const editBtn = document.querySelector('.btnn');
 if (editBtn) {
   editBtn.addEventListener('click', () => {
@@ -203,11 +208,13 @@ if (editBtn) {
 
       if (newName) {
         currentInfo[0].textContent = newName;
-        document.querySelector('.profile-header h2')?.textContent = newName;
+        const profileName = document.querySelector('.profile-header h2');
+        if (profileName) profileName.textContent = newName;
       }
       if (newEmail) {
         currentInfo[1].textContent = newEmail;
-        document.querySelector('.profile-header p')?.textContent = newEmail;
+        const profileEmail = document.querySelector('.profile-header p');
+        if (profileEmail) profileEmail.textContent = newEmail;
       }
       if (newUsername) currentInfo[2].textContent = newUsername;
 
@@ -332,10 +339,20 @@ function updateSidebarActiveLink() {
   });
 }
 function restoreSidebarState() { sessionStorage.removeItem('sidebarHidden'); }
-function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('sidebar-open'); document.querySelector('#sidebarBackdrop')?.classList.remove('visible'); document.querySelector('.sidebar-backdrop')?.classList.remove('active'); document.getElementById('sidebar')?.classList.remove('open'); document.querySelector('.sidebar')?.classList.remove('open'); })); }
-function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); }
+function closeSidebar() {
+  document.body.classList.remove('sidebar-open');
+  document.querySelector('#sidebarBackdrop')?.classList.remove('visible');
+  document.querySelector('.sidebar-backdrop')?.classList.remove('active');
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.querySelector('.sidebar')?.classList.remove('open');
+}
+function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', closeSidebar)); }
+function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); document.querySelector('#sidebarBackdrop')?.addEventListener('click', closeSidebar); document.querySelector('.menu-toggle')?.addEventListener('click', toggleSidebar); }
 
 // Live sandboxes
+// Security note: HTML is sourced from trusted local component templates embedded in the page.
+// The iframe is sandboxed to prevent script execution and restrict access to parent context.
+// If component HTML ever becomes user-editable from external sources, add DOMPurify sanitization.
 function initLiveSandboxes() {
   document.querySelectorAll('.component-card').forEach((card, index) => {
     const h3 = card.querySelector('h3');
@@ -349,6 +366,7 @@ function initLiveSandboxes() {
 
     const iframe = document.createElement('iframe');
     iframe.style.width = '100%'; iframe.style.minHeight = '160px'; iframe.style.border = '1px solid #e8ebf2'; iframe.style.borderRadius = '8px'; iframe.style.background = 'transparent';
+    iframe.setAttribute('sandbox', 'allow-same-origin');
 
     const textarea = document.createElement('textarea');
     if (existingCodeBlock) { textarea.id = existingCodeBlock.id; textarea.className = existingCodeBlock.className; textarea.style.display = existingCodeBlock.style.display || 'none'; }
@@ -538,7 +556,7 @@ function handleSearch(event) {
 // Dark mode
 function updateToggleVisual(toggleEl, isDark) { const icon = toggleEl?.querySelector?.('i'); if (icon) icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; else toggleEl.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode'; }
 function loadTheme(toggleEl) { const saved = localStorage.getItem('theme'); if (saved === 'dark') { document.body.classList.add('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, true); } else if (saved === 'light') { document.body.classList.remove('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, false); } else { const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; document.body.classList.toggle('dark-mode', prefersDark); if (toggleEl) updateToggleVisual(toggleEl, prefersDark); } }
-function initDarkMode() { const toggleEl = document.getElementById('theme-toggle') || document.getElementById('themeToggle') || document.getElementById('darkModeToggle'); loadTheme(toggleEl); if (toggleEl) toggleEl.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateToggleVisual(toggleEl, isDark); }); }
+function initDarkMode() { const toggleEl = document.getElementById('darkModeToggle'); loadTheme(toggleEl); if (!toggleEl) return; toggleEl.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateToggleVisual(toggleEl, isDark); }); }
 
 // Accessibility Mode
 function scanA11yIssues() {
@@ -629,6 +647,106 @@ function initAccessibilityMode() {
   });
 }
 
+function initAccessibilityHardeningLegacy() {
+  const html = document.documentElement;
+  if (html && !html.getAttribute('lang')) {
+    html.setAttribute('lang', 'en');
+  }
+
+  if (!document.getElementById('uiverse-a11y-style')) {
+    const style = document.createElement('style');
+    style.id = 'uiverse-a11y-style';
+    style.textContent = `
+      .skip-link {
+        position: absolute;
+        top: -48px;
+        left: 12px;
+        z-index: 10000;
+        background: #111;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: top 0.2s ease;
+      }
+      .skip-link:focus,
+      .skip-link:focus-visible {
+        top: 12px;
+        outline: 2px solid #74b9ff;
+        outline-offset: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid #74b9ff;
+        outline-offset: 2px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  let mainTarget = document.querySelector('main, [role="main"]');
+  if (!mainTarget) {
+    mainTarget = document.querySelector('section') || document.body.firstElementChild;
+    if (mainTarget) mainTarget.setAttribute('role', 'main');
+  }
+
+  if (mainTarget && !mainTarget.id) {
+    mainTarget.id = 'main-content';
+  }
+
+  if (mainTarget && !document.querySelector('.skip-link')) {
+    const skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#main-content';
+    skip.textContent = 'Skip to main content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
+  document.querySelectorAll('nav').forEach((nav, index) => {
+    if (!nav.getAttribute('aria-label')) {
+      nav.setAttribute('aria-label', index === 0 ? 'Primary navigation' : `Navigation ${index + 1}`);
+    }
+  });
+
+  document.querySelectorAll('button, a, [role="button"]').forEach((el) => {
+    const hasName = !!(el.getAttribute('aria-label') || el.getAttribute('title') || (el.textContent || '').trim());
+    const iconOnly = !!el.querySelector('i, svg, img') && !(el.textContent || '').trim();
+    if (!hasName && iconOnly) {
+      el.setAttribute('aria-label', el.getAttribute('data-label') || 'Action');
+    }
+  });
+
+  document.querySelectorAll('input, textarea, select').forEach((field) => {
+    if (field.type === 'hidden') return;
+    const labelled = field.getAttribute('aria-label') || field.getAttribute('aria-labelledby');
+    const forLabel = field.id ? document.querySelector(`label[for="${field.id}"]`) : null;
+    if (!labelled && !forLabel) {
+      field.setAttribute('aria-label', field.getAttribute('placeholder') || field.getAttribute('name') || 'Input field');
+    }
+  });
+
+  document.querySelectorAll('img:not([alt])').forEach((img) => {
+    img.setAttribute('alt', '');
+  });
+
+  document.querySelectorAll('[onclick]').forEach((el) => {
+    const tag = el.tagName.toLowerCase();
+    if (['button', 'a', 'input', 'select', 'textarea', 'summary'].includes(tag)) return;
+    if (!el.getAttribute('role')) el.setAttribute('role', 'button');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    if (el.dataset.a11yKeybound === '1') return;
+
+    el.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        el.click();
+      }
+    });
+
+    el.dataset.a11yKeybound = '1';
+  });
+}
+
 function updateA11yToggleVisual(toggleEl, isEnabled) {
   const icon = toggleEl?.querySelector?.('i');
   if (icon) {
@@ -653,6 +771,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Popup reference
   window.popup = document.getElementById('popup');
 
+  initAccessibilityHardeningLegacy();
   initSidebar();
   initLiveSandboxes();
   initDarkMode();
