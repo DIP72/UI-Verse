@@ -349,6 +349,9 @@ function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').
 function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); document.querySelector('#sidebarBackdrop')?.addEventListener('click', closeSidebar); document.querySelector('.menu-toggle')?.addEventListener('click', toggleSidebar); }
 
 // Live sandboxes
+// Security note: HTML is sourced from trusted local component templates embedded in the page.
+// The iframe is sandboxed to prevent script execution and restrict access to parent context.
+// If component HTML ever becomes user-editable from external sources, add DOMPurify sanitization.
 function initLiveSandboxes() {
   document.querySelectorAll('.component-card').forEach((card, index) => {
     const h3 = card.querySelector('h3');
@@ -362,6 +365,7 @@ function initLiveSandboxes() {
 
     const iframe = document.createElement('iframe');
     iframe.style.width = '100%'; iframe.style.minHeight = '160px'; iframe.style.border = '1px solid #e8ebf2'; iframe.style.borderRadius = '8px'; iframe.style.background = 'transparent';
+    iframe.setAttribute('sandbox', 'allow-same-origin');
 
     const textarea = document.createElement('textarea');
     if (existingCodeBlock) { textarea.id = existingCodeBlock.id; textarea.className = existingCodeBlock.className; textarea.style.display = existingCodeBlock.style.display || 'none'; }
