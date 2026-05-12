@@ -540,7 +540,7 @@ function handleSearch(event) {
 // Dark mode
 function updateToggleVisual(toggleEl, isDark) { const icon = toggleEl?.querySelector?.('i'); if (icon) icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; else toggleEl.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode'; }
 function loadTheme(toggleEl) { const saved = localStorage.getItem('theme'); if (saved === 'dark') { document.body.classList.add('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, true); } else if (saved === 'light') { document.body.classList.remove('dark-mode'); if (toggleEl) updateToggleVisual(toggleEl, false); } else { const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; document.body.classList.toggle('dark-mode', prefersDark); if (toggleEl) updateToggleVisual(toggleEl, prefersDark); } }
-function initDarkMode() { const toggleEl = document.getElementById('theme-toggle') || document.getElementById('themeToggle') || document.getElementById('darkModeToggle'); loadTheme(toggleEl); if (toggleEl) toggleEl.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateToggleVisual(toggleEl, isDark); }); }
+function initDarkMode() { const toggleEl = document.getElementById('darkModeToggle'); loadTheme(toggleEl); if (!toggleEl) return; toggleEl.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode'); localStorage.setItem('theme', isDark ? 'dark' : 'light'); updateToggleVisual(toggleEl, isDark); }); }
 
 // Accessibility Mode
 function scanA11yIssues() {
