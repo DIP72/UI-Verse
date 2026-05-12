@@ -15,6 +15,7 @@
  * - js/features/scroll.js
  * - js/features/alerts.js
  * - js/features/sandbox.js
+ * - js/features/accessibility.js
  */
 
 const Bootstrap = {
@@ -83,6 +84,11 @@ const Bootstrap = {
     // Live Sandbox (for component pages with editable code)
     if (typeof Sandbox !== 'undefined' && document.querySelector(".component-card")) {
       Sandbox.init();
+    }
+
+    // Accessibility hardening
+    if (typeof Accessibility !== 'undefined') {
+      Accessibility.init();
     }
   },
 
