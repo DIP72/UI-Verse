@@ -161,6 +161,27 @@ npm install
 npm run audit:a11y
 ```
 
+## 📸 Visual Regression Testing (Playwright)
+
+When you update UI/CSS, verify visuals with:
+
+```bash
+npm run test:visual
+```
+
+If changes are intentional, update baselines:
+
+```bash
+npm run test:visual:update
+```
+
+Then commit the updated snapshots. See [VISUAL_TESTING.md](../docs/VISUAL_TESTING.md) for full guide.
+
+Tests cover:
+- Desktop + Mobile breakpoints
+- Light + Dark modes
+- 22+ component scenarios
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## How To Contribute
