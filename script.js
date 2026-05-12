@@ -334,8 +334,15 @@ function updateSidebarActiveLink() {
   });
 }
 function restoreSidebarState() { sessionStorage.removeItem('sidebarHidden'); }
-function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('sidebar-open'); document.querySelector('#sidebarBackdrop')?.classList.remove('visible'); document.querySelector('.sidebar-backdrop')?.classList.remove('active'); document.getElementById('sidebar')?.classList.remove('open'); document.querySelector('.sidebar')?.classList.remove('open'); })); }
-function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); }
+function closeSidebar() {
+  document.body.classList.remove('sidebar-open');
+  document.querySelector('#sidebarBackdrop')?.classList.remove('visible');
+  document.querySelector('.sidebar-backdrop')?.classList.remove('active');
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.querySelector('.sidebar')?.classList.remove('open');
+}
+function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', closeSidebar)); }
+function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); document.querySelector('#sidebarBackdrop')?.addEventListener('click', closeSidebar); document.querySelector('.menu-toggle')?.addEventListener('click', toggleSidebar); }
 
 // Live sandboxes
 function initLiveSandboxes() {
