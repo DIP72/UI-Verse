@@ -38,3 +38,7 @@ jobs:
       - name: Link validation (linkinator)
         run: |
           npm run link-check
+
+      - name: Accessibility audit (WCAG baseline)
+        run: |
+          npm run audit:a11y

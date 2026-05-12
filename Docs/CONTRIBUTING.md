@@ -145,6 +145,22 @@ We aim to keep things smooth and transparent:
 - Keep UI responsive
 - Follow folder structure
 
+## ♿ Accessibility Checklist (WCAG 2.2 Baseline)
+
+- Keep `lang` on the root `<html>` element.
+- Provide accessible names for icon-only buttons/links (`aria-label` or visible text).
+- Ensure form controls are labelled (`label for`, `aria-label`, or `aria-labelledby`).
+- Include meaningful `alt` text for informative images.
+- Verify keyboard navigation works for all clickable controls.
+- Keep at least one main landmark (`<main>` or `role="main"`).
+
+Run local checks before opening a PR:
+
+```bash
+npm install
+npm run audit:a11y
+```
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## How To Contribute
