@@ -1,337 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Div Components - UIverse</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="div.css" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Div Components — UIverse</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="div.css">
+  
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Ulverse</div>
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
 
-  <div class="search-bar">
-    <span class="nav-link active">Explore</span>
-    <input type="text" placeholder="Search Components">
-    <button class="search-btn">🔍</button>
-  </div>
-
-  <div class="nav-right">
-    <button class="nav-btn">Add Component</button>
-    <button class="nav-btn">My Collection</button>
-  </div>
-</nav>
-
-<div class="container">
-<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-<!-- SIDEBAR -->
 <aside class="sidebar">
-  <h2>UIverse</h2>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li class="active"><a href="#">Div Components</a></li>
-    <li><a href="form.html">Forms</a></li>
-    <li><a href="cards.html">Cards</a></li>
-  </ul>
+
+  <div class="sidebar-logo">
+
+    <span class="logo-icon">⬡</span>
+
+    <div>
+      <h2>UIverse</h2>
+      <p>Modern UI Library</p>
+    </div>
+
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <ul>
+
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="div.html">
+          <i class="fa-solid fa-layer-group"></i>
+          Div Components
+        </a>
+      </li>
+
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-id-card"></i>
+          Cards
+        </a>
+      </li>
+
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          Forms
+        </a>
+      </li>
+
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          Inputs
+        </a>
+      </li>
+
+      <li>
+        <a href="contributors.html">
+          <i class="fa-solid fa-users"></i>
+          Contributors
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
 </aside>
 
-<div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
-<!-- MAIN -->
-<main class="main">
+<main class="main-home">
 
-<div class="page-header">
-  <h1>Div Components</h1>
-  <p>Reusable UI blocks using div elements</p>
-</div>
+  <!-- HERO -->
+  <section class="div-hero">
 
-<div class="button-group">
+    <div class="hero-badge">
+      ✨ Modern Layout Components
+    </div>
 
-<!-- Profile Card -->
-<div class="component-card">
-  <div class="profile-card">
-    <div class="avatar">👩</div>
-    <h3>Jane Doe</h3>
-    <p>Frontend Developer</p>
-  </div>
+    <h1 class="hero-title">
+      Reusable <span class="hero-accent">Div Blocks</span>
+      for modern interfaces.
+    </h1>
 
-  <div class="actions">
-    <button onclick="toggleCode('d1')">View Code</button>
-    <button onclick="copyCode('d1',this)">Copy</button>
-  </div>
+    <p class="hero-desc">
+      Beautiful responsive div layouts crafted using
+      pure HTML & CSS with premium UI aesthetics,
+      glassmorphism and modern dashboard inspired design.
+    </p>
 
-<pre id="d1" class="code-block">
-&lt;div class="profile-card"&gt;
-  &lt;div class="avatar"&gt;👩&lt;/div&gt;
-  &lt;h3&gt;Jane Doe&lt;/h3&gt;
-  &lt;p&gt;Frontend Developer&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-</div>
+    <div class="hero-actions">
 
-<!-- TESTIMONIAL CARD -->
-<div class="component-card">
-  <div class="testimonial-card">
-    <p class="quote">“UIverse helped us build modern UI faster than ever.”</p>
+      <a href="#components" class="btn-primary">
+        Explore Components
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
 
-    <div class="user-info">
-      <div class="avatar">👨‍💻</div>
-      <div>
-        <h4>Alex Johnson</h4>
-        <span>Product Designer</span>
+      <a href="#" class="btn-ghost">
+        Documentation
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Components</span>
       </div>
-    </div>
-  </div>
 
-  <div class="actions">
-    <button onclick="toggleCode('d7')">View Code</button>
-    <button onclick="copyCode('d7',this)">Copy</button>
-  </div>
+      <div class="stat-divider"></div>
 
-<pre id="d7" class="code-block">
-&lt;div class="testimonial-card"&gt;
-  Testimonial content
-&lt;/div&gt;
-</pre>
-</div>
+      <div class="stat">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Responsive</span>
+      </div>
 
-<!-- PROGRESS CARD -->
-<div class="component-card">
-  <div class="progress-card">
-    <div class="progress-header">
-      <h3>Project Progress</h3>
-      <span>75%</span>
+      <div class="stat-divider"></div>
+
+      <div class="stat">
+        <span class="stat-number">Modern</span>
+        <span class="stat-label">UI Patterns</span>
+      </div>
+
     </div>
 
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+
+  </section>
+
+  <!-- PAGE HEADER -->
+  <section class="forms-page-header">
+
+    <div class="breadcrumb">
+
+      <a href="index.html">Home</a>
+
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <span>Div Components</span>
+
     </div>
 
-    <p>Frontend dashboard completed</p>
-  </div>
+    <h1>Reusable Div Components</h1>
 
-  <div class="actions">
-    <button onclick="toggleCode('d8')">View Code</button>
-    <button onclick="copyCode('d8',this)">Copy</button>
-  </div>
+    <p>
+      Explore modern div based UI blocks including
+      profile cards, analytics widgets, dashboards,
+      testimonial cards, pricing layouts and more.
+    </p>
 
-<pre id="d8" class="code-block">
-&lt;div class="progress-card"&gt;
-  Progress content
-&lt;/div&gt;
-</pre>
-</div>
+    <div class="page-meta">
 
-<!-- TEAM CARD -->
-<div class="component-card">
-  <div class="team-card">
-    <h3>Team Members</h3>
+      <span class="meta-badge">
+        <i class="fa-solid fa-layer-group"></i>
+        12 Components
+      </span>
 
-    <div class="team-members">
-      <div class="member">👩</div>
-      <div class="member">👨</div>
-      <div class="member">🧑</div>
-      <div class="member">👩‍💻</div>
+      <span class="meta-badge">
+        <i class="fa-solid fa-code"></i>
+        Pure HTML & CSS
+      </span>
+
+      <span class="meta-badge">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        Premium UI
+      </span>
+
     </div>
 
-    <p>4 Active Members</p>
-  </div>
+  </section>
 
-  <div class="actions">
-    <button onclick="toggleCode('d9')">View Code</button>
-    <button onclick="copyCode('d9',this)">Copy</button>
-  </div>
+  <!-- =========================================================
+       COMPONENTS
+  ========================================================= -->
 
-<pre id="d9" class="code-block">
-&lt;div class="team-card"&gt;
-  Team members
-&lt;/div&gt;
-</pre>
-</div>
+  <section class="featured-section" id="components">
 
-<!-- FEATURE CARD -->
-<div class="component-card">
-  <div class="feature-card">
-    <div class="feature-icon">⚡</div>
-    <h3>Fast Performance</h3>
-    <p>Optimized components with smooth interactions.</p>
-  </div>
+    <div class="section-header">
 
-  <div class="actions">
-    <button onclick="toggleCode('d10')">View Code</button>
-    <button onclick="copyCode('d10',this)">Copy</button>
-  </div>
+      <span class="section-tag">
+        UI BLOCKS
+      </span>
 
-<pre id="d10" class="code-block">
-&lt;div class="feature-card"&gt;
-  Feature content
-&lt;/div&gt;
-</pre>
-</div>
+      <h2 class="section-title">
+        Popular Div Components
+      </h2>
 
-<!-- CHAT CARD -->
-<div class="component-card">
-  <div class="chat-card">
-    <div class="message left">Hey! How’s the UI update?</div>
-    <div class="message right">Almost done 🚀</div>
-  </div>
+      <p class="section-subtitle">
+        Beautiful responsive layouts crafted for
+        dashboards, websites and web applications.
+      </p>
 
-  <div class="actions">
-    <button onclick="toggleCode('d11')">View Code</button>
-    <button onclick="copyCode('d11',this)">Copy</button>
-  </div>
-
-<pre id="d11" class="code-block">
-&lt;div class="chat-card"&gt;
-  Chat messages
-&lt;/div&gt;
-</pre>
-</div>
-
-<!-- GLASSMORPHISM CARD -->
-<div class="component-card">
-  <div class="glass-card">
-    <h3>Glass Effect</h3>
-    <p>Modern transparent UI style.</p>
-  </div>
-
-  <div class="actions">
-    <button onclick="toggleCode('d12')">View Code</button>
-    <button onclick="copyCode('d12',this)">Copy</button>
-  </div>
-
-<pre id="d12" class="code-block">
-&lt;div class="glass-card"&gt;
-  Glassmorphism effect
-&lt;/div&gt;
-</pre>
-</div>
-
-<!-- Stats Card -->
-<div class="component-card">
-  <div class="stats-card">
-    <h3>Stats</h3>
-    <div class="stats">
-      <div><h2>120</h2><p>Users</p></div>
-      <div><h2>45</h2><p>Projects</p></div>
-      <div><h2>300</h2><p>Tasks</p></div>
     </div>
-  </div>
 
-  <div class="actions">
-    <button onclick="toggleCode('d2')">View Code</button>
-    <button onclick="copyCode('d2',this)">Copy</button>
-  </div>
+    <div class="forms-grid">
 
-<pre id="d2" class="code-block">
-&lt;div class="stats-card"&gt;
-  &lt;h3&gt;Stats&lt;/h3&gt;
-&lt;/div&gt;
-</pre>
-</div>
+      <!-- PROFILE CARD -->
+      <div class="form-component-card">
 
-<!-- Notification Card -->
-<div class="component-card">
-  <div class="notification-card">
-    🔔 You have 3 new notifications
-  </div>
+        <div class="card-top">
 
-  <div class="actions">
-    <button onclick="toggleCode('d3')">View Code</button>
-    <button onclick="copyCode('d3',this)">Copy</button>
-  </div>
+          <span class="card-label">
+            Profile Card
+          </span>
 
-<pre id="d3" class="code-block">
-&lt;div class="notification-card"&gt;
-  Notification here
-&lt;/div&gt;
-</pre>
-</div>
+          <span class="card-tag tag-popular">
+            Popular
+          </span>
 
-<!-- Pricing Card -->
-<div class="component-card">
-  <div class="pricing-card">
-    <h3>Pro Plan</h3>
-    <h2>$19/mo</h2>
-    <ul>
-      <li>✔ Unlimited Projects</li>
-      <li>✔ Priority Support</li>
-      <li>✔ Analytics</li>
-    </ul>
-  </div>
+        </div>
 
-  <div class="actions">
-    <button onclick="toggleCode('d4')">View Code</button>
-    <button onclick="copyCode('d4',this)">Copy</button>
-  </div>
+        <div class="form-preview">
 
-<pre id="d4" class="code-block">
-&lt;div class="pricing-card"&gt;
-  &lt;h3&gt;Pro Plan&lt;/h3&gt;
-&lt;/div&gt;
-</pre>
-</div>
+          <div class="profile-card">
 
-<!-- Activity Card -->
-<div class="component-card">
-  <div class="activity-card">
-    <h3>Activity</h3>
-    <ul>
-      <li>User logged in</li>
-      <li>New order placed</li>
-      <li>Server updated</li>
-    </ul>
-  </div>
+            <div class="avatar">👩</div>
 
-  <div class="actions">
-    <button onclick="toggleCode('d5')">View Code</button>
-    <button onclick="copyCode('d5',this)">Copy</button>
-  </div>
+            <h3>Jane Doe</h3>
 
-<pre id="d5" class="code-block">
-&lt;div class="activity-card"&gt;
-  Activity list
-&lt;/div&gt;
-</pre>
-</div>
+            <p>Frontend Developer</p>
 
-<!-- Info Card -->
-<div class="component-card">
-  <div class="info-card">
-    <h3>Welcome</h3>
-    <p>This is a reusable info card component.</p>
-  </div>
+          </div>
 
-  <div class="actions">
-    <button onclick="toggleCode('d6')">View Code</button>
-    <button onclick="copyCode('d6',this)">Copy</button>
-  </div>
+        </div>
 
-<pre id="d6" class="code-block">
-&lt;div class="info-card"&gt;
-  Info content
-&lt;/div&gt;
-</pre>
-</div>
+        <div class="actions">
 
-</div>
+          <button class="action-btn view-btn">
+            <i class="fa-solid fa-code"></i>
+            View Code
+          </button>
+
+          <button class="action-btn copy-btn">
+            <i class="fa-solid fa-copy"></i>
+            Copy
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- STATS -->
+      <div class="form-component-card">
+
+        <div class="card-top">
+
+          <span class="card-label">
+            Stats Card
+          </span>
+
+          <span class="card-tag tag-trending">
+            Trending
+          </span>
+
+        </div>
+
+        <div class="form-preview">
+
+          <div class="stats-card">
+
+            <h3>Dashboard Stats</h3>
+
+            <div class="stats">
+
+              <div>
+                <h2>120</h2>
+                <p>Users</p>
+              </div>
+
+              <div>
+                <h2>45</h2>
+                <p>Projects</p>
+              </div>
+
+              <div>
+                <h2>300</h2>
+                <p>Tasks</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TESTIMONIAL -->
+      <div class="form-component-card">
+
+        <div class="card-top">
+
+          <span class="card-label">
+            Testimonial
+          </span>
+
+          <span class="card-tag tag-essential">
+            Essential
+          </span>
+
+        </div>
+
+        <div class="form-preview">
+
+          <div class="testimonial-card">
+
+            <p class="quote">
+              “UIverse helped us build premium UI
+              components faster than ever.”
+            </p>
+
+            <div class="user-info">
+
+              <div class="avatar">👨‍💻</div>
+
+              <div>
+                <h4>Alex Johnson</h4>
+                <span>Product Designer</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRICING -->
+      <div class="form-component-card">
+
+        <div class="card-top">
+
+          <span class="card-label">
+            Pricing Card
+          </span>
+
+          <span class="card-tag tag-popular">
+            Premium
+          </span>
+
+        </div>
+
+        <div class="form-preview">
+
+          <div class="pricing-card">
+
+            <h3>Pro Plan</h3>
+
+            <h2>$19/mo</h2>
+
+            <ul>
+
+              <li>✔ Unlimited Projects</li>
+              <li>✔ Priority Support</li>
+              <li>✔ Analytics Dashboard</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CHAT -->
+      <div class="form-component-card">
+
+        <div class="card-top">
+
+          <span class="card-label">
+            Chat Card
+          </span>
+
+          <span class="card-tag tag-new">
+            New
+          </span>
+
+        </div>
+
+        <div class="form-preview">
+
+          <div class="chat-card">
+
+            <div class="message left">
+              Hey! Did you finish the UI?
+            </div>
+
+            <div class="message right">
+              Almost done 🚀
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- GLASS -->
+      <div class="form-component-card">
+
+        <div class="card-top">
+
+          <span class="card-label">
+            Glass Card
+          </span>
+
+          <span class="card-tag tag-trending">
+            Modern
+          </span>
+
+        </div>
+
+        <div class="form-preview">
+
+          <div class="glass-card">
+
+            <h3>Glassmorphism</h3>
+
+            <p>
+              Modern transparent blurred UI component.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
 </main>
-</div>
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer class="footer">
+
   <div class="footer-container">
-    <div class="footer-col">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse</p>
+
+    <div class="footer-col brand">
+
+      <h2 class="footer-logo">
+        ⬡ UIverse
+      </h2>
+
+      <p>
+        Modern reusable UI components crafted
+        for developers worldwide.
+      </p>
+
     </div>
+
+    <div class="footer-col">
+
+      <h3>Explore</h3>
+
+      <ul>
+
+        <li><a href="#">Buttons</a></li>
+        <li><a href="#">Cards</a></li>
+        <li><a href="#">Forms</a></li>
+        <li><a href="#">Inputs</a></li>
+
+      </ul>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h3>Resources</h3>
+
+      <ul>
+
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contributors</a></li>
+        <li><a href="#">GitHub</a></li>
+
+      </ul>
+
+    </div>
+
   </div>
+
+  <div class="footer-bottom">
+    © 2026 UIverse. Crafted for developers.
+  </div>
+
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
