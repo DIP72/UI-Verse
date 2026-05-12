@@ -22,7 +22,7 @@
   <!-- Right Section -->
   <div class="nav-right">
     <button class="nav-btn">Add Component</button>
-    <button class="nav-btn">My Collection</button>
+    <button onclick="location.href='MyCollection.html'">My Collection</button>
     <a href="#"></a>
     <a href="#"></a>
   </div>
@@ -74,8 +74,9 @@
         </form>
         
         <div class="actions">
-          <button onclick="toggleCode('f1')">View Code</button>
-          <button onclick="copyCode('f1',this)">Copy</button>
+          <button class="action-btn view-btn" onclick="toggleCode('f1', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button class="action-btn copy-btn" onclick="copyCode('f1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+          <button onclick="addToCollection('Login Form')">Add to My Collection</button>
         </div>
 <pre id="f1" class="code-block">
 &lt;form&gt;
@@ -98,8 +99,9 @@
     </form>
 
     <div class="actions">
-      <button onclick="toggleCode('f2')">View Code</button>
-      <button onclick="copyCode('f2',this)">Copy</button>
+      <button class="action-btn view-btn" onclick="toggleCode('f2', this)"><i class="fa-solid fa-code"></i> View Code</button>
+      <button class="action-btn copy-btn" onclick="copyCode('f2', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button onclick="addToCollection('Signup Form')">Add to My Collection</button>
     </div>
 
 <pre id="f2" class="code-block">
@@ -124,8 +126,9 @@
     </form>
 
     <div class="actions">
-      <button onclick="toggleCode('f3')">View Code</button>
-      <button onclick="copyCode('f3',this)">Copy</button>
+      <button class="action-btn view-btn" onclick="toggleCode('f3', this)"><i class="fa-solid fa-code"></i> View Code</button>
+      <button class="action-btn copy-btn" onclick="copyCode('f3', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button onclick="addToCollection('Contact Form')">Add to My Collection</button>
     </div>
 
 <pre id="f3" class="code-block">
@@ -241,6 +244,8 @@
       <div class="actions">
         <button>View Code</button>
         <button>Copy</button>
+        <button onclick="addToCollection('Login Form')">Add to My Collection</button>
+    
       </div>
   </div>
 
@@ -261,7 +266,8 @@
       <div class="actions">
         <button>View Code</button>
         <button>Copy</button>
-    </div>
+        <button onclick="addToCollection('Signup Form')">Add to My Collection</button>
+      </div>
   </div>
 
   <!-- Contact Us Form Card -->
@@ -281,6 +287,7 @@
         <div class="actions">
            <button>View Code</button>
            <button>Copy</button>
+           <button onclick="addToCollection('Contact Form')">Add to My Collection</button>
         </div>
    </div>
 
@@ -302,8 +309,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f4')">View Code</button>
       <button onclick="copyCode('f4',this)">Copy</button>
+      <button onclick="addToCollection('Newsletter Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f4', this)">View Code</button>
+      <button onclick="copyCode('f4', this)">Copy</button>
+
     </div>
     <pre id="f4" class="code-block">
 &lt;form class="newsletter-form"&gt;
@@ -341,8 +354,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f5')">View Code</button>
       <button onclick="copyCode('f5',this)">Copy</button>
+      <button onclick="addToCollection('Search Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f5', this)">View Code</button>
+      <button onclick="copyCode('f5', this)">Copy</button>
+
     </div>
     <pre id="f5" class="code-block">
 &lt;form class="search-form"&gt;
@@ -380,8 +399,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f6')">View Code</button>
       <button onclick="copyCode('f6',this)">Copy</button>
+      <button onclick="addToCollection('Feedback Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f6', this)">View Code</button>
+      <button onclick="copyCode('f6', this)">Copy</button>
+
     </div>
     <pre id="f6" class="code-block">
 &lt;form class="feedback-form"&gt;
@@ -414,8 +439,13 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f7')">View Code</button>
       <button onclick="copyCode('f7',this)">Copy</button>
+      <button onclick="addToCollection('Password Reset Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f7', this)">View Code</button>
+      <button onclick="copyCode('f7', this)">Copy</button>
     </div>
     <pre id="f7" class="code-block">
 &lt;form class="password-reset-form"&gt;
@@ -450,8 +480,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f8')">View Code</button>
       <button onclick="copyCode('f8',this)">Copy</button>
+      <button onclick="addToCollection('Profile Update Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f8', this)">View Code</button>
+      <button onclick="copyCode('f8', this)">Copy</button>
+
     </div>
     <pre id="f8" class="code-block">
 &lt;form class="profile-update-form"&gt;
@@ -492,8 +528,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f9')">View Code</button>
       <button onclick="copyCode('f9',this)">Copy</button>
+      <button onclick="addToCollection('Job Application Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f9', this)">View Code</button>
+      <button onclick="copyCode('f9', this)">Copy</button>
+
     </div>
     <pre id="f9" class="code-block">
 &lt;form class="job-application-form"&gt;
@@ -541,8 +583,14 @@
       </form>
     </div>
     <div class="actions">
+
       <button onclick="toggleCode('f10')">View Code</button>
       <button onclick="copyCode('f10',this)">Copy</button>
+      <button onclick="addToCollection('Event Registration Form')">Add to My Collection</button>
+
+      <button onclick="toggleCode('f10', this)">View Code</button>
+      <button onclick="copyCode('f10', this)">Copy</button>
+
     </div>
     <pre id="f10" class="code-block">
 &lt;form class="event-registration-form"&gt;
@@ -590,19 +638,84 @@
     </div>
   </div>
 </footer>
+<script src="script.js"></script>
+<script>
+window.addToCollectionFromCard = function(button, name) {
+  const card = button.closest('.component-card');
+  const previewBox = card.querySelector('.preview-box');
+  const html = previewBox.innerHTML;
+  
+  console.log("Button clicked:", name);
+  console.log("Preview HTML:", html);
+  
+  addToCollection(name, html);
+};
 
-<!-- UIverse Modular Scripts -->
-<script src="js/core/utils.js"></script>
-<script src="js/features/toast.js"></script>
-<script src="js/features/popup.js"></script>
-<script src="js/features/code-tools.js"></script>
-<script src="js/features/sidebar.js"></script>
-<script src="js/features/search.js"></script>
-<script src="js/features/theme.js"></script>
-<script src="js/features/scroll.js"></script>
-<script src="js/features/alerts.js"></script>
-<script src="js/features/sandbox.js"></script>
-<script src="js/bootstrap.js"></script>
+window.addToCollection = function(name, html) {
+  let items = JSON.parse(localStorage.getItem("collection")) || [];
 
+  let newItem = {
+    title: name.trim(),
+    content: html,
+    id: Date.now()
+  };
+
+  console.log("Adding item:", newItem);
+
+  if (!items.some(item => item.title === newItem.title)) {
+    items.push(newItem);
+    localStorage.setItem("collection", JSON.stringify(items));
+    showToast(name + " added to collection ✓");
+    console.log("Total items saved:", items.length);
+  } else {
+    showToast("Already in collection");
+  }
+};
+
+window.goToCollection = function() {
+  window.location.href = "MyCollection.html";
+};
+
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.innerText = message;
+
+  toast.style.position = "fixed";
+  toast.style.bottom = "20px";
+  toast.style.right = "20px";
+  toast.style.background = "#111";
+  toast.style.color = "#fff";
+  toast.style.padding = "10px 14px";
+  toast.style.borderRadius = "8px";
+  toast.style.fontSize = "14px";
+  toast.style.zIndex = "9999";
+  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 1500);
+}
+
+function toggleCode(id){
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function copyCode(id,btn){
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  btn.innerText = "Copied!";
+  setTimeout(()=>btn.innerText="Copy",1000);
+}
+</script>
+<style>
+  button{
+  background:  #a29bfe;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  }
+
+</style>
 </body>
 </html>
