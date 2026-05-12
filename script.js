@@ -153,6 +153,11 @@ function escapeAttr(value) {
     .replace(/>/g, "&gt;");
 }
 // Profile editor (attached to button .btnn if present)
+// Expected markup (profile.html):
+// - Button with class="btnn" to trigger edit mode
+// - Profile info in divs with class="info" containing <span> (label) and <p> (value)
+// - Expected order: Full Name, Email, Username (3+ fields required)
+// This feature is optional; pages without .btnn simply skip profile editing.
 const editBtn = document.querySelector('.btnn');
 if (editBtn) {
   editBtn.addEventListener('click', () => {
