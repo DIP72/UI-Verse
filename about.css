@@ -1,9 +1,4 @@
-/* =========================================================
-   ABOUT.CSS — UIverse About Page
-   Matches the modern UIverse design system
-   ========================================================= */
 
-/* ---------- PAGE LAYOUT ---------- */
 .main {
   margin-left: var(--sidebar-w);
   margin-top: var(--navbar-h);
@@ -15,7 +10,6 @@
   background: var(--body-bg);
 }
 
-/* ---------- HERO SECTION ---------- */
 .hero {
   position: relative;
   background:
