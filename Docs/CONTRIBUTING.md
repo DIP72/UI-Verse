@@ -161,6 +161,25 @@ npm install
 npm run audit:a11y
 ```
 
+## 🔎 Component Registry & Search
+
+This project uses a metadata-driven component registry to power search and routing. When adding new components, update `data/components.json` with a new entry (id, title, path, tags, aliases, description).
+
+Example entry:
+
+```json
+{
+  "id": "my-component",
+  "title": "My Component",
+  "path": "my-component.html",
+  "tags": ["forms","components"],
+  "aliases": ["mycomponent","mc"],
+  "description": "Short description"
+}
+```
+
+The search feature (`js/features/search.js`) will use `js/core/components-registry.js` at runtime to resolve search queries to pages. Adding entries to `data/components.json` makes components discoverable without editing JS code.
+
 ## 📸 Visual Regression Testing (Playwright)
 
 When you update UI/CSS, verify visuals with:
