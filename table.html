@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UIverse — Tables</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Your Global Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="table.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR (same as index) ================= -->
+<aside class="sidebar" id="sidebar">
+
+  <h2>UIverse</h2>
+
+  <ul>
+    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+    <li><a href="button.html"><i class="fa-solid fa-mobile-button"></i> Buttons</a></li>
+    <li><a href="cards.html"><i class="fa-solid fa-id-card"></i> Cards</a></li>
+    <li><a href="inputs.html"><i class="fa-solid fa-keyboard"></i> Inputs</a></li>
+    <li class="active"><a href="table.html"><i class="fa-solid fa-table"></i> Tables</a></li>
+    <li><a href="color.html"><i class="fa-solid fa-palette"></i> Colors</a></li>
+  </ul>
+
+</aside>
+
+<button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<!-- ================= MAIN ================= -->
+<main class="main-home">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+
+    <div class="hero-badge">📊 Data UI Components</div>
+
+    <h1 class="hero-title">
+      Beautiful <span class="hero-accent">Table Components</span>
+    </h1>
+
+    <p class="hero-desc">
+      Responsive, modern and reusable table UI designs for dashboards and admin panels.
+    </p>
+
+  </section>
+
+  <!-- ================= BASIC TABLE ================= -->
+  <section class="section">
+
+    <div class="section-header">
+      <span class="section-tag">Simple</span>
+      <h2 class="section-title">📋 Basic Table</h2>
+    </div>
+
+    <div class="table-wrapper">
+
+      <table class="ui-table">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Rohan</td>
+            <td>Developer</td>
+            <td><span class="status active">Active</span></td>
+          </tr>
+
+          <tr>
+            <td>Meera</td>
+            <td>Designer</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+
+          <tr>
+            <td>John</td>
+            <td>Tester</td>
+            <td><span class="status inactive">Inactive</span></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ================= ADVANCED TABLE ================= -->
+  <section class="section">
+
+    <div class="section-header">
+      <span class="section-tag">Dashboard</span>
+      <h2 class="section-title">🧑‍💻 User Management Table</h2>
+    </div>
+
+    <div class="table-wrapper">
+
+      <table class="ui-table advanced-table">
+
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td class="user-cell">
+              <div class="avatar">A</div>
+              Aryan Sharma
+            </td>
+            <td>aryan@mail.com</td>
+            <td><span class="role admin">Admin</span></td>
+            <td><span class="status active">Active</span></td>
+            <td>
+              <button class="table-btn edit">Edit</button>
+              <button class="table-btn delete">Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="user-cell">
+              <div class="avatar">M</div>
+              Meera Das
+            </td>
+            <td>meera@mail.com</td>
+            <td><span class="role user">User</span></td>
+            <td><span class="status pending">Pending</span></td>
+            <td>
+              <button class="table-btn edit">Edit</button>
+              <button class="table-btn delete">Delete</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="user-cell">
+              <div class="avatar">J</div>
+              John Carter
+            </td>
+            <td>john@mail.com</td>
+            <td><span class="role editor">Editor</span></td>
+            <td><span class="status inactive">Inactive</span></td>
+            <td>
+              <button class="table-btn edit">Edit</button>
+              <button class="table-btn delete">Delete</button>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+// Dark mode (same logic as index)
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark-mode");
+}
+
+</script>
+
+</body>
+</html>
