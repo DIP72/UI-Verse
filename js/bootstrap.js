@@ -35,6 +35,20 @@ const Bootstrap = {
    */
   initCore() {
     // Core utilities are passive and already loaded
+    // Initialize Security first to inject CSP and migrate inline handlers
+    if (typeof Security !== 'undefined') {
+      try { Security.init(); } catch (e) { console.warn('[Bootstrap] Security.init failed', e); }
+    } else {
+      // If not loaded yet, attempt to load it synchronously
+      try {
+        const script = document.createElement('script');
+        script.src = '/js/core/security.js';
+        script.onload = () => { try { Security.init(); } catch (e) {} };
+        document.head.appendChild(script);
+      } catch (e) {
+        console.warn('[Bootstrap] Unable to load security module', e);
+      }
+    }
   },
 
   /**

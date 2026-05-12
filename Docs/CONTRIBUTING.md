@@ -180,6 +180,10 @@ Example entry:
 
 The search feature (`js/features/search.js`) will use `js/core/components-registry.js` at runtime to resolve search queries to pages. Adding entries to `data/components.json` makes components discoverable without editing JS code.
 
+## 🔐 Security Baseline
+
+We added a small runtime security module that injects a pragmatic CSP, migrates simple inline handlers to event listeners, and warns about third-party assets missing `integrity` attributes. See [SECURITY.md](../docs/SECURITY.md) for details and guidance for contributors.
+
 ## 📸 Visual Regression Testing (Playwright)
 
 When you update UI/CSS, verify visuals with:
