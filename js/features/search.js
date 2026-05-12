@@ -4,23 +4,8 @@
  */
 
 const Search = {
-  // Component routing map
-  routes: {
-    button: "button.html",
-    buttons: "button.html",
-    navbar: "navbar.html",
-    navbars: "navbar.html",
-    card: "cards.html",
-    cards: "cards.html",
-    form: "form.html",
-    forms: "form.html",
-    footer: "footer.html",
-    color: "color.html",
-    colors: "color.html",
-  },
-
   /**
-   * Initialize inline search filter
+   * Initialize inline search filter using registry when available
    */
   initFilter() {
     const searchInput = getElement("searchInput");
@@ -38,18 +23,24 @@ const Search = {
 
   /**
    * Handle search routing (Enter key navigation)
-   * @param {Event} event - Keyboard event
+   * Uses the ComponentsRegistry if available
    */
-  handleRouting(event) {
+  async handleRouting(event) {
     if (event.key !== "Enter") return;
 
     const query = event.target.value.toLowerCase().trim();
 
-    for (const key in this.routes) {
-      if (query.includes(key)) {
-        window.location.href = this.routes[key];
-        return;
+    try {
+      if (window.ComponentsRegistry) {
+        await window.ComponentsRegistry.load();
+        const path = window.ComponentsRegistry.findRoute(query);
+        if (path) {
+          window.location.href = path;
+          return;
+        }
       }
+    } catch (err) {
+      console.warn('[Search] Registry lookup failed', err);
     }
 
     showToast("No component found 😢");
@@ -60,7 +51,7 @@ const Search = {
    */
   init() {
     this.initFilter();
-    
+
     // Expose for potential use
     window.handleSearch = (event) => this.handleRouting(event);
   }

@@ -63,7 +63,25 @@ const Bootstrap = {
 
     // Search
     if (typeof Search !== 'undefined') {
-      Search.init();
+      // Ensure the components registry is available before enabling search routing
+      if (typeof ComponentsRegistry === 'undefined') {
+        const script = document.createElement('script');
+        script.src = '/js/core/components-registry.js';
+        script.onload = () => {
+          try {
+            Search.init();
+          } catch (e) {
+            console.warn('[Bootstrap] Search.init failed after registry load', e);
+          }
+        };
+        script.onerror = () => {
+          console.warn('[Bootstrap] Failed to load components-registry.js, initializing search without registry');
+          try { Search.init(); } catch (e) { /* swallow */ }
+        };
+        document.head.appendChild(script);
+      } else {
+        Search.init();
+      }
     }
 
     // Theme
