@@ -778,8 +778,11 @@ window.addEventListener('DOMContentLoaded', () => {
   initAccessibilityMode();
   initScrollTop();
   initProgressBar();
-  initSearchFilter();
-  createFilterUI();  // Initialize filter UI
+  // Feature detection: Only initialize filters if both component-card and filter-bar exist
+  if (document.querySelector('.component-card') && document.querySelector('.filter-bar')) {
+    initSearchFilter();
+    createFilterUI();
+  }
 
   // Attach global search handler
   const searchEl = document.getElementById('searchInput'); if (searchEl) searchEl.addEventListener('keydown', handleSearch);
