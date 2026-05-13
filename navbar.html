@@ -118,6 +118,7 @@
     <button class="nav-btn primary-nav-btn">
       <i class="fa-solid fa-bookmark"></i> My Collection
     </button>
+    <input type="color" id="accentPicker" title="Accent color" aria-label="Accent color" style="width:36px;height:36px;border:0;padding:0;margin-left:10px;vertical-align:middle;border-radius:6px;" />
     <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
       <i class="fa-solid fa-moon"></i>
     </button>
@@ -339,6 +340,52 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
+
+  /* Accent color picker: persist and apply CSS variables */
+  function hexToRgb(hex) {
+    if (!hex) return null;
+    hex = hex.replace('#','');
+    if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+    const bigint = parseInt(hex, 16);
+    return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
+  }
+
+  function darkenRgb(rgb, percent) {
+    return {
+      r: Math.max(0, Math.round(rgb.r * (1 - percent))),
+      g: Math.max(0, Math.round(rgb.g * (1 - percent))),
+      b: Math.max(0, Math.round(rgb.b * (1 - percent)))
+    };
+  }
+
+  function applyAccentColor(hex) {
+    if (!hex) return;
+    const root = document.documentElement;
+    root.style.setProperty('--accent', hex);
+    const rgb = hexToRgb(hex);
+    if (rgb) {
+      const dark = darkenRgb(rgb, 0.18);
+      root.style.setProperty('--accent-dark', `rgb(${dark.r}, ${dark.g}, ${dark.b})`);
+      root.style.setProperty('--accent-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.14)`);
+    }
+    try { localStorage.setItem('accentColor', hex); } catch (e) {}
+  }
+
+  function initAccentPicker() {
+    const picker = document.getElementById('accentPicker');
+    if (!picker) return;
+    const saved = localStorage.getItem('accentColor');
+    if (saved) {
+      picker.value = saved;
+      applyAccentColor(saved);
+    } else {
+      const computed = getComputedStyle(document.documentElement).getPropertyValue('--accent')?.trim();
+      if (computed) picker.value = computed || '#4f46e5';
+    }
+    picker.addEventListener('input', (e) => applyAccentColor(e.target.value));
+  }
+
+  try { initAccentPicker(); } catch (e) {}
 </script>
 </body>
 </html>
