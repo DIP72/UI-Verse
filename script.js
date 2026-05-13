@@ -399,6 +399,41 @@ function getComponentCards() {
   return Array.from(document.querySelectorAll(SMART_CARD_SELECTOR));
 }
 
+/* ---------- Inject Copy Buttons for Code Blocks ---------- */
+function injectCopyButtons() {
+  try {
+    let counter = 0;
+    const nodes = Array.from(document.querySelectorAll('pre.code-block, pre.playground-code, pre > code'));
+    nodes.forEach(node => {
+      const pre = node.tagName.toLowerCase() === 'pre' ? node : node.closest('pre');
+      if (!pre) return;
+      if (pre.dataset.copyInjected) return;
+      pre.dataset.copyInjected = '1';
+
+      // Ensure a stable id
+      if (!pre.id) {
+        pre.id = 'code-snippet-' + (Date.now().toString(36)) + '-' + (counter++);
+      }
+
+      // Create copy button
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'action-btn copy-btn';
+      btn.setAttribute('aria-label', 'Copy code');
+      btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        copyCode(pre.id, this);
+      });
+
+      // Insert button before the pre (so it appears near the code block)
+      pre.parentNode.insertBefore(btn, pre);
+    });
+  } catch (e) { console.error('injectCopyButtons', e); }
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', injectCopyButtons); else injectCopyButtons();
+
 /* ================= My Collection (global helpers) ================= */
 window.addToCollection = function(name, html) {
   try {
