@@ -13,14 +13,32 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
-</head>
+  <link rel="stylesheet" href="command-palette.css">
+  <link rel="stylesheet" href="css/url-state.css">
+<!-- UIverse Modular Scripts -->
+    <script src="js/core/utils.js"></script>
+    <script src="js/features/toast.js"></script>
+    <script src="js/features/popup.js"></script>
+    <script src="js/features/code-tools.js"></script>
+    <script src="js/features/sidebar.js"></script>
+    <script src="js/features/search.js"></script>
+    <script src="js/features/theme.js"></script>
+    <script src="js/features/scroll.js"></script>
+    <script src="js/features/alerts.js"></script>
+    <script src="js/features/sandbox.js"></script>
+    <script src="js/features/accessibility.js"></script>
+    <script src="js/features/command-palette.js"></script>
+    <script src="js/features/url-state.js"></script>
+    <script src="js/features/url-state-integration.js"></script>
+<script src="js/bootstrap.js"></script>
+  </head>
 
 <body>
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <span class="brand-icon">⬡</span>
+    <span class="brand-icon"><i class="fa-solid fa-cube"></i></span>
     <span class="brand-text">UIverse</span>
   </div>
 
@@ -79,12 +97,12 @@
           <i class="fa-solid fa-award"></i>
           <span>Loaders</span>
         </a>
-        <li>
+      </li>
+      <li>
         <a href="about.html">
           <i class="fa-solid fa-award"></i>
           <span>About us</span>
         </a>
-      </li>
       </li>
     </ul>
   </nav>
@@ -131,7 +149,7 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <div class="hero-badge">🚀 v2.0 — Now with 120+ components</div>
+    <div class="hero-badge"><i class="fa-solid fa-rocket"></i> v2.0 — Now with 120+ components</div>
 
     <h1 class="hero-title">
       Build <span class="hero-accent">beautiful UIs</span><br>
@@ -178,14 +196,14 @@
   <section class="section featured-section">
     <div class="section-header">
       <span class="section-tag">Most Loved</span>
-      <h2 class="section-title">⭐ Popular Components</h2>
+      <h2 class="section-title"><i class="fa-solid fa-star"></i> Popular Components</h2>
       <p class="section-subtitle">Handpicked favorites from developers worldwide</p>
     </div>
 
     <div class="featured-cards">
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #ff6b6b;">🎯</div>
+        <div class="feature-icon-wrap" style="--icon-color: #ff6b6b;"><i class="fa-solid fa-bullseye"></i></div>
         <div class="feature-card-body">
           <h3>Gradient Button</h3>
           <p>Modern colorful buttons with smooth gradient design.</p>
@@ -198,7 +216,7 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #74b9ff;">🎨</div>
+        <div class="feature-icon-wrap" style="--icon-color: #74b9ff;"><i class="fa-solid fa-palette"></i></div>
         <div class="feature-card-body">
           <h3>Glass Navbar</h3>
           <p>Transparent blurred navigation bar with modern aesthetics.</p>
@@ -210,7 +228,7 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #55efc4;">📦</div>
+        <div class="feature-icon-wrap" style="--icon-color: #55efc4;"><i class="fa-solid fa-box-archive"></i></div>
         <div class="feature-card-body">
           <h3>Card UI</h3>
           <p>Clean and reusable card layout for content display.</p>
@@ -222,7 +240,7 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #fdcb6e;">⚡</div>
+        <div class="feature-icon-wrap" style="--icon-color: #fdcb6e;"><i class="fa-solid fa-bolt"></i></div>
         <div class="feature-card-body">
           <h3>Spinner Loaders</h3>
           <p>Smooth loading animations for better UX.</p>
@@ -234,7 +252,7 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #a29bfe;">💰</div>
+        <div class="feature-icon-wrap" style="--icon-color: #a29bfe;"><i class="fa-solid fa-sack-dollar"></i></div>
         <div class="feature-card-body">
           <h3>Pricing Cards</h3>
           <p>Professional pricing sections for SaaS products.</p>
@@ -246,7 +264,7 @@
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon-wrap" style="--icon-color: #fd79a8;">🔔</div>
+        <div class="feature-icon-wrap" style="--icon-color: #fd79a8;"><i class="fa-solid fa-bell"></i></div>
         <div class="feature-card-body">
           <h3>Alert Boxes</h3>
           <p>Responsive alert components for notifications.</p>
@@ -264,54 +282,54 @@
   <section class="section categories-section">
     <div class="section-header">
       <span class="section-tag">Browse All</span>
-      <h2 class="section-title">📦 Explore Categories</h2>
+      <h2 class="section-title"><i class="fa-solid fa-box-open"></i> Explore Categories</h2>
     </div>
 
     <div class="categories-grid">
       <a href="button.html" class="cat-card">
-        <div class="cat-icon">🔘</div>
+        <div class="cat-icon"><i class="fa-solid fa-toggle-on"></i></div>
         <h3>Buttons</h3>
         <p>Interactive button styles</p>
         <span class="cat-count">24 items</span>
       </a>
       <a href="navbar.html" class="cat-card">
-        <div class="cat-icon">☰</div>
+        <div class="cat-icon"><i class="fa-solid fa-bars"></i></div>
         <h3>Navbars</h3>
         <p>Navigation UI components</p>
         <span class="cat-count">12 items</span>
       </a>
       <a href="cards.html" class="cat-card">
-        <div class="cat-icon">🃏</div>
+        <div class="cat-icon"><i class="fa-solid fa-id-card"></i></div>
         <h3>Cards</h3>
         <p>Flexible card layouts</p>
         <span class="cat-count">18 items</span>
       </a>
       <a href="inputs.html" class="cat-card">
-        <div class="cat-icon">⌨️</div>
+        <div class="cat-icon"><i class="fa-solid fa-keyboard"></i></div>
         <h3>Inputs</h3>
         <p>Forms & input fields</p>
         <span class="cat-count">20 items</span>
       </a>
       <a href="forms.html" class="cat-card">
-        <div class="cat-icon">📋</div>
+        <div class="cat-icon"><i class="fa-solid fa-clipboard-list"></i></div>
         <h3>Forms</h3>
         <p>Complete form templates</p>
         <span class="cat-count">10 items</span>
       </a>
       <a href="badges.html" class="cat-card">
-        <div class="cat-icon">🏅</div>
+        <div class="cat-icon"><i class="fa-solid fa-medal"></i></div>
         <h3>Badges</h3>
         <p>Labels, tags & badges</p>
         <span class="cat-count">15 items</span>
       </a>
       <a href="color.html" class="cat-card">
-        <div class="cat-icon">🎨</div>
+        <div class="cat-icon"><i class="fa-solid fa-palette"></i></div>
         <h3>Colors</h3>
         <p>Color palette & themes</p>
         <span class="cat-count">8 items</span>
       </a>
       <a href="footer.html" class="cat-card">
-        <div class="cat-icon">📄</div>
+        <div class="cat-icon"><i class="fa-solid fa-file-invoice"></i></div>
         <h3>Footers</h3>
         <p>Footer section layouts</p>
         <span class="cat-count">9 items</span>
@@ -323,37 +341,37 @@
   <section class="section why-section">
     <div class="section-header">
       <span class="section-tag">Why choose us</span>
-      <h2 class="section-title">✨ Why UIverse?</h2>
+      <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Why UIverse?</h2>
     </div>
 
     <div class="why-grid">
       <div class="why-card">
-        <div class="why-icon">⚡</div>
+        <div class="why-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
         <h3>Fast & Lightweight</h3>
         <p>Zero frameworks, zero dependencies. Pure HTML, CSS and JavaScript for blazing fast performance.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">📱</div>
+        <div class="why-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
         <h3>Fully Responsive</h3>
         <p>Every component is built mobile-first and works seamlessly on any device or screen size.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🎯</div>
+        <div class="why-icon"><i class="fa-solid fa-bullseye"></i></div>
         <h3>Beginner Friendly</h3>
         <p>Clean, well-commented code that's easy to understand, learn from, and customize.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🛠</div>
+        <div class="why-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
         <h3>Fully Customizable</h3>
         <p>Simple CSS variables make it trivial to adapt any component to match your brand.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🤝</div>
+        <div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
         <h3>Open Source</h3>
         <p>Everything is free and open source. Contribute, fork, or use however you like.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon">🔄</div>
+        <div class="why-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
         <h3>Regularly Updated</h3>
         <p>New components and improvements are added regularly. Stay ahead with the latest UI trends.</p>
       </div>
@@ -383,7 +401,7 @@
   <div class="footer-container">
 
     <div class="footer-col brand">
-      <h2 class="footer-logo">⬡ UIverse</h2>
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
@@ -556,5 +574,37 @@
     }
   }
 </script>
+
+<!-- ================= COMMAND PALETTE ================= -->
+<div id="commandPaletteOverlay" class="command-palette-overlay">
+  <div class="command-palette-container">
+    <div class="command-palette-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
+        id="commandPaletteInput" 
+        class="command-palette-input" 
+        placeholder="Search components... (Cmd+K)"
+        autocomplete="off"
+      />
+    </div>
+    <ul id="commandPaletteResults" class="command-palette-results"></ul>
+    <div class="command-palette-footer">
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">↑↓</span>
+        <span>Navigate</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">⏎</span>
+        <span>Select</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">Esc</span>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
