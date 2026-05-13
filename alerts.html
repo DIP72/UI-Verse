@@ -11,32 +11,116 @@
 
 <body>
 
-  <div class="container">
-    <button class="hamburger" type="button" aria-label="Toggle menu" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon"><i class="fa-solid fa-cube"></i></span>
+    <span class="brand-text">UIverse</span>
+  </div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h2>UIverse</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="alerts.html">Alerts</a></li>
-        <li><a href="badges.html">Badges</a></li>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="color.html">Colors</a></li>
-        <li><a href="footer.html">Footer</a></li>
-        <li><a href="form.html">Forms</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="loaders.html">Loaders</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-      </ul>
-    </aside>
-    <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-user"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+      <li>
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Badges</span>
+        </a>
+      </li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-award"></i>
+          <span>About us</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Main -->
-    <main class="main">
+  <div class="sidebar-footer">
+    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</aside>
+
+<!-- ================= SIDEBAR BACKDROP ================= -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="logo">UIverse</div>
+
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
+    <kbd class="search-kbd">⌘K</kbd>
+  </div>
+
+  <div class="nav-right">
+    <button class="nav-btn outline-nav-btn">
+      <i class="fa-solid fa-plus"></i> Add Component
+    </button>
+    <button class="nav-btn primary-nav-btn">
+      <i class="fa-solid fa-bookmark"></i> My Collection
+    </button>
+    <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</header>
+
+<main class="main">
 
       <div class="page-header">
         <h1>Alerts</h1>
@@ -295,32 +379,67 @@
 
     </main>
 
-  </div>
-
   <footer class="footer">
-    <div class="footer-card">
-      <div class="footer-brand">
-        <h2>UIverse</h2>
-        <p>© 2026 UIverse. All rights reserved.</p>
-        <div class="footer-socials">
-          <a href="#" title="Website"><i class="fa-solid fa-globe"></i></a>
-          <a href="#" title="LinkedIn"><i class="fa-solid fa-briefcase"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h3>Pages</h3>
-        <a href="pricing.html">Pricing</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="alerts.html">Alerts</a>
-      </div>
-      <div class="footer-col">
-        <h3>Legal</h3>
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="license.html">License</a>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col brand">
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
-  </footer>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="license.html">License</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+  </div>
+</footer>
   <script src="script.js"></script>
 </body>
 
