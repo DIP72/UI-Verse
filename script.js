@@ -1,6 +1,148 @@
-// UI-Verse - Consolidated script.js
-// Shared page behavior for sidebar, code toggles, copy actions, dark mode,
-// progress indicators, live sandboxes, search, and filtering.
+/* UI-Verse - Consolidated script.js
+   Single canonical implementations: toggleSidebar, toggleCode(id, btn), copyCode(id, btn), scrollToTop(), dark mode handlers, etc.
+
+   ============================================================================
+   COMPONENT DETAILS PAGE TEMPLATE GUIDE FOR CONTRIBUTORS
+   ============================================================================
+   
+   This guide helps you add new components consistently with proper structure,
+   styling, and functionality. Follow this template to maintain quality and
+   enable faster contributor onboarding.
+
+   TEMPLATE STRUCTURE:
+   ==================
+   
+   <div class="component-card" data-name="component name keywords" data-cat="category" data-tags="tag1, tag2, tag3">
+     
+     <!-- 1. COMPONENT HEADER -->
+     <div class="card-top">
+       <span class="card-label">Component Name</span>
+       <span class="card-tag tag-popular">Popular|Essential|Trending|New</span>
+     </div>
+
+     <!-- 2. LIVE PREVIEW -->
+     <div class="card-preview">
+       <!-- Add the live component HTML here -->
+     </div>
+
+     <!-- 3. DESCRIPTION -->
+     <p class="card-desc">Brief description (1-2 sentences) of what the component does.</p>
+
+     <!-- 4. ACTION BUTTONS -->
+     <div class="actions">
+       <button class="action-btn view-btn" onclick="toggleCode('unique-id', this)">
+         <i class="fa-solid fa-code"></i> View Code
+       </button>
+       <button class="action-btn copy-btn" onclick="copyCode('unique-id', this)">
+         <i class="fa-solid fa-copy"></i> Copy
+       </button>
+       <button onclick="addToCollection('Component Name')">Add to My Collection</button>
+     </div>
+
+     <!-- 5. CODE BLOCK (HIDDEN) -->
+     <pre id="unique-id" class="code-block"><code>
+       &lt;!-- Component HTML --&gt;
+
+       Component CSS example
+       .component-class {
+         styles here
+       }
+     </code></pre>
+
+     <!-- 6. CUSTOMIZATION SECTION (OPTIONAL) -->
+     <div class="component-customization">
+       <h4>✨ Customization</h4>
+       <div class="customization-item">
+         <p><strong>Property Name:</strong> Description of what can be customized</p>
+         <div class="customization-example">
+           CSS property example
+         </div>
+       </div>
+     </div>
+
+     <!-- 7. ACCESSIBILITY NOTES (RECOMMENDED) -->
+     <div class="component-a11y">
+       <h4><i class="fa-solid fa-universal-access"></i> Accessibility</h4>
+       <ul>
+         <li>Accessibility feature 1</li>
+         <li>Accessibility feature 2</li>
+         <li>Consider adding aria-label for screen readers</li>
+       </ul>
+     </div>
+
+     <!-- 8. BROWSER SUPPORT / VARIANTS (OPTIONAL) -->
+     <div class="component-variants">
+       <h4>🌐 Browser Support</h4>
+       <div class="browser-support">
+         <div class="browser-support-item supported">Chrome 26+</div>
+         <div class="browser-support-item supported">Firefox 16+</div>
+         <div class="browser-support-item supported">Safari 6.1+</div>
+       </div>
+     </div>
+
+   </div>
+
+   IMPORTANT ATTRIBUTES:
+   ====================
+   
+   data-cat="category": Used for category filtering
+     - Allowed: style, effect, status, profile, content, commerce, etc.
+   
+   data-tags="tag1, tag2, tag3": CSV of tags for advanced filtering
+     - Examples: modern, minimal, glowing, depth, interactive, animation
+   
+   data-name="component name keywords": Used for search filtering
+     - Include component name and related keywords for discoverability
+
+   CSS CLASSES:
+   ============
+   
+   .component-card - Main container (required for filtering)
+   .action-btn - Base button styling
+   .view-btn - View code button
+   .copy-btn - Copy button (shows "Copied!" feedback)
+   .code-block - Code display (hidden by default)
+   .component-customization - Props/customization section
+   .component-a11y - Accessibility notes section
+   .component-variants - Variants and browser support
+   
+   ID NAMING:
+   ==========
+   
+   Use sequential IDs: c1, c2, c3... for buttons
+                       a1, a2, a3... for alerts
+                       etc.
+   
+   Ensure each component has a UNIQUE ID for code block and button.onclick
+
+   FUNCTIONS USED:
+   ===============
+   
+   toggleCode('code-id', this) - Show/hide code block
+   copyCode('code-id', this) - Copy code to clipboard with feedback
+   addToCollection('Component Name') - Save to user collection
+   
+   DARK MODE:
+   ==========
+   
+   All template sections have built-in dark mode support via .dark-mode class.
+   No additional styling needed - handled in style.css automatically.
+
+   BEST PRACTICES:
+   ===============
+   
+   1. Always include alt text and proper semantic HTML
+   2. Add aria-labels for interactive elements
+   3. Test keyboard navigation (tab, enter)
+   4. Ensure sufficient color contrast (WCAG AA minimum)
+   5. Include browser support information
+   6. Document customization options clearly
+   7. Use simple, clear language in descriptions
+   8. Test copy functionality works correctly
+   9. Verify in both light and dark modes
+   10. Test on mobile devices for responsiveness
+
+*/
 
 // Utility
 function escapeAttr(value) {
@@ -10,8 +152,12 @@ function escapeAttr(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
-
 // Profile editor (attached to button .btnn if present)
+// Expected markup (profile.html):
+// - Button with class="btnn" to trigger edit mode
+// - Profile info in divs with class="info" containing <span> (label) and <p> (value)
+// - Expected order: Full Name, Email, Username (3+ fields required)
+// This feature is optional; pages without .btnn simply skip profile editing.
 const editBtn = document.querySelector('.btnn');
 if (editBtn) {
   editBtn.addEventListener('click', () => {
@@ -193,10 +339,20 @@ function updateSidebarActiveLink() {
   });
 }
 function restoreSidebarState() { sessionStorage.removeItem('sidebarHidden'); }
-function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('sidebar-open'); document.querySelector('#sidebarBackdrop')?.classList.remove('visible'); document.querySelector('.sidebar-backdrop')?.classList.remove('active'); document.getElementById('sidebar')?.classList.remove('open'); document.querySelector('.sidebar')?.classList.remove('open'); })); }
-function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); }
+function closeSidebar() {
+  document.body.classList.remove('sidebar-open');
+  document.querySelector('#sidebarBackdrop')?.classList.remove('visible');
+  document.querySelector('.sidebar-backdrop')?.classList.remove('active');
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.querySelector('.sidebar')?.classList.remove('open');
+}
+function initSidebarLinkClose() { document.querySelectorAll('.sidebar ul li a').forEach(a => a.addEventListener('click', closeSidebar)); }
+function initSidebar() { restoreSidebarState(); updateSidebarActiveLink(); initSidebarLinkClose(); document.querySelector('#sidebarBackdrop')?.addEventListener('click', closeSidebar); document.querySelector('.menu-toggle')?.addEventListener('click', toggleSidebar); }
 
 // Live sandboxes
+// Security note: HTML is sourced from trusted local component templates embedded in the page.
+// The iframe is sandboxed to prevent script execution and restrict access to parent context.
+// If component HTML ever becomes user-editable from external sources, add DOMPurify sanitization.
 function initLiveSandboxes() {
   document.querySelectorAll('.component-card').forEach((card, index) => {
     const h3 = card.querySelector('h3');
@@ -210,6 +366,7 @@ function initLiveSandboxes() {
 
     const iframe = document.createElement('iframe');
     iframe.style.width = '100%'; iframe.style.minHeight = '160px'; iframe.style.border = '1px solid #e8ebf2'; iframe.style.borderRadius = '8px'; iframe.style.background = 'transparent';
+    iframe.setAttribute('sandbox', 'allow-same-origin');
 
     const textarea = document.createElement('textarea');
     if (existingCodeBlock) { textarea.id = existingCodeBlock.id; textarea.className = existingCodeBlock.className; textarea.style.display = existingCodeBlock.style.display || 'none'; }
@@ -693,6 +850,106 @@ function initAccessibilityMode() {
   });
 }
 
+function initAccessibilityHardeningLegacy() {
+  const html = document.documentElement;
+  if (html && !html.getAttribute('lang')) {
+    html.setAttribute('lang', 'en');
+  }
+
+  if (!document.getElementById('uiverse-a11y-style')) {
+    const style = document.createElement('style');
+    style.id = 'uiverse-a11y-style';
+    style.textContent = `
+      .skip-link {
+        position: absolute;
+        top: -48px;
+        left: 12px;
+        z-index: 10000;
+        background: #111;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: top 0.2s ease;
+      }
+      .skip-link:focus,
+      .skip-link:focus-visible {
+        top: 12px;
+        outline: 2px solid #74b9ff;
+        outline-offset: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid #74b9ff;
+        outline-offset: 2px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  let mainTarget = document.querySelector('main, [role="main"]');
+  if (!mainTarget) {
+    mainTarget = document.querySelector('section') || document.body.firstElementChild;
+    if (mainTarget) mainTarget.setAttribute('role', 'main');
+  }
+
+  if (mainTarget && !mainTarget.id) {
+    mainTarget.id = 'main-content';
+  }
+
+  if (mainTarget && !document.querySelector('.skip-link')) {
+    const skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#main-content';
+    skip.textContent = 'Skip to main content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
+  document.querySelectorAll('nav').forEach((nav, index) => {
+    if (!nav.getAttribute('aria-label')) {
+      nav.setAttribute('aria-label', index === 0 ? 'Primary navigation' : `Navigation ${index + 1}`);
+    }
+  });
+
+  document.querySelectorAll('button, a, [role="button"]').forEach((el) => {
+    const hasName = !!(el.getAttribute('aria-label') || el.getAttribute('title') || (el.textContent || '').trim());
+    const iconOnly = !!el.querySelector('i, svg, img') && !(el.textContent || '').trim();
+    if (!hasName && iconOnly) {
+      el.setAttribute('aria-label', el.getAttribute('data-label') || 'Action');
+    }
+  });
+
+  document.querySelectorAll('input, textarea, select').forEach((field) => {
+    if (field.type === 'hidden') return;
+    const labelled = field.getAttribute('aria-label') || field.getAttribute('aria-labelledby');
+    const forLabel = field.id ? document.querySelector(`label[for="${field.id}"]`) : null;
+    if (!labelled && !forLabel) {
+      field.setAttribute('aria-label', field.getAttribute('placeholder') || field.getAttribute('name') || 'Input field');
+    }
+  });
+
+  document.querySelectorAll('img:not([alt])').forEach((img) => {
+    img.setAttribute('alt', '');
+  });
+
+  document.querySelectorAll('[onclick]').forEach((el) => {
+    const tag = el.tagName.toLowerCase();
+    if (['button', 'a', 'input', 'select', 'textarea', 'summary'].includes(tag)) return;
+    if (!el.getAttribute('role')) el.setAttribute('role', 'button');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    if (el.dataset.a11yKeybound === '1') return;
+
+    el.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        el.click();
+      }
+    });
+
+    el.dataset.a11yKeybound = '1';
+  });
+}
+
 function updateA11yToggleVisual(toggleEl, isEnabled) {
   const icon = toggleEl?.querySelector?.('i');
   if (icon) {
@@ -717,6 +974,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Popup reference
   window.popup = document.getElementById('popup');
 
+  initAccessibilityHardeningLegacy();
   initSidebar();
   initLiveSandboxes();
   initDarkMode();
@@ -749,3 +1007,68 @@ window.addEventListener('DOMContentLoaded', () => {
   // Menu toggle (legacy id)
   const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
 });
+
+
+// ================= SEARCH (ROUTING) =================
+function handleSearch(event) {
+  if (event.key === "Enter") {
+    const query = event.target.value.toLowerCase().trim();
+
+    const routes = {
+      "button": "button.html",
+      "buttons": "button.html",
+      "navbar": "navbar.html",
+      "navbars": "navbar.html",
+      "card": "cards.html",
+      "cards": "cards.html",
+      "form": "form.html",
+      "forms": "form.html",
+      "footer": "footer.html",
+      "color": "color.html",
+      "colors": "color.html"
+    };
+
+    for (let key in routes) {
+      if (query.includes(key)) {
+        window.location.href = routes[key];
+        return;
+      }
+    }
+
+    showToast("No component found 😢");
+  }
+}
+
+
+// ================= DARK MODE =================
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  if (toggleBtn) {
+    toggleBtn.innerText = document.body.classList.contains("dark-mode")
+      ? "☀️ Light Mode"
+      : "🌙 Dark Mode";
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+
+      if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.innerText = "☀️ Light Mode";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.innerText = "🌙 Dark Mode";
+      }
+    });
+  }
+
+// Init sidebar after DOM ready
+  restoreSidebarState();
+  updateSidebarActiveLink();
+  initSidebarLinkClose();
+});  
+
