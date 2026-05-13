@@ -127,6 +127,11 @@ const Bootstrap = {
     if (typeof CommandPalette !== 'undefined') {
       CommandPalette.init();
     }
+
+    // URL State Manager (search filtering with URL persistence)
+    if (typeof URLStateManager !== 'undefined') {
+      URLStateManager.init();
+    }
   },
 
   /**
