@@ -1,282 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service - UIverse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms & Conditions — UIverse</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- UIverse Modular CSS Architecture -->
+  <link rel="stylesheet" href="css/main.css">
 
-    body {
-      display: flex;
-      background: #f4f7fb;
-      color: #1e293b;
-    }
-
-    /* ===== SIDEBAR ===== */
-    .sidebar {
-      width: 220px;
-      height: 100vh;
-      background: #0f172a;
-      color: white;
-      padding: 20px;
-      position: fixed;
-    }
-
-    .sidebar h2 {
-      margin-bottom: 20px;
-    }
-
-    .sidebar ul {
-      list-style: none;
-    }
-
-    .sidebar ul li {
-      margin: 12px 0;
-    }
-
-    .sidebar ul li a {
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .sidebar ul li a:hover,
-    .sidebar .active a {
-      color: white;
-      font-weight: 600;
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      left: 220px;
-      right: 0;
-      height: 70px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      z-index: 100;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 20px;
-    }
-
-    .nav-btn {
-      background: #6366f1;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    .full-page {
-      margin-left: 220px;
-      padding: 100px 40px 40px;
-      width: 100%;
-    }
-
-    .privacy-wrapper {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .privacy-wrapper h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .last-updated {
-      color: #64748b;
-      margin-bottom: 30px;
-    }
-
-    /* ===== TERMS CARD ===== */
-    .terms-card {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.3s;
-      border: 1px solid #e2e8f0;
-    }
-
-    .terms-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
-    .terms-card h2 {
-      margin-bottom: 10px;
-      color: #4f46e5;
-    }
-
-    .terms-card p {
-      line-height: 1.6;
-      color: #475569;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      margin-left: 220px;
-      background: #0f172a;
-      color: white;
-      padding: 30px;
-    }
-
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 10px;
-    }
-
-    .footer-col p,
-    .footer-col a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .sidebar {
-        display: none;
-      }
-
-      .navbar {
-        left: 0;
-      }
-
-      .full-page {
-        margin-left: 0;
-        padding: 100px 20px;
-      }
-
-      .footer {
-        margin-left: 0;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="terms.css">
 </head>
 
 <body>
 
-<!-- Sidebar -->
-<aside class="sidebar">
-  <h2>UIverse</h2>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Components</a></li>
-    <li class="active"><a href="#">Terms</a></li>
-  </ul>
-</aside>
 
-<!-- Navbar -->
-<nav class="navbar">
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+
   <div class="logo">UIverse</div>
-  <button class="nav-btn">Login</button>
-</nav>
 
-<!-- Content -->
-<div class="full-page">
-  <div class="privacy-wrapper">
+  <div class="nav-right">
 
-    <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: April 2026</p>
+    <button class="nav-btn outline-btn">
+      Documentation
+    </button>
 
-    <div class="terms-card">
-      <h2>1. Introduction</h2>
-      <p>By using UIverse, you agree to follow these terms and conditions.</p>
-    </div>
+    <button class="nav-btn primary-btn">
+      Explore UI
+    </button>
 
-    <div class="terms-card">
-      <h2>2. Use of Website</h2>
-      <p>You agree not to misuse the platform or harm other users.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>3. User Accounts</h2>
-      <p>You are responsible for your account and activities under it.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>4. Intellectual Property</h2>
-      <p>All designs and components belong to UIverse unless stated otherwise.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>5. Limitation of Liability</h2>
-      <p>We are not liable for any damages from using the platform.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>6. Termination</h2>
-      <p>We may suspend access at any time without prior notice.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>7. Changes</h2>
-      <p>Terms may change. Continued use means acceptance.</p>
-    </div>
-
-    <div class="terms-card">
-      <h2>8. Contact</h2>
-      <p>Email us at support@uiverse.com</p>
-    </div>
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fa-solid fa-moon"></i>
+    </button>
 
   </div>
-</div>
 
+</header>
+
+<!-- MAIN -->
+<main class="terms-main">
+
+  <!-- HERO -->
+  <section class="terms-hero">
+
+    <div class="hero-badge">
+      <i class="fa-solid fa-scale-balanced"></i>
+      Legal Information
+    </div>
+
+    <h1 class="hero-title">
+      Terms & <span>Conditions</span>
+    </h1>
+
+    <p class="hero-desc">
+      These terms govern your access and use of UIverse.
+      By using the platform, components or services,
+      you agree to comply with the following conditions.
+    </p>
+
+    <div class="hero-points">
+
+      <div class="hero-point">
+        <i class="fa-solid fa-check"></i>
+        Commercial Usage Allowed
+      </div>
+
+      <div class="hero-point">
+        <i class="fa-solid fa-check"></i>
+        User Friendly Terms
+      </div>
+
+      <div class="hero-point">
+        <i class="fa-solid fa-check"></i>
+        Secure & Transparent
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- QUICK CARDS -->
+  <section class="terms-grid">
+
+    <div class="quick-card">
+
+      <div class="quick-top">
+
+        <div class="quick-icon green">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <div>
+          <h2>Allowed Usage</h2>
+          <p>What users can do on UIverse.</p>
+        </div>
+
+      </div>
+
+      <ul class="quick-list">
+
+        <li>
+          <i class="fa-solid fa-check"></i>
+          Personal projects
+        </li>
+
+        <li>
+          <i class="fa-solid fa-check"></i>
+          Commercial products
+        </li>
+
+        <li>
+          <i class="fa-solid fa-check"></i>
+          Modify components
+        </li>
+
+        <li>
+          <i class="fa-solid fa-check"></i>
+          Create derivatives
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="quick-card">
+
+      <div class="quick-top">
+
+        <div class="quick-icon orange">
+          <i class="fa-solid fa-shield"></i>
+        </div>
+
+        <div>
+          <h2>User Responsibility</h2>
+          <p>Platform guidelines & rules.</p>
+        </div>
+
+      </div>
+
+      <ul class="quick-list">
+
+        <li>
+          <i class="fa-solid fa-arrow-right"></i>
+          Respect copyrights
+        </li>
+
+        <li>
+          <i class="fa-solid fa-arrow-right"></i>
+          Avoid malicious activity
+        </li>
+
+        <li>
+          <i class="fa-solid fa-arrow-right"></i>
+          Follow legal standards
+        </li>
+
+        <li>
+          <i class="fa-solid fa-arrow-right"></i>
+          Use resources fairly
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+  <!-- TERMS -->
+  <section class="terms-wrapper">
+
+    <div class="section-head">
+      <span class="section-tag">TERMS OF SERVICE</span>
+      <h2>Legal Terms & Policies</h2>
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-circle-info"></i>
+        Introduction
+      </h3>
+
+      <p>
+        By accessing UIverse, you agree to comply with these Terms
+        and Conditions. Continued use of the platform indicates acceptance.
+      </p>
+
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-globe"></i>
+        Website Usage
+      </h3>
+
+      <p>
+        Users must not misuse the platform, exploit vulnerabilities,
+        or interfere with normal functionality.
+      </p>
+
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-user"></i>
+        User Accounts
+      </h3>
+
+      <p>
+        You are responsible for maintaining the security
+        and confidentiality of your account credentials.
+      </p>
+
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-copyright"></i>
+        Intellectual Property
+      </h3>
+
+      <p>
+        Original UIverse branding, visuals and assets
+        remain protected intellectual property.
+      </p>
+
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        Limitation of Liability
+      </h3>
+
+      <p>
+        UIverse is not liable for losses, damages
+        or interruptions resulting from platform usage.
+      </p>
+
+    </div>
+
+    <div class="term-card">
+
+      <h3>
+        <i class="fa-solid fa-envelope"></i>
+        Contact Information
+      </h3>
+
+      <p>
+        For legal questions or policy concerns,
+        please contact the UIverse support team.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-card">
     <div class="footer-brand">
-      <h2>Ulverse</h2>
-      <p>© 2026 Ulverse. All rights reserved.</p>
+      <h2>UIverse</h2>
+      <p>© 2026 UIverse. All rights reserved.</p>
       <div class="footer-socials">
         <span>🌐</span>
         <span>💼</span>
       </div>
+
     </div>
+
     <div class="footer-col">
-      <h3>Pages</h3>
-      <a href="pricing.html">Pricing</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="alerts.html">Alerts</a>
+
+      <h3>Explore</h3>
+
+      <ul>
+        <li><a href="#">Buttons</a></li>
+        <li><a href="#">Cards</a></li>
+        <li><a href="#">Forms</a></li>
+        <li><a href="#">Inputs</a></li>
+      </ul>
+
     </div>
+
     <div class="footer-col">
+
       <h3>Legal</h3>
-      <a href="privacypolicy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+
+      <ul>
+        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+
     </div>
+
   </div>
+
+  <div class="footer-bottom">
+    © 2026 UIverse. All rights reserved.
+  </div>
+
 </footer>
+
+<script>
+
+const toggle = document.getElementById('themeToggle');
+const icon = toggle.querySelector('i');
+
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark-mode');
+  icon.className = 'fa-solid fa-sun';
+}
+
+toggle.addEventListener('click', () => {
+
+  document.body.classList.toggle('dark-mode');
+
+  const dark = document.body.classList.contains('dark-mode');
+
+  icon.className = dark
+    ? 'fa-solid fa-sun'
+    : 'fa-solid fa-moon';
+
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+
+});
+
+window.addEventListener('scroll', () => {
+
+  document.getElementById('navbar')
+    .classList.toggle('scrolled', window.scrollY > 40);
+
+});
+
+</script>
 
 </body>
 </html>
