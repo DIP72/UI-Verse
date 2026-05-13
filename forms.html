@@ -11,6 +11,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="forms.css">
+  <link rel="stylesheet" href="command-palette.css">
+  <script src="js/core/utils.js"></script>
+  <script src="js/features/toast.js"></script>
+  <script src="js/features/popup.js"></script>
+  <script src="js/features/code-tools.js"></script>
+  <script src="js/features/sidebar.js"></script>
+  <script src="js/features/search.js"></script>
+  <script src="js/features/theme.js"></script>
+  <script src="js/features/scroll.js"></script>
+  <script src="js/features/alerts.js"></script>
+  <script src="js/features/sandbox.js"></script>
+  <script src="js/features/accessibility.js"></script>
+  <script src="js/features/command-palette.js"></script>
+  <script src="js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -454,5 +468,37 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.form-component-card').forEach(el => observer.observe(el));
 </script>
+
+<!-- ================= COMMAND PALETTE ================= -->
+<div id="commandPaletteOverlay" class="command-palette-overlay">
+  <div class="command-palette-container">
+    <div class="command-palette-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
+        id="commandPaletteInput" 
+        class="command-palette-input" 
+        placeholder="Search components... (Cmd+K)"
+        autocomplete="off"
+      />
+    </div>
+    <ul id="commandPaletteResults" class="command-palette-results"></ul>
+    <div class="command-palette-footer">
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">↑↓</span>
+        <span>Navigate</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">⏎</span>
+        <span>Select</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">Esc</span>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

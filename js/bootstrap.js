@@ -122,6 +122,11 @@ const Bootstrap = {
     if (typeof Accessibility !== 'undefined') {
       Accessibility.init();
     }
+
+    // Command Palette
+    if (typeof CommandPalette !== 'undefined') {
+      CommandPalette.init();
+    }
   },
 
   /**
