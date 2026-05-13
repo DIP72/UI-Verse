@@ -15,7 +15,8 @@
     "test:visual:debug": "playwright test --debug",
     "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual"
     ,
-    "perf": "node scripts/perf-monitor.js"
+    "perf": "node scripts/perf-budgets.js",
+    "perf:ci": "node scripts/perf-budgets.js"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
