@@ -399,6 +399,110 @@ function getComponentCards() {
   return Array.from(document.querySelectorAll(SMART_CARD_SELECTOR));
 }
 
+/* ---------- Inject Copy Buttons for Code Blocks ---------- */
+function injectCopyButtons() {
+  try {
+    let counter = 0;
+    const nodes = Array.from(document.querySelectorAll('pre.code-block, pre.playground-code, pre > code'));
+    nodes.forEach(node => {
+      const pre = node.tagName.toLowerCase() === 'pre' ? node : node.closest('pre');
+      if (!pre) return;
+      if (pre.dataset.copyInjected) return;
+      pre.dataset.copyInjected = '1';
+
+      // Ensure a stable id
+      if (!pre.id) {
+        pre.id = 'code-snippet-' + (Date.now().toString(36)) + '-' + (counter++);
+      }
+
+      // Create copy button
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'action-btn copy-btn';
+      btn.setAttribute('aria-label', 'Copy code');
+      btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        copyCode(pre.id, this);
+      });
+
+      // Insert button before the pre (so it appears near the code block)
+      pre.parentNode.insertBefore(btn, pre);
+    });
+  } catch (e) { console.error('injectCopyButtons', e); }
+}
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', injectCopyButtons); else injectCopyButtons();
+
+/* ================= My Collection (global helpers) ================= */
+window.addToCollection = function(name, html) {
+  try {
+    let items = JSON.parse(localStorage.getItem('collection')) || [];
+    const content = (html || '').trim();
+    const title = (name || 'Component').trim();
+
+    const newItem = { title, content, id: Date.now() };
+
+    const exists = items.some(i => i.title === newItem.title || i.content === newItem.content && i.content !== '');
+    if (!exists) {
+      items.push(newItem);
+      localStorage.setItem('collection', JSON.stringify(items));
+      showToastSafe(title + ' added to collection ✓');
+    } else {
+      showToastSafe('Already in collection');
+    }
+  } catch (e) {
+    console.error('addToCollection error', e);
+    showToastSafe('Failed to add to collection');
+  }
+};
+
+window.addToCollectionFromCard = function(button, name) {
+  try {
+    const card = button && button.closest ? button.closest('.component-card') : null;
+    let html = '';
+
+    if (card) {
+      // Prefer explicit code block
+      const codeBlock = card.querySelector('.code-block, pre, code, textarea');
+      if (codeBlock) html = codeBlock.textContent || codeBlock.value || codeBlock.innerText || '';
+
+      // fallback: live preview areas
+      if (!html) {
+        const preview = card.querySelector('.card-preview, .preview, .card-top ~ .card-preview, .preview-nav-1, .preview-box');
+        if (preview) html = preview.innerHTML.trim();
+      }
+
+      // As last resort, use card outerHTML
+      if (!html) html = card.innerHTML.trim();
+    }
+
+    addToCollection(name || (card && (card.querySelector('.card-label')?.textContent || card.dataset.name)) || 'Component', html);
+  } catch (e) {
+    console.error('addToCollectionFromCard', e);
+    showToastSafe('Failed to add to collection');
+  }
+};
+
+function insertCollectionButtons() {
+  try {
+    getComponentCards().forEach(card => {
+      if (card.querySelector('.add-collection-btn')) return;
+      const actions = card.querySelector('.actions') || (() => { const d = document.createElement('div'); d.className='actions'; card.appendChild(d); return d; })();
+      const title = card.querySelector('.card-label')?.textContent || card.dataset.name || 'Component';
+      const btn = document.createElement('button');
+      btn.className = 'action-btn add-collection-btn';
+      btn.type = 'button';
+      btn.innerHTML = '<i class="fa-solid fa-bookmark"></i> Add to My Collection';
+      btn.addEventListener('click', function() { addToCollectionFromCard(this, title); });
+      actions.appendChild(btn);
+    });
+  } catch (e) { console.error('insertCollectionButtons', e); }
+}
+
+// Run insertion on init (safe no-op on pages without component cards)
+try { insertCollectionButtons(); } catch (e) {}
+
 function normalizeToken(value) {
   return String(value || '').toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim();
 }
