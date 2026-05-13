@@ -10,6 +10,8 @@
  
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- UIverse Modular CSS Architecture -->
+  <link rel="stylesheet" href="css/main.css">
  
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
@@ -460,12 +462,6 @@
     icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
- 
-  /* ---------- Sidebar ---------- */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
-  }
  
   /* ---------- Scroll Top ---------- */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
