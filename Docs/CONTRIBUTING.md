@@ -153,6 +153,7 @@ We aim to keep things smooth and transparent:
 - Take a look at the existing [Issues](https://github.com/Tushar-sonawane06/UI-Verse/issues). 
 - Fork the Repo & create a branch for any issue that you are working on and commit your work.
 - At first raise an issue in which you want to work
+- Use the GitHub issue template for bug reports or feature requests so maintainers can triage them consistently.
 - Then after assigning only then work on that issue & make a PR 
 - Create a [**Pull Request**](https://github.com/Tushar-sonawane06/UI-Verse/pulls), which will be promptly reviewed and given suggestions for improvements by the community.
 - **REMINDER: Don't raise more than 2 `Issue` at a time**
