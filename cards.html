@@ -23,22 +23,12 @@
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <span class="brand-icon">⬡</span>
+    <span class="brand-icon"><i class="fa-solid fa-cube"></i></span>
     <span class="brand-text">UIverse</span>
   </div>
 
   <nav class="sidebar-nav">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="Navbar.html">Navbars</a></li>
-      <li class="active"><a href="cards.html">Cards</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contribute.html">Contribute</a></li>
-      <li><a href="button.html">Buttons</a></li>
       <li>
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
@@ -87,6 +77,18 @@
           <span>Badges</span>
         </a>
       </li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-award"></i>
+          <span>About us</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -110,7 +112,7 @@
 
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" />
+    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
     <kbd class="search-kbd">⌘K</kbd>
   </div>
 
@@ -328,7 +330,7 @@
       <div class="card-preview">
         <div class="product-card">
           <div class="product-badge">New</div>
-          <div class="product-icon">🎧</div>
+          <div class="product-icon"><i class="fa-solid fa-headphones"></i></div>
           <h4>Premium Headphones</h4>
           <p class="product-price">$49.99</p>
           <p class="product-desc">High-quality audio with noise cancellation.</p>
@@ -346,7 +348,7 @@
       </div>
       <pre id="c4" class="code-block"><code>&lt;div class="product-card"&gt;
   &lt;div class="product-badge"&gt;New&lt;/div&gt;
-  &lt;div class="product-icon"&gt;🎧&lt;/div&gt;
+  &lt;div class="product-icon"&gt;&lt;i class="fa-solid fa-headphones"&gt;&lt;/i&gt;&lt;/div&gt;
   &lt;h4&gt;Premium Headphones&lt;/h4&gt;
   &lt;p class="price"&gt;$49.99&lt;/p&gt;
   &lt;p&gt;High-quality audio with noise cancellation.&lt;/p&gt;
@@ -611,7 +613,7 @@
             </div>
             <div class="social-platform"><i class="fab fa-x-twitter"></i></div>
           </div>
-          <p class="social-text">Just launched my new UI component library! Check it out and let me know what you think. 🚀</p>
+          <p class="social-text">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
           <div class="social-actions">
             <button class="social-btn"><i class="fa-regular fa-heart"></i> 42</button>
             <button class="social-btn"><i class="fa-regular fa-comment"></i> 12</button>
@@ -637,7 +639,7 @@
       &lt;span&gt;@johndoe · 2h&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;p&gt;Just launched my new UI library! 🚀&lt;/p&gt;
+  &lt;p&gt;Just launched my new UI library! &lt;i class="fa-solid fa-rocket"&gt;&lt;/i&gt;&lt;/p&gt;
   &lt;div class="social-actions"&gt;
     &lt;button&gt;♥ 42&lt;/button&gt;
     &lt;button&gt;💬 12&lt;/button&gt;
@@ -667,30 +669,22 @@
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
-  <div class="footer-card">
-    <div class="footer-brand">
-      <h2>Ulverse</h2>
-      <p>© 2026 Ulverse. All rights reserved.</p>
-      <div class="footer-socials">
-        <span>🌐</span>
-        <span>💼</span>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col brand">
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
-    </div>
-    <div class="footer-col">
-      <h3>Pages</h3>
-      <a href="pricing.html">Pricing</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="alerts.html">Alerts</a>
-    </div>
-    <div class="footer-col">
-      <h3>Legal</h3>
-      <a href="privacypolicy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
     </div>
   <div class="footer-container">
 
     <div class="footer-col brand">
-      <h2 class="footer-logo">⬡ UIverse</h2>
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
@@ -725,7 +719,7 @@
       <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="#">License</a></li>
+        <li><a href="license.html">License</a></li>
       </ul>
     </div>
 
