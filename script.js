@@ -1,148 +1,6 @@
-/* UI-Verse - Consolidated script.js
-   Single canonical implementations: toggleSidebar, toggleCode(id, btn), copyCode(id, btn), scrollToTop(), dark mode handlers, etc.
-
-   ============================================================================
-   COMPONENT DETAILS PAGE TEMPLATE GUIDE FOR CONTRIBUTORS
-   ============================================================================
-   
-   This guide helps you add new components consistently with proper structure,
-   styling, and functionality. Follow this template to maintain quality and
-   enable faster contributor onboarding.
-
-   TEMPLATE STRUCTURE:
-   ==================
-   
-   <div class="component-card" data-name="component name keywords" data-cat="category" data-tags="tag1, tag2, tag3">
-     
-     <!-- 1. COMPONENT HEADER -->
-     <div class="card-top">
-       <span class="card-label">Component Name</span>
-       <span class="card-tag tag-popular">Popular|Essential|Trending|New</span>
-     </div>
-
-     <!-- 2. LIVE PREVIEW -->
-     <div class="card-preview">
-       <!-- Add the live component HTML here -->
-     </div>
-
-     <!-- 3. DESCRIPTION -->
-     <p class="card-desc">Brief description (1-2 sentences) of what the component does.</p>
-
-     <!-- 4. ACTION BUTTONS -->
-     <div class="actions">
-       <button class="action-btn view-btn" onclick="toggleCode('unique-id', this)">
-         <i class="fa-solid fa-code"></i> View Code
-       </button>
-       <button class="action-btn copy-btn" onclick="copyCode('unique-id', this)">
-         <i class="fa-solid fa-copy"></i> Copy
-       </button>
-       <button onclick="addToCollection('Component Name')">Add to My Collection</button>
-     </div>
-
-     <!-- 5. CODE BLOCK (HIDDEN) -->
-     <pre id="unique-id" class="code-block"><code>
-       &lt;!-- Component HTML --&gt;
-       
-       /* Component CSS */
-       .component-class {
-         /* styles here */
-       }
-     </code></pre>
-
-     <!-- 6. CUSTOMIZATION SECTION (OPTIONAL) -->
-     <div class="component-customization">
-       <h4>✨ Customization</h4>
-       <div class="customization-item">
-         <p><strong>Property Name:</strong> Description of what can be customized</p>
-         <div class="customization-example">
-           CSS property example
-         </div>
-       </div>
-     </div>
-
-     <!-- 7. ACCESSIBILITY NOTES (RECOMMENDED) -->
-     <div class="component-a11y">
-       <h4><i class="fa-solid fa-universal-access"></i> Accessibility</h4>
-       <ul>
-         <li>Accessibility feature 1</li>
-         <li>Accessibility feature 2</li>
-         <li>Consider adding aria-label for screen readers</li>
-       </ul>
-     </div>
-
-     <!-- 8. BROWSER SUPPORT / VARIANTS (OPTIONAL) -->
-     <div class="component-variants">
-       <h4>🌐 Browser Support</h4>
-       <div class="browser-support">
-         <div class="browser-support-item supported">Chrome 26+</div>
-         <div class="browser-support-item supported">Firefox 16+</div>
-         <div class="browser-support-item supported">Safari 6.1+</div>
-       </div>
-     </div>
-
-   </div>
-
-   IMPORTANT ATTRIBUTES:
-   ====================
-   
-   data-cat="category": Used for category filtering
-     - Allowed: style, effect, status, profile, content, commerce, etc.
-   
-   data-tags="tag1, tag2, tag3": CSV of tags for advanced filtering
-     - Examples: modern, minimal, glowing, depth, interactive, animation
-   
-   data-name="component name keywords": Used for search filtering
-     - Include component name and related keywords for discoverability
-
-   CSS CLASSES:
-   ============
-   
-   .component-card - Main container (required for filtering)
-   .action-btn - Base button styling
-   .view-btn - View code button
-   .copy-btn - Copy button (shows "Copied!" feedback)
-   .code-block - Code display (hidden by default)
-   .component-customization - Props/customization section
-   .component-a11y - Accessibility notes section
-   .component-variants - Variants and browser support
-   
-   ID NAMING:
-   ==========
-   
-   Use sequential IDs: c1, c2, c3... for buttons
-                       a1, a2, a3... for alerts
-                       etc.
-   
-   Ensure each component has a UNIQUE ID for code block and button.onclick
-
-   FUNCTIONS USED:
-   ===============
-   
-   toggleCode('code-id', this) - Show/hide code block
-   copyCode('code-id', this) - Copy code to clipboard with feedback
-   addToCollection('Component Name') - Save to user collection
-   
-   DARK MODE:
-   ==========
-   
-   All template sections have built-in dark mode support via .dark-mode class.
-   No additional styling needed - handled in style.css automatically.
-
-   BEST PRACTICES:
-   ===============
-   
-   1. Always include alt text and proper semantic HTML
-   2. Add aria-labels for interactive elements
-   3. Test keyboard navigation (tab, enter)
-   4. Ensure sufficient color contrast (WCAG AA minimum)
-   5. Include browser support information
-   6. Document customization options clearly
-   7. Use simple, clear language in descriptions
-   8. Test copy functionality works correctly
-   9. Verify in both light and dark modes
-   10. Test on mobile devices for responsiveness
-
-*/
+// UI-Verse - Consolidated script.js
+// Shared page behavior for sidebar, code toggles, copy actions, dark mode,
+// progress indicators, live sandboxes, search, and filtering.
 
 // Utility
 function escapeAttr(value) {
@@ -204,11 +62,13 @@ if (editBtn) {
 
       if (newName) {
         currentInfo[0].textContent = newName;
-        document.querySelector('.profile-header h2')?.textContent = newName;
+        const profileName = document.querySelector('.profile-header h2');
+        if (profileName) profileName.textContent = newName;
       }
       if (newEmail) {
         currentInfo[1].textContent = newEmail;
-        document.querySelector('.profile-header p')?.textContent = newEmail;
+        const profileEmail = document.querySelector('.profile-header p');
+        if (profileEmail) profileEmail.textContent = newEmail;
       }
       if (newUsername) currentInfo[2].textContent = newUsername;
 
@@ -660,8 +520,11 @@ window.addEventListener('DOMContentLoaded', () => {
   initAccessibilityMode();
   initScrollTop();
   initProgressBar();
-  initSearchFilter();
-  createFilterUI();  // Initialize filter UI
+  // Feature detection: Only initialize filters if both component-card and filter-bar exist
+  if (document.querySelector('.component-card') && document.querySelector('.filter-bar')) {
+    initSearchFilter();
+    createFilterUI();
+  }
 
   // Attach global search handler
   const searchEl = document.getElementById('searchInput'); if (searchEl) searchEl.addEventListener('keydown', handleSearch);
