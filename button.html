@@ -793,8 +793,8 @@ window.addToCollectionFromCard = function(button, name) {
   const previewBox = card.querySelector('.preview-box');
   const html = previewBox.innerHTML;
   
-  console.log("Button clicked:", name);
-  console.log("Preview HTML:", html);
+  if (window.UIVERSE_DEBUG) console.log("Button clicked:", name);
+  if (window.UIVERSE_DEBUG) console.log("Preview HTML:", html);
   
   addToCollection(name, html);
 };
@@ -808,13 +808,13 @@ window.addToCollection = function(name, html) {
     id: Date.now()
   };
 
-  console.log("Adding item:", newItem);
+  if (window.UIVERSE_DEBUG) console.log("Adding item:", newItem);
 
   if (!items.some(item => item.title === newItem.title)) {
     items.push(newItem);
     localStorage.setItem("collection", JSON.stringify(items));
     showToast(name + " added to collection ✓");
-    console.log("Total items saved:", items.length);
+    if (window.UIVERSE_DEBUG) console.log("Total items saved:", items.length);
   } else {
     showToast("Already in collection");
   }

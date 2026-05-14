@@ -10,7 +10,7 @@ addBtn.addEventListener("click", () => {
     document.getElementById("expenseAmount").value;
 
   if(expenseName === "" || expenseAmount === ""){
-    alert("Please fill all fields");
+    if (window.UIVERSE_DEBUG) alert("Please fill all fields");
     return;
   }
 

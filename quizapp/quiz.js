@@ -35,6 +35,6 @@ optionButtons.forEach(button => {
 document.getElementById("nextBtn")
 .addEventListener("click", () => {
 
-  alert("Next question feature can be extended.");
+  if (window.UIVERSE_DEBUG) alert("Next question feature can be extended.");
 
 });

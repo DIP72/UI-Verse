@@ -3,6 +3,9 @@
  * Core helpers used across multiple features
  */
 
+// Production builds keep debug output disabled unless explicitly enabled.
+window.UIVERSE_DEBUG = Boolean(window.UIVERSE_DEBUG);
+
 /**
  * Show a toast notification message
  * @param {string} message - The message to display

@@ -3,6 +3,6 @@ const runBtn =
 
 runBtn.addEventListener("click", () => {
 
-  alert("Code execution feature can be extended.");
+  if (window.UIVERSE_DEBUG) alert("Code execution feature can be extended.");
 
 });

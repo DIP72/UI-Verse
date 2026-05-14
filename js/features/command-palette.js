@@ -336,7 +336,7 @@ const CommandPalette = (function () {
       }
     });
 
-    console.log('[CommandPalette] Initialized with', _state.allItems.length, 'items');
+    if (window.UIVERSE_DEBUG) console.log('[CommandPalette] Initialized with', _state.allItems.length, 'items');
   }
 
   return {

@@ -138,7 +138,7 @@ const Bootstrap = {
    * Log initialization status (development only)
    */
   logStatus() {
-    if (typeof console !== 'undefined' && console.log) {
+    if (window.UIVERSE_DEBUG && typeof console !== 'undefined' && console.log) {
       console.log('[UIverse] Bootstrap complete. All features initialized.');
     }
   }

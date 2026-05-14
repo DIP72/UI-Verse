@@ -254,7 +254,7 @@ const URLStateManager = (function () {
     }, 100);
 
     _state.initialized = true;
-    console.log('[URLStateManager] Initialized with state:', _state);
+    if (window.UIVERSE_DEBUG) console.log('[URLStateManager] Initialized with state:', _state);
   }
 
   /**

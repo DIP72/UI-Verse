@@ -41,6 +41,6 @@ document
 
   e.preventDefault();
 
-  alert("Survey submitted successfully!");
+  if (window.UIVERSE_DEBUG) alert("Survey submitted successfully!");
 
 });
