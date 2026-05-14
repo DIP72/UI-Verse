@@ -162,9 +162,39 @@ window.handleSearch = window.handleSearch || function(event) {
   }
 };
 
-// =====================================================================
-// INITIALIZATION NOTE
-// =====================================================================
+  // Attach global search handler
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) searchEl.addEventListener('keydown', handleSearch);
+
+  // Attach optional form-card buttons toast safely
+  try { const btns = document.querySelectorAll('.form-card button'); if (btns[0]) btns[0].addEventListener('click', () => showToastSafe('Login button clicked')); if (btns[1]) btns[1].addEventListener('click', () => showToastSafe('Signup button clicked')); if (btns[2]) btns[2].addEventListener('click', () => showToastSafe('Message sent')); if (btns[3]) btns[3].addEventListener('click', () => showToastSafe('Form submitted')); } catch (e) {}
+
+  // Newsletter subscribe: delegate to centralized subscribe(e)
+  try {
+    const newsBtn = document.querySelector('.newsletter-form button');
+    if (newsBtn) newsBtn.addEventListener('click', (ev) => subscribe(ev));
+  } catch (e) {}
+
+  // Menu toggle (legacy id)
+  const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
+});
+
+// Register service worker for offline-first behavior
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(reg => {
+      console.log('ServiceWorker registered:', reg.scope);
+    }).catch(err => {
+      console.warn('ServiceWorker registration failed:', err);
+    });
+  });
+}
+
+
+// ================= SEARCH (ROUTING) =================
+function handleSearch(event) {
+  if (event.key === "Enter") {
+    const query = event.target.value.toLowerCase().trim();
 
 /**
  * If you see console warnings about missing modules:
