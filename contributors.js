@@ -130,13 +130,34 @@ function renderContributors(grid, contributors) {
   contributors.forEach((contributor, index) => {
     const card = document.createElement('div');
     card.className = 'contributor-card';
-    card.innerHTML = `
-      <img src="${contributor.avatar_url}" alt="${contributor.login}" class="contributor-avatar" />
-      <h3 class="contributor-name">${contributor.login}</h3>
-      <div class="contributor-role"><i class="fa-solid fa-code"></i> ${labels[index % labels.length]}</div>
-      <br>
-      <a href="${contributor.html_url}" target="_blank" class="github-link"><i class="fab fa-github"></i> View Profile</a>
-    `;
+
+    const img = document.createElement('img');
+    img.className = 'contributor-avatar';
+    img.src = contributor.avatar_url || '';
+    img.alt = contributor.login || '';
+
+    const name = document.createElement('h3');
+    name.className = 'contributor-name';
+    name.textContent = contributor.login || '';
+
+    const role = document.createElement('div');
+    role.className = 'contributor-role';
+    role.innerHTML = `<i class="fa-solid fa-code"></i> ${labels[index % labels.length]}`;
+
+    const br = document.createElement('br');
+
+    const link = document.createElement('a');
+    link.className = 'github-link';
+    link.href = contributor.html_url || '#';
+    link.target = '_blank';
+    link.innerHTML = '<i class="fab fa-github"></i> View Profile';
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(role);
+    card.appendChild(br);
+    card.appendChild(link);
+
     grid.appendChild(card);
   });
 }
