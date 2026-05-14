@@ -162,42 +162,39 @@ window.handleSearch = window.handleSearch || function(event) {
   }
 };
 
-/**
- * Accessibility mode compatibility shim.
- * Keeps legacy references working while the real implementation lives in js/features/accessibility.js.
- */
-window.initAccessibilityMode = window.initAccessibilityMode || function() {
-  if (typeof Accessibility !== 'undefined' && Accessibility.initAccessibilityMode) {
-    return Accessibility.initAccessibilityMode();
-  }
-  return false;
-};
+  // Attach global search handler
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) searchEl.addEventListener('keydown', handleSearch);
 
-/**
- * Accessibility scan compatibility shim.
- */
-window.scanA11yIssues = window.scanA11yIssues || function(root) {
-  if (typeof Accessibility !== 'undefined' && Accessibility.scanA11yIssues) {
-    return Accessibility.scanA11yIssues(root);
-  }
-  return {
-    passed: [],
-    warnings: [],
-    errors: [{ rule: 'accessibility-module-missing', message: 'Accessibility module is not loaded' }],
-    summary: { total: 1, passed: 0, warnings: 0, errors: 1 }
-  };
-};
+  // Attach optional form-card buttons toast safely
+  try { const btns = document.querySelectorAll('.form-card button'); if (btns[0]) btns[0].addEventListener('click', () => showToastSafe('Login button clicked')); if (btns[1]) btns[1].addEventListener('click', () => showToastSafe('Signup button clicked')); if (btns[2]) btns[2].addEventListener('click', () => showToastSafe('Message sent')); if (btns[3]) btns[3].addEventListener('click', () => showToastSafe('Form submitted')); } catch (e) {}
 
-window.toggleAccessibilityMode = window.toggleAccessibilityMode || function(forceValue) {
-  if (typeof Accessibility !== 'undefined' && Accessibility.toggleAccessibilityMode) {
-    return Accessibility.toggleAccessibilityMode(forceValue);
-  }
-  return false;
-};
+  // Newsletter subscribe: delegate to centralized subscribe(e)
+  try {
+    const newsBtn = document.querySelector('.newsletter-form button');
+    if (newsBtn) newsBtn.addEventListener('click', (ev) => subscribe(ev));
+  } catch (e) {}
 
-// =====================================================================
-// INITIALIZATION NOTE
-// =====================================================================
+  // Menu toggle (legacy id)
+  const menuToggle = document.getElementById('menuToggle'); const sidebarEl = document.querySelector('.sidebar'); if (menuToggle && sidebarEl) menuToggle.addEventListener('click', () => sidebarEl.classList.toggle('hide'));
+});
+
+// Register service worker for offline-first behavior
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(reg => {
+      console.log('ServiceWorker registered:', reg.scope);
+    }).catch(err => {
+      console.warn('ServiceWorker registration failed:', err);
+    });
+  });
+}
+
+
+// ================= SEARCH (ROUTING) =================
+function handleSearch(event) {
+  if (event.key === "Enter") {
+    const query = event.target.value.toLowerCase().trim();
 
 /**
  * If you see console warnings about missing modules:
