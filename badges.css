@@ -765,3 +765,421 @@ body{
   }
 
 }
+/* =========================================================
+   PROFILE + RARITY LAYOUT
+========================================================= */
+
+.profile-rarity-layout {
+
+  display: grid;
+
+  grid-template-columns:
+    360px 1fr;
+
+  gap: 30px;
+
+  margin-bottom: 60px;
+}
+
+/* =========================================================
+   PROFILE SIDEBAR
+========================================================= */
+
+.profile-sidebar {
+
+  position: sticky;
+
+  top: 120px;
+
+  padding: 32px;
+
+  border-radius: 32px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 16px 45px rgba(0,0,0,0.08);
+
+  text-align: center;
+}
+
+/* =========================================================
+   PROFILE TOP
+========================================================= */
+
+.profile-top {
+
+  position: relative;
+
+  width: fit-content;
+
+  margin: auto auto 24px;
+}
+
+.profile-top img {
+
+  width: 140px;
+
+  height: 140px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border:
+    5px solid rgba(255,255,255,0.14);
+}
+
+.online-badge {
+
+  position: absolute;
+
+  right: 0;
+
+  bottom: 8px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background:
+    #00b894;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 0 18px rgba(0,184,148,0.4);
+}
+
+/* =========================================================
+   PROFILE TEXT
+========================================================= */
+
+.profile-sidebar h2 {
+
+  margin-bottom: 10px;
+}
+
+.profile-rank {
+
+  color:
+    #6c5ce7;
+
+  font-weight: 700;
+
+  margin-bottom: 24px;
+}
+
+/* =========================================================
+   XP
+========================================================= */
+
+.profile-xp {
+
+  margin-bottom: 24px;
+}
+
+.profile-xp-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-weight: 700;
+}
+
+.profile-progress {
+
+  height: 14px;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,0.08);
+}
+
+.profile-progress-fill {
+
+  width: 84%;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6c5ce7,
+      #eb6835
+    );
+
+  border-radius: inherit;
+}
+
+.profile-bio {
+
+  line-height: 1.7;
+
+  margin-bottom: 28px;
+
+  color:
+    #666;
+}
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.profile-socials {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+.profile-socials a {
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:
+    #6c5ce7;
+
+  font-size: 20px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.profile-socials a:hover {
+
+  transform:
+    translateY(-6px);
+
+  background:
+    #6c5ce7;
+
+  color: white;
+}
+
+/* =========================================================
+   RARITY GRID
+========================================================= */
+
+.rarity-showcase {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+  gap: 24px;
+}
+
+/* =========================================================
+   RARITY CARD
+========================================================= */
+
+.rarity-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 34px;
+
+  border-radius: 30px;
+
+  color: white;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.rarity-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.18);
+}
+
+.rarity-label {
+
+  display: inline-block;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  margin-bottom: 20px;
+
+  background:
+    rgba(255,255,255,0.16);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.common {
+
+  background:
+    linear-gradient(
+      135deg,
+      #636e72,
+      #95a5a6
+    );
+}
+
+/* =========================================================
+   RARE
+========================================================= */
+
+.rare {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0984e3,
+      #74b9ff
+    );
+}
+
+/* =========================================================
+   EPIC
+========================================================= */
+
+.epic {
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #a29bfe
+    );
+}
+
+/* =========================================================
+   LEGENDARY
+========================================================= */
+
+.legendary {
+
+  background:
+    linear-gradient(
+      135deg,
+      #fdcb6e,
+      #e17055
+    );
+
+  box-shadow:
+    0 0 30px rgba(253,203,110,0.4);
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.rarity-card h3 {
+
+  font-size: 1.5rem;
+
+  margin-bottom: 14px;
+}
+
+.rarity-card p {
+
+  line-height: 1.7;
+
+  opacity: 0.92;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .profile-sidebar {
+
+  background:
+    rgba(31,31,31,0.72);
+
+  color: white;
+}
+
+body.dark-mode .profile-bio {
+
+  color:
+    rgba(255,255,255,0.72);
+}
+
+body.dark-mode .profile-socials a {
+
+  background:
+    rgba(255,255,255,0.06);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+  .profile-rarity-layout {
+
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+
+    position: relative;
+
+    top: 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .profile-sidebar {
+
+    padding: 26px;
+  }
+
+}
