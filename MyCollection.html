@@ -160,6 +160,7 @@
 
   <!-- UIverse Modular CSS Architecture -->
   <link rel="stylesheet" href="css/main.css">
+  <script src="js/core/sanitize.js"></script>
 </head>
 <body>
 
@@ -196,6 +197,16 @@ function showToast(message) {
   }, 2000);
 }
 
+function escapeHtml(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function removeFromCollection(id) {
   let items = JSON.parse(localStorage.getItem("collection")) || [];
   items = items.filter(item => item.id !== id);
@@ -219,14 +230,16 @@ function renderCollection() {
     return;
   }
 
+  // Build sanitized HTML for the collection grid. Use sanitizeHTML() to avoid XSS
   let html = '<div class="collection-grid">';
   
   items.forEach(item => {
+    const safeContent = (typeof sanitizeHTML === 'function') ? sanitizeHTML(item.content) : '';
     html += `
       <div class="collection-item">
-        <div class="item-title">${item.title}</div>
+        <div class="item-title">${escapeHtml(item.title)}</div>
         <div class="item-preview">
-          ${item.content}
+          ${safeContent}
         </div>
         <div class="item-actions">
           <button class="btn-copy" onclick="copyCode(${item.id})">Copy Code</button>
@@ -244,9 +257,7 @@ function copyCode(id) {
   let items = JSON.parse(localStorage.getItem("collection")) || [];
   let item = items.find(i => i.id === id);
   if (item) {
-    let tempDiv = document.createElement('div');
-    tempDiv.innerHTML = item.content;
-    let text = tempDiv.innerText;
+    // Copy raw component HTML to clipboard (avoid assigning user HTML into DOM)
     navigator.clipboard.writeText(item.content);
     
     // Find the button and update it
