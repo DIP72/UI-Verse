@@ -23,13 +23,15 @@ const Sidebar = {
    * Update active link in sidebar based on current page
    */
   updateActiveLink() {
-    const currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const currentPage = getCurrentPageName();
 
     document.querySelectorAll(".sidebar ul li").forEach((li) => {
       const anchor = li.querySelector("a");
       if (!anchor) return;
 
-      if (anchor.getAttribute("href").toLowerCase() === currentPage) {
+      const anchorPage = getCurrentPageName(anchor.getAttribute("href") || "index.html");
+
+      if (anchorPage === currentPage) {
         li.classList.add("active");
       } else {
         li.classList.remove("active");

@@ -7,6 +7,45 @@
 window.UIVERSE_DEBUG = Boolean(window.UIVERSE_DEBUG);
 
 /**
+ * Create a normalized URL object from any href/path.
+ * Always resolves against the current page so relative routes work
+ * from nested directories and when query/hash values are present.
+ * @param {string} href
+ * @returns {URL}
+ */
+function getNormalizedURL(href = window.location.href) {
+  return new URL(href, window.location.href);
+}
+
+/**
+ * Get the current page filename without query or hash.
+ * Examples: "index.html", "button.html".
+ * @param {string} href
+ * @returns {string}
+ */
+function getCurrentPageName(href = window.location.href) {
+  const normalizedURL = getNormalizedURL(href);
+  const segments = normalizedURL.pathname.split('/').filter(Boolean);
+  return (segments.pop() || 'index.html').toLowerCase();
+}
+
+/**
+ * Resolve a route against the current page and optionally attach search params.
+ * @param {string} path
+ * @param {Record<string, string|number|boolean|undefined|null>} params
+ * @returns {string}
+ */
+function resolveRouteURL(path, params = {}) {
+  const url = getNormalizedURL(path);
+  Object.entries(params || {}).forEach(([key, value]) => {
+    if (value === undefined || value === null || String(value).trim() === '') return;
+    url.searchParams.set(key, String(value));
+  });
+  url.hash = '';
+  return url.href;
+}
+
+/**
  * Show a toast notification message
  * @param {string} message - The message to display
  */
