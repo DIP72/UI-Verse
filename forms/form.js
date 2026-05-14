@@ -1,51 +1,81 @@
-const steps = document.querySelectorAll(".form-step");
-const indicators = document.querySelectorAll(".step");
+const FormWizard = {
+  _state: {
+    initialized: false,
+    currentStep: 0,
+    steps: [],
+    indicators: [],
+    prevBtn: null,
+    nextBtn: null,
+    listeners: []
+  },
 
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+  init() {
+    if (this._state.initialized) return;
 
-let currentStep = 0;
+    this._state.steps = Array.from(document.querySelectorAll(".form-step"));
+    this._state.indicators = Array.from(document.querySelectorAll(".step"));
+    this._state.prevBtn = document.getElementById("prevBtn");
+    this._state.nextBtn = document.getElementById("nextBtn");
 
-function updateForm(){
+    if (!this._state.steps.length || !this._state.prevBtn || !this._state.nextBtn) {
+      this._state.initialized = true;
+      return;
+    }
 
-  steps.forEach(step => {
-    step.classList.remove("active");
-  });
+    const onNext = () => {
+      if (this._state.currentStep < this._state.steps.length - 1) {
+        this._state.currentStep++;
+        this.updateForm();
+      }
+    };
 
-  indicators.forEach(indicator => {
-    indicator.classList.remove("active");
-  });
+    const onPrev = () => {
+      if (this._state.currentStep > 0) {
+        this._state.currentStep--;
+        this.updateForm();
+      }
+    };
 
-  steps[currentStep].classList.add("active");
+    this._bind(this._state.nextBtn, "click", onNext);
+    this._bind(this._state.prevBtn, "click", onPrev);
+    this.updateForm();
+    this._state.initialized = true;
+  },
 
-  for(let i = 0; i <= currentStep; i++){
-    indicators[i].classList.add("active");
+  updateForm() {
+    const { steps, indicators, currentStep, prevBtn, nextBtn } = this._state;
+    if (!steps.length || !prevBtn || !nextBtn) return;
+
+    steps.forEach((step) => step.classList.remove("active"));
+    indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+    steps[currentStep]?.classList.add("active");
+    for (let i = 0; i <= currentStep && i < indicators.length; i++) {
+      indicators[i].classList.add("active");
+    }
+
+    prevBtn.style.display = currentStep === 0 ? "none" : "inline-block";
+    nextBtn.textContent = currentStep === steps.length - 1 ? "Submit" : "Next";
+  },
+
+  _bind(el, event, handler) {
+    if (!el) return;
+    el.addEventListener(event, handler);
+    this._state.listeners.push({ el, event, handler });
+  },
+
+  destroy() {
+    this._state.listeners.forEach(({ el, event, handler }) => {
+      el.removeEventListener(event, handler);
+    });
+    this._state.listeners = [];
+    this._state.currentStep = 0;
+    this._state.initialized = false;
   }
+};
 
-  prevBtn.style.display = currentStep === 0 ? "none" : "inline-block";
-
-  if(currentStep === steps.length - 1){
-    nextBtn.textContent = "Submit";
-  }
-  else{
-    nextBtn.textContent = "Next";
-  }
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => FormWizard.init());
+} else {
+  FormWizard.init();
 }
-
-nextBtn.addEventListener("click", () => {
-
-  if(currentStep < steps.length - 1){
-    currentStep++;
-    updateForm();
-  }
-});
-
-prevBtn.addEventListener("click", () => {
-
-  if(currentStep > 0){
-    currentStep--;
-    updateForm();
-  }
-});
-
-updateForm();

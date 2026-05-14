@@ -4,6 +4,11 @@
  */
 
 const Sidebar = {
+  _state: {
+    initialized: false,
+    listeners: []
+  },
+
   /**
    * Toggle sidebar visibility
    */
@@ -52,14 +57,20 @@ const Sidebar = {
    * Close sidebar when link is clicked on mobile
    */
   initLinkClose() {
-    document.querySelectorAll(".sidebar ul li a").forEach((anchor) => {
-      anchor.addEventListener("click", () => {
-        if (window.innerWidth <= 900) {
-          document.body.classList.remove("sidebar-open");
-          document.querySelector(".sidebar-backdrop")?.classList.remove("active");
-        }
-      });
-    });
+    if (this._state.listeners.some((entry) => entry.key === 'link-close')) return;
+
+    const onClick = (event) => {
+      const anchor = event.target.closest(".sidebar ul li a");
+      if (!anchor) return;
+
+      if (window.innerWidth <= 900) {
+        document.body.classList.remove("sidebar-open");
+        document.querySelector(".sidebar-backdrop")?.classList.remove("active");
+      }
+    };
+
+    document.addEventListener("click", onClick);
+    this._state.listeners.push({ key: 'link-close', el: document, event: "click", handler: onClick });
   },
 
   /**
@@ -76,6 +87,8 @@ const Sidebar = {
    * Initialize sidebar feature
    */
   init() {
+    if (this._state.initialized) return;
+
     this.restoreState();
     this.updateActiveLink();
     this.initLinkClose();
@@ -83,6 +96,16 @@ const Sidebar = {
     // Expose to global for backward compatibility
     window.toggleSidebar = () => this.toggle();
     window.toggleMenu = () => this.toggleMenu();
+
+    this._state.initialized = true;
+  },
+
+  destroy() {
+    this._state.listeners.forEach(({ el, event, handler }) => {
+      el.removeEventListener(event, handler);
+    });
+    this._state.listeners = [];
+    this._state.initialized = false;
   }
 };
 

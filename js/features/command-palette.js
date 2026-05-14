@@ -10,11 +10,13 @@
 
 const CommandPalette = (function () {
   const _state = {
+    initialized: false,
     isOpen: false,
     selectedIndex: 0,
     results: [],
     recentItems: [],
-    allItems: []
+    allItems: [],
+    listeners: []
   };
 
   const STORAGE_KEY = 'uiverse_command_palette_recent';
@@ -280,9 +282,12 @@ const CommandPalette = (function () {
 
   // Initialize feature
   function init() {
+    if (_state.initialized) return;
+
     // Check for palette elements
     if (!document.getElementById('commandPaletteOverlay')) {
       console.warn('[CommandPalette] Palette DOM not found. Skipping initialization.');
+      _state.initialized = true;
       return;
     }
 
@@ -291,22 +296,12 @@ const CommandPalette = (function () {
 
     const input = document.getElementById('commandPaletteInput');
     const overlay = document.getElementById('commandPaletteOverlay');
-
-    if (input) {
-      input.addEventListener('input', handleInput);
-      input.addEventListener('keydown', handleKeydown);
-    }
-
-    if (overlay) {
-      overlay.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-          close();
-        }
-      });
-    }
-
-    // Add click handlers to result items
-    document.addEventListener('click', (event) => {
+    const onOverlayClick = (event) => {
+      if (event.target === overlay) {
+        close();
+      }
+    };
+    const onDocumentClick = (event) => {
       const item = event.target.closest('.command-palette-item');
       if (item) {
         const idx = parseInt(item.getAttribute('data-index'), 10);
@@ -314,10 +309,7 @@ const CommandPalette = (function () {
           navigateToItem(_state.results[idx]);
         }
       }
-    });
 
-    // Handle recent item clicks
-    document.addEventListener('click', (event) => {
       const recentItem = event.target.closest('.command-palette-recent-item');
       if (recentItem) {
         const id = recentItem.getAttribute('data-id');
@@ -326,24 +318,52 @@ const CommandPalette = (function () {
           navigateToItem(item);
         }
       }
-    });
-
-    // Keyboard shortcut: Cmd+K or Ctrl+K
-    document.addEventListener('keydown', (event) => {
+    };
+    const onDocumentKeydown = (event) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
         event.preventDefault();
         toggle();
       }
-    });
+    };
+
+    if (input) {
+      input.addEventListener('input', handleInput);
+      input.addEventListener('keydown', handleKeydown);
+      _state.listeners.push({ el: input, event: 'input', handler: handleInput });
+      _state.listeners.push({ el: input, event: 'keydown', handler: handleKeydown });
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', onOverlayClick);
+      _state.listeners.push({ el: overlay, event: 'click', handler: onOverlayClick });
+    }
+
+    // Add click handlers to result items
+    document.addEventListener('click', onDocumentClick);
+    _state.listeners.push({ el: document, event: 'click', handler: onDocumentClick });
+
+    // Keyboard shortcut: Cmd+K or Ctrl+K
+    document.addEventListener('keydown', onDocumentKeydown);
+    _state.listeners.push({ el: document, event: 'keydown', handler: onDocumentKeydown });
 
     if (window.UIVERSE_DEBUG) console.log('[CommandPalette] Initialized with', _state.allItems.length, 'items');
+    _state.initialized = true;
+  }
+
+  function destroy() {
+    _state.listeners.forEach(({ el, event, handler }) => {
+      el.removeEventListener(event, handler);
+    });
+    _state.listeners = [];
+    _state.initialized = false;
   }
 
   return {
     init,
     open,
     close,
-    toggle
+    toggle,
+    destroy
   };
 })();
 
