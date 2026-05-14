@@ -784,3 +784,299 @@ body.dark-mode .sticky-brand {
   }
 
 }
+/* =========================================================
+   COMMAND PALETTE NAVBAR
+========================================================= */
+
+.command-preview {
+
+  padding: 40px 20px;
+}
+
+.demo-command-nav {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px 24px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255,255,255,0.9);
+
+  border:
+    1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.08);
+}
+
+.command-brand {
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  color:
+    #111;
+}
+
+/* =========================================================
+   COMMAND BUTTON
+========================================================= */
+
+.command-palette-btn {
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 14px 18px;
+
+  border-radius: 16px;
+
+  border:
+    1px solid rgba(0,0,0,0.08);
+
+  background:
+    #f8f8f8;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border 0.3s ease;
+}
+
+.command-palette-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #6c5ce7;
+}
+
+.command-palette-btn span {
+
+  flex: 1;
+
+  text-align: left;
+
+  color:
+    #666;
+}
+
+.command-palette-btn kbd {
+
+  padding: 6px 10px;
+
+  border-radius: 10px;
+
+  background:
+    white;
+
+  border:
+    1px solid #ddd;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.command-actions {
+
+  display: flex;
+
+  gap: 16px;
+
+  font-size: 20px;
+
+  color:
+    #666;
+}
+
+.command-actions i {
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.command-actions i:hover {
+
+  color:
+    #6c5ce7;
+
+  transform:
+    translateY(-2px);
+}
+
+/* =========================================================
+   CATEGORY TABS
+========================================================= */
+
+.tabs-preview {
+
+  padding: 40px 20px;
+}
+
+.demo-tabs-nav {
+
+  display: flex;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+
+  padding: 18px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(255,255,255,0.9);
+
+  border:
+    1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.08);
+}
+
+.tab-link {
+
+  padding: 14px 22px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    transparent;
+
+  color:
+    #555;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    all 0.3s ease;
+}
+
+.tab-link:hover {
+
+  background:
+    rgba(108,92,231,0.08);
+
+  color:
+    #6c5ce7;
+}
+
+.active-tab {
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c5ce7,
+      #8e7dff
+    );
+
+  color: white;
+
+  box-shadow:
+    0 10px 24px rgba(108,92,231,0.3);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .demo-command-nav,
+body.dark-mode .demo-tabs-nav {
+
+  background:
+    rgba(31,31,31,0.82);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+}
+
+body.dark-mode .command-brand {
+
+  color: white;
+}
+
+body.dark-mode .command-palette-btn {
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color: white;
+}
+
+body.dark-mode .command-palette-btn span,
+body.dark-mode .command-actions {
+
+  color:
+    rgba(255,255,255,0.72);
+}
+
+body.dark-mode .command-palette-btn kbd {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color: white;
+}
+
+body.dark-mode .tab-link {
+
+  color:
+    rgba(255,255,255,0.72);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .demo-command-nav {
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .command-actions {
+
+    justify-content: center;
+  }
+
+}
