@@ -5,12 +5,192 @@
 }
 
 body {
-  background: #0f172a;
-  color: #fff;
+  background: white;
+  color:black;
   font-family: "DM Sans", sans-serif;
   min-height: 100vh;
   padding: 60px 20px;
 }
+
+  
+.timeline-career {
+  border-left: 3px solid #3b82f6;
+}
+
+.timeline-entry {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 30px 110px;
+  margin: 30px 0;
+  transition: 0.3s;
+}
+
+.timeline-entry:hover {
+  transform: translateY(-4px);
+  border: 1px solid rgba(96,165,250,0.4);
+}
+
+.timeline-category {
+  background: #1e293b;
+  color: #3b82f6;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.timeline-date {
+  color: black;
+}
+.timeline-yearly {
+  position: relative;
+  margin: 60px auto;
+  width: 90%;
+}
+
+.timeline-yearly::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(#3b82f6, #8b5cf6);
+  border-radius: 4px;
+  transform: translateX(-50%);
+}
+
+.timeline-block {
+  width: 45%;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+  margin: 40px 0;
+}
+
+.timeline-block.left {
+  float: left;
+  clear: both;
+  text-align: right;
+}
+
+.timeline-block.right {
+  float: right;
+  clear: both;
+  text-align: left;
+}
+
+.timeline-year {
+  font-size: 20px;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 10px;
+}
+.timeline-entry,
+.timeline-block {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(96,165,250,0.4);
+}
+
+.timeline-entry::before,
+.timeline-yearly::before {
+  box-shadow: 0 0 15px rgba(59,130,246,0.8);
+}
+.timeline-entry:hover,
+.timeline-block:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(59,130,246,0.35);
+}
+.timeline-entry h3,
+.timeline-block h3 {
+  color: black; 
+}
+
+.timeline-date,
+.timeline-year {
+  color: #38bdf8; 
+}
+.timeline-block::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 12px rgba(59,130,246,0.7);
+}
+
+.timeline-block.left::before {
+  right: -9px; 
+}
+
+.timeline-block.right::before {
+  left: -9px;
+}
+
+.timeline-category {
+  background: linear-gradient(135deg,#3b82f6,#8b5cf6);
+  color:black;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.timeline-entry h3,
+.timeline-block h3 {
+  color: blueviolet; 
+}
+
+.timeline-date,
+.timeline-year {
+  color: #38bdf8; 
+}
+.timeline-entry::before,
+.timeline-block::before {
+  box-shadow: 0 0 15px rgba(59,130,246,0.8);
+}
+
+.timeline-yearly::before {
+  box-shadow: 0 0 20px rgba(59,130,246,0.6);
+}
+.timeline-entry p,
+.timeline-block p,
+.timeline-content p {
+  line-height: 1.8;
+}
+.timeline-header h1 {
+  color: black;
+  letter-spacing: 1px;
+}
+.timeline-entry h3,
+.timeline-block h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.timeline-entry,
+.timeline-block,
+.timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.timeline-entry,
+.timeline-block,
+.timeline-content {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6),
+              0 0 12px rgba(59,130,246,0.4);
+}
+
+
+
 
 .timeline-page {
   max-width: 1000px;
@@ -27,7 +207,7 @@ body {
   padding: 8px 18px;
   border-radius: 999px;
   background: rgba(255,255,255,0.08);
-  color: #60a5fa;
+  color: navy;
   font-size: 14px;
   margin-bottom: 18px;
 }
@@ -35,11 +215,12 @@ body {
 .timeline-header h1 {
   font-size: 56px;
   font-family: "Syne", sans-serif;
+  color:#8b5cf6;
   margin-bottom: 18px;
 }
 
 .timeline-header p {
-  color: #94a3b8;
+  color: black;
   font-size: 18px;
   max-width: 650px;
   margin: auto;
@@ -115,10 +296,11 @@ body {
   font-size: 24px;
   margin-bottom: 14px;
   font-family: "Syne", sans-serif;
+  color: #60a5fa;
 }
 
 .timeline-content p {
-  color: #cbd5e1;
+  color:black;
   line-height: 1.7;
   font-size: 16px;
 }
