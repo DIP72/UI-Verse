@@ -559,7 +559,7 @@
 
       // Match keyword
       if (pages[query]) {
-        window.location.href = pages[query];
+        window.location.href = resolveRouteURL(pages[query]);
       } else {
         if (window.UIVERSE_DEBUG) alert("No matching component found!");
       }

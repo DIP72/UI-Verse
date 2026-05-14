@@ -49,12 +49,13 @@ const URLStateManager = (function () {
    * Update browser URL without page reload
    */
   function updateURL(query = '', category = 'all', sort = 'default') {
-    const currentPath = window.location.pathname;
     const queryString = buildQueryString(query, category, sort);
-    const newURL = currentPath + queryString;
+    const currentURL = getNormalizedURL();
+    currentURL.search = queryString;
+    currentURL.hash = '';
 
     if (window.history && window.history.replaceState) {
-      window.history.replaceState({ search: query, category, sort }, '', newURL);
+      window.history.replaceState({ search: query, category, sort }, '', currentURL.pathname + currentURL.search);
     }
   }
 
@@ -62,7 +63,7 @@ const URLStateManager = (function () {
    * Parse URL parameters into state object
    */
   function parseURLParams() {
-    const params = new URLSearchParams(window.location.search);
+    const params = getNormalizedURL().searchParams;
     return {
       search: params.get(PARAMS.SEARCH) || '',
       category: params.get(PARAMS.CATEGORY) || 'all',

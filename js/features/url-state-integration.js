@@ -80,7 +80,7 @@ const URLStateIntegration = {
    * Create shareable URL with current filter state
    */
   getShareableURL() {
-    const baseURL = window.location.origin + window.location.pathname;
+    const baseURL = getNormalizedURL();
     const state = this.getCurrentState();
     const params = new URLSearchParams();
 
@@ -95,7 +95,9 @@ const URLStateIntegration = {
     }
 
     const queryString = params.toString();
-    return queryString ? baseURL + '?' + queryString : baseURL;
+    baseURL.search = queryString;
+    baseURL.hash = '';
+    return baseURL.href;
   },
 
   /**

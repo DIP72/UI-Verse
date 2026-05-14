@@ -35,7 +35,7 @@ const Search = {
         await window.ComponentsRegistry.load();
         const path = window.ComponentsRegistry.findRoute(query);
         if (path) {
-          window.location.href = path;
+          window.location.href = resolveRouteURL(path);
           return;
         }
       }

@@ -66,7 +66,7 @@ const ComponentGallery = {
    * @private
    */
   _inferCategoryFromPage() {
-    const page = (window.location.pathname.split('/').pop() || '').toLowerCase();
+    const page = getCurrentPageName();
     const categories = {
       button: 'button',
       card: 'card',
@@ -557,11 +557,11 @@ const ComponentGallery = {
     for (const k in routes) {
       if (query.includes(k)) {
         const target = routes[k];
-        const current = (window.location.pathname.split('/').pop() || '').toLowerCase();
+        const current = getCurrentPageName();
         if (current === target.toLowerCase()) {
           if (this._focusMatchingCard(query)) return;
         } else {
-          window.location.href = `${target}?q=${encodeURIComponent(query)}`;
+          window.location.href = resolveRouteURL(target, { q: query });
         }
         return;
       }
