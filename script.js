@@ -207,3 +207,15 @@ function handleSearch(event) {
 if (window.UIVERSE_DEBUG) {
   console.info('[script.js] Backward compatibility layer loaded. All functionality is modularized via UIverse.modules');
 }
+const menuBtn = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuBtn.addEventListener("click", () => {
+
+  if (window.innerWidth > 900) {
+    sidebar.classList.toggle("collapsed");
+  } else {
+    document.body.classList.toggle("sidebar-open");
+  }
+
+});
