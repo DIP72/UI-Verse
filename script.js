@@ -162,6 +162,39 @@ window.handleSearch = window.handleSearch || function(event) {
   }
 };
 
+/**
+ * Accessibility mode compatibility shim.
+ * Keeps legacy references working while the real implementation lives in js/features/accessibility.js.
+ */
+window.initAccessibilityMode = window.initAccessibilityMode || function() {
+  if (typeof Accessibility !== 'undefined' && Accessibility.initAccessibilityMode) {
+    return Accessibility.initAccessibilityMode();
+  }
+  return false;
+};
+
+/**
+ * Accessibility scan compatibility shim.
+ */
+window.scanA11yIssues = window.scanA11yIssues || function(root) {
+  if (typeof Accessibility !== 'undefined' && Accessibility.scanA11yIssues) {
+    return Accessibility.scanA11yIssues(root);
+  }
+  return {
+    passed: [],
+    warnings: [],
+    errors: [{ rule: 'accessibility-module-missing', message: 'Accessibility module is not loaded' }],
+    summary: { total: 1, passed: 0, warnings: 0, errors: 1 }
+  };
+};
+
+window.toggleAccessibilityMode = window.toggleAccessibilityMode || function(forceValue) {
+  if (typeof Accessibility !== 'undefined' && Accessibility.toggleAccessibilityMode) {
+    return Accessibility.toggleAccessibilityMode(forceValue);
+  }
+  return false;
+};
+
 // =====================================================================
 // INITIALIZATION NOTE
 // =====================================================================
