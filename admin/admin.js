@@ -42,6 +42,6 @@ const bellBtn = document.querySelector(".top-btn");
 
 bellBtn.addEventListener("click", () => {
 
-  alert("You have 3 new notifications!");
+  if (window.UIVERSE_DEBUG) alert("You have 3 new notifications!");
 
 });

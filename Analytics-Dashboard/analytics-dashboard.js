@@ -62,9 +62,11 @@ menuButtons.forEach(btn => {
   "click",
   () => {
 
-    alert(
-      "Analytics menu opened"
-    );
+    if (window.UIVERSE_DEBUG) {
+      alert(
+        "Analytics menu opened"
+      );
+    }
 
   });
 

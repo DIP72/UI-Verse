@@ -6,7 +6,7 @@ function postComment(){
   const text = input.value.trim();
 
   if(text === ""){
-    alert("Please write a comment first.");
+    if (window.UIVERSE_DEBUG) alert("Please write a comment first.");
     return;
   }
 

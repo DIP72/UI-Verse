@@ -144,10 +144,10 @@ const URLStateIntegration = {
   init() {
     // Listen for URL state changes
     this.observeStateChanges((state) => {
-      console.log('[URLStateIntegration] State changed:', state);
+      if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] State changed:', state);
     });
 
-    console.log('[URLStateIntegration] Initialized');
+    if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] Initialized');
   }
 };
 
