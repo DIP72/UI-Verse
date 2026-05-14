@@ -93,7 +93,8 @@ const ToastWidget = {
 
     const toast = document.createElement("div");
     toast.className = `toast ${type}-toast`;
-    toast.innerHTML = message;
+    // Use textContent to avoid injecting untrusted HTML into toasts
+    toast.textContent = message;
     this._state.toastContainer.appendChild(toast);
 
     setTimeout(() => {
