@@ -462,50 +462,71 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="footer" style="background-color: rgb(2, 19, 37);">
-  <div class="footer-card">
-    <div class="footer-brand">
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="footer-socials">
-        <span>🌐</span>
-        <span>💼</span>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
       </div>
-
     </div>
-
     <div class="footer-col">
-
-      <h3 style="color: aliceblue;">Explore</h3>
-
+      <h3>Explore</h3>
       <ul>
-        <li><a href="#">Buttons</a></li>
-        <li><a href="#">Cards</a></li>
-        <li><a href="#">Forms</a></li>
-        <li><a href="#">Inputs</a></li>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="toggles.html">Toggles</a></li>
+        <li><a href="tabs.html">Tabs</a></li>
+        <li><a href="span.html">Span</a></li>
       </ul>
-
     </div>
-
     <div class="footer-col">
-
-      <h3 style="color: aliceblue;">Legal</h3>
-
+      <h3>Resources</h3>
       <ul>
-        <li><a href="license.html">License</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
-
     </div>
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+       <input 
+  type="email"
+  placeholder="your@email.com"
 
+  style="
+    transition:0.3s ease;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    background:#1a1a1a;
+    color:white;
+  "
+
+  onmouseover="this.style.boxShadow='0 0 15px rgba(255,102,0,0.8)'"
+  onmouseout="this.style.boxShadow='none'"
+/>
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
   </div>
-
   <div class="footer-bottom">
-    © 2026 UIverse. All rights reserved.
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
-
 </footer>
+
 
 <script>
 
@@ -528,7 +549,7 @@ toggle.addEventListener('click', () => {
     : 'fa-solid fa-moon';
 
   localStorage.setItem('theme', dark ? 'dark' : 'light');
-
+x
 });
 
 window.addEventListener('scroll', () => {
