@@ -46,59 +46,6 @@ const Sandbox = {
       iframe.setAttribute("title", "Live component preview");
       iframe.loading = "lazy";
 
-      const shell = document.createElement("div");
-      shell.style.marginTop = "12px";
-      shell.style.border = "1px solid #dbe3ef";
-      shell.style.borderRadius = "14px";
-      shell.style.overflow = "hidden";
-      shell.style.background = "#fff";
-      shell.style.boxShadow = "0 14px 30px rgba(15, 23, 42, 0.08)";
-
-      const shellHeader = document.createElement("div");
-      shellHeader.style.display = "flex";
-      shellHeader.style.alignItems = "center";
-      shellHeader.style.justifyContent = "space-between";
-      shellHeader.style.gap = "12px";
-      shellHeader.style.padding = "10px 14px";
-      shellHeader.style.background = "linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%)";
-      shellHeader.style.borderBottom = "1px solid #dbe3ef";
-
-      const shellTitle = document.createElement("div");
-      shellTitle.innerHTML = '<div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#274060;">Live Preview</div><div style="font-size:12px;color:#62748b;margin-top:2px;">Sandboxed and isolated from the page</div>';
-
-      const shellBadge = document.createElement("span");
-      shellBadge.textContent = "Overlay";
-      shellBadge.style.display = "inline-flex";
-      shellBadge.style.alignItems = "center";
-      shellBadge.style.padding = "4px 10px";
-      shellBadge.style.borderRadius = "999px";
-      shellBadge.style.fontSize = "11px";
-      shellBadge.style.fontWeight = "700";
-      shellBadge.style.letterSpacing = "0.04em";
-      shellBadge.style.textTransform = "uppercase";
-      shellBadge.style.color = "#0f5bd8";
-      shellBadge.style.background = "rgba(37, 99, 235, 0.12)";
-
-      const previewStage = document.createElement("div");
-      previewStage.style.position = "relative";
-      previewStage.style.background = "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)";
-
-      const previewBadge = document.createElement("div");
-      previewBadge.textContent = "Preview";
-      previewBadge.style.position = "absolute";
-      previewBadge.style.top = "12px";
-      previewBadge.style.right = "12px";
-      previewBadge.style.zIndex = "2";
-      previewBadge.style.pointerEvents = "none";
-      previewBadge.style.padding = "5px 10px";
-      previewBadge.style.borderRadius = "999px";
-      previewBadge.style.background = "rgba(15, 23, 42, 0.72)";
-      previewBadge.style.color = "#fff";
-      previewBadge.style.fontSize = "11px";
-      previewBadge.style.fontWeight = "700";
-      previewBadge.style.letterSpacing = "0.04em";
-      previewBadge.style.textTransform = "uppercase";
-
       // Create editable textarea
       const textarea = document.createElement("textarea");
       if (existingCodeBlock) {
@@ -284,17 +231,10 @@ const Sandbox = {
         timeout = setTimeout(() => renderIframe(e.target.value), 300);
       });
 
-      previewStage.appendChild(previewBadge);
-      previewStage.appendChild(iframe);
-      shellHeader.appendChild(shellTitle);
-      shellHeader.appendChild(shellBadge);
-      shell.appendChild(shellHeader);
-      shell.appendChild(previewStage);
-
       if (h3) {
-        h3.after(shell);
+        h3.after(iframe);
       } else {
-        card.insertBefore(shell, card.firstChild);
+        card.insertBefore(iframe, card.firstChild);
       }
 
       if (existingCodeBlock) {
