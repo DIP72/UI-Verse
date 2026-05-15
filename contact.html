@@ -305,162 +305,94 @@
 </button>
 
 <!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-card">
+
+    <!-- Brand -->
     <div class="footer-brand">
-      <h2> <style>h2 { color: black; }</style>UIverse</h2>
-      <p style="color: black;">© 2026 UIverse. All rights reserved.</p>
+      <h2>UIverse</h2>
+
+      <p>
+        Build modern, reusable UI components with clean HTML, CSS, and JavaScript.
+      </p>
+
       <div class="footer-socials">
-        <a href="#" title="Website" style="color: black;"><i class="fa-solid fa-globe"></i></a>
-        <a href="#" title="LinkedIn" style="color: black;"><i class="fa-solid fa-briefcase"></i></a>
+        <a href="#" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="#" title="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="#" title="Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
       </div>
     </div>
 
+    <!-- Explore -->
     <div class="footer-col">
-      <h3>Explore</h3>
+      <h3>EXPLORE</h3>
+
       <ul>
-        <li><a href="button.html" style="color: black;">Buttons</a></li>
-        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
-        <li><a href="cards.html" style="color: black;">Cards</a></li>
-        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
-        <li><a href="forms.html" style="color: black;">Forms</a></li>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
       </ul>
     </div>
 
+    <!-- Resources -->
     <div class="footer-col">
-      <h3>Resources</h3>
+      <h3>RESOURCES</h3>
+
       <ul>
-        <li><a href="#" style="color: black;">Documentation</a></li>
-        <li><a href="#" style="color: black;">Contribute</a></li>
-        <li><a href="#" style="color: black;">GitHub Repo</a></li>
-        <li><a href="#" style="color: black;">Community</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
       </ul>
     </div>
 
+    <!-- Legal -->
     <div class="footer-col">
-      <h3>Legal</h3>
+      <h3>LEGAL</h3>
+
       <ul>
-        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
-        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
-        <li><a href="license.html" style="color: black;">License</a></li>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="license.html">License</a></li>
       </ul>
     </div>
 
+    <!-- Newsletter -->
     <div class="footer-col newsletter">
-      <h3 style="color: black;">Stay Updated</h3>
-      <p style="color: black;">Get notified when new components drop.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="your@email.com" />
-        <button type="button">Subscribe</button>
-      </div>
+      <h3>STAY UPDATED</h3>
+
+      <p>Get notified when new components drop.</p>
+
+      <form class="newsletter-form">
+
+        <input
+          type="email"
+          placeholder="your@email.com"
+        >
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
     </div>
 
   </div>
+
   <div class="footer-bottom">
-    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+    <p>
+      © 2026 UIverse. Made with ❤️ for developers worldwide.
+    </p>
   </div>
 </footer>
-
-<script>
-  /* ---------- Dark Mode ---------- */
-  const toggle = document.getElementById('darkModeToggle');
-  const icon   = toggle.querySelector('i');
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    icon.className = 'fa-solid fa-sun';
-  }
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-
-  /* ---------- Sidebar ---------- */
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
-  }
-
-  /* ---------- Scroll Top ---------- */
-  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  window.addEventListener('scroll', () => {
-    document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 400);
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  /* ---------- Char counter ---------- */
-  const msgArea  = document.getElementById('message');
-  const charCount = document.getElementById('charCount');
-  msgArea.addEventListener('input', () => {
-    const len = msgArea.value.length;
-    charCount.textContent = len;
-    charCount.style.color = len > 480 ? '#d63031' : '';
-    if (len > 500) msgArea.value = msgArea.value.slice(0, 500);
-  });
-
-  /* ---------- Form submit ---------- */
-  const form      = document.getElementById('contactForm');
-  const btnText   = document.getElementById('btnText');
-  const btnLoader = document.getElementById('btnLoader');
-  const submitBtn = document.getElementById('submitBtn');
-  const formStatus = document.getElementById('formStatus');
-
-  function showError(fgId, errId, show) {
-    document.getElementById(fgId).classList.toggle('has-error', show);
-    document.getElementById(errId).style.display = show ? 'block' : 'none';
-  }
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const consent = document.getElementById('consent').checked;
-
-    let valid = true;
-
-    showError('fg-name',    'err-name',    !name);
-    showError('fg-email',   'err-email',   !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-    showError('fg-message', 'err-message', !message);
-    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message || !consent) {
-      valid = false;
-    }
-
-    if (!valid) return;
-
-    /* Loading state */
-    btnText.style.display   = 'none';
-    btnLoader.style.display = 'flex';
-    submitBtn.disabled      = true;
-    formStatus.style.display = 'none';
-
-    setTimeout(() => {
-      btnText.style.display   = 'inline-flex';
-      btnLoader.style.display = 'none';
-      submitBtn.disabled      = false;
-
-      formStatus.style.display = 'flex';
-      formStatus.className     = 'form-status success';
-      formStatus.innerHTML     = '<i class="fa-solid fa-circle-check"></i> Message sent! We\'ll get back to you within 24 hours.';
-
-      form.reset();
-      charCount.textContent = '0';
-    }, 1800);
-  });
-
-  /* Live validation on blur */
-  document.getElementById('name').addEventListener('blur', function() {
-    showError('fg-name', 'err-name', !this.value.trim());
-  });
-  document.getElementById('email').addEventListener('blur', function() {
-    const v = this.value.trim();
-    showError('fg-email', 'err-email', !v || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
-  });
-  document.getElementById('message').addEventListener('blur', function() {
-    showError('fg-message', 'err-message', !this.value.trim());
-  });
-</script>
-</body>
-</html>
