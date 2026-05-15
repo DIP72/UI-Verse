@@ -6,6 +6,11 @@
  */
 
 const URLStateIntegration = {
+  _state: {
+    initialized: false,
+    stateChangeListener: null
+  },
+
   /**
    * Wrap an existing filter function to make it URL-aware
    */
@@ -59,11 +64,15 @@ const URLStateIntegration = {
    * Listen to URL state changes and update UI
    */
   observeStateChanges(callback) {
-    document.addEventListener('urlistatechange', (event) => {
+    if (this._state.stateChangeListener) return;
+
+    this._state.stateChangeListener = (event) => {
       if (callback && typeof callback === 'function') {
         callback(event.detail);
       }
-    });
+    };
+
+    document.addEventListener('urlistatechange', this._state.stateChangeListener);
   },
 
   /**
@@ -144,12 +153,15 @@ const URLStateIntegration = {
    * Initialize URL state integration
    */
   init() {
+    if (this._state.initialized) return;
+
     // Listen for URL state changes
     this.observeStateChanges((state) => {
       if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] State changed:', state);
     });
 
     if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] Initialized');
+    this._state.initialized = true;
   }
 };
 
