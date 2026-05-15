@@ -14,7 +14,15 @@
   <link rel="stylesheet" href="forms.css">
   <link rel="stylesheet" href="command-palette.css">
   <link rel="stylesheet" href="css/url-state.css">
+  <!-- UIverse Modular Scripts - Load in dependency order -->
+  <!-- UIverse Registry (must load first) -->
+  <script src="js/registry.js"></script>
+  <!-- Core Modules -->
   <script src="js/core/utils.js"></script>
+  <script src="js/core/security.js"></script>
+  <script src="js/core/components-registry.js"></script>
+  <script src="js/core/sanitize.js"></script>
+  <!-- Feature Modules -->
   <script src="js/features/toast.js"></script>
   <script src="js/features/popup.js"></script>
   <script src="js/features/code-tools.js"></script>
@@ -28,7 +36,12 @@
   <script src="js/features/command-palette.js"></script>
   <script src="js/features/url-state.js"></script>
   <script src="js/features/url-state-integration.js"></script>
+  <script src="js/features/profile-editor.js"></script>
+  <script src="js/features/component-gallery.js"></script>
+  <!-- Bootstrap (initializes all modules) -->
   <script src="js/bootstrap.js"></script>
+  <!-- Backward Compatibility Layer -->
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -130,6 +143,12 @@
   </div>
 
   <div class="nav-right">
+    <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
+    <a href="MyCollection.html">
+      <button class="nav-btn primary-nav-btn"><i class="fa-solid fa-bookmark"></i> My Collection</button>
+    </a>
+
+    <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
     <button class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
     </button>
@@ -374,36 +393,36 @@
     <div class="footer-col">
       <h3>Explore</h3>
       <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="forms.html">Forms</a></li>
+        <li><a href="button.html" style="color: black;">Buttons</a></li>
+        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
+        <li><a href="cards.html" style="color: black;">Cards</a></li>
+        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
+        <li><a href="forms.html" style="color: black;">Forms</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="#" style="color: black;">Documentation</a></li>
+        <li><a href="#" style="color: black;">Contribute</a></li>
+        <li><a href="#" style="color: black;">GitHub Repo</a></li>
+        <li><a href="#" style="color: black;">Community</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Legal</h3>
       <ul>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
+        <li><a href="license.html" style="color: black;">License</a></li>
       </ul>
     </div>
 
     <div class="footer-col newsletter">
-      <h3>Stay Updated</h3>
-      <p>Get notified when new components drop.</p>
+      <h3 style="color: black;">Stay Updated</h3>
+      <p style="color: black;">Get notified when new components drop.</p>
       <div class="newsletter-form">
         <input type="email" placeholder="your@email.com" />
         <button type="button">Subscribe</button>
@@ -413,7 +432,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
 

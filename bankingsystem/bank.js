@@ -5,7 +5,7 @@ actionButtons.forEach(button => {
 
   button.addEventListener("click", () => {
 
-    alert(`${button.textContent} feature clicked`);
+    if (window.UIVERSE_DEBUG) alert(`${button.textContent} feature clicked`);
 
   });
 

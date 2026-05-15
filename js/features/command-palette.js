@@ -10,11 +10,15 @@
 
 const CommandPalette = (function () {
   const _state = {
+    initialized: false,
     isOpen: false,
     selectedIndex: 0,
     results: [],
     recentItems: [],
-    allItems: []
+    allItems: [],
+    listeners: [],
+    modalCleanup: null,
+    restoreFocusTo: null
   };
 
   const STORAGE_KEY = 'uiverse_command_palette_recent';
@@ -153,27 +157,54 @@ const CommandPalette = (function () {
     const resultsEl = document.getElementById('commandPaletteResults');
     if (!resultsEl) return;
 
+    resultsEl.innerHTML = '';
+
     if (_state.results.length === 0) {
       const input = document.getElementById('commandPaletteInput');
       const hasQuery = input && input.value.trim().length > 0;
-      
-      resultsEl.innerHTML = hasQuery 
-        ? '<li class="command-palette-empty">No components found. Try a different search.</li>'
-        : '<li class="command-palette-empty">Type to search for components...</li>';
+
+      const emptyItem = document.createElement('li');
+      emptyItem.className = 'command-palette-empty';
+      emptyItem.textContent = hasQuery
+        ? 'No components found. Try a different search.'
+        : 'Type to search for components...';
+      resultsEl.appendChild(emptyItem);
       return;
     }
 
-    resultsEl.innerHTML = _state.results.map((item, idx) => `
-      <li class="command-palette-item ${idx === _state.selectedIndex ? 'highlighted' : ''}" data-index="${idx}">
-        <div class="command-palette-item-icon">
-          <i class="${item.icon}"></i>
-        </div>
-        <div class="command-palette-item-content">
-          <div class="command-palette-item-title">${escapeHtml(item.title)}</div>
-          <div class="command-palette-item-category">${item.category}</div>
-        </div>
-      </li>
-    `).join('');
+    const fragment = document.createDocumentFragment();
+
+    _state.results.forEach((item, idx) => {
+      const resultItem = document.createElement('li');
+      resultItem.className = `command-palette-item ${idx === _state.selectedIndex ? 'highlighted' : ''}`;
+      resultItem.dataset.index = String(idx);
+
+      const iconWrap = document.createElement('div');
+      iconWrap.className = 'command-palette-item-icon';
+
+      const icon = document.createElement('i');
+      icon.className = item.icon;
+      iconWrap.appendChild(icon);
+
+      const content = document.createElement('div');
+      content.className = 'command-palette-item-content';
+
+      const title = document.createElement('div');
+      title.className = 'command-palette-item-title';
+      title.textContent = item.title;
+
+      const category = document.createElement('div');
+      category.className = 'command-palette-item-category';
+      category.textContent = item.category;
+
+      content.appendChild(title);
+      content.appendChild(category);
+      resultItem.appendChild(iconWrap);
+      resultItem.appendChild(content);
+      fragment.appendChild(resultItem);
+    });
+
+    resultsEl.appendChild(fragment);
 
     // Scroll highlighted item into view
     const highlightedItem = resultsEl.querySelector('.command-palette-item.highlighted');
@@ -238,15 +269,30 @@ const CommandPalette = (function () {
     _state.isOpen = true;
     _state.selectedIndex = 0;
     _state.results = [];
+    _state.restoreFocusTo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
     const overlay = document.getElementById('commandPaletteOverlay');
     const input = document.getElementById('commandPaletteInput');
 
-    if (overlay) overlay.classList.add('open');
+    if (overlay) {
+      overlay.classList.add('open');
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Command palette');
+    }
     if (input) {
+      input.setAttribute('aria-label', 'Search components');
       input.focus();
       input.value = '';
       renderResults();
+    }
+
+    if (window.Accessibility && typeof window.Accessibility.openModal === 'function') {
+      _state.modalCleanup = window.Accessibility.openModal(overlay, {
+        initialFocus: input,
+        restoreFocusTo: _state.restoreFocusTo,
+        onEscape: close
+      });
     }
   }
 
@@ -254,7 +300,21 @@ const CommandPalette = (function () {
   function close() {
     _state.isOpen = false;
     const overlay = document.getElementById('commandPaletteOverlay');
+
+    if (_state.modalCleanup) {
+      _state.modalCleanup();
+      _state.modalCleanup = null;
+    } else if (window.Accessibility && typeof window.Accessibility.closeModal === 'function') {
+      window.Accessibility.closeModal(overlay);
+    }
+
     if (overlay) overlay.classList.remove('open');
+
+    if (_state.restoreFocusTo && document.contains(_state.restoreFocusTo)) {
+      _state.restoreFocusTo.focus({ preventScroll: true });
+    }
+
+    _state.restoreFocusTo = null;
   }
 
   // Toggle palette
@@ -280,9 +340,12 @@ const CommandPalette = (function () {
 
   // Initialize feature
   function init() {
+    if (_state.initialized) return;
+
     // Check for palette elements
     if (!document.getElementById('commandPaletteOverlay')) {
       console.warn('[CommandPalette] Palette DOM not found. Skipping initialization.');
+      _state.initialized = true;
       return;
     }
 
@@ -291,22 +354,12 @@ const CommandPalette = (function () {
 
     const input = document.getElementById('commandPaletteInput');
     const overlay = document.getElementById('commandPaletteOverlay');
-
-    if (input) {
-      input.addEventListener('input', handleInput);
-      input.addEventListener('keydown', handleKeydown);
-    }
-
-    if (overlay) {
-      overlay.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-          close();
-        }
-      });
-    }
-
-    // Add click handlers to result items
-    document.addEventListener('click', (event) => {
+    const onOverlayClick = (event) => {
+      if (event.target === overlay) {
+        close();
+      }
+    };
+    const onDocumentClick = (event) => {
       const item = event.target.closest('.command-palette-item');
       if (item) {
         const idx = parseInt(item.getAttribute('data-index'), 10);
@@ -314,10 +367,7 @@ const CommandPalette = (function () {
           navigateToItem(_state.results[idx]);
         }
       }
-    });
 
-    // Handle recent item clicks
-    document.addEventListener('click', (event) => {
       const recentItem = event.target.closest('.command-palette-recent-item');
       if (recentItem) {
         const id = recentItem.getAttribute('data-id');
@@ -326,24 +376,56 @@ const CommandPalette = (function () {
           navigateToItem(item);
         }
       }
-    });
-
-    // Keyboard shortcut: Cmd+K or Ctrl+K
-    document.addEventListener('keydown', (event) => {
+    };
+    const onDocumentKeydown = (event) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
         event.preventDefault();
         toggle();
       }
-    });
+    };
 
-    console.log('[CommandPalette] Initialized with', _state.allItems.length, 'items');
+    if (input) {
+      input.addEventListener('input', handleInput);
+      input.addEventListener('keydown', handleKeydown);
+      _state.listeners.push({ el: input, event: 'input', handler: handleInput });
+      _state.listeners.push({ el: input, event: 'keydown', handler: handleKeydown });
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', onOverlayClick);
+      _state.listeners.push({ el: overlay, event: 'click', handler: onOverlayClick });
+    }
+
+    // Add click handlers to result items
+    document.addEventListener('click', onDocumentClick);
+    _state.listeners.push({ el: document, event: 'click', handler: onDocumentClick });
+
+    // Keyboard shortcut: Cmd+K or Ctrl+K
+    document.addEventListener('keydown', onDocumentKeydown);
+    _state.listeners.push({ el: document, event: 'keydown', handler: onDocumentKeydown });
+
+    if (window.UIVERSE_DEBUG) console.log('[CommandPalette] Initialized with', _state.allItems.length, 'items');
+    _state.initialized = true;
+  }
+
+  function destroy() {
+    _state.listeners.forEach(({ el, event, handler }) => {
+      el.removeEventListener(event, handler);
+    });
+    _state.listeners = [];
+    if (_state.modalCleanup) {
+      _state.modalCleanup();
+      _state.modalCleanup = null;
+    }
+    _state.initialized = false;
   }
 
   return {
     init,
     open,
     close,
-    toggle
+    toggle,
+    destroy
   };
 })();
 

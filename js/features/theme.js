@@ -4,6 +4,11 @@
  */
 
 const Theme = {
+  _state: {
+    initialized: false,
+    listener: null
+  },
+
   /**
    * Load and apply saved theme
    */
@@ -32,6 +37,8 @@ const Theme = {
    * Initialize theme feature
    */
   init() {
+    if (this._state.initialized) return;
+
     // Apply system preference on first visit
     if (!localStorage.getItem("theme")) {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -43,7 +50,11 @@ const Theme = {
 
     const themeToggle = getElement("theme-toggle") || getElement("darkModeToggle");
     if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
+      if (this._state.listener) {
+        themeToggle.removeEventListener("click", this._state.listener);
+      }
+
+      const onClick = () => {
         document.body.classList.toggle("dark-mode");
         const isDark = document.body.classList.contains("dark-mode");
         localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -54,8 +65,22 @@ const Theme = {
           icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
         }
         themeToggle.innerText = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
-      });
+      };
+
+      themeToggle.addEventListener("click", onClick);
+      this._state.listener = onClick;
     }
+
+    this._state.initialized = true;
+  },
+
+  destroy() {
+    const themeToggle = getElement("theme-toggle") || getElement("darkModeToggle");
+    if (themeToggle && this._state.listener) {
+      themeToggle.removeEventListener("click", this._state.listener);
+    }
+    this._state.listener = null;
+    this._state.initialized = false;
   }
 };
 

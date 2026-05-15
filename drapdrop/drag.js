@@ -37,10 +37,15 @@ function displayFiles(files) {
     const fileItem = document.createElement("div");
     fileItem.classList.add("file-item");
 
-    fileItem.innerHTML = `
-      <strong>${file.name}</strong><br>
-      ${(file.size / 1024).toFixed(2)} KB
-    `;
+    const fileName = document.createElement("strong");
+    fileName.textContent = file.name;
+
+    const size = document.createElement("span");
+    size.textContent = `${(file.size / 1024).toFixed(2)} KB`;
+
+    fileItem.appendChild(fileName);
+    fileItem.appendChild(document.createElement("br"));
+    fileItem.appendChild(size);
 
     preview.appendChild(fileItem);
   });

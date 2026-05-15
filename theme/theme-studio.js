@@ -27,9 +27,12 @@ document.getElementById("blurValue");
 const themeToggle =
 document.getElementById("themeToggle");
 
-/* ================= COLORS ================= */
+if (!primaryPicker || !secondaryPicker || !primaryValue || !secondaryValue || !radiusRange || !blurRange || !radiusValue || !blurValue || !themeToggle) {
+  // Page does not include the theme studio widget.
+} else {
+  /* ================= COLORS ================= */
 
-primaryPicker.addEventListener("input", () => {
+  primaryPicker.addEventListener("input", () => {
 
   root.style.setProperty(
     "--primary",
@@ -39,9 +42,9 @@ primaryPicker.addEventListener("input", () => {
   primaryValue.innerText =
   primaryPicker.value;
 
-});
+  });
 
-secondaryPicker.addEventListener("input", () => {
+  secondaryPicker.addEventListener("input", () => {
 
   root.style.setProperty(
     "--secondary",
@@ -51,11 +54,11 @@ secondaryPicker.addEventListener("input", () => {
   secondaryValue.innerText =
   secondaryPicker.value;
 
-});
+  });
 
-/* ================= RADIUS ================= */
+  /* ================= RADIUS ================= */
 
-radiusRange.addEventListener("input", () => {
+  radiusRange.addEventListener("input", () => {
 
   const value =
   radiusRange.value + "px";
@@ -68,11 +71,11 @@ radiusRange.addEventListener("input", () => {
   radiusValue.innerText =
   value;
 
-});
+  });
 
-/* ================= BLUR ================= */
+  /* ================= BLUR ================= */
 
-blurRange.addEventListener("input", () => {
+  blurRange.addEventListener("input", () => {
 
   const value =
   blurRange.value + "px";
@@ -85,24 +88,24 @@ blurRange.addEventListener("input", () => {
   blurValue.innerText =
   value;
 
-});
+  });
 
-/* ================= DARK MODE ================= */
+  /* ================= DARK MODE ================= */
 
-themeToggle.addEventListener("change", () => {
+  themeToggle.addEventListener("change", () => {
 
   document.body.classList.toggle(
     "light-mode"
   );
 
-});
+  });
 
-/* ================= MENU ACTIVE ================= */
+  /* ================= MENU ACTIVE ================= */
 
-const links =
-document.querySelectorAll(".studio-link");
+  const links =
+  document.querySelectorAll(".studio-link");
 
-links.forEach(link => {
+  links.forEach(link => {
 
   link.addEventListener("click", () => {
 
@@ -114,4 +117,5 @@ links.forEach(link => {
 
   });
 
-});
+  });
+}

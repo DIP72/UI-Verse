@@ -18,31 +18,32 @@ function addTask(){
 
   taskCard.classList.add("task-card");
 
-  taskCard.innerHTML = `
-    <span>${taskText}</span>
+  const span = document.createElement('span');
+  span.textContent = taskText;
 
-    <div class="task-buttons">
-      <button class="complete-btn">Done</button>
-      <button class="delete-btn">Delete</button>
-    </div>
-  `;
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.className = 'task-buttons';
 
-  const completeBtn = taskCard.querySelector(".complete-btn");
-  const deleteBtn = taskCard.querySelector(".delete-btn");
+  const completeBtn = document.createElement('button');
+  completeBtn.className = 'complete-btn';
+  completeBtn.textContent = 'Done';
 
-  completeBtn.addEventListener("click", () => {
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.textContent = 'Delete';
 
+  buttonsDiv.appendChild(completeBtn);
+  buttonsDiv.appendChild(deleteBtn);
+
+  completeBtn.addEventListener('click', () => {
     completeBtn.remove();
-
     completedTasks.appendChild(taskCard);
-
   });
 
-  deleteBtn.addEventListener("click", () => {
+  deleteBtn.addEventListener('click', () => taskCard.remove());
 
-    taskCard.remove();
-
-  });
+  taskCard.appendChild(span);
+  taskCard.appendChild(buttonsDiv);
 
   pendingTasks.appendChild(taskCard);
 

@@ -1,3 +1,5 @@
-console.log(
-  "Weather Forecast Dashboard Loaded"
-);
+if (window.UIVERSE_DEBUG) {
+  console.log(
+    "Weather Forecast Dashboard Loaded"
+  );
+}

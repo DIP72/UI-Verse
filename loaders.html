@@ -14,13 +14,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="loaders.css">
 </head>
 
 <body>
-
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
@@ -30,7 +29,7 @@
 
   <nav class="sidebar-nav">
     <ul>
-      <li>
+      <li class="active">
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
           <span>Home</span>
@@ -60,12 +59,7 @@
           <span>Inputs</span>
         </a>
       </li>
-      <li>
-        <a href="contact.html">
-          <i class="fa-regular fa-user"></i>
-          <span>Contact Us</span>
-        </a>
-      </li>
+     
       <li>
         <a href="forms.html">
           <i class="fa-brands fa-wpforms"></i>
@@ -78,16 +72,133 @@
           <span>Badges</span>
         </a>
       </li>
-      <li class="active">
+      <li>
+        <a href="blog.html">
+          <i class="fa-solid fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
+        <a href="article.html">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>Articles</span>
+        </a>
+      </li>
+      <li>
+        <a href="alerts.html">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alerts</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="color.html">
+          <i class="fa-solid fa-palette"></i>
+          <span>Colors</span>
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashbord</span>
+        </a>
+      </li>
+      <li>
+        <a href="div.html">
+          <i class="fa-solid fa-square"></i>
+          <span>DIV</span>
+        </a>
+        </li>
+        <li>
         <a href="loaders.html">
-          <i class="fa-solid fa-award"></i>
+          <i class="fa-solid fa-spinner"></i>
           <span>Loaders</span>
         </a>
       </li>
       <li>
+        <a href="map.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Maps</span>
+        </a>
+        <li>
+        <a href="menu.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="pricing.html">
+          <i class="fa-solid fa-tags"></i>
+          <span>Pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="section.html">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Section</span>
+        </a>
+      </li>
+      <li>
+        <a href="span.html">
+          <i class="fa-solid fa-code"></i>
+          <span>Span</span>
+        </a>
+      </li>
+      <li>
+        <a href="table.html">
+          <i class="fa-solid fa-table"></i>
+          <span>Table</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabs.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Tabs</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms.html">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>Terms</span>
+        </a>
+      </li>
+      <li>
+        <a href="testimonials.html">
+          <i class="fa-solid fa-comments"></i>
+          <span>Testimonials</span>
+        </a>
+      </li>
+      <li>
+        <a href="toggles.html">
+          <i class="fa-solid fa-toggle-on"></i>
+          <span>Toggle</span>
+        </a>
+      </li>
+
+      <li>
         <a href="about.html">
-          <i class="fa-solid fa-award"></i>
-          <span>About us</span>
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      </li>
+        <li>
+        <a href="documentation.html">
+          <i class="fa-solid fa-book"></i>
+          <span>Documentation</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Faq</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-solid fa-user"></i>
+          <span>Contact Us</span>
         </a>
       </li>
     </ul>
@@ -102,7 +213,6 @@
 
 <!-- ================= SIDEBAR BACKDROP ================= -->
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
-
 <!-- ================= NAVBAR ================= -->
 <header class="navbar" id="navbar">
   <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
@@ -121,6 +231,15 @@
     <button class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
     </button>
+    <a href="MyCollection.html">
+      <button class="nav-btn primary-nav-btn">
+        <i class="fa-solid fa-bookmark"></i>
+        My Collection
+      </button>
+    </a>
+    
+
+    <button id="darkModeToggle" class="theme-toggle">
     <button class="nav-btn primary-nav-btn">
       <i class="fa-solid fa-bookmark"></i> My Collection
     </button>
@@ -345,30 +464,30 @@
     <div class="footer-col">
       <h3>Explore</h3>
       <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="forms.html">Forms</a></li>
+        <li><a href="button.html" style="color: black;">Buttons</a></li>
+        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
+        <li><a href="cards.html" style="color: black;">Cards</a></li>
+        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
+        <li><a href="forms.html" style="color: black;">Forms</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="#" style="color: black;">Documentation</a></li>
+        <li><a href="#" style="color: black;">Contribute</a></li>
+        <li><a href="#" style="color: black;">GitHub Repo</a></li>
+        <li><a href="#" style="color: black;">Community</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Legal</h3>
       <ul>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
+        <li><a href="license.html" style="color: black;">License</a></li>
       </ul>
     </div>
 
@@ -384,7 +503,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
 
