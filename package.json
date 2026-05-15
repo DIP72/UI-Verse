@@ -10,6 +10,8 @@
     "link-check": "linkinator './index.html' --recursive --silent --summary",
     "images:build": "node scripts/image-pipeline.js",
     "images:verify": "node scripts/image-pipeline.js --check",
+    "security:csp": "node scripts/csp-hardening.js",
+    "security:csp:verify": "node scripts/csp-hardening.js --check",
     "audit:a11y": "node scripts/a11y-audit.js",
     "a11y:dashboard": "node scripts/a11y-dashboard.js",
     "test:visual": "playwright test",
