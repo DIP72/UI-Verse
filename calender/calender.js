@@ -14,6 +14,10 @@ let year = currentDate.getFullYear();
 
 function renderCalendar(){
 
+  if (!monthYear || !datesContainer) {
+    return;
+  }
+
   datesContainer.innerHTML = "";
 
   monthYear.textContent = `${months[month]} ${year}`;
@@ -46,19 +50,25 @@ function renderCalendar(){
   }
 }
 
-document.getElementById("prevBtn").addEventListener("click", () => {
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-  month--;
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
 
-  if(month < 0){
-    month = 11;
-    year--;
-  }
+    month--;
 
-  renderCalendar();
-});
+    if(month < 0){
+      month = 11;
+      year--;
+    }
 
-document.getElementById("nextBtn").addEventListener("click", () => {
+    renderCalendar();
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
 
   month++;
 
@@ -68,6 +78,7 @@ document.getElementById("nextBtn").addEventListener("click", () => {
   }
 
   renderCalendar();
-});
+  });
+}
 
 renderCalendar();

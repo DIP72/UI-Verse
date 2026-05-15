@@ -10,14 +10,42 @@
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- UIverse Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/main.css">
 
-  <link rel="stylesheet" href="style.css">
+  
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="shared-page.css">
   <link rel="stylesheet" href="cards.css">
   <link rel="stylesheet" href="playground.css">
+  <link rel="stylesheet" href="command-palette.css">
+  <link rel="stylesheet" href="css/url-state.css">
+  <!-- UIverse Modular Scripts - Load in dependency order -->
+  <!-- UIverse Registry (must load first) -->
+  <script src="js/registry.js"></script>
+  <!-- Core Modules -->
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/security.js"></script>
+  <script src="js/core/components-registry.js"></script>
+  <script src="js/core/sanitize.js"></script>
+  <!-- Feature Modules -->
+  <script src="js/features/toast.js"></script>
+  <script src="js/features/popup.js"></script>
+  <script src="js/features/code-tools.js"></script>
+  <script src="js/features/sidebar.js"></script>
+  <script src="js/features/search.js"></script>
+  <script src="js/features/theme.js"></script>
+  <script src="js/features/scroll.js"></script>
+  <script src="js/features/alerts.js"></script>
+  <script src="js/features/sandbox.js"></script>
+  <script src="js/features/accessibility.js"></script>
+  <script src="js/features/command-palette.js"></script>
+  <script src="js/features/url-state.js"></script>
+  <script src="js/features/url-state-integration.js"></script>
+  <script src="js/features/profile-editor.js"></script>
+  <script src="js/features/component-gallery.js"></script>
+  <!-- Bootstrap (initializes all modules) -->
+  <script src="js/bootstrap.js"></script>
+  <!-- Backward Compatibility Layer -->
+  <script src="script.js"></script>
 </head>
 
 <body data-playground-type="card">
@@ -31,7 +59,7 @@
 
   <nav class="sidebar-nav">
     <ul>
-      <li>
+      <li class="active">
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
           <span>Home</span>
@@ -49,7 +77,7 @@
           <span>Navbar</span>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="cards.html">
           <i class="fa-solid fa-table-cells-large"></i>
           <span>Cards</span>
@@ -61,12 +89,7 @@
           <span>Inputs</span>
         </a>
       </li>
-      <li>
-        <a href="contact.html">
-          <i class="fa-regular fa-user"></i>
-          <span>Contact Us</span>
-        </a>
-      </li>
+     
       <li>
         <a href="forms.html">
           <i class="fa-brands fa-wpforms"></i>
@@ -77,6 +100,135 @@
         <a href="badges.html">
           <i class="fa-solid fa-award"></i>
           <span>Badges</span>
+        </a>
+      </li>
+      <li>
+        <a href="blog.html">
+          <i class="fa-solid fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
+        <a href="article.html">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>Articles</span>
+        </a>
+      </li>
+      <li>
+        <a href="alerts.html">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alerts</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="color.html">
+          <i class="fa-solid fa-palette"></i>
+          <span>Colors</span>
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashbord</span>
+        </a>
+      </li>
+      <li>
+        <a href="div.html">
+          <i class="fa-solid fa-square"></i>
+          <span>DIV</span>
+        </a>
+        </li>
+        <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-spinner"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="map.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Maps</span>
+        </a>
+        <li>
+        <a href="menu.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="pricing.html">
+          <i class="fa-solid fa-tags"></i>
+          <span>Pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="section.html">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Section</span>
+        </a>
+      </li>
+      <li>
+        <a href="span.html">
+          <i class="fa-solid fa-code"></i>
+          <span>Span</span>
+        </a>
+      </li>
+      <li>
+        <a href="table.html">
+          <i class="fa-solid fa-table"></i>
+          <span>Table</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabs.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Tabs</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms.html">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>Terms</span>
+        </a>
+      </li>
+      <li>
+        <a href="testimonials.html">
+          <i class="fa-solid fa-comments"></i>
+          <span>Testimonials</span>
+        </a>
+      </li>
+      <li>
+        <a href="toggles.html">
+          <i class="fa-solid fa-toggle-on"></i>
+          <span>Toggle</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      </li>
+        <li>
+        <a href="documentation.html">
+          <i class="fa-solid fa-book"></i>
+          <span>Documentation</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Faq</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-solid fa-user"></i>
+          <span>Contact Us</span>
         </a>
       </li>
     </ul>
@@ -102,7 +254,7 @@
 
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" />
+    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
     <kbd class="search-kbd">⌘K</kbd>
   </div>
 
@@ -115,6 +267,10 @@
     </a>
     
       <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
+    <button class="nav-btn primary-nav-btn">
+      <i class="fa-solid fa-bookmark"></i> My Collection
+    </button>
+    <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
       <i class="fa-solid fa-moon"></i>
     </button>
   </div>
@@ -174,9 +330,9 @@
   <div class="cards-grid" id="cardsGrid">
 
     <!-- Profile Card -->
-    <div class="component-card" data-name="profile card hover avatar" data-cat="profile">
+    <div class="component-card" data-name="profile card hover avatar" data-cat="profile" >
       <div class="card-top">
-        <span class="card-label">Profile Card</span>
+        <span class="card-label" style="color: black;">Profile Card</span>
         <span class="card-tag tag-popular">Popular</span>
       </div>
       <div class="card-preview">
@@ -187,7 +343,7 @@
           <button class="profile-btn">Follow</button>
         </div>
       </div>
-      <p class="card-desc">A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
+      <p class="card-desc" >A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c1', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -195,7 +351,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c1', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Profile Card')">Add to My Collection</button>
       </div>
       <pre id="c1" class="code-block"><code>&lt;div class="profile-card"&gt;
   &lt;div class="profile-avatar"&gt;LN&lt;/div&gt;
@@ -248,7 +403,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c2', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Student Card')">Add to My Collection</button>
       </div>
       <pre id="c2" class="code-block"><code>&lt;div class="profile-card student-card"&gt;
   &lt;div class="profile-avatar"&gt;AP&lt;/div&gt;
@@ -280,7 +434,7 @@
       </div>
       <div class="card-preview">
         <div class="simple-card">
-          <h4>Card Title</h4>
+          <h4 style="color: black;">Card Title</h4>
           <p>This is a simple card component with a clean, minimal design.</p>
           <button class="simple-card-btn">Learn More</button>
         </div>
@@ -293,7 +447,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c3', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Simple Card')">Add to My Collection</button>
       </div>
       <pre id="c3" class="code-block"><code>&lt;div class="simple-card"&gt;
   &lt;h4&gt;Card Title&lt;/h4&gt;
@@ -324,7 +477,7 @@
       <div class="card-preview">
         <div class="product-card">
           <div class="product-badge">New</div>
-          <div class="product-icon">🎧</div>
+          <div class="product-icon"><i class="fa-solid fa-headphones"></i></div>
           <h4>Premium Headphones</h4>
           <p class="product-price">$49.99</p>
           <p class="product-desc">High-quality audio with noise cancellation.</p>
@@ -339,11 +492,10 @@
         <button class="action-btn copy-btn" onclick="copyCode('c4', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Product Card')">Add to My Collection</button>
       </div>
       <pre id="c4" class="code-block"><code>&lt;div class="product-card"&gt;
   &lt;div class="product-badge"&gt;New&lt;/div&gt;
-  &lt;div class="product-icon"&gt;🎧&lt;/div&gt;
+  &lt;div class="product-icon"&gt;&lt;i class="fa-solid fa-headphones"&gt;&lt;/i&gt;&lt;/div&gt;
   &lt;h4&gt;Premium Headphones&lt;/h4&gt;
   &lt;p class="price"&gt;$49.99&lt;/p&gt;
   &lt;p&gt;High-quality audio with noise cancellation.&lt;/p&gt;
@@ -365,7 +517,6 @@
     </div>
 
     <!-- Pricing Card -->
-
     <div class="component-card" data-name="pricing card plan subscription" data-cat="commerce">
       <div class="card-top">
         <span class="card-label">Pricing Card</span>
@@ -392,7 +543,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c5', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Pricing Card')">Add to My Collection</button>
       </div>
       <pre id="c5" class="code-block"><code>&lt;div class="pricing-card"&gt;
   &lt;div class="pricing-badge"&gt;Most Popular&lt;/div&gt;
@@ -417,441 +567,7 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .pricing-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(108,92,231,0.3); }</code></pre>
-
     </div>
-    <!-- =============================================
-     FREE / BASIC PLAN CARD
-     ============================================= -->
-<div class="component-card" data-name="free basic plan card pricing" data-cat="commerce">
-  <div class="card-top">
-    <span class="card-label">Free / Basic Plan</span>
-    <span class="card-tag tag-popular">Free</span>
-  </div>
-  <div class="card-preview">
-    <div class="basic-card">
-      <div class="basic-badge">Free Forever</div>
-      <div class="basic-icon">🌿</div>
-      <h4>Basic Plan</h4>
-      <p class="basic-price">$0<span>/mo</span></p>
-      <p class="basic-desc">Perfect for individuals just getting started.</p>
-      <ul class="basic-features">
-        <li><span class="feat-check">✓</span> 5 projects</li>
-        <li><span class="feat-check">✓</span> 1 GB storage</li>
-        <li><span class="feat-check">✓</span> Community support</li>
-        
-      </ul>
-      <button class="basic-btn">Get Started Free</button>
-    </div>
-  </div>
-  <p class="card-desc">A clean free-tier card with feature list, $0 price, and a soft green CTA button.</p>
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c-basic', this)">
-      <i class="fa-solid fa-code"></i> View Code
-    </button>
-    <button class="action-btn copy-btn" onclick="copyCode('c-basic', this)">
-      <i class="fa-solid fa-copy"></i> Copy
-    </button>
-    <button onclick="addToCollection('Free Basic Plan Card')">Add to My Collection</button>
-  </div>
-  <pre id="c-basic" class="code-block"><code>&lt;div class="basic-card"&gt;
-  &lt;div class="basic-badge"&gt;Free Forever&lt;/div&gt;
-  &lt;div class="basic-icon"&gt;🌿&lt;/div&gt;
-  &lt;h4&gt;Basic Plan&lt;/h4&gt;
-  &lt;p class="basic-price"&gt;$0&lt;span&gt;/mo&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;Perfect for individuals just getting started.&lt;/p&gt;
-  &lt;ul class="basic-features"&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; 5 projects&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; 1 GB storage&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; Community support&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-cross"&gt;✗&lt;/span&gt; Custom domain&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-cross"&gt;✗&lt;/span&gt; Analytics&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;button class="basic-btn"&gt;Get Started Free&lt;/button&gt;
-&lt;/div&gt;
-
-.basic-card {
-  background: #fff;
-  border: 1px solid #ebebeb;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  max-width: 240px;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.basic-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
-.basic-badge {
-  display: inline-block;
-  background: #e6f4ea;
-  color: #2d7a3a;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.basic-icon { font-size: 32px; margin-bottom: 8px; }
-.basic-card h4 { font-size: 18px; font-weight: 700; color: #111; margin: 0 0 6px; }
-.basic-price { font-size: 28px; font-weight: 800; color: #2d7a3a; margin: 0 0 6px; }
-.basic-price span { font-size: 14px; font-weight: 400; color: #999; }
-.basic-card p { font-size: 13px; color: #888; margin: 0 0 14px; }
-.basic-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 18px;
-  text-align: left;
-}
-.basic-features li { font-size: 13px; color: #555; padding: 4px 0; }
-.feat-check { color: #2d7a3a; font-weight: 700; margin-right: 6px; }
-.feat-cross { color: #ccc; font-weight: 700; margin-right: 6px; }
-.basic-btn {
-  width: 100%;
-  padding: 10px 0;
-  background: #e6f4ea;
-  color: #2d7a3a;
-  border: 1.5px solid #a8d5b0;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-.basic-btn:hover { background: #c8eacf; transform: translateY(-2px); }</code></pre>
-</div>
-
-
-<!-- =============================================
-     TRIAL PLAN CARD
-     ============================================= -->
-<div class="component-card" data-name="trial plan card pricing 14 day" data-cat="commerce">
-  <div class="card-top">
-    <span class="card-label">Trial Plan</span>
-    <span class="card-tag tag-trending">Trial</span>
-  </div>
-  <div class="card-preview">
-    <div class="trial-card">
-      <div class="trial-badge">14-Day Trial</div>
-      <div class="trial-icon">⏱️</div>
-      <h4>Trial Plan</h4>
-      <p class="trial-price-label">Free for 14 days</p>
-      <p class="trial-then">then $9<span>/mo</span></p>
-      <p class="trial-desc">Full access. No credit card required.</p>
-      <ul class="trial-features">
-        <li><span class="feat-check">✓</span> 20 projects</li>
-        <li><span class="feat-check">✓</span> 10 GB storage</li>
-        <li><span class="feat-check">✓</span> Email support</li>
-        <li><span class="feat-check">✓</span> Custom domain</li>
-        <li><span class="feat-cross">✗</span> Advanced analytics</li>
-      </ul>
-      <button class="trial-btn">Start Free Trial</button>
-    </div>
-  </div>
-  <p class="card-desc">A trial plan card with countdown feel, free period highlight, and post-trial pricing shown clearly.</p>
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c-trial', this)">
-      <i class="fa-solid fa-code"></i> View Code
-    </button>
-    <button class="action-btn copy-btn" onclick="copyCode('c-trial', this)">
-      <i class="fa-solid fa-copy"></i> Copy
-    </button>
-    <button onclick="addToCollection('Trial Plan Card')">Add to My Collection</button>
-  </div>
-  <pre id="c-trial" class="code-block"><code>&lt;div class="trial-card"&gt;
-  &lt;div class="trial-badge"&gt;14-Day Trial&lt;/div&gt;
-  &lt;div class="trial-icon"&gt;⏱️&lt;/div&gt;
-  &lt;h4&gt;Trial Plan&lt;/h4&gt;
-  &lt;p class="trial-price-label"&gt;Free for 14 days&lt;/p&gt;
-  &lt;p class="trial-then"&gt;then $9&lt;span&gt;/mo&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;Full access. No credit card required.&lt;/p&gt;
-  &lt;ul class="trial-features"&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; 20 projects&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; 10 GB storage&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; Email support&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-check"&gt;✓&lt;/span&gt; Custom domain&lt;/li&gt;
-    &lt;li&gt;&lt;span class="feat-cross"&gt;✗&lt;/span&gt; Advanced analytics&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;button class="trial-btn"&gt;Start Free Trial&lt;/button&gt;
-&lt;/div&gt;
-
-.trial-card {
-  background: #fff;
-  border: 1px solid #ebebeb;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  max-width: 240px;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.trial-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
-.trial-badge {
-  display: inline-block;
-  background: #fff4e0;
-  color: #b35a00;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.trial-icon { font-size: 32px; margin-bottom: 8px; }
-.trial-card h4 { font-size: 18px; font-weight: 700; color: #111; margin: 0 0 6px; }
-.trial-price-label { font-size: 18px; font-weight: 800; color: #eb6835; margin: 0 0 4px; }
-.trial-then { font-size: 14px; color: #999; margin: 0 0 6px; }
-.trial-then span { font-size: 12px; }
-.trial-card p { font-size: 13px; color: #888; margin: 0 0 14px; }
-.trial-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 18px;
-  text-align: left;
-}
-.trial-features li { font-size: 13px; color: #555; padding: 4px 0; }
-.trial-btn {
-  width: 100%;
-  padding: 10px 0;
-  background: #fff4e0;
-  color: #b35a00;
-  border: 1.5px solid #f5c97a;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-.trial-btn:hover { background: #ffe5b0; transform: translateY(-2px); }</code></pre>
-</div>
-
-
-<!-- =============================================
-     PREMIUM PLAN CARD
-     ============================================= -->
-<div class="component-card" data-name="premium plan card pricing popular" data-cat="commerce">
-  <div class="card-top">
-    <span class="card-label">Premium Plan</span>
-    <span class="card-tag tag-popular">Popular</span>
-  </div>
-  <div class="card-preview dark-preview">
-    <div class="premium-card">
-      <div class="premium-badge">Most Popular</div>
-      <div class="premium-icon">⭐</div>
-      <h4>Premium Plan</h4>
-      <p class="premium-price">$<span class="premium-amount">19</span><span class="premium-period">/mo</span></p>
-      <p class="premium-desc">Best for growing teams and businesses.</p>
-      <ul class="premium-features">
-        <li><i class="fa-solid fa-check"></i> Unlimited projects</li>
-        <li><i class="fa-solid fa-check"></i> 100 GB storage</li>
-        <li><i class="fa-solid fa-check"></i> Priority support</li>
-        <li><i class="fa-solid fa-check"></i> Custom domain</li>
-        <li><i class="fa-solid fa-check"></i> Analytics dashboard</li>
-      </ul>
-      <button class="premium-btn">Choose Premium</button>
-    </div>
-  </div>
-  <p class="card-desc">A premium dark-themed pricing card with star badge, feature list, and a glowing CTA button.</p>
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c-premium', this)">
-      <i class="fa-solid fa-code"></i> View Code
-    </button>
-    <button class="action-btn copy-btn" onclick="copyCode('c-premium', this)">
-      <i class="fa-solid fa-copy"></i> Copy
-    </button>
-    <button onclick="addToCollection('Premium Plan Card')">Add to My Collection</button>
-  </div>
-  <pre id="c-premium" class="code-block"><code>&lt;div class="premium-card"&gt;
-  &lt;div class="premium-badge"&gt;Most Popular&lt;/div&gt;
-  &lt;div class="premium-icon"&gt;⭐&lt;/div&gt;
-  &lt;h4&gt;Premium Plan&lt;/h4&gt;
-  &lt;p class="premium-price"&gt;$&lt;span&gt;19&lt;/span&gt;&lt;span&gt;/mo&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;Best for growing teams and businesses.&lt;/p&gt;
-  &lt;ul class="premium-features"&gt;
-    &lt;li&gt;✓ Unlimited projects&lt;/li&gt;
-    &lt;li&gt;✓ 100 GB storage&lt;/li&gt;
-    &lt;li&gt;✓ Priority support&lt;/li&gt;
-    &lt;li&gt;✓ Custom domain&lt;/li&gt;
-    &lt;li&gt;✓ Analytics dashboard&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;button class="premium-btn"&gt;Choose Premium&lt;/button&gt;
-&lt;/div&gt;
-
-.premium-card {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  border: 1px solid rgba(108,92,231,0.4);
-  border-radius: 20px;
-  padding: 28px 24px;
-  color: #fff;
-  text-align: center;
-  max-width: 240px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.premium-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(108,92,231,0.3); }
-.premium-badge {
-  display: inline-block;
-  background: rgba(108,92,231,0.25);
-  color: #c4b5fd;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(108,92,231,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.premium-icon { font-size: 32px; margin-bottom: 8px; }
-.premium-card h4 { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 6px; }
-.premium-price { font-size: 14px; color: #c4b5fd; margin: 0 0 6px; }
-.premium-amount { font-size: 36px; font-weight: 800; color: #fff; }
-.premium-period { font-size: 14px; color: #8b7fd4; }
-.premium-card p { font-size: 13px; color: #a0a0c0; margin: 0 0 14px; }
-.premium-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 18px;
-  text-align: left;
-}
-.premium-features li {
-  font-size: 13px;
-  color: #d0d0f0;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.premium-features li i { color: #7c6fcd; font-size: 12px; }
-.premium-btn {
-  width: 100%;
-  padding: 12px 0;
-  background: linear-gradient(135deg, #6c5ce7, #8b5cf6);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  box-shadow: 0 4px 20px rgba(108,92,231,0.5);
-}
-.premium-btn:hover { opacity: 0.9; transform: translateY(-2px); }</code></pre>
-</div>
-
-
-<!-- =============================================
-     ADVANCED PLAN CARD
-     ============================================= -->
-<div class="component-card" data-name="advanced plan card pricing enterprise" data-cat="commerce">
-  <div class="card-top">
-    <span class="card-label">Advanced Plan</span>
-    <span class="card-tag tag-trending">Advanced</span>
-  </div>
-  <div class="card-preview dark-preview">
-    <div class="advanced-card">
-      <div class="advanced-badge">Enterprise</div>
-      <div class="advanced-icon">🚀</div>
-      <h4>Advanced Plan</h4>
-      <p class="advanced-price">$<span class="advanced-amount">49</span><span class="advanced-period">/mo</span></p>
-      <p class="advanced-desc">For power users, agencies & enterprises.</p>
-      <ul class="advanced-features">
-        <li><i class="fa-solid fa-check"></i> Unlimited everything</li>
-        <li><i class="fa-solid fa-check"></i> 1 TB storage</li>
-        <li><i class="fa-solid fa-check"></i> Dedicated support</li>
-        <li><i class="fa-solid fa-check"></i> White-label option</li>
-        <li><i class="fa-solid fa-check"></i> Advanced analytics</li>
-      </ul>
-      <button class="advanced-btn">Go Advanced</button>
-    </div>
-  </div>
-  <p class="card-desc">A dark enterprise-tier pricing card with gold accents, feature list, and a premium CTA button.</p>
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c-advanced', this)">
-      <i class="fa-solid fa-code"></i> View Code
-    </button>
-    <button class="action-btn copy-btn" onclick="copyCode('c-advanced', this)">
-      <i class="fa-solid fa-copy"></i> Copy
-    </button>
-    <button onclick="addToCollection('Advanced Plan Card')">Add to My Collection</button>
-  </div>
-  <pre id="c-advanced" class="code-block"><code>&lt;div class="advanced-card"&gt;
-  &lt;div class="advanced-badge"&gt;Enterprise&lt;/div&gt;
-  &lt;div class="advanced-icon"&gt;🚀&lt;/div&gt;
-  &lt;h4&gt;Advanced Plan&lt;/h4&gt;
-  &lt;p class="advanced-price"&gt;$&lt;span&gt;49&lt;/span&gt;&lt;span&gt;/mo&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;For power users, agencies and enterprises.&lt;/p&gt;
-  &lt;ul class="advanced-features"&gt;
-    &lt;li&gt;✓ Unlimited everything&lt;/li&gt;
-    &lt;li&gt;✓ 1 TB storage&lt;/li&gt;
-    &lt;li&gt;✓ Dedicated support&lt;/li&gt;
-    &lt;li&gt;✓ White-label option&lt;/li&gt;
-    &lt;li&gt;✓ Advanced analytics&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;button class="advanced-btn"&gt;Go Advanced&lt;/button&gt;
-&lt;/div&gt;
-
-.advanced-card {
-  background: linear-gradient(135deg, #0f0f1a, #1a1200);
-  border: 1px solid rgba(212,175,55,0.35);
-  border-radius: 20px;
-  padding: 28px 24px;
-  color: #fff;
-  text-align: center;
-  max-width: 240px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.advanced-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(212,175,55,0.2); }
-.advanced-badge {
-  display: inline-block;
-  background: rgba(212,175,55,0.15);
-  color: #f0c040;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(212,175,55,0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.advanced-icon { font-size: 32px; margin-bottom: 8px; }
-.advanced-card h4 { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 6px; }
-.advanced-price { font-size: 14px; color: #f0c040; margin: 0 0 6px; }
-.advanced-amount { font-size: 36px; font-weight: 800; color: #fff; }
-.advanced-period { font-size: 14px; color: #a08030; }
-.advanced-card p { font-size: 13px; color: #a0a090; margin: 0 0 14px; }
-.advanced-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 18px;
-  text-align: left;
-}
-.advanced-features li {
-  font-size: 13px;
-  color: #d0d0b0;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.advanced-features li i { color: #d4af37; font-size: 12px; }
-.advanced-btn {
-  width: 100%;
-  padding: 12px 0;
-  background: linear-gradient(135deg, #b8860b, #d4af37);
-  color: #0f0f1a;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  box-shadow: 0 4px 20px rgba(212,175,55,0.4);
-}
-.advanced-btn:hover { opacity: 0.9; transform: translateY(-2px); }</code></pre>
-</div>
-    
 
     <!-- Image Card -->
     <div class="component-card" data-name="image card photo media" data-cat="content">
@@ -880,7 +596,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c6', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Image Card')">Add to My Collection</button>
       </div>
       <pre id="c6" class="code-block"><code>&lt;div class="image-card"&gt;
   &lt;img src="your-image.jpg" alt="..."&gt;
@@ -940,7 +655,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c7', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Blog Card')">Add to My Collection</button>
       </div>
       <pre id="c7" class="code-block"><code>&lt;div class="blog-card"&gt;
   &lt;div class="blog-thumb"&gt;
@@ -980,9 +694,9 @@
           <div class="notif-card notif-purple">
             <div class="notif-icon"><i class="fa-solid fa-bell"></i></div>
             <div class="notif-body">
-              <h4>New Message</h4>
-              <p>You have received a new message from Alex.</p>
-              <span class="notif-time">2 min ago</span>
+              <h4 style="color: black;">New Message</h4>
+              <p style="color: black;">You have received a new message from Alex.</p>
+              <span class="notif-time" style="color: black;">2 min ago</span>
             </div>
             <button class="notif-close"><i class="fa-solid fa-xmark"></i></button>
           </div>
@@ -1005,7 +719,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c8', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Notification Card')">Add to My Collection</button>
       </div>
       <pre id="c8" class="code-block"><code>&lt;div class="notif-card"&gt;
   &lt;div class="notif-icon"&gt;🔔&lt;/div&gt;
@@ -1037,7 +750,7 @@
         <span class="card-label">Social Card</span>
         <span class="card-tag tag-trending">Trending</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview" style="color: black;">
         <div class="social-card">
           <div class="social-header">
             <div class="social-avatar">JD</div>
@@ -1047,16 +760,16 @@
             </div>
             <div class="social-platform"><i class="fab fa-x-twitter"></i></div>
           </div>
-          <p class="social-text">Just launched my new UI component library! Check it out and let me know what you think. 🚀</p>
+          <p class="social-text" style="color: black;">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
           <div class="social-actions">
-            <button class="social-btn"><i class="fa-regular fa-heart"></i> 42</button>
-            <button class="social-btn"><i class="fa-regular fa-comment"></i> 12</button>
-            <button class="social-btn"><i class="fa-solid fa-retweet"></i> 5</button>
-            <button class="social-btn share-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+            <button class="social-btn" style="background-color: black;"><i class="fa-regular fa-heart"></i> 42</button>
+            <button class="social-btn" style="color: black;"><i class="fa-regular fa-comment"></i> 12</button>
+            <button class="social-btn" style="color: black;"><i class="fa-solid fa-retweet"></i> 5</button>
+            <button class="social-btn share-btn" style="color: black;"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
           </div>
         </div>
       </div>
-      <p class="card-desc">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
+      <p class="card-desc" style="color: black;">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c9', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -1064,7 +777,6 @@
         <button class="action-btn copy-btn" onclick="copyCode('c9', this)">
           <i class="fa-solid fa-copy"></i> Copy
         </button>
-        <button onclick="addToCollection('Social Media Card')">Add to My Collection</button>
       </div>
       <pre id="c9" class="code-block"><code>&lt;div class="social-card"&gt;
   &lt;div class="social-header"&gt;
@@ -1074,7 +786,7 @@
       &lt;span&gt;@johndoe · 2h&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;p&gt;Just launched my new UI library! 🚀&lt;/p&gt;
+  &lt;p&gt;Just launched my new UI library! &lt;i class="fa-solid fa-rocket"&gt;&lt;/i&gt;&lt;/p&gt;
   &lt;div class="social-actions"&gt;
     &lt;button&gt;♥ 42&lt;/button&gt;
     &lt;button&gt;💬 12&lt;/button&gt;
@@ -1093,310 +805,6 @@
 .social-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.1); }</code></pre>
     </div>
 
-   
-<!-- Glassmorphism Card -->
-<div class="component-card" data-name="glassmorphism modern blur card" data-cat="content">
-  <div class="card-top">
-    <span class="card-label">Glass Card</span>
-    <span class="card-tag tag-trending">Modern</span>
-  </div>
-
-  <div class="card-preview dark-preview">
-    <div class="glass-card">
-      <div class="glass-icon">
-        <i class="fa-solid fa-gem"></i>
-      </div>
-
-      <h4>Glass UI</h4>
-
-      <p>
-        Beautiful frosted glass effect with modern gradients.
-      </p>
-
-      <button class="glass-btn">
-        Explore
-      </button>
-    </div>
-  </div>
-
-  <p class="card-desc">
-    Modern glassmorphism card with blur and hover effects.
-  </p>
-
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c10', this)">
-      <i class="fa-solid fa-code"></i>
-      View Code
-    </button>
-
-    <button class="action-btn copy-btn" onclick="copyCode('c10', this)">
-      <i class="fa-solid fa-copy"></i>
-      Copy
-    </button>
-  </div>
-
-  <pre id="c10" class="code-block"><code>&lt;div class="glass-card"&gt;
-  &lt;div class="glass-icon"&gt;
-    &lt;i class="fa-solid fa-gem"&gt;&lt;/i&gt;
-  &lt;/div&gt;
-
-  &lt;h4&gt;Glass UI&lt;/h4&gt;
-
-  &lt;p&gt;
-    Beautiful frosted glass effect with modern gradients.
-  &lt;/p&gt;
-
-  &lt;button class="glass-btn"&gt;
-    Explore
-  &lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</div>
-
-<!-- Stats Card -->
-<div class="component-card" data-name="analytics stats dashboard card" data-cat="content">
-  <div class="card-top">
-    <span class="card-label">Stats Card</span>
-    <span class="card-tag tag-popular">Popular</span>
-  </div>
-
-  <div class="card-preview">
-    <div class="stats-card">
-      <div class="stats-icon">
-        <i class="fa-solid fa-chart-line"></i>
-      </div>
-
-      <div class="stats-info">
-        <h3>24.8K</h3>
-        <p>Total Visitors</p>
-      </div>
-
-      <span class="stats-growth">
-        +12%
-      </span>
-    </div>
-  </div>
-
-  <p class="card-desc">
-    Dashboard analytics card with live growth indicator.
-  </p>
-
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c11', this)">
-      <i class="fa-solid fa-code"></i>
-      View Code
-    </button>
-
-    <button class="action-btn copy-btn" onclick="copyCode('c11', this)">
-      <i class="fa-solid fa-copy"></i>
-      Copy
-    </button>
-  </div>
-
-  <pre id="c11" class="code-block"><code>&lt;div class="stats-card"&gt;
-  &lt;div class="stats-icon"&gt;
-    &lt;i class="fa-solid fa-chart-line"&gt;&lt;/i&gt;
-  &lt;/div&gt;
-
-  &lt;div class="stats-info"&gt;
-    &lt;h3&gt;24.8K&lt;/h3&gt;
-    &lt;p&gt;Total Visitors&lt;/p&gt;
-  &lt;/div&gt;
-
-  &lt;span class="stats-growth"&gt;
-    +12%
-  &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-</div>
-
-<!-- Testimonial Card -->
-<div class="component-card" data-name="testimonial review customer feedback card" data-cat="social">
-  <div class="card-top">
-    <span class="card-label">Testimonial Card</span>
-    <span class="card-tag tag-essential">Essential</span>
-  </div>
-
-  <div class="card-preview">
-    <div class="testimonial-card">
-
-      <div class="testimonial-stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div>
-
-      <p class="testimonial-text">
-        “UIverse has completely improved my workflow. Amazing components!”
-      </p>
-
-      <div class="testimonial-user">
-
-        <div class="testimonial-avatar">
-          EM
-        </div>
-
-        <div>
-          <strong>Emma Wilson</strong>
-          <span>Frontend Developer</span>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-  <p class="card-desc">
-    Customer review card with star ratings and profile section.
-  </p>
-
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c12', this)">
-      <i class="fa-solid fa-code"></i>
-      View Code
-    </button>
-
-    <button class="action-btn copy-btn" onclick="copyCode('c12', this)">
-      <i class="fa-solid fa-copy"></i>
-      Copy
-    </button>
-  </div>
-
-  <pre id="c12" class="code-block"><code>&lt;div class="testimonial-card"&gt;
-  &lt;p&gt;
-    Amazing UI components and smooth experience.
-  &lt;/p&gt;
-&lt;/div&gt;</code></pre>
-</div>
-
-<!-- Music Player Card -->
-<div class="component-card" data-name="music player audio media card" data-cat="content">
-  <div class="card-top">
-    <span class="card-label">Music Card</span>
-    <span class="card-tag tag-trending">Trending</span>
-  </div>
-
-  <div class="card-preview dark-preview">
-
-    <div class="music-card">
-
-      <div class="music-cover">
-        <i class="fa-solid fa-music"></i>
-      </div>
-
-      <h4>Night Vibes</h4>
-
-      <p>Lofi Chill Mix</p>
-
-      <div class="music-controls">
-
-        <button>
-          <i class="fa-solid fa-backward"></i>
-        </button>
-
-        <button class="play-btn">
-          <i class="fa-solid fa-play"></i>
-        </button>
-
-        <button>
-          <i class="fa-solid fa-forward"></i>
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <p class="card-desc">
-    Music streaming inspired UI card with controls.
-  </p>
-
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c13', this)">
-      <i class="fa-solid fa-code"></i>
-      View Code
-    </button>
-
-    <button class="action-btn copy-btn" onclick="copyCode('c13', this)">
-      <i class="fa-solid fa-copy"></i>
-      Copy
-    </button>
-  </div>
-
-  <pre id="c13" class="code-block"><code>&lt;div class="music-card"&gt;
-  &lt;h4&gt;Night Vibes&lt;/h4&gt;
-&lt;/div&gt;</code></pre>
-</div>
-
-<!-- Team Member Card -->
-<div class="component-card" data-name="team member company profile card" data-cat="profile">
-
-  <div class="card-top">
-    <span class="card-label">Team Card</span>
-    <span class="card-tag tag-popular">Popular</span>
-  </div>
-
-  <div class="card-preview">
-
-    <div class="team-card">
-
-      <div class="team-cover"></div>
-
-      <div class="team-avatar">
-        SK
-      </div>
-
-      <div class="team-body">
-
-        <h4>Sneha Kapoor</h4>
-
-        <p>UI/UX Designer</p>
-
-        <div class="team-socials">
-
-          <a href="#">
-            <i class="fab fa-dribbble"></i>
-          </a>
-
-          <a href="#">
-            <i class="fab fa-linkedin"></i>
-          </a>
-
-          <a href="#">
-            <i class="fab fa-github"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <p class="card-desc">
-    Professional team member profile card with social links.
-  </p>
-
-  <div class="actions">
-    <button class="action-btn view-btn" onclick="toggleCode('c14', this)">
-      <i class="fa-solid fa-code"></i>
-      View Code
-    </button>
-
-    <button class="action-btn copy-btn" onclick="copyCode('c14', this)">
-      <i class="fa-solid fa-copy"></i>
-      Copy
-    </button>
-  </div>
-
-  <pre id="c14" class="code-block"><code>&lt;div class="team-card"&gt;
-  &lt;h4&gt;Sneha Kapoor&lt;/h4&gt;
-&lt;/div&gt;</code></pre>
-
-</div>
-
   </div><!-- /cards-grid -->
 
 </main>
@@ -1408,10 +816,22 @@
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
+<footer class="footer">
   <div class="footer-container">
 
     <div class="footer-col brand">
-      <h2 class="footer-logo">⬡ UIverse</h2>
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  <div class="footer-container">
+
+    <div class="footer-col brand">
+      <h2 class="footer-logo"><i class="fa-solid fa-cube"></i> UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
@@ -1422,31 +842,31 @@
 
     <div class="footer-col">
       <h3>Explore</h3>
-      <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="forms.html">Forms</a></li>
+      <ul style="color: black;">
+        <li><a href="button.html" style="color: black;">Buttons</a></li>
+        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
+        <li><a href="cards.html" style="color: black;">Cards</a></li>
+        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
+        <li><a href="forms.html" style="color: black;">Forms</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="#" style="color: black;">Documentation</a></li>
+        <li><a href="#" style="color: black;">Contribute</a></li>
+        <li><a href="#" style="color: black;">GitHub Repo</a></li>
+        <li><a href="#" style="color: black;">Community</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Legal</h3>
       <ul>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
+        <li><a href="license.html" style="color: black;">License</a></li>
       </ul>
     </div>
 
@@ -1460,7 +880,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
 
@@ -1505,19 +925,7 @@
 
 <div class="playground-backdrop" id="playgroundBackdrop"></div>
 
-<!-- UIverse Modular Scripts -->
-<script src="js/core/utils.js"></script>
-<script src="js/features/toast.js"></script>
-<script src="js/features/popup.js"></script>
-<script src="js/features/code-tools.js"></script>
-<script src="js/features/sidebar.js"></script>
-<script src="js/features/search.js"></script>
-<script src="js/features/theme.js"></script>
-<script src="js/features/scroll.js"></script>
-<script src="js/features/alerts.js"></script>
-<script src="js/features/sandbox.js"></script>
-<script src="js/features/accessibility.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="script.js"></script>
 <script>
   /* ---------- Dark Mode ---------- */
   const toggle = document.getElementById('darkModeToggle');
@@ -1532,6 +940,12 @@
     icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
+
+  /* ---------- Sidebar ---------- */
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarBackdrop').classList.toggle('visible');
+  }
 
   /* ---------- Scroll Top ---------- */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -1602,8 +1016,8 @@ window.addToCollectionFromCard = function(button, name) {
   const previewBox = card.querySelector('.preview-box');
   const html = previewBox.innerHTML;
   
-  console.log("Button clicked:", name);
-  console.log("Preview HTML:", html);
+  if (window.UIVERSE_DEBUG) console.log("Button clicked:", name);
+  if (window.UIVERSE_DEBUG) console.log("Preview HTML:", html);
   
   addToCollection(name, html);
 };
@@ -1617,13 +1031,13 @@ window.addToCollection = function(name, html) {
     id: Date.now()
   };
 
-  console.log("Adding item:", newItem);
+  if (window.UIVERSE_DEBUG) console.log("Adding item:", newItem);
 
   if (!items.some(item => item.title === newItem.title)) {
     items.push(newItem);
     localStorage.setItem("collection", JSON.stringify(items));
     showToast(name + " added to collection ✓");
-    console.log("Total items saved:", items.length);
+    if (window.UIVERSE_DEBUG) console.log("Total items saved:", items.length);
   } else {
     showToast("Already in collection");
   }
@@ -1665,14 +1079,36 @@ function copyCode(id,btn){
   setTimeout(()=>btn.innerText="Copy",1000);
 }
 </script>
-<style>
-  button{
-  background:  #a29bfe;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  }
+<!-- ================= COMMAND PALETTE ================= -->
+<div id="commandPaletteOverlay" class="command-palette-overlay">
+  <div class="command-palette-container">
+    <div class="command-palette-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
+        id="commandPaletteInput" 
+        class="command-palette-input" 
+        placeholder="Search components... (Cmd+K)"
+        autocomplete="off"
+      />
+    </div>
+    <ul id="commandPaletteResults" class="command-palette-results"></ul>
+    <div class="command-palette-footer">
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">↑↓</span>
+        <span>Navigate</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">⏎</span>
+        <span>Select</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">Esc</span>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-</style>
 </body>
 </html>

@@ -4,20 +4,24 @@ const selectedText = document.getElementById("selectedText");
 
 const options = document.querySelectorAll(".option");
 
-selectBox.addEventListener("click", () => {
+if (!selectBox || !optionsList || !selectedText) {
+  // Page does not include the custom select widget.
+} else {
+  selectBox.addEventListener("click", () => {
 
-  optionsList.classList.toggle("show");
-
-});
-
-options.forEach(option => {
-
-  option.addEventListener("click", () => {
-
-    selectedText.textContent = option.textContent;
-
-    optionsList.classList.remove("show");
+    optionsList.classList.toggle("show");
 
   });
 
-});
+  options.forEach(option => {
+
+    option.addEventListener("click", () => {
+
+      selectedText.textContent = option.textContent;
+
+      optionsList.classList.remove("show");
+
+    });
+
+  });
+}

@@ -16,26 +16,33 @@ function addTask(){
 
   li.classList.add("task-item");
 
-  li.innerHTML = `
-    <span>${taskText}</span>
+  const span = document.createElement('span');
+  span.textContent = taskText;
 
-    <div class="task-buttons">
-      <button class="complete-btn">Done</button>
-      <button class="delete-btn">Delete</button>
-    </div>
-  `;
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.className = 'task-buttons';
 
-  const completeBtn = li.querySelector(".complete-btn");
-  const deleteBtn = li.querySelector(".delete-btn");
-  const taskSpan = li.querySelector("span");
+  const completeBtn = document.createElement('button');
+  completeBtn.className = 'complete-btn';
+  completeBtn.textContent = 'Done';
 
-  completeBtn.addEventListener("click", () => {
-    taskSpan.classList.toggle("completed");
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.textContent = 'Delete';
+
+  buttonsDiv.appendChild(completeBtn);
+  buttonsDiv.appendChild(deleteBtn);
+
+  completeBtn.addEventListener('click', () => {
+    span.classList.toggle('completed');
   });
 
-  deleteBtn.addEventListener("click", () => {
+  deleteBtn.addEventListener('click', () => {
     li.remove();
   });
+
+  li.appendChild(span);
+  li.appendChild(buttonsDiv);
 
   taskList.appendChild(li);
 

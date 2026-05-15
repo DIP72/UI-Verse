@@ -21,6 +21,8 @@
 </head>
 
 <body>
+<!-- Gallery page note: See GALLERY_PAGES_GUIDE.md for filtering setup. -->
+
 
 <div class="container">
 
@@ -280,8 +282,7 @@
         <button onclick="toggleCode('f1')">Code</button>
         <button onclick="copyCode('f1',this)">Copy</button>
         <button onclick="addToCollectionFromCard(this, 'Minimal Footer')">Add to My Collection</button>
-
-
+      </div>
     </footer>
 
   </div>
@@ -519,8 +520,7 @@
         <button onclick="toggleCode('f2')">Code</button>
         <button onclick="copyCode('f2',this)">Copy</button>
         <button onclick="addToCollectionFromCard(this, 'Grid Footer')">Add to My Collection</button>
-
-
+      </div>
     </footer>
 
   </div>
@@ -588,8 +588,7 @@
         <button onclick="toggleCode('f3')">Code</button>
         <button onclick="copyCode('f3',this)">Copy</button>
         <button onclick="addToCollectionFromCard(this, 'Dark Footer')">Add to My Collection</button>
-
-
+      </div>
       <div class="split-links">
         <a href="#">Docs</a>
         <a href="#">Blog</a>
@@ -668,8 +667,7 @@
         <button onclick="toggleCode('f4')">Code</button>
         <button onclick="copyCode('f4',this)">Copy</button>
         <button onclick="addToCollectionFromCard(this, 'Social Footer')">Add to My Collection</button>
-
-
+      </div>
     </footer>
 
   </div>
@@ -898,10 +896,10 @@
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="howtocontribute.html">Contribute</a></li>
+        <li><a href="https://github.com/Tushar-sonawane06/UI-Verse" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+        <li><a href="community/community.html">Community</a></li>
       </ul>
     </div>
 
@@ -910,7 +908,7 @@
       <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="#">License</a></li>
+        <li><a href="license.html">License</a></li>
       </ul>
     </div>
 
@@ -934,13 +932,18 @@
 <script>
 
 window.addToCollectionFromCard = function(button, name) {
-  const card = button.closest('.component-card');
-  const previewBox = card.querySelector('.preview-box');
-  const html = previewBox.innerHTML;
+  const card = button.closest('.footer-component-card');
+  const previewBox = card ? card.querySelector('.footer-preview') : null;
+  const html = previewBox ? previewBox.innerHTML : "";
   
-  console.log("Button clicked:", name);
-  console.log("Preview HTML:", html);
-  
+  if (window.UIVERSE_DEBUG) console.log("Button clicked:", name);
+  if (window.UIVERSE_DEBUG) console.log("Preview HTML:", html);
+
+  if (!html) {
+    showToast("Preview not found");
+    return;
+  }
+
   addToCollection(name, html);
 };
 
@@ -953,13 +956,13 @@ window.addToCollection = function(name, html) {
     id: Date.now()
   };
 
-  console.log("Adding item:", newItem);
+  if (window.UIVERSE_DEBUG) console.log("Adding item:", newItem);
 
   if (!items.some(item => item.title === newItem.title)) {
     items.push(newItem);
     localStorage.setItem("collection", JSON.stringify(items));
     showToast(name + " added to collection ✓");
-    console.log("Total items saved:", items.length);
+    if (window.UIVERSE_DEBUG) console.log("Total items saved:", items.length);
   } else {
     showToast("Already in collection");
   }
@@ -991,14 +994,32 @@ function showToast(message) {
 
 function toggleCode(id){
   const el = document.getElementById(id);
+  if (!el) {
+    showToast("Code preview unavailable");
+    return;
+  }
   el.style.display = el.style.display === "block" ? "none" : "block";
 }
 
 function copyCode(id,btn){
-  const text = document.getElementById(id).innerText;
+  const el = document.getElementById(id);
+  if (!el) {
+    showToast("Nothing to copy");
+    return;
+  }
+  const text = el.innerText;
   navigator.clipboard.writeText(text);
   btn.innerText = "Copied!";
   setTimeout(()=>btn.innerText="Copy",1000);
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar')?.classList.toggle('open');
+  document.getElementById('sidebarBackdrop')?.classList.toggle('visible');
+}
+
+function subscribe() {
+  showToast("Subscription coming soon");
 }
 
 

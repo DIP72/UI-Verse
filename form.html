@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forms - UIverse</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"  href="form.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="forms.css">
+ 
+
 
   <!-- UIverse Modular CSS Architecture -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<!-- Gallery page note: See GALLERY_PAGES_GUIDE.md for filtering setup. -->
+
    <nav class="navbar">
   <!-- Logo -->
   <div class="logo">UIverse</div>
@@ -34,32 +38,199 @@
 <div class="container">
   <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2>UIverse</h2>
-    <ul>
-      <li><a href="index.html">Home</a></li>>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="alerts.html">Alerts</a></li>
-      <li><a href="badges.html">Badges</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="color.html">Colors</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contribute.html">Contribute</a></li>
-      <li class="active"><a href="navbar.html">Navbars</a></li>
-      <li><a href="footer.html">Footer</a></li>
-      <li class="active"><a href="form.html">Forms</a></li>
-      <li><a href="inputs.html">Inputs</a></li>
-      <li><a href="loaders.html">Loaders</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-    </ul>
-  </aside>
-  <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+  </div>
 
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="active">
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+     
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+      <li>
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Badges</span>
+        </a>
+      </li>
+      <li>
+        <a href="blog.html">
+          <i class="fa-solid fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
+        <a href="article.html">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>Articles</span>
+        </a>
+      </li>
+      <li>
+        <a href="alerts.html">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alerts</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="color.html">
+          <i class="fa-solid fa-palette"></i>
+          <span>Colors</span>
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashbord</span>
+        </a>
+      </li>
+      <li>
+        <a href="div.html">
+          <i class="fa-solid fa-square"></i>
+          <span>DIV</span>
+        </a>
+        </li>
+        <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-spinner"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="map.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Maps</span>
+        </a>
+        <li>
+        <a href="menu.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="pricing.html">
+          <i class="fa-solid fa-tags"></i>
+          <span>Pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="section.html">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Section</span>
+        </a>
+      </li>
+      <li>
+        <a href="span.html">
+          <i class="fa-solid fa-code"></i>
+          <span>Span</span>
+        </a>
+      </li>
+      <li>
+        <a href="table.html">
+          <i class="fa-solid fa-table"></i>
+          <span>Table</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabs.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Tabs</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms.html">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>Terms</span>
+        </a>
+      </li>
+      <li>
+        <a href="testimonials.html">
+          <i class="fa-solid fa-comments"></i>
+          <span>Testimonials</span>
+        </a>
+      </li>
+      <li>
+        <a href="toggles.html">
+          <i class="fa-solid fa-toggle-on"></i>
+          <span>Toggle</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      </li>
+        <li>
+        <a href="documentation.html">
+          <i class="fa-solid fa-book"></i>
+          <span>Documentation</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Faq</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-solid fa-user"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</aside>
+
+<!-- ================= SIDEBAR BACKDROP ================= -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
   <!-- Main -->
   <main class="main">
     <div class="page-header">
@@ -855,8 +1026,8 @@ window.addToCollectionFromCard = function(button, name) {
   const previewBox = card.querySelector('.preview-box');
   const html = previewBox.innerHTML;
   
-  console.log("Button clicked:", name);
-  console.log("Preview HTML:", html);
+  if (window.UIVERSE_DEBUG) console.log("Button clicked:", name);
+  if (window.UIVERSE_DEBUG) console.log("Preview HTML:", html);
   
   addToCollection(name, html);
 };
@@ -870,13 +1041,13 @@ window.addToCollection = function(name, html) {
     id: Date.now()
   };
 
-  console.log("Adding item:", newItem);
+  if (window.UIVERSE_DEBUG) console.log("Adding item:", newItem);
 
   if (!items.some(item => item.title === newItem.title)) {
     items.push(newItem);
     localStorage.setItem("collection", JSON.stringify(items));
     showToast(name + " added to collection ✓");
-    console.log("Total items saved:", items.length);
+    if (window.UIVERSE_DEBUG) console.log("Total items saved:", items.length);
   } else {
     showToast("Already in collection");
   }

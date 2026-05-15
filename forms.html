@@ -7,56 +7,140 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- UIverse Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/main.css">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="forms.css">
+  <link rel="stylesheet" href="command-palette.css">
+  <link rel="stylesheet" href="css/url-state.css">
+  <!-- UIverse Modular Scripts - Load in dependency order -->
+  <!-- UIverse Registry (must load first) -->
+  <script src="js/registry.js"></script>
+  <!-- Core Modules -->
+  <script src="js/core/utils.js"></script>
+  <script src="js/core/security.js"></script>
+  <script src="js/core/components-registry.js"></script>
+  <script src="js/core/sanitize.js"></script>
+  <!-- Feature Modules -->
+  <script src="js/features/toast.js"></script>
+  <script src="js/features/popup.js"></script>
+  <script src="js/features/code-tools.js"></script>
+  <script src="js/features/sidebar.js"></script>
+  <script src="js/features/search.js"></script>
+  <script src="js/features/theme.js"></script>
+  <script src="js/features/scroll.js"></script>
+  <script src="js/features/alerts.js"></script>
+  <script src="js/features/sandbox.js"></script>
+  <script src="js/features/accessibility.js"></script>
+  <script src="js/features/command-palette.js"></script>
+  <script src="js/features/url-state.js"></script>
+  <script src="js/features/url-state-integration.js"></script>
+  <script src="js/features/profile-editor.js"></script>
+  <script src="js/features/component-gallery.js"></script>
+  <!-- Bootstrap (initializes all modules) -->
+  <script src="js/bootstrap.js"></script>
+  <!-- Backward Compatibility Layer -->
+  <script src="script.js"></script>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
+<!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
     <span class="brand-text">UIverse</span>
   </div>
+
   <nav class="sidebar-nav">
     <ul>
-      <li><a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-      <li><a href="button.html"><i class="fa-solid fa-hand-pointer"></i><span>Buttons</span></a></li>
-      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><span>Navbar</span></a></li>
-      <li><a href="cards.html"><i class="fa-solid fa-table-cells-large"></i><span>Cards</span></a></li>
-      <li><a href="inputs.html"><i class="fa-solid fa-keyboard"></i><span>Inputs</span></a></li>
-      <li><a href="contact.html"><i class="fa-regular fa-envelope"></i><span>Contact Us</span></a></li>
-      <li class="active"><a href="forms.html"><i class="fa-brands fa-wpforms"></i><span>Forms</span></a></li>
-      <li><a href="badges.html"><i class="fa-solid fa-award"></i><span>Badges</span></a></li>
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-hand-pointer"></i>
+          <span>Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <span>Navbar</span>
+        </a>
+      </li>
+      <li>
+        <a href="cards.html">
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="inputs.html">
+          <i class="fa-solid fa-keyboard"></i>
+          <span>Inputs</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-user"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <span>Forms</span>
+        </a>
+      </li>
+      <li>
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Badges</span>
+        </a>
+      </li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-award"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-award"></i>
+          <span>About us</span>
+        </a>
+      </li>
     </ul>
   </nav>
+
   <div class="sidebar-footer">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
   </div>
 </aside>
 
-  
-<div class="container2">
+<!-- ================= SIDEBAR BACKDROP ================= -->
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar" id="navbar">
-  <button class="menu-toggle" onclick="toggleSidebar()">
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle Menu">
     <i class="fa-solid fa-bars"></i>
   </button>
+
   <div class="logo">UIverse</div>
+
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" placeholder="Search components..." />
+    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
     <kbd class="search-kbd">⌘K</kbd>
   </div>
+
   <div class="nav-right">
     <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
     <a href="MyCollection.html">
@@ -64,6 +148,15 @@
     </a>
 
     <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+    <button class="nav-btn outline-nav-btn">
+      <i class="fa-solid fa-plus"></i> Add Component
+    </button>
+    <button class="nav-btn primary-nav-btn">
+      <i class="fa-solid fa-bookmark"></i> My Collection
+    </button>
+    <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
   </div>
 </header>
 
@@ -282,96 +375,63 @@
   <i class="fa-solid fa-chevron-up"></i>
 </button>
 
-<!-- FOOTER -->
-
-  <!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
-  <div class="footer-glow"></div>
-
   <div class="footer-container">
 
-    <!-- Brand -->
-    <div class="footer-col footer-brand">
+    <div class="footer-col brand">
       <h2 class="footer-logo">⬡ UIverse</h2>
-      <p>
-        Beautiful and reusable UI components crafted with pure
-        HTML, CSS & JavaScript for modern developers.
-      </p>
-
-      <div class="footer-socials">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
-        <a href="#"><i class="fab fa-discord"></i></a>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
 
-    <!-- Explore -->
     <div class="footer-col">
       <h3>Explore</h3>
       <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="forms.html">Forms</a></li>
-        <li><a href="badges.html">Badges</a></li>
+        <li><a href="button.html" style="color: black;">Buttons</a></li>
+        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
+        <li><a href="cards.html" style="color: black;">Cards</a></li>
+        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
+        <li><a href="forms.html" style="color: black;">Forms</a></li>
       </ul>
     </div>
 
-    <!-- Resources -->
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Components</a></li>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">UI Kits</a></li>
-        <li><a href="#">Roadmap</a></li>
+        <li><a href="#" style="color: black;">Documentation</a></li>
+        <li><a href="#" style="color: black;">Contribute</a></li>
+        <li><a href="#" style="color: black;">GitHub Repo</a></li>
+        <li><a href="#" style="color: black;">Community</a></li>
       </ul>
     </div>
 
-    <!-- Community -->
     <div class="footer-col">
-      <h3>Community</h3>
+      <h3>Legal</h3>
       <ul>
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Discord</a></li>
-        <li><a href="#">Twitter/X</a></li>
-        <li><a href="#">Contributors</a></li>
-        <li><a href="#">Feedback</a></li>
+        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
+        <li><a href="license.html" style="color: black;">License</a></li>
       </ul>
     </div>
 
-    <!-- Newsletter -->
-    <div class="footer-col newsletter-col">
-      <h3>Stay Updated</h3>
-      <p>
-        Subscribe to get the latest UI components and design updates.
-      </p>
-
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" />
-        <button type="submit">
-          <i class="fa-solid fa-paper-plane"></i>
-        </button>
-      </form>
-
-      <span class="newsletter-note">
-        No spam. Unsubscribe anytime.
-      </span>
+    <div class="footer-col newsletter">
+      <h3 style="color: black;">Stay Updated</h3>
+      <p style="color: black;">Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button">Subscribe</button>
+      </div>
     </div>
 
   </div>
 
-  <!-- Bottom -->
   <div class="footer-bottom">
-    <p>© 2026 UIverse. Crafted with ❤️ for developers worldwide.</p>
-
-    <div class="footer-bottom-links">
-      <a href="privacypolicy.html">Privacy Policy</a>
-      <a href="terms.html">Terms</a>
-      <a href="#">Cookies</a>
-    </div>
+    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
 
@@ -389,6 +449,12 @@
     icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
+
+  /* Sidebar */
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarBackdrop').classList.toggle('visible');
+  }
 
   /* Scroll Top */
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -424,5 +490,37 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.form-component-card').forEach(el => observer.observe(el));
 </script>
+
+<!-- ================= COMMAND PALETTE ================= -->
+<div id="commandPaletteOverlay" class="command-palette-overlay">
+  <div class="command-palette-container">
+    <div class="command-palette-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input 
+        type="text" 
+        id="commandPaletteInput" 
+        class="command-palette-input" 
+        placeholder="Search components... (Cmd+K)"
+        autocomplete="off"
+      />
+    </div>
+    <ul id="commandPaletteResults" class="command-palette-results"></ul>
+    <div class="command-palette-footer">
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">↑↓</span>
+        <span>Navigate</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">⏎</span>
+        <span>Select</span>
+      </div>
+      <div class="command-palette-footer-item">
+        <span class="command-palette-footer-kbd">Esc</span>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
