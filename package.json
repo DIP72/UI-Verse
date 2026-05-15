@@ -8,6 +8,8 @@
     "lint:css": "stylelint '**/*.css'",
     "lint:html": "html-validate '**/*.html'",
     "link-check": "linkinator './index.html' --recursive --silent --summary",
+    "images:build": "node scripts/image-pipeline.js",
+    "images:verify": "node scripts/image-pipeline.js --check",
     "audit:a11y": "node scripts/a11y-audit.js",
     "a11y:dashboard": "node scripts/a11y-dashboard.js",
     "test:visual": "playwright test",
@@ -20,11 +22,12 @@
     "perf:ci": "node scripts/perf-budgets.js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.0",
     "eslint": "^8.50.0",
-    "stylelint": "^15.0.0",
-    "stylelint-config-standard": "^30.0.0",
     "html-validate": "^8.5.0",
     "linkinator": "^7.6.1",
-    "@playwright/test": "^1.40.0"
+    "sharp": "^0.33.5",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^30.0.0"
   }
 }
