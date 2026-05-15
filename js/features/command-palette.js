@@ -16,7 +16,9 @@ const CommandPalette = (function () {
     results: [],
     recentItems: [],
     allItems: [],
-    listeners: []
+    listeners: [],
+    modalCleanup: null,
+    restoreFocusTo: null
   };
 
   const STORAGE_KEY = 'uiverse_command_palette_recent';
@@ -267,15 +269,30 @@ const CommandPalette = (function () {
     _state.isOpen = true;
     _state.selectedIndex = 0;
     _state.results = [];
+    _state.restoreFocusTo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
     const overlay = document.getElementById('commandPaletteOverlay');
     const input = document.getElementById('commandPaletteInput');
 
-    if (overlay) overlay.classList.add('open');
+    if (overlay) {
+      overlay.classList.add('open');
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Command palette');
+    }
     if (input) {
+      input.setAttribute('aria-label', 'Search components');
       input.focus();
       input.value = '';
       renderResults();
+    }
+
+    if (window.Accessibility && typeof window.Accessibility.openModal === 'function') {
+      _state.modalCleanup = window.Accessibility.openModal(overlay, {
+        initialFocus: input,
+        restoreFocusTo: _state.restoreFocusTo,
+        onEscape: close
+      });
     }
   }
 
@@ -283,7 +300,21 @@ const CommandPalette = (function () {
   function close() {
     _state.isOpen = false;
     const overlay = document.getElementById('commandPaletteOverlay');
+
+    if (_state.modalCleanup) {
+      _state.modalCleanup();
+      _state.modalCleanup = null;
+    } else if (window.Accessibility && typeof window.Accessibility.closeModal === 'function') {
+      window.Accessibility.closeModal(overlay);
+    }
+
     if (overlay) overlay.classList.remove('open');
+
+    if (_state.restoreFocusTo && document.contains(_state.restoreFocusTo)) {
+      _state.restoreFocusTo.focus({ preventScroll: true });
+    }
+
+    _state.restoreFocusTo = null;
   }
 
   // Toggle palette
@@ -382,6 +413,10 @@ const CommandPalette = (function () {
       el.removeEventListener(event, handler);
     });
     _state.listeners = [];
+    if (_state.modalCleanup) {
+      _state.modalCleanup();
+      _state.modalCleanup = null;
+    }
     _state.initialized = false;
   }
 
