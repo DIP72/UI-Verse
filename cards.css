@@ -183,8 +183,8 @@ body.dark-mode .profile-name { color: #f0f0f0; }
    SIMPLE CARD (demo)
    ============================================================ */
 .simple-card {
-  background: #fff;
-  border: 1px solid #ebebeb;
+  background: #000000;
+  border: 1px solid #000000;
   border-radius: 14px;
   padding: 22px;
   max-width: 240px;
@@ -200,7 +200,7 @@ body.dark-mode .simple-card { background: #1e1e24; border-color: #2a2a30; }
 .simple-card-btn {
   padding: 8px 18px;
   background: linear-gradient(90deg, #eb6835, #6c5ce7);
-  color: #fff;
+  color: #000000;
   border: none;
   border-radius: 8px;
   font-size: 13px;
@@ -1932,4 +1932,84 @@ body.dark-mode .social-card { background: #1e1e24; border-color: #2a2a30; }
     font-size: 15px;
   }
 
+}
+
+/* =========================================================
+   CARDS PAGE STABILITY OVERRIDES
+   Keeps color contrast and alignment consistent across all cards.
+   ========================================================= */
+
+.cards-grid {
+  align-items: stretch;
+}
+
+.cards-grid .component-card {
+  height: 100%;
+}
+
+.cards-grid .card-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cards-grid .card-preview > * {
+  max-width: 100%;
+}
+
+.cards-grid .actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+}
+
+.cards-grid .actions > button {
+  min-height: 40px;
+  border-radius: 10px;
+}
+
+.cards-grid .actions > button:not(.action-btn) {
+  border: 1px solid rgba(235, 104, 53, 0.2);
+  background: rgba(235, 104, 53, 0.08);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.cards-grid .actions > button:not(.action-btn):hover {
+  background: rgba(235, 104, 53, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Keep "light" demo cards readable and visually consistent in all themes. */
+.card-preview :is(.profile-card, .simple-card, .product-card, .image-card, .blog-card, .notif-card, .social-card, .basic-card, .trial-card, .stats-card, .testimonial-card, .team-card) {
+  background: #000000 !important;
+  color: #1f2937;
+  border-color: #e5e7eb !important;
+}
+
+.card-preview :is(.profile-name, .product-card h4, .image-card-body h4, .blog-body h4, .notif-body h4, .social-user strong, .social-text, .basic-card h4, .trial-card h4, .stats-info h3, .testimonial-text, .team-body h4) {
+  color: #111827 !important;
+}
+
+.card-preview :is(.profile-role, .product-desc, .image-card-body p, .blog-body p, .notif-body p, .social-user span, .basic-card > p, .trial-card > p, .stats-info p, .team-body p) {
+  color: #6b7280 !important;
+}
+
+@media (max-width: 1200px) {
+  .cards-grid .actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid .actions {
+    grid-template-columns: 1fr;
+  }
 }

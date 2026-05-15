@@ -724,11 +724,11 @@ body.dark-mode .skeleton-card{
    FOOTER
    ============================================================ */
 .footer {
-  margin-left: var(--sidebar-w);
   background: #111;
   color: #aaa;
   padding: 0;
   margin-top: 60px;
+  width: 100%;
 }
 
 .footer-container {
