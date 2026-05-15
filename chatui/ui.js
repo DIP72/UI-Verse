@@ -2,9 +2,12 @@ const sendBtn = document.getElementById("sendBtn");
 const messageInput = document.getElementById("messageInput");
 const chatBox = document.getElementById("chatBox");
 
-sendBtn.addEventListener("click", sendMessage);
+if (!sendBtn || !messageInput || !chatBox) {
+  // Page does not include the chat UI.
+} else {
+  sendBtn.addEventListener("click", sendMessage);
 
-function sendMessage(){
+  function sendMessage(){
 
   const message = messageInput.value.trim();
 
@@ -22,5 +25,6 @@ function sendMessage(){
 
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  messageInput.value = "";
+    messageInput.value = "";
+  }
 }

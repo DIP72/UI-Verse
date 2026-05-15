@@ -2,15 +2,18 @@ const sendBtn = document.getElementById("sendBtn");
 const messageInput = document.getElementById("messageInput");
 const chatBox = document.getElementById("chatBox");
 
-sendBtn.addEventListener("click", sendMessage);
+if (!sendBtn || !messageInput || !chatBox) {
+  // Page does not include the chat assistant UI.
+} else {
+  sendBtn.addEventListener("click", sendMessage);
 
-messageInput.addEventListener("keypress", (e) => {
-  if(e.key === "Enter"){
-    sendMessage();
-  }
-});
+  messageInput.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+      sendMessage();
+    }
+  });
 
-function sendMessage(){
+  function sendMessage(){
 
   const message = messageInput.value.trim();
 
@@ -43,5 +46,6 @@ function sendMessage(){
 
     chatBox.scrollTop = chatBox.scrollHeight;
 
-  }, 1000);
+    }, 1000);
+  }
 }
