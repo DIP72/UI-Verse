@@ -213,9 +213,9 @@
   <div class="cards-grid" id="cardsGrid">
 
     <!-- Profile Card -->
-    <div class="component-card" data-name="profile card hover avatar" data-cat="profile">
+    <div class="component-card" data-name="profile card hover avatar" data-cat="profile" >
       <div class="card-top">
-        <span class="card-label">Profile Card</span>
+        <span class="card-label" style="color: black;">Profile Card</span>
         <span class="card-tag tag-popular">Popular</span>
       </div>
       <div class="card-preview">
@@ -226,7 +226,7 @@
           <button class="profile-btn">Follow</button>
         </div>
       </div>
-      <p class="card-desc">A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
+      <p class="card-desc" >A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c1', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -317,7 +317,7 @@
       </div>
       <div class="card-preview">
         <div class="simple-card">
-          <h4>Card Title</h4>
+          <h4 style="color: black;">Card Title</h4>
           <p>This is a simple card component with a clean, minimal design.</p>
           <button class="simple-card-btn">Learn More</button>
         </div>
@@ -577,9 +577,9 @@
           <div class="notif-card notif-purple">
             <div class="notif-icon"><i class="fa-solid fa-bell"></i></div>
             <div class="notif-body">
-              <h4>New Message</h4>
-              <p>You have received a new message from Alex.</p>
-              <span class="notif-time">2 min ago</span>
+              <h4 style="color: black;">New Message</h4>
+              <p style="color: black;">You have received a new message from Alex.</p>
+              <span class="notif-time" style="color: black;">2 min ago</span>
             </div>
             <button class="notif-close"><i class="fa-solid fa-xmark"></i></button>
           </div>
@@ -633,7 +633,7 @@
         <span class="card-label">Social Card</span>
         <span class="card-tag tag-trending">Trending</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview" style="color: black;">
         <div class="social-card">
           <div class="social-header">
             <div class="social-avatar">JD</div>
@@ -643,16 +643,16 @@
             </div>
             <div class="social-platform"><i class="fab fa-x-twitter"></i></div>
           </div>
-          <p class="social-text">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
+          <p class="social-text" style="color: black;">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
           <div class="social-actions">
-            <button class="social-btn"><i class="fa-regular fa-heart"></i> 42</button>
-            <button class="social-btn"><i class="fa-regular fa-comment"></i> 12</button>
-            <button class="social-btn"><i class="fa-solid fa-retweet"></i> 5</button>
-            <button class="social-btn share-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+            <button class="social-btn" style="background-color: black;"><i class="fa-regular fa-heart"></i> 42</button>
+            <button class="social-btn" style="color: black;"><i class="fa-regular fa-comment"></i> 12</button>
+            <button class="social-btn" style="color: black;"><i class="fa-solid fa-retweet"></i> 5</button>
+            <button class="social-btn share-btn" style="color: black;"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
           </div>
         </div>
       </div>
-      <p class="card-desc">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
+      <p class="card-desc" style="color: black;">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c9', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -962,16 +962,6 @@ function copyCode(id,btn){
   setTimeout(()=>btn.innerText="Copy",1000);
 }
 </script>
-<style>
-  button{
-  background:  #a29bfe;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  }
-
-</style>
-
 <!-- ================= COMMAND PALETTE ================= -->
 <div id="commandPaletteOverlay" class="command-palette-overlay">
   <div class="command-palette-container">
