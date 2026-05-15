@@ -723,3 +723,12 @@ body.dark-mode .copy-toast {
   .color-grid { grid-template-columns: 1fr; }
   .themed-grid { grid-template-columns: 1fr; }
 }
+.newsletter-form input,
+.newsletter-form button {
+  transition: all 0.3s ease;
+}
+
+.newsletter-form input:hover,
+.newsletter-form button:hover {
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.8);
+}
