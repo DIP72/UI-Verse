@@ -129,19 +129,36 @@ const URLStateIntegration = {
   createShareButton() {
     const button = document.createElement('button');
     button.className = 'url-share-btn';
-    button.innerHTML = '<i class="fa-solid fa-share-nodes"></i> Share Filter';
     button.title = 'Copy shareable link with current filters';
+
+    const idleHtml = '<i class="fa-solid fa-share-nodes"></i> Share Filter';
+    const copiedHtml = '<i class="fa-solid fa-check"></i> Copied!';
+    let resetTimer = null;
+
+    const setIdleState = () => {
+      button.innerHTML = idleHtml;
+      button.classList.remove('copied');
+    };
+
+    const setCopiedState = () => {
+      button.innerHTML = copiedHtml;
+      button.classList.add('copied');
+    };
+
+    setIdleState();
 
     button.addEventListener('click', async () => {
       const result = await this.copyShareableURL();
       if (result.success) {
-        const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        button.classList.add('copied');
+        if (resetTimer) {
+          clearTimeout(resetTimer);
+        }
 
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.classList.remove('copied');
+        setCopiedState();
+
+        resetTimer = setTimeout(() => {
+          setIdleState();
+          resetTimer = null;
         }, 2000);
       }
     });
