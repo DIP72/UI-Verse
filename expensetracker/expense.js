@@ -18,10 +18,14 @@ addBtn.addEventListener("click", () => {
 
   newTransaction.classList.add("transaction");
 
-  newTransaction.innerHTML = `
-    <span>${expenseName}</span>
-    <p>- ₹${expenseAmount}</p>
-  `;
+  const nameSpan = document.createElement("span");
+  nameSpan.textContent = expenseName;
+
+  const amountParagraph = document.createElement("p");
+  amountParagraph.textContent = `- ₹${expenseAmount}`;
+
+  newTransaction.appendChild(nameSpan);
+  newTransaction.appendChild(amountParagraph);
 
   transactions.appendChild(newTransaction);
 

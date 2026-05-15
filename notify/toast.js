@@ -31,43 +31,55 @@ function showToast(type){
   };
 
   const data = toastData[type];
+  if (!data) return;
 
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
 
-  toast.innerHTML = `
-  
-    <div class="toast-header">
+  const header = document.createElement("div");
+  header.className = "toast-header";
 
-      <div class="toast-left">
+  const left = document.createElement("div");
+  left.className = "toast-left";
 
-        <div class="toast-icon">
-          ${data.icon}
-        </div>
+  const icon = document.createElement("div");
+  icon.className = "toast-icon";
+  icon.textContent = data.icon;
 
-        <div class="toast-content">
-          <h4>${data.title}</h4>
-          <p>${data.text}</p>
-        </div>
+  const content = document.createElement("div");
+  content.className = "toast-content";
 
-      </div>
+  const title = document.createElement("h4");
+  title.textContent = data.title;
 
-      <button class="toast-close">
-        ✕
-      </button>
+  const body = document.createElement("p");
+  body.textContent = data.text;
 
-    </div>
+  content.appendChild(title);
+  content.appendChild(body);
 
-    <div class="toast-progress"></div>
+  left.appendChild(icon);
+  left.appendChild(content);
 
-  `;
+  const closeButton = document.createElement("button");
+  closeButton.className = "toast-close";
+  closeButton.type = "button";
+  closeButton.textContent = "✕";
+
+  header.appendChild(left);
+  header.appendChild(closeButton);
+
+  const progress = document.createElement("div");
+  progress.className = "toast-progress";
+
+  toast.appendChild(header);
+  toast.appendChild(progress);
 
   container.appendChild(toast);
 
   // manual close
 
-  toast.querySelector(".toast-close")
-  .addEventListener("click", () => {
+  closeButton.addEventListener("click", () => {
     removeToast(toast);
   });
 
