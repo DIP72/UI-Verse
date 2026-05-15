@@ -1,251 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menus - UIverse</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="home.css" />
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Menu Components — UIverse</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="menu.css" />
 
-  <!-- UIverse Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body> 
+<body>
 
-<!-- Replace your current menu.html with this upgraded structure -->
+<!-- =========================================================
+   SIDEBAR
+========================================================= -->
 
-<main class="main">
+<aside class="sidebar">
 
-  <!-- HERO -->
-  <section class="menu-hero">
+  <div class="sidebar-brand">
 
-    <div class="hero-badge">
-      <i class="fa-solid fa-bars"></i>
-      Navigation Components
-    </div>
+    <span class="brand-icon">
+      ⬡
+    </span>
 
-    <h1>
-      Modern <span>Menus</span>
-    </h1>
-
-    <p>
-      Explore premium menu components including dropdowns,
-      sidebars, context menus, hamburger menus and more
-      crafted for modern interfaces.
-    </p>
-
-  </section>
-
-  <!-- MENU GRID -->
-  <div class="menu-grid">
-
-    <!-- DROPDOWN -->
-    <div class="component-card">
-
-      <div class="card-top">
-        <div>
-          <span class="component-tag">
-            DROPDOWN
-          </span>
-
-          <h3>Dropdown Menu</h3>
-        </div>
-
-        <div class="card-icon">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </div>
-
-      <div class="menu-preview">
-
-        <div class="dropdown">
-          <button class="dropbtn">
-            Options
-            <i class="fa-solid fa-angle-down"></i>
-          </button>
-
-          <div class="dropdown-content">
-            <a href="#">Profile</a>
-            <a href="#">Settings</a>
-            <a href="#">Logout</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button>Preview</button>
-        <button>Copy Code</button>
-      </div>
-
-    </div>
-
-    <!-- MINI SIDEBAR -->
-    <div class="component-card">
-
-      <div class="card-top">
-
-        <div>
-          <span class="component-tag purple">
-            SIDEBAR
-          </span>
-
-          <h3>Mini Sidebar</h3>
-        </div>
-
-        <div class="card-icon purple-bg">
-          <i class="fa-solid fa-layer-group"></i>
-        </div>
-
-      </div>
-
-      <div class="menu-preview">
-
-        <div class="mini-sidebar">
-          <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-          <a href="#"><i class="fa-solid fa-box"></i> Products</a>
-          <a href="#"><i class="fa-solid fa-envelope"></i> Messages</a>
-          <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button>Preview</button>
-        <button>Copy Code</button>
-      </div>
-
-    </div>
-
-    <!-- CONTEXT MENU -->
-    <div class="component-card">
-
-      <div class="card-top">
-
-        <div>
-          <span class="component-tag cyan">
-            CONTEXT
-          </span>
-
-          <h3>Context Menu</h3>
-        </div>
-
-        <div class="card-icon cyan-bg">
-          <i class="fa-solid fa-computer-mouse"></i>
-        </div>
-
-      </div>
-
-      <div class="menu-preview">
-
-        <div class="context-box">
-
-          Right Click Area
-
-          <div class="context-menu">
-            <div>Copy</div>
-            <div>Edit</div>
-            <div>Delete</div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button>Preview</button>
-        <button>Copy Code</button>
-      </div>
-
-    </div>
-
-    <!-- HAMBURGER -->
-    <div class="component-card">
-
-      <div class="card-top">
-
-        <div>
-          <span class="component-tag orange">
-            MOBILE
-          </span>
-
-          <h3>Hamburger Menu</h3>
-        </div>
-
-        <div class="card-icon orange-bg">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-
-      </div>
-
-      <div class="menu-preview">
-
-        <div class="hamburger-menu">
-
-          <input type="checkbox" id="toggle">
-
-          <label for="toggle" class="burger">
-            ☰
-          </label>
-
-          <div class="menu-links">
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button>Preview</button>
-        <button>Copy Code</button>
-      </div>
-
-    </div>
-
-    <!-- HORIZONTAL -->
-    <div class="component-card">
-
-      <div class="card-top">
-
-        <div>
-          <span class="component-tag green">
-            NAVIGATION
-          </span>
-
-          <h3>Horizontal Menu</h3>
-        </div>
-
-        <div class="card-icon green-bg">
-          <i class="fa-solid fa-grip"></i>
-        </div>
-
-      </div>
-
-      <div class="menu-preview">
-
-        <div class="horizontal-menu">
-          <a href="#">Home</a>
-          <a href="#">Docs</a>
-          <a href="#">Pricing</a>
-          <a href="#">About</a>
-        </div>
-
-      </div>
-
-      <div class="actions">
-        <button>Preview</button>
-        <button>Copy Code</button>
-      </div>
-
-    </div>
+    <span class="brand-text">
+      UIverse
+    </span>
 
   </div>
 
+  <nav class="sidebar-nav">
+
+    <ul>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="#">
+          <i class="fa-solid fa-bars"></i>
+          Menus
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-layer-group"></i>
+          Components
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-book"></i>
+          Documentation
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+</aside>
+
+<!-- =========================================================
+   NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+  <div class="logo">
+    UIverse
+  </div>
+
+  <div class="search-bar">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+      type="text"
+      id="menuSearch"
+      placeholder="Search menu components..."
+    />
+
+  </div>
+
+  <div class="nav-actions">
+
+    <button class="outline-btn">
+      Documentation
+    </button>
+
+    <button class="primary-btn">
+      Explore UI
+    </button>
+
+  </div>
+
+</header>
+
+<!-- =========================================================
+   MAIN
+========================================================= -->
+
+<main class="main-home">
+
+  <!-- HERO -->
+  <section class="hero-section">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        ✨ Navigation Components
+      </div>
+
+      <h1>
+        Modern
+        <span>Menus</span>
+      </h1>
+
+      <p>
+        Explore premium menu components including
+        dropdowns, sidebars, mobile menus, floating
+        navigation and dashboard inspired layouts.
+      </p>
+
+      <div class="hero-actions">
+
+        <button class="primary-btn">
+          Explore Components
+        </button>
+
+        <button class="outline-btn">
+          View Docs
+        </button>
+
+      </div>
+
+      <div class="hero-stats">
+
+        <div class="stat-box">
+
+          <h3>20+</h3>
+
+          <span>Components</span>
+
+        </div>
+
+        <div class="stat-box">
+
+          <h3>100%</h3>
+
+          <span>Responsive</span>
+
+        </div>
+
+        <div class="stat-box">
+
+          <h3>Modern</h3>
+
+          <span>UI Design</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- HERO PREVIEW -->
+    <div class="hero-preview">
+
+      <div class="floating-menu">
+
+        <div class="floating-top">
+
+          <div class="floating-logo">
+            UI
+          </div>
+
+          <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+        <div class="floating-links">
+
+          <a href="#">
+            Dashboard
+          </a>
+
+          <a href="#">
+            Analytics
+          </a>
+
+          <a href="#">
+            Components
+          </a>
+
+          <a href="#">
+            Settings
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FILTERS -->
+  <div class="filter-bar">
+
+    <button class="filter-btn active">
+      All
+    </button>
+
+    <button class="filter-btn">
+      Dropdown
+    </button>
+
+    <button class="filter-btn">
+      Sidebar
+    </button>
+
+    <button class="filter-btn">
+      Mobile
+    </button>
+
+    <button class="filter-btn">
+      Floating
+    </button>
+
+  </div>
+
+  <!-- =========================================================
+     GRID
+  ========================================================= -->
+
+  <section class="menu-grid">
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Dropdown Menu
+        </span>
+
+        <span class="card-tag purple">
+          Popular
+        </span>
+
+      </div>
+
+      <div class="card-preview">
+
+        <div class="dropdown-demo">
+
+          <button class="dropdown-btn">
+            Menu
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="dropdown-content">
+
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p>
+        Minimal dropdown navigation menu
+        with smooth hover animation.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Sidebar Menu
+        </span>
+
+        <span class="card-tag blue">
+          Modern
+        </span>
+
+      </div>
+
+      <div class="card-preview dark">
+
+        <div class="mini-sidebar">
+
+          <a href="#">
+            <i class="fa-solid fa-house"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-gear"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <p>
+        Compact dashboard sidebar menu
+        for admin and analytics panels.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Glass Navbar
+        </span>
+
+        <span class="card-tag pink">
+          Trending
+        </span>
+
+      </div>
+
+      <div class="card-preview">
+
+        <div class="glass-navbar">
+
+          <span>UIverse</span>
+
+          <div>
+
+            <a href="#">Home</a>
+            <a href="#">Docs</a>
+            <a href="#">UI</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p>
+        Premium glassmorphism inspired
+        modern navigation bar design.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Mobile Menu
+        </span>
+
+        <span class="card-tag yellow">
+          Essential
+        </span>
+
+      </div>
+
+      <div class="card-preview dark">
+
+        <div class="mobile-menu">
+
+          <div class="hamburger">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p>
+        Animated mobile hamburger menu
+        with modern toggle interaction.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Floating Dock
+        </span>
+
+        <span class="card-tag blue">
+          Interactive
+        </span>
+
+      </div>
+
+      <div class="card-preview">
+
+        <div class="dock-menu">
+
+          <i class="fa-solid fa-house"></i>
+          <i class="fa-solid fa-folder"></i>
+          <i class="fa-solid fa-music"></i>
+          <i class="fa-solid fa-gear"></i>
+
+        </div>
+
+      </div>
+
+      <p>
+        macOS inspired floating dock
+        navigation with hover effects.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="menu-card">
+
+      <div class="card-top">
+
+        <span class="card-label">
+          Command Menu
+        </span>
+
+        <span class="card-tag purple">
+          Premium
+        </span>
+
+      </div>
+
+      <div class="card-preview dark">
+
+        <div class="command-menu">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            placeholder="Search commands..."
+          />
+
+        </div>
+
+      </div>
+
+      <p>
+        Command palette inspired search
+        menu for productivity systems.
+      </p>
+
+      <div class="card-actions">
+
+        <button class="view-btn">
+          View Code
+        </button>
+
+        <button class="copy-btn">
+          Copy
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
 </main>
 
+<script src="menu.js"></script>
+
+</body>
+</html>

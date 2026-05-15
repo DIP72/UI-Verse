@@ -1,4 +1,10 @@
 (function(){
+  let scrollSyncBound = false;
+
+  const FALLBACK_COMPONENTS = [
+    { title: 'index.html', path: 'index.html' }
+  ];
+
   const leftSelect = document.getElementById('leftSelect');
   const rightSelect = document.getElementById('rightSelect');
   const leftFrame = document.getElementById('leftFrame');
@@ -12,9 +18,22 @@
   // Load component list from data/components.json
   async function loadComponents(){
     try{
-      const res = await fetch('data/components.json');
-      if(!res.ok) throw new Error('Failed fetching components.json');
-      const list = await res.json();
+      let list = [];
+
+      if (window.ComponentsRegistry && typeof window.ComponentsRegistry.load === 'function') {
+        const state = await window.ComponentsRegistry.load();
+        list = Array.isArray(state && state.items) ? state.items : [];
+      } else {
+        const res = await fetch('data/components.json');
+        if (!res.ok) throw new Error('Failed fetching components.json');
+        list = await res.json();
+      }
+
+      if (!Array.isArray(list) || list.length === 0) {
+        list = FALLBACK_COMPONENTS;
+        console.warn('[Compare] Component metadata unavailable; using fallback list.');
+      }
+
       populateSelect(leftSelect, list);
       populateSelect(rightSelect, list);
 
@@ -27,9 +46,16 @@
       loadFrames();
     }catch(err){
       console.error(err);
-      // fallback: bare inputs
-      leftSelect.innerHTML = '<option value="index.html">index.html</option>';
-      rightSelect.innerHTML = '<option value="index.html">index.html</option>';
+      // fallback: keep the UI usable even without component metadata
+      populateSelect(leftSelect, FALLBACK_COMPONENTS);
+      populateSelect(rightSelect, FALLBACK_COMPONENTS);
+      leftSelect.value = 'index.html';
+      rightSelect.value = 'index.html';
+      leftTitle.textContent = 'index.html';
+      rightTitle.textContent = 'index.html';
+      if (window.UIVERSE_DEBUG) {
+        console.warn('[Compare] Falling back to minimal component list.');
+      }
     }
   }
 
@@ -97,26 +123,28 @@
       syncScroll(frameA, frameB);
       setTimeout(()=> syncing = false, 30);
     }
+
     try{
-      frameA.addEventListener('load', () => {
-        try{
-          frameA.contentWindow.addEventListener('scroll', onScroll, { passive: true });
-        }catch(e){}
-      });
+      if (frameA.contentWindow) {
+        frameA.contentWindow.addEventListener('scroll', onScroll, { passive: true });
+      }
     }catch(e){}
   }
 
   // Setup basic mutual sync when frames load
-  leftFrame.addEventListener('load', () => {
-    if(syncCheckbox.checked){
-      attachScrollSync(leftFrame, rightFrame);
-    }
-  });
-  rightFrame.addEventListener('load', () => {
-    if(syncCheckbox.checked){
-      attachScrollSync(rightFrame, leftFrame);
-    }
-  });
+  if (!scrollSyncBound) {
+    leftFrame.addEventListener('load', () => {
+      if(syncCheckbox.checked){
+        attachScrollSync(leftFrame, rightFrame);
+      }
+    });
+    rightFrame.addEventListener('load', () => {
+      if(syncCheckbox.checked){
+        attachScrollSync(rightFrame, leftFrame);
+      }
+    });
+    scrollSyncBound = true;
+  }
 
   syncCheckbox.addEventListener('change', () => {
     // no-op; listeners re-attach on next load events

@@ -11,6 +11,7 @@
 
   const controls = Array.from(drawer.querySelectorAll("[data-control]"));
   const valueLabels = Array.from(drawer.querySelectorAll("[data-value]"));
+  const headerActions = drawer.querySelector('.playground-header-actions');
 
   const defaultsByType = {
     button: {
@@ -71,6 +72,21 @@
       if (!key || values[key] === undefined) return;
       input.value = values[key];
       setValueLabel(key, values[key]);
+    });
+  }
+
+  function updateControlsVisibility(type) {
+    const keys = Object.keys(defaultsByType[type] || {});
+    controls.forEach((input) => {
+      const key = input.dataset.control;
+      const label = input.previousElementSibling && input.previousElementSibling.tagName.toLowerCase() === 'label' ? input.previousElementSibling : null;
+      if (keys.includes(key)) {
+        input.style.display = '';
+        if (label) label.style.display = '';
+      } else {
+        input.style.display = 'none';
+        if (label) label.style.display = 'none';
+      }
     });
   }
 
@@ -158,11 +174,41 @@
 
     const defaults = defaultsByType[activeType] || defaultsByType.button;
     setControls(defaults);
+    updateControlsVisibility(activeType);
     applyStyles();
     openDrawer();
 
     const cardTitle = card.querySelector("h3")?.textContent || "Component";
     if (title) title.textContent = cardTitle;
+  }
+
+  // Export / copy button
+  function copyPlaygroundCode() {
+    try {
+      const text = code.textContent || '';
+      if (!navigator.clipboard) {
+        const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+      } else {
+        navigator.clipboard.writeText(text);
+      }
+      if (typeof showToastSafe === 'function') showToastSafe('Playground code copied ✓');
+    } catch (e) {
+      console.error('copyPlaygroundCode', e);
+      if (typeof showToastSafe === 'function') showToastSafe('Failed to copy');
+    }
+  }
+
+  // add export button to header actions (if present)
+  if (headerActions && !headerActions.querySelector('.playground-export-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.type = 'button';
+    exportBtn.className = 'playground-export-btn';
+    exportBtn.textContent = 'Export/Copy';
+    exportBtn.addEventListener('click', (e) => { e.preventDefault(); copyPlaygroundCode(); });
+    // insert before Close button if present
+    const closeButton = headerActions.querySelector('#playgroundClose');
+    if (closeButton) headerActions.insertBefore(exportBtn, closeButton);
+    else headerActions.appendChild(exportBtn);
   }
 
   function injectPlaygroundButtons() {

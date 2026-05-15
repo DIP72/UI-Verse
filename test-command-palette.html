@@ -143,7 +143,7 @@
   // Initialize command palette
   if (typeof CommandPalette !== 'undefined') {
     CommandPalette.init();
-    console.log('✅ Command Palette initialized successfully');
+    if (window.UIVERSE_DEBUG) console.log('✅ Command Palette initialized successfully');
   } else {
     console.error('❌ Command Palette module not found');
   }

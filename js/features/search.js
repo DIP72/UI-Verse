@@ -4,21 +4,31 @@
  */
 
 const Search = {
+  _state: {
+    initialized: false,
+    listener: null
+  },
+
   /**
    * Initialize inline search filter using registry when available
    */
   initFilter() {
+    if (this._state.listener) return;
+
     const searchInput = getElement("searchInput");
     if (!searchInput) return;
 
-    searchInput.addEventListener("keyup", (e) => {
+    const onKeyUp = (e) => {
       const value = e.target.value.toLowerCase().trim();
 
       document.querySelectorAll(".component-card").forEach((item) => {
         const text = (item.dataset.name || item.innerText).toLowerCase();
         item.style.display = text.includes(value) ? "block" : "none";
       });
-    });
+    };
+
+    searchInput.addEventListener("keyup", onKeyUp);
+    this._state.listener = { el: searchInput, event: "keyup", handler: onKeyUp };
   },
 
   /**
@@ -35,7 +45,7 @@ const Search = {
         await window.ComponentsRegistry.load();
         const path = window.ComponentsRegistry.findRoute(query);
         if (path) {
-          window.location.href = path;
+          window.location.href = resolveRouteURL(path);
           return;
         }
       }
@@ -50,10 +60,21 @@ const Search = {
    * Initialize search feature
    */
   init() {
+    if (this._state.initialized) return;
+
     this.initFilter();
 
     // Expose for potential use
     window.handleSearch = (event) => this.handleRouting(event);
+    this._state.initialized = true;
+  },
+
+  destroy() {
+    if (this._state.listener) {
+      this._state.listener.el.removeEventListener(this._state.listener.event, this._state.listener.handler);
+    }
+    this._state.listener = null;
+    this._state.initialized = false;
   }
 };
 

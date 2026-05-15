@@ -206,15 +206,15 @@ URLStateManager.onSortChange('newest');    // Updates URL with ?sort=newest
 
 // Get current state
 const state = URLStateManager.getState();
-console.log(state); // { searchQuery: '', selectedCategory: 'all', sortOrder: 'default' }
+if (window.UIVERSE_DEBUG) console.log(state); // { searchQuery: '', selectedCategory: 'all', sortOrder: 'default' }
 
 // Get shareable URL
 const url = URLStateIntegration.getShareableURL();
-console.log(url);
+if (window.UIVERSE_DEBUG) console.log(url);
 
 // Listen for state changes
 URLStateIntegration.observeStateChanges((state) => {
-  console.log('State changed:', state);
+  if (window.UIVERSE_DEBUG) console.log('State changed:', state);
 });
     </code></pre>
   </div>
@@ -237,7 +237,7 @@ URLStateIntegration.observeStateChanges((state) => {
     if (typeof URLStateManager !== 'undefined') {
       URLStateManager.onSearchChange('button');
       updateDisplay();
-      alert('✅ Search parameter set to "button"\nCheck the URL above');
+      if (window.UIVERSE_DEBUG) alert('✅ Search parameter set to "button"\nCheck the URL above');
     }
   }
 
@@ -245,7 +245,7 @@ URLStateIntegration.observeStateChanges((state) => {
     if (typeof URLStateManager !== 'undefined') {
       URLStateManager.onCategoryChange('components');
       updateDisplay();
-      alert('✅ Category parameter set to "components"\nCheck the URL above');
+      if (window.UIVERSE_DEBUG) alert('✅ Category parameter set to "components"\nCheck the URL above');
     }
   }
 
@@ -253,7 +253,7 @@ URLStateIntegration.observeStateChanges((state) => {
     if (typeof URLStateManager !== 'undefined') {
       URLStateManager.onSortChange('newest');
       updateDisplay();
-      alert('✅ Sort parameter set to "newest"\nCheck the URL above');
+      if (window.UIVERSE_DEBUG) alert('✅ Sort parameter set to "newest"\nCheck the URL above');
     }
   }
 
@@ -263,7 +263,7 @@ URLStateIntegration.observeStateChanges((state) => {
       URLStateManager.onCategoryChange('all');
       URLStateManager.onSortChange('popular');
       updateDisplay();
-      alert('✅ All parameters set!\nCheck the URL above');
+      if (window.UIVERSE_DEBUG) alert('✅ All parameters set!\nCheck the URL above');
     }
   }
 
@@ -271,7 +271,7 @@ URLStateIntegration.observeStateChanges((state) => {
     if (typeof URLStateManager !== 'undefined') {
       URLStateManager.clearState();
       updateDisplay();
-      alert('✅ All filters cleared\nURL should be clean');
+      if (window.UIVERSE_DEBUG) alert('✅ All filters cleared\nURL should be clean');
     }
   }
 
@@ -279,9 +279,9 @@ URLStateIntegration.observeStateChanges((state) => {
     if (typeof URLStateIntegration !== 'undefined') {
       URLStateIntegration.copyShareableURL().then(result => {
         if (result.success) {
-          alert('✅ URL copied to clipboard!\n\n' + result.url);
+          if (window.UIVERSE_DEBUG) alert('✅ URL copied to clipboard!\n\n' + result.url);
         } else {
-          alert('❌ Failed to copy URL');
+          if (window.UIVERSE_DEBUG) alert('❌ Failed to copy URL');
         }
         updateDisplay();
       });

@@ -1,121 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Testimonials - UIverse</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Testimonials — UIverse</title>
 
+  <!-- Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="testimonials.css">
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
 
-  <!-- UIverse Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/main.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="testimonials.css" />
+
 </head>
 
 <body>
 
-<div class="container">
+<!-- =========================================================
+   SIDEBAR
+========================================================= -->
 
-  <!-- Hamburger -->
+<aside class="sidebar">
 
-  <button
-    class="hamburger"
-    type="button"
-    aria-label="Toggle menu"
-    onclick="toggleSidebar()"
-  >
-    ☰
+  <div>
+
+    <div class="sidebar-brand">
+
+      <i class="fa-solid fa-layer-group brand-icon"></i>
+
+      <span class="brand-text">
+        UIverse
+      </span>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <ul>
+
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-house"></i>
+            Home
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="#">
+            <i class="fa-solid fa-comment"></i>
+            Testimonials
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-layer-group"></i>
+            Components
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-book"></i>
+            Docs
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-star"></i>
+            Featured
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div class="sidebar-footer">
+
+    <a href="#">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <a href="#">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+
+    <a href="#">
+      <i class="fa-brands fa-twitter"></i>
+    </a>
+
+  </div>
+
+</aside>
+
+<!-- =========================================================
+   NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+  <button class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
   </button>
 
-  <!-- Sidebar -->
+  <div class="logo">
+    UIverse
+  </div>
 
-  <aside class="sidebar" id="sidebar">
+  <div class="search-bar">
 
-    <h2>UIverse</h2>
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
 
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="button.html">Buttons</a></li>
-      <li><a href="navbar.html">Navbars</a></li>
-      <li><a href="cards.html">Cards</a></li>
-      <li><a href="inputs.html">Inputs</a></li>
-      <li><a href="form.html">Forms</a></li>
-      <li><a href="color.html">Colors</a></li>
-      <li><a href="alerts.html">Alerts</a></li>
-      <li><a href="badges.html">Badges</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
+    <input
+      type="text"
+      placeholder="Search testimonials..."
+    />
 
-      <li class="active">
-        <a href="testimonials.html">Testimonials</a>
-      </li>
+    <span class="search-kbd">
+      ⌘ K
+    </span>
 
-      <li><a href="footer.html">Footer</a></li>
-    </ul>
+  </div>
 
-  </aside>
+  <div class="nav-right">
 
-  <div
-    class="sidebar-backdrop"
-    id="backdrop"
-    onclick="toggleSidebar()"
-  ></div>
+    <button class="nav-btn outline-nav-btn">
+      Docs
+    </button>
 
-  <!-- Main -->
+    <button class="nav-btn primary-nav-btn">
+      Explore
+    </button>
 
-  <main class="main">
+  </div>
 
-    <div class="page-header">
+</header>
 
-      <h1>Testimonials</h1>
+<!-- =========================================================
+   MAIN
+========================================================= -->
 
-      <p>
-        Beautiful modern testimonial cards designed with
-        glassmorphism, premium hover animations, gradient glow
-        effects, and elegant typography.
+<main class="main-home">
+
+  <!-- =========================================================
+     HERO
+  ========================================================= -->
+
+  <section class="hero">
+
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+
+    <div class="hero-badge">
+
+      <i class="fa-solid fa-fire"></i>
+
+      Community Feedback
+
+    </div>
+
+    <h1 class="hero-title">
+
+      Loved By
+      <span class="hero-accent">
+        Developers
+      </span>
+
+    </h1>
+
+    <p class="hero-desc">
+
+      Thousands of developers and designers
+      use UIverse to build stunning modern
+      interfaces faster than ever before.
+
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        href="#"
+        class="btn-primary"
+      >
+        Explore Components
+      </a>
+
+      <a
+        href="#"
+        class="btn-ghost"
+      >
+        Read Reviews
+      </a>
+
+    </div>
+
+    <div class="hero-stats">
+
+      <div class="stat">
+
+        <span class="stat-number">
+          15K+
+        </span>
+
+        <span class="stat-label">
+          USERS
+        </span>
+
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat">
+
+        <span class="stat-number">
+          4.9
+        </span>
+
+        <span class="stat-label">
+          RATING
+        </span>
+
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat">
+
+        <span class="stat-number">
+          800+
+        </span>
+
+        <span class="stat-label">
+          COMPONENTS
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+     SECTION HEADER
+  ========================================================= -->
+
+  <section class="section">
+
+    <div class="section-header">
+
+      <span class="section-tag">
+        TESTIMONIALS
+      </span>
+
+      <h2 class="section-title">
+        What Developers Say
+      </h2>
+
+      <p class="section-subtitle">
+        Real feedback from the UIverse community.
       </p>
 
     </div>
 
-    <!-- Testimonials -->
+    <!-- =========================================================
+       TESTIMONIAL GRID
+    ========================================================= -->
 
     <div class="testimonial-grid">
 
-      <!-- Card 1 -->
+      <!-- CARD -->
 
-      <div class="component-card">
+      <div class="testimonial-card">
 
-        <h3>Customer Testimonial</h3>
+        <div class="testimonial-top">
 
-        <div class="testimonial-card">
+          <img
+            src="https://i.pravatar.cc/120?img=12"
+            alt=""
+          />
 
-          <div class="blur-glow"></div>
+          <div>
 
-          <div class="quote-icon">❝</div>
+            <h3>
+              Alex Morgan
+            </h3>
 
-          <div class="stars">
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <span>
+              Frontend Developer
+            </span>
+
           </div>
 
-          <p>
-            “UIverse helped us launch faster with polished
-            UI components that were elegant, scalable,
-            and incredibly easy to customize.”
-          </p>
+        </div>
 
-          <div class="testimonial-meta">
+        <p>
+
+          “UIverse completely changed the way
+          I build interfaces. The components
+          feel premium and save me hours.”
 
             <div class="avatar">
               <img
@@ -124,55 +325,93 @@
                srcset="https://i.pravatar.cc/40?img=5 40w, https://i.pravatar.cc/80?img=5 80w, https://i.pravatar.cc/150?img=5 150w, https://i.pravatar.cc/300?img=5 300w" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async">
             </div>
 
-            <div class="user-info">
-              <strong>Maya Lee</strong>
-              <span>Product Designer</span>
-            </div>
+        <div class="stars">
 
-          </div>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
 
         </div>
-
-        <div class="actions">
-          <button class="action-btn view-btn" onclick="toggleCode('t1', this)"><i class="fa-solid fa-code"></i> View Code</button>
-          <button class="action-btn copy-btn" onclick="copyCode('t1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
-        </div>
-
-<pre id="t1" class="code-block">
-&lt;div class="testimonial-card"&gt;
-  Modern glowing testimonial card
-&lt;/div&gt;
-</pre>
 
       </div>
 
-      <!-- Card 2 -->
+      <!-- CARD -->
 
-      <div class="component-card">
+      <div class="testimonial-card">
 
-        <h3>Quote Panel</h3>
+        <div class="testimonial-top">
 
-        <div class="testimonial-card">
+          <img
+            src="https://i.pravatar.cc/120?img=32"
+            alt=""
+          />
 
-          <div class="blur-glow"></div>
+          <div>
 
-          <div class="quote-icon">❝</div>
+            <h3>
+              Sarah Lee
+            </h3>
 
-          <div class="stars">
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+            <span>
+              UI Designer
+            </span>
+
           </div>
 
-          <p>
-            “The component library is beginner friendly
-            and made styling my app feel effortless,
-            modern, and professional.”
-          </p>
+        </div>
 
-          <div class="testimonial-meta">
+        <p>
+
+          “The design consistency across all
+          pages is honestly insane. Everything
+          feels polished and modern.”
+
+        </p>
+
+        <div class="stars">
+
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="testimonial-card">
+
+        <div class="testimonial-top">
+
+          <img
+            src="https://i.pravatar.cc/120?img=45"
+            alt=""
+          />
+
+          <div>
+
+            <h3>
+              Kevin Roy
+            </h3>
+
+            <span>
+              Full Stack Engineer
+            </span>
+
+          </div>
+
+        </div>
+
+        <p>
+
+          “Glassmorphism, gradients, spacing,
+          interactions — UIverse nailed every
+          single detail beautifully.”
 
             <div class="avatar">
               <img
@@ -181,101 +420,158 @@
                srcset="https://i.pravatar.cc/40?img=12 40w, https://i.pravatar.cc/80?img=12 80w, https://i.pravatar.cc/150?img=12 150w, https://i.pravatar.cc/300?img=12 300w" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async">
             </div>
 
-            <div class="user-info">
-              <strong>Alex Chen</strong>
-              <span>Frontend Developer</span>
-            </div>
+        <div class="stars">
+
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="testimonial-card">
+
+        <div class="testimonial-top">
+
+          <img
+            src="https://i.pravatar.cc/120?img=18"
+            alt=""
+          />
+
+          <div>
+
+            <h3>
+              Emma Watson
+            </h3>
+
+            <span>
+              Product Designer
+            </span>
 
           </div>
 
         </div>
 
-        <div class="actions">
-          <button class="action-btn view-btn" onclick="toggleCode('t2', this)"><i class="fa-solid fa-code"></i> View Code</button>
-          <button class="action-btn copy-btn" onclick="copyCode('t2', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        <p>
+
+          “I use UIverse almost daily now.
+          It genuinely speeds up my workflow
+          while keeping quality top-tier.”
+
+        </p>
+
+        <div class="stars">
+
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+
         </div>
 
-<pre id="t2" class="code-block">
-&lt;div class="testimonial-card"&gt;
-  Premium quote testimonial
-&lt;/div&gt;
-</pre>
+      </div>
+
+      <!-- CARD -->
+
+      <div class="testimonial-card">
+
+        <div class="testimonial-top">
+
+          <img
+            src="https://i.pravatar.cc/120?img=22"
+            alt=""
+          />
+
+          <div>
+
+            <h3>
+              Daniel Kim
+            </h3>
+
+            <span>
+              React Developer
+            </span>
+
+          </div>
+
+        </div>
+
+        <p>
+
+          “The hover animations and premium
+          UI feel make every component look
+          production-ready instantly.”
+
+        </p>
+
+        <div class="stars">
+
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="testimonial-card">
+
+        <div class="testimonial-top">
+
+          <img
+            src="https://i.pravatar.cc/120?img=55"
+            alt=""
+          />
+
+          <div>
+
+            <h3>
+              Sophia Miller
+            </h3>
+
+            <span>
+              Web Developer
+            </span>
+
+          </div>
+
+        </div>
+
+        <p>
+
+          “Probably one of the cleanest UI
+          component ecosystems I’ve used in
+          a long time.”
+
+        </p>
+
+        <div class="stars">
+
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+
+        </div>
 
       </div>
 
     </div>
 
-  </main>
+  </section>
 
-</div>
-
-<!-- Footer -->
-
-<footer class="footer">
-
-  <div class="footer-card">
-
-    <div class="footer-brand">
-
-      <h2>UIverse</h2>
-
-      <p>
-        © 2026 UIverse. Crafted with modern UI aesthetics
-        for developers and designers.
-      </p>
-
-      <h2>UIverse</h2>
-      <p>© 2026 UIverse. All rights reserved.</p>
-      <div class="footer-socials">
-        <span>🌐</span>
-        <span>💼</span>
-        <span>📱</span>
-      </div>
-
-    </div>
-
-    <div class="footer-col">
-
-      <h3>Pages</h3>
-
-      <a href="pricing.html">Pricing</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="alerts.html">Alerts</a>
-
-    </div>
-
-    <div class="footer-col">
-
-      <h3>Legal</h3>
-
-      <a href="privacypolicy.html">
-        Privacy Policy
-      </a>
-
-      <a href="terms.html">
-        Terms of Service
-      </a>
-
-    </div>
-
-  </div>
-
-</footer>
-
-<!-- UIverse Modular Scripts -->
-<script src="js/core/utils.js"></script>
-<script src="js/features/toast.js"></script>
-<script src="js/features/popup.js"></script>
-<script src="js/features/code-tools.js"></script>
-<script src="js/features/sidebar.js"></script>
-<script src="js/features/search.js"></script>
-<script src="js/features/theme.js"></script>
-<script src="js/features/scroll.js"></script>
-<script src="js/features/alerts.js"></script>
-<script src="js/features/sandbox.js"></script>
-<script src="js/features/accessibility.js"></script>
-<script src="js/bootstrap.js"></script>
+</main>
 
 </body>
 </html>
-
