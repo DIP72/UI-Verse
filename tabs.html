@@ -561,7 +561,22 @@ document.querySelectorAll('.tab-btn').forEach(btn =&gt; {
       <h3>Stay Updated</h3>
       <p>Get notified when new components drop.</p>
       <div class="newsletter-form">
-        <input type="email" placeholder="your@email.com" />
+       <input 
+  type="email"
+  placeholder="your@email.com"
+
+  style="
+    transition:0.3s ease;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    background:#1a1a1a;
+    color:white;
+  "
+
+  onmouseover="this.style.boxShadow='0 0 15px rgba(255,102,0,0.8)'"
+  onmouseout="this.style.boxShadow='none'"
+/>
         <button type="button">Subscribe</button>
       </div>
     </div>
