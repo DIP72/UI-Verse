@@ -754,6 +754,45 @@ function subscribe(e) { e.preventDefault(); showToastSafe('Subscribed successful
 window.addEventListener('DOMContentLoaded', () => {
   // Popup reference
   window.popup = document.getElementById('popup');
+  // Isolate component styles by wrapping component cards in a Shadow DOM.
+  // This keeps component markup scoped and prevents accidental global CSS leakage.
+  function initShadowWrap() {
+    try {
+      const styleHrefs = ['/css/main.css', '/style.css'];
+      document.querySelectorAll('.component-card').forEach((card, idx) => {
+        if (card.dataset.uiverseIsolated === '1') return;
+        // create a host element to hold the shadow root
+        const host = document.createElement('div');
+        host.className = 'uiverse-component-host';
+        // move attributes that may be used for identification
+        host.dataset.originalIndex = idx;
+
+        // move card children into host's shadow root
+        const shadow = host.attachShadow({ mode: 'open' });
+
+        // add same CSS links inside shadow to preserve component visuals but keep them scoped
+        styleHrefs.forEach(href => {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          shadow.appendChild(link);
+        });
+
+        // copy the innerHTML of the card into the shadow
+        const wrapper = document.createElement('div');
+        wrapper.className = 'uiverse-component-inner';
+        wrapper.innerHTML = card.innerHTML;
+        shadow.appendChild(wrapper);
+
+        // clear original card and append host
+        card.innerHTML = '';
+        card.appendChild(host);
+        card.dataset.uiverseIsolated = '1';
+      });
+    } catch (e) { console.warn('initShadowWrap failed', e); }
+  }
+
+  initShadowWrap();
 
   initAccessibilityHardeningLegacy();
   initSidebar();
