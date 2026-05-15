@@ -7,7 +7,10 @@ const clipboardInput =
 const clipboardList =
   document.getElementById("clipboardList");
 
-saveBtn.addEventListener("click", () => {
+if (!saveBtn || !clipboardInput || !clipboardList) {
+  // Page does not include the clipboard widget.
+} else {
+  saveBtn.addEventListener("click", () => {
 
   const text =
     clipboardInput.value.trim();
@@ -21,31 +24,30 @@ saveBtn.addEventListener("click", () => {
 
   card.classList.add("clipboard-card");
 
-  card.innerHTML = `
-    <p>${text}</p>
+  const paragraph = document.createElement("p");
+  paragraph.textContent = text;
 
-    <div class="card-buttons">
+  const buttons = document.createElement("div");
+  buttons.className = "card-buttons";
 
-      <button class="copy-btn">
-        Copy
-      </button>
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "copy-btn";
+  copyBtn.type = "button";
+  copyBtn.textContent = "Copy";
 
-      <button class="delete-btn">
-        Delete
-      </button>
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.type = "button";
+  deleteBtn.textContent = "Delete";
 
-    </div>
-  `;
+  buttons.appendChild(copyBtn);
+  buttons.appendChild(deleteBtn);
+  card.appendChild(paragraph);
+  card.appendChild(buttons);
 
   clipboardList.appendChild(card);
 
   clipboardInput.value = "";
-
-  const copyBtn =
-    card.querySelector(".copy-btn");
-
-  const deleteBtn =
-    card.querySelector(".delete-btn");
 
   copyBtn.addEventListener("click", () => {
 
@@ -55,10 +57,11 @@ saveBtn.addEventListener("click", () => {
 
   });
 
-  deleteBtn.addEventListener("click", () => {
+    deleteBtn.addEventListener("click", () => {
 
-    card.remove();
+      card.remove();
+
+    });
 
   });
-
-});
+}

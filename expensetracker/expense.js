@@ -1,7 +1,10 @@
 const addBtn = document.getElementById("addBtn");
 const transactions = document.querySelector(".transactions");
 
-addBtn.addEventListener("click", () => {
+if (!addBtn || !transactions) {
+  // Page does not include the expense tracker widget.
+} else {
+  addBtn.addEventListener("click", () => {
 
   const expenseName =
     document.getElementById("expenseName").value;
@@ -18,13 +21,18 @@ addBtn.addEventListener("click", () => {
 
   newTransaction.classList.add("transaction");
 
-  newTransaction.innerHTML = `
-    <span>${expenseName}</span>
-    <p>- ₹${expenseAmount}</p>
-  `;
+  const nameSpan = document.createElement("span");
+  nameSpan.textContent = expenseName;
 
-  transactions.appendChild(newTransaction);
+  const amountParagraph = document.createElement("p");
+  amountParagraph.textContent = `- ₹${expenseAmount}`;
 
-  document.getElementById("expenseName").value = "";
-  document.getElementById("expenseAmount").value = "";
-});
+  newTransaction.appendChild(nameSpan);
+  newTransaction.appendChild(amountParagraph);
+
+    transactions.appendChild(newTransaction);
+
+    document.getElementById("expenseName").value = "";
+    document.getElementById("expenseAmount").value = "";
+  });
+}

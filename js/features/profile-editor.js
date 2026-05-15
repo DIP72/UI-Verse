@@ -7,7 +7,8 @@
 const ProfileEditor = {
   _state: {
     initialized: false,
-    editBtn: null
+    editBtn: null,
+    modalCleanup: null
   },
 
   /**
@@ -73,7 +74,7 @@ const ProfileEditor = {
       <div class="modal-backdrop" data-close="1" aria-hidden="true"></div>
       <div class="modal-card">
         <div class="modal-header">
-          <h3>Edit Profile</h3>
+          <h3 id="profile-editor-title">Edit Profile</h3>
           <button type="button" class="modal-close" aria-label="Close">&times;</button>
         </div>
         <div class="modal-body">
@@ -91,8 +92,15 @@ const ProfileEditor = {
     document.body.appendChild(modal);
     this._attachModalHandlers(modal, currentInfo);
 
-    // Focus first input
-    setTimeout(() => modal.querySelector('#profile-editor-name')?.focus?.(), 0);
+    if (window.Accessibility && typeof window.Accessibility.openModal === 'function') {
+      this._state.modalCleanup = window.Accessibility.openModal(modal, {
+        initialFocus: '#profile-editor-name',
+        restoreFocusTo: this._state.editBtn
+      });
+    } else {
+      setTimeout(() => modal.querySelector('#profile-editor-name')?.focus?.(), 0);
+    }
+
   },
 
   /**
@@ -100,7 +108,20 @@ const ProfileEditor = {
    * @private
    */
   _attachModalHandlers(modal, currentInfo) {
-    const closeModal = () => modal.remove();
+    let closed = false;
+    const closeModal = () => {
+      if (closed) return;
+      closed = true;
+
+      if (this._state.modalCleanup) {
+        this._state.modalCleanup();
+        this._state.modalCleanup = null;
+      } else if (window.Accessibility && typeof window.Accessibility.closeModal === 'function') {
+        window.Accessibility.closeModal(modal);
+      }
+
+      modal.remove();
+    };
 
     // Close button and backdrop
     modal.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
@@ -146,6 +167,11 @@ const ProfileEditor = {
   },
 
   destroy() {
+    if (this._state.modalCleanup) {
+      this._state.modalCleanup();
+      this._state.modalCleanup = null;
+    }
+
     if (this._state.editBtn) {
       // Remove event listeners by removing and re-adding (or store references)
       const newBtn = this._state.editBtn.cloneNode(true);

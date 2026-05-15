@@ -1,9 +1,3 @@
-/* ===================================================
-   HOME.CSS — UIverse Homepage Overrides & New Styles
-   Import AFTER style.css
-   =================================================== */
-
-/* ---------- ROOT TOKENS ---------- */
 :root {
   --accent: #eb6835;
   --accent-2: #6c5ce7;

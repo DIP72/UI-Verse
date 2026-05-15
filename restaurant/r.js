@@ -23,10 +23,14 @@ addButtons.forEach(button => {
 
     item.classList.add("cart-item");
 
-    item.innerHTML = `
-      <span>${itemName}</span>
-      <strong>₹${itemPrice}</strong>
-    `;
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = itemName;
+
+    const priceStrong = document.createElement("strong");
+    priceStrong.textContent = `₹${itemPrice}`;
+
+    item.appendChild(nameSpan);
+    item.appendChild(priceStrong);
 
     if(cartItems.innerHTML.includes("No items added")){
       cartItems.innerHTML = "";

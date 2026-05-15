@@ -160,7 +160,72 @@ window.handleSearch = window.handleSearch || function(event) {
   } else if (typeof Search !== 'undefined' && Search.handleRouting) {
     Search.handleRouting(event);
   }
-};
+}
+
+// Scroll to top
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function initScrollTop() { const btn = document.getElementById('scrollTopBtn'); if (!btn) return; window.addEventListener('scroll', () => { const visible = window.scrollY > 50; btn.style.display = visible ? 'block' : 'none'; btn.classList.toggle('visible', window.scrollY > 400); document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 40); }); btn.addEventListener('click', () => scrollToTop()); }
+
+// Progress bar
+function initProgressBar() { const bar = document.getElementById('progressBar'); if (!bar) return; window.addEventListener('scroll', () => { const scrollTop = document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; bar.style.width = ((scrollTop / Math.max(height, 1)) * 100) + '%'; }); }
+
+// Alerts & subscribe
+function closeAlert(alertId) { const a = document.getElementById(alertId); if (a) a.style.display = 'none'; }
+function subscribe(e) { e.preventDefault(); showToastSafe('Subscribed successfully! 🎉'); }
+
+// Init
+window.addEventListener('DOMContentLoaded', () => {
+  // Popup reference
+  window.popup = document.getElementById('popup');
+  // Isolate component styles by wrapping component cards in a Shadow DOM.
+  // This keeps component markup scoped and prevents accidental global CSS leakage.
+  function initShadowWrap() {
+    try {
+      const styleHrefs = ['/css/main.css', '/style.css'];
+      document.querySelectorAll('.component-card').forEach((card, idx) => {
+        if (card.dataset.uiverseIsolated === '1') return;
+        // create a host element to hold the shadow root
+        const host = document.createElement('div');
+        host.className = 'uiverse-component-host';
+        // move attributes that may be used for identification
+        host.dataset.originalIndex = idx;
+
+        // move card children into host's shadow root
+        const shadow = host.attachShadow({ mode: 'open' });
+
+        // add same CSS links inside shadow to preserve component visuals but keep them scoped
+        styleHrefs.forEach(href => {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          shadow.appendChild(link);
+        });
+
+        // copy the innerHTML of the card into the shadow
+        const wrapper = document.createElement('div');
+        wrapper.className = 'uiverse-component-inner';
+        wrapper.innerHTML = card.innerHTML;
+        shadow.appendChild(wrapper);
+
+        // clear original card and append host
+        card.innerHTML = '';
+        card.appendChild(host);
+        card.dataset.uiverseIsolated = '1';
+      });
+    } catch (e) { console.warn('initShadowWrap failed', e); }
+  }
+
+  initShadowWrap();
+
+  initAccessibilityHardeningLegacy();
+  initSidebar();
+  initLiveSandboxes();
+  initDarkMode();
+  initAccessibilityMode();
+  initScrollTop();
+  initProgressBar();
+  initSearchFilter();
+  createFilterUI();  // Initialize filter UI
 
   // Attach global search handler
   const searchEl = document.getElementById('searchInput');
@@ -207,3 +272,15 @@ function handleSearch(event) {
 if (window.UIVERSE_DEBUG) {
   console.info('[script.js] Backward compatibility layer loaded. All functionality is modularized via UIverse.modules');
 }
+const menuBtn = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuBtn.addEventListener("click", () => {
+
+  if (window.innerWidth > 900) {
+    sidebar.classList.toggle("collapsed");
+  } else {
+    document.body.classList.toggle("sidebar-open");
+  }
+
+});

@@ -18,7 +18,15 @@
   <link rel="stylesheet" href="playground.css">
   <link rel="stylesheet" href="command-palette.css">
   <link rel="stylesheet" href="css/url-state.css">
+  <!-- UIverse Modular Scripts - Load in dependency order -->
+  <!-- UIverse Registry (must load first) -->
+  <script src="js/registry.js"></script>
+  <!-- Core Modules -->
   <script src="js/core/utils.js"></script>
+  <script src="js/core/security.js"></script>
+  <script src="js/core/components-registry.js"></script>
+  <script src="js/core/sanitize.js"></script>
+  <!-- Feature Modules -->
   <script src="js/features/toast.js"></script>
   <script src="js/features/popup.js"></script>
   <script src="js/features/code-tools.js"></script>
@@ -32,7 +40,12 @@
   <script src="js/features/command-palette.js"></script>
   <script src="js/features/url-state.js"></script>
   <script src="js/features/url-state-integration.js"></script>
+  <script src="js/features/profile-editor.js"></script>
+  <script src="js/features/component-gallery.js"></script>
+  <!-- Bootstrap (initializes all modules) -->
   <script src="js/bootstrap.js"></script>
+  <!-- Backward Compatibility Layer -->
+  <script src="script.js"></script>
 </head>
 
 <body data-playground-type="card">
@@ -200,9 +213,9 @@
   <div class="cards-grid" id="cardsGrid">
 
     <!-- Profile Card -->
-    <div class="component-card" data-name="profile card hover avatar" data-cat="profile">
+    <div class="component-card" data-name="profile card hover avatar" data-cat="profile" >
       <div class="card-top">
-        <span class="card-label">Profile Card</span>
+        <span class="card-label" style="color: black;">Profile Card</span>
         <span class="card-tag tag-popular">Popular</span>
       </div>
       <div class="card-preview">
@@ -213,7 +226,7 @@
           <button class="profile-btn">Follow</button>
         </div>
       </div>
-      <p class="card-desc">A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
+      <p class="card-desc" >A centered profile card with avatar, name, role, and a follow button. Lifts on hover.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c1', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -304,7 +317,7 @@
       </div>
       <div class="card-preview">
         <div class="simple-card">
-          <h4>Card Title</h4>
+          <h4 style="color: black;">Card Title</h4>
           <p>This is a simple card component with a clean, minimal design.</p>
           <button class="simple-card-btn">Learn More</button>
         </div>
@@ -564,9 +577,9 @@
           <div class="notif-card notif-purple">
             <div class="notif-icon"><i class="fa-solid fa-bell"></i></div>
             <div class="notif-body">
-              <h4>New Message</h4>
-              <p>You have received a new message from Alex.</p>
-              <span class="notif-time">2 min ago</span>
+              <h4 style="color: black;">New Message</h4>
+              <p style="color: black;">You have received a new message from Alex.</p>
+              <span class="notif-time" style="color: black;">2 min ago</span>
             </div>
             <button class="notif-close"><i class="fa-solid fa-xmark"></i></button>
           </div>
@@ -620,7 +633,7 @@
         <span class="card-label">Social Card</span>
         <span class="card-tag tag-trending">Trending</span>
       </div>
-      <div class="card-preview">
+      <div class="card-preview" style="color: black;">
         <div class="social-card">
           <div class="social-header">
             <div class="social-avatar">JD</div>
@@ -630,16 +643,16 @@
             </div>
             <div class="social-platform"><i class="fab fa-x-twitter"></i></div>
           </div>
-          <p class="social-text">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
+          <p class="social-text" style="color: black;">Just launched my new UI component library! Check it out and let me know what you think. <i class="fa-solid fa-rocket"></i></p>
           <div class="social-actions">
-            <button class="social-btn"><i class="fa-regular fa-heart"></i> 42</button>
-            <button class="social-btn"><i class="fa-regular fa-comment"></i> 12</button>
-            <button class="social-btn"><i class="fa-solid fa-retweet"></i> 5</button>
-            <button class="social-btn share-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+            <button class="social-btn" style="background-color: black;"><i class="fa-regular fa-heart"></i> 42</button>
+            <button class="social-btn" style="color: black;"><i class="fa-regular fa-comment"></i> 12</button>
+            <button class="social-btn" style="color: black;"><i class="fa-solid fa-retweet"></i> 5</button>
+            <button class="social-btn share-btn" style="color: black;"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
           </div>
         </div>
       </div>
-      <p class="card-desc">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
+      <p class="card-desc" style="color: black;">A Twitter/X-style social card with avatar, actions bar, and hover interactions.</p>
       <div class="actions">
         <button class="action-btn view-btn" onclick="toggleCode('c9', this)">
           <i class="fa-solid fa-code"></i> View Code
@@ -712,31 +725,31 @@
 
     <div class="footer-col">
       <h3>Explore</h3>
-      <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="forms.html">Forms</a></li>
+      <ul style="color: black;">
+        <li><a href="button.html" style="color: black;">Buttons</a></li>
+        <li><a href="navbar.html" style="color: black;">Navbars</a></li>
+        <li><a href="cards.html" style="color: black;">Cards</a></li>
+        <li><a href="inputs.html" style="color: black;">Inputs</a></li>
+        <li><a href="forms.html" style="color: black;">Forms</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="#" style="color: black;">Documentation</a></li>
+        <li><a href="#" style="color: black;">Contribute</a></li>
+        <li><a href="#" style="color: black;">GitHub Repo</a></li>
+        <li><a href="#" style="color: black;">Community</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3>Legal</h3>
       <ul>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="license.html">License</a></li>
+        <li><a href="privacypolicy.html" style="color: black;">Privacy Policy</a></li>
+        <li><a href="terms.html" style="color: black;">Terms of Service</a></li>
+        <li><a href="license.html" style="color: black;">License</a></li>
       </ul>
     </div>
 
@@ -750,7 +763,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+    <p style="color: black;">© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
 
@@ -949,16 +962,6 @@ function copyCode(id,btn){
   setTimeout(()=>btn.innerText="Copy",1000);
 }
 </script>
-<style>
-  button{
-  background:  #a29bfe;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  }
-
-</style>
-
 <!-- ================= COMMAND PALETTE ================= -->
 <div id="commandPaletteOverlay" class="command-palette-overlay">
   <div class="command-palette-container">

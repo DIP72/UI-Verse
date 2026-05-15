@@ -21,10 +21,16 @@ function sendMessage() {
     ":" +
     now.getMinutes().toString().padStart(2, "0");
 
-  messageDiv.innerHTML = `
-    <div class="message-content">${text}</div>
-    <span class="time">${time}</span>
-  `;
+  const msgContent = document.createElement('div');
+  msgContent.className = 'message-content';
+  msgContent.textContent = text;
+
+  const timeSpan = document.createElement('span');
+  timeSpan.className = 'time';
+  timeSpan.textContent = time;
+
+  messageDiv.appendChild(msgContent);
+  messageDiv.appendChild(timeSpan);
 
   chatBox.appendChild(messageDiv);
 
@@ -39,12 +45,16 @@ function sendMessage() {
 
     reply.classList.add("message", "received");
 
-    reply.innerHTML = `
-      <div class="message-content">
-        ✨ That's a great UI idea!
-      </div>
-      <span class="time">${time}</span>
-    `;
+    const replyContent = document.createElement('div');
+    replyContent.className = 'message-content';
+    replyContent.textContent = "✨ That's a great UI idea!";
+
+    const replyTime = document.createElement('span');
+    replyTime.className = 'time';
+    replyTime.textContent = time;
+
+    reply.appendChild(replyContent);
+    reply.appendChild(replyTime);
 
     chatBox.appendChild(reply);
 

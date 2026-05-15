@@ -16,16 +16,17 @@ function addNote(){
 
   noteCard.classList.add("note-card");
 
-  noteCard.innerHTML = `
-    <button class="delete-btn">×</button>
-    <p>${text}</p>
-  `;
+  const delBtn = document.createElement('button');
+  delBtn.className = 'delete-btn';
+  delBtn.textContent = '×';
 
-  const deleteBtn = noteCard.querySelector(".delete-btn");
+  const p = document.createElement('p');
+  p.textContent = text;
 
-  deleteBtn.addEventListener("click", () => {
-    noteCard.remove();
-  });
+  delBtn.addEventListener('click', () => noteCard.remove());
+
+  noteCard.appendChild(delBtn);
+  noteCard.appendChild(p);
 
   notesGrid.appendChild(noteCard);
 

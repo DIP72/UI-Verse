@@ -4,10 +4,16 @@
  */
 
 const Sandbox = {
+  _state: {
+    initialized: false
+  },
+
   /**
    * Initialize live sandboxes (iframes with editable code)
    */
   init() {
+    if (this._state.initialized) return;
+
     const componentCards = document.querySelectorAll(".component-card");
     if (componentCards.length === 0) return;
 
@@ -243,6 +249,8 @@ const Sandbox = {
         actions.after(textarea);
       }
     });
+
+    this._state.initialized = true;
   }
 };
 

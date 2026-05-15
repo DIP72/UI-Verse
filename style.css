@@ -6458,3 +6458,43 @@ table td{
   }
   
 }
+/* COLLAPSIBLE SIDEBAR */
+
+.sidebar {
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.collapsed span {
+  display: none;
+}
+
+.sidebar.collapsed a {
+  justify-content: center;
+}
+
+/* Adjust main content */
+
+.sidebar.collapsed ~ .navbar,
+.sidebar.collapsed ~ .main-home {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* MOBILE SIDEBAR */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  body.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+}
