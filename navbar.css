@@ -172,7 +172,7 @@
    ============================================================ */
 .navbar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -317,6 +317,8 @@
   justify-content: space-between;
   border-radius: 8px;
   padding: 11px 16px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .dnav-brand {
@@ -515,10 +517,156 @@ body.dark-mode .demo-nav-split { background: #1e1e24; border-color: #2a2a30; }
   .filter-search { margin-left: 0; width: 100%; }
   .filter-search input { width: 100%; }
   .navbar-grid { grid-template-columns: 1fr; }
+   .page-hero { flex-direction: column; padding: 32px 24px; }
+  .page-hero-right { display: none; }
+  .filter-search { margin-left: 0; width: 100%; }
+  .filter-search input { width: 100%; }
+  .navbar-grid { grid-template-columns: 1fr; }
+
+  /* ADD: preview box ko clip mat karo */
+  .nav-card-preview { overflow: visible; }
 }
 
 @media (max-width: 480px) {
+  /* Filter bar */
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-btn { text-align: center; }
-  .dnav-links { display: none; }
+  .filter-search { margin-left: 0; width: 100%; }
+  .filter-search input { width: 100%; }
+
+  
+
+  /* Cards */
+  .component-card { padding: 16px; }
+  .nav-card-preview {
+    padding: 8px;
+    width: 100%;
+    overflow: visible;   /* hidden hata do */
+  }
+
+  /* Page text */
+  .page-title { font-size: 24px; }
+  .page-desc  { font-size: 13px; }
+
+  /* ---- Demo navbars: stack vertically ---- */
+  .demo-nav-simple,
+  .demo-nav-center,
+  .demo-nav-btn,
+  .demo-nav-dark,
+  .demo-nav-glass,
+  .demo-nav-search,
+  .demo-nav-split,
+  .demo-nav-gradient {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  /* Brand full width */
+  .dnav-brand,
+  .dnav-center-brand { width: 100%; margin-bottom: 2px; }
+
+  /* Links wrap karo, hide mat karo */
+  .dnav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Buttons stack */
+  .dnav-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+  }
+
+  /* Search bar full width */
+  .dnav-search-group {
+    display: flex;   /* visible karo */
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .dnav-primary-link {
+    display: inline-block;  /* visible karo */
+    margin-top: 4px;
+  }
+
+  /* Glass button & white button show karo */
+  .dnav-glass-btn,
+  .dnav-white-btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Meta links (split navbar) */
+  .dnav-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Centered nav */
+  .demo-nav-center {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .component-card { padding: 16px; }
+  .nav-card-preview { padding: 10px; }
+  
+  .page-title { font-size: 24px; }
+  .page-desc { font-size: 13px; }
+  .dnav-links {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.dnav-brand {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.demo-nav-simple,
+.demo-nav-btn,
+.demo-nav-dark,
+.demo-nav-glass,
+.demo-nav-search,
+.demo-nav-split,
+.demo-nav-gradient {
+  width: 100%;
+  overflow: hidden;
+}
+
+ 
+  .dnav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+  .dnav-actions,
+  .dnav-meta,
+  .dnav-glass-btn,
+  .dnav-white-btn,
+  .dnav-search-group,
+  .dnav-primary-link { display: none; }
+
+  
+  .demo-nav-simple,
+  .demo-nav-btn,
+  .demo-nav-dark,
+  .demo-nav-glass,
+  .demo-nav-search,
+  .demo-nav-split,
+  .demo-nav-gradient {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
