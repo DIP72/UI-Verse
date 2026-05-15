@@ -1,4 +1,6 @@
 (function(){
+  let scrollSyncBound = false;
+
   const leftSelect = document.getElementById('leftSelect');
   const rightSelect = document.getElementById('rightSelect');
   const leftFrame = document.getElementById('leftFrame');
@@ -97,26 +99,28 @@
       syncScroll(frameA, frameB);
       setTimeout(()=> syncing = false, 30);
     }
+
     try{
-      frameA.addEventListener('load', () => {
-        try{
-          frameA.contentWindow.addEventListener('scroll', onScroll, { passive: true });
-        }catch(e){}
-      });
+      if (frameA.contentWindow) {
+        frameA.contentWindow.addEventListener('scroll', onScroll, { passive: true });
+      }
     }catch(e){}
   }
 
   // Setup basic mutual sync when frames load
-  leftFrame.addEventListener('load', () => {
-    if(syncCheckbox.checked){
-      attachScrollSync(leftFrame, rightFrame);
-    }
-  });
-  rightFrame.addEventListener('load', () => {
-    if(syncCheckbox.checked){
-      attachScrollSync(rightFrame, leftFrame);
-    }
-  });
+  if (!scrollSyncBound) {
+    leftFrame.addEventListener('load', () => {
+      if(syncCheckbox.checked){
+        attachScrollSync(leftFrame, rightFrame);
+      }
+    });
+    rightFrame.addEventListener('load', () => {
+      if(syncCheckbox.checked){
+        attachScrollSync(rightFrame, leftFrame);
+      }
+    });
+    scrollSyncBound = true;
+  }
 
   syncCheckbox.addEventListener('change', () => {
     // no-op; listeners re-attach on next load events
