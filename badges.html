@@ -1,123 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <title>Badges — UIverse</title>
 
-  <title>Badges Components — UIverse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="badges.css" />
-
+  <link rel="stylesheet" href="badges.css">
 </head>
 
 <body>
 
-<!-- =========================================================
-   SIDEBAR
-========================================================= -->
+<!-- SIDEBAR -->
 
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
 
-  <div class="sidebar-brand">
+  <div>
 
-    <span class="brand-icon">
-      ⬡
-    </span>
+    <div class="sidebar-brand">
+      <div class="brand-icon">⬡</div>
+      <div class="brand-text">UIverse</div>
+    </div>
 
-    <span class="brand-text">
-      UIverse
-    </span>
+    <nav class="sidebar-nav">
+
+      <a href="#">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-table-cells"></i>
+        <span>Components</span>
+      </a>
+
+      <a href="#" class="active">
+        <i class="fa-solid fa-certificate"></i>
+        <span>Badges</span>
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-book"></i>
+        <span>Docs</span>
+      </a>
+
+      <a href="#">
+        <i class="fa-solid fa-user-group"></i>
+        <span>Contributors</span>
+      </a>
+
+    </nav>
 
   </div>
 
-  <nav class="sidebar-nav">
+  <div class="sidebar-footer">
 
-    <ul>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
 
-      <li>
-        <a href="#">
-          <i class="fa-solid fa-house"></i>
-          Home
-        </a>
-      </li>
-
-      <li class="active">
-        <a href="#">
-          <i class="fa-solid fa-certificate"></i>
-          Badges
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class="fa-solid fa-layer-group"></i>
-          Components
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class="fa-solid fa-book"></i>
-          Docs
-        </a>
-      </li>
-
-    </ul>
-  </aside>
-
-<section class="badges-page">
-  <h1>🏆 My Badges</h1>
-
-  <h2>Earned Badges</h2>
-  <div class="badge-container">
-    
-    <div class="badge">
-      <picture><source type="image/avif" srcset="generated-images/badge1/badge1-320.avif 320w, generated-images/badge1/badge1-480.avif 480w, generated-images/badge1/badge1-768.avif 768w, generated-images/badge1/badge1-1024.avif 1024w, generated-images/badge1/badge1-1300.avif 1300w" sizes="(max-width: 768px) 96px, 160px"><source type="image/webp" srcset="generated-images/badge1/badge1-320.webp 320w, generated-images/badge1/badge1-480.webp 480w, generated-images/badge1/badge1-768.webp 768w, generated-images/badge1/badge1-1024.webp 1024w, generated-images/badge1/badge1-1300.webp 1300w" sizes="(max-width: 768px) 96px, 160px"><img src="generated-images/badge1/badge1-optimized-1300.jpg" alt="First PR badge icon" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async" width="1300" height="1390"></picture>
-      <h3>First PR</h3>
-      <p>Completed your first pull request</p>
-    </div>
-
-    <div class="badge">
-       <picture><source type="image/avif" srcset="generated-images/badge2/badge2-212.avif 212w" sizes="(max-width: 768px) 96px, 160px"><source type="image/webp" srcset="generated-images/badge2/badge2-212.webp 212w" sizes="(max-width: 768px) 96px, 160px"><img src="generated-images/badge2/badge2-optimized-212.jpg" alt="Contributor badge icon" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async" width="212" height="238"></picture>
-      <h3>Contributor</h3>
-      <p>Contributed to 10 PRs</p>
-    </div>
+  </div>
 
 </aside>
 
-<!-- =========================================================
-   NAVBAR
-========================================================= -->
+<!-- NAVBAR -->
 
-    <div class="badge progress">
-      <picture><source type="image/avif" srcset="generated-images/time/time-320.avif 320w, generated-images/time/time-480.avif 480w, generated-images/time/time-512.avif 512w" sizes="(max-width: 768px) 96px, 160px"><source type="image/webp" srcset="generated-images/time/time-320.webp 320w, generated-images/time/time-480.webp 480w, generated-images/time/time-512.webp 512w" sizes="(max-width: 768px) 96px, 160px"><img src="generated-images/time/time-optimized-512.png" alt="Top Contributor badge with progress indicator" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async" width="512" height="512"></picture>
-      <h3>Top Contributor</h3>
-      <p>14/50 PRs completed</p>
-      <progress value="14" max="50"></progress>
-    </div>
-
-  <div class="logo">
-    UIverse
-  </div>
+<header class="navbar">
 
   <div class="search-bar">
 
@@ -125,376 +78,271 @@
 
     <input
       type="text"
-      id="badgeSearch"
-      placeholder="Search badge components..."
-    />
+      placeholder="Search badges..."
+      id="searchInput"
+    >
 
   </div>
 
-  <button class="primary-btn">
-    Explore UI
-  </button>
+  <div class="nav-actions">
+
+    <button class="nav-btn outline-btn">
+      Documentation
+    </button>
+
+    <button class="nav-btn primary-btn">
+      Explore UI
+    </button>
+
+  </div>
 
 </header>
 
-<!-- =========================================================
-   MAIN
+<!-- MAIN -->
 
-<main class="main-home">
+<main class="main">
 
   <!-- HERO -->
-  <section class="hero-section">
 
-    <div class="hero-content">
+  <section class="hero">
 
-      <div class="hero-badge">
-        ✨ UI Status Components
-      </div>
-
-      <h1>
-        Modern
-        <span>Badges</span>
-      </h1>
-
-      <p>
-        Explore beautiful badge UI components
-        including status badges, notification
-        badges, tags, pills and gradient labels.
-      </p>
-
-      <div class="hero-actions">
-
-        <button class="primary-btn">
-          Browse Components
-        </button>
-
-        <button class="outline-btn">
-          Documentation
-        </button>
-
-      </div>
-
+    <div class="hero-badge">
+      ✦ Badge Components
     </div>
 
-    <!-- HERO PREVIEW -->
-    <div class="hero-preview">
+    <h1>
+      Modern <span>Badges</span>
+    </h1>
 
-      <div class="floating-badge purple">
-        PRO
-      </div>
-
-      <div class="floating-badge blue">
-        NEW
-      </div>
-
-      <div class="floating-badge pink">
-        SALE
-      </div>
-
-    <div class="badge locked">
-      <picture><source type="image/avif" srcset="generated-images/lock/lock-320.avif 320w, generated-images/lock/lock-480.avif 480w, generated-images/lock/lock-612.avif 612w" sizes="(max-width: 768px) 96px, 160px"><source type="image/webp" srcset="generated-images/lock/lock-320.webp 320w, generated-images/lock/lock-480.webp 480w, generated-images/lock/lock-612.webp 612w" sizes="(max-width: 768px) 96px, 160px"><img src="generated-images/lock/lock-optimized-612.jpg" alt="Elite Hacker locked badge icon" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async" width="612" height="612"></picture>
-      <h3>Elite Hacker</h3>
-      <p>Complete 100 PRs</p>
-    </div>
+    <p>
+      Explore premium badge components crafted for modern
+      interfaces including status badges, gradients,
+      notifications, counters and more.
+    </p>
 
   </section>
 
-  <!-- FILTER -->
-  <div class="filter-bar">
+  <!-- GRID -->
 
-    <button class="filter-btn active">
-      All
-    </button>
-
-    <button class="filter-btn">
-      Status
-    </button>
-
-    <button class="filter-btn">
-      Pills
-    </button>
-
-    <button class="filter-btn">
-      Gradient
-    </button>
-
-    <button class="filter-btn">
-      Notification
-    </button>
-
-  </div>
-
-  <!-- =========================================================
-     GRID
-  ========================================================= -->
-
-  <section class="badges-grid">
+  <section class="badge-grid">
 
     <!-- CARD -->
+
     <div class="badge-card">
 
       <div class="card-top">
 
-        <span class="card-label">
-          Status Badge
+        <span class="card-tag">
+          STATUS
         </span>
 
-        <span class="card-tag purple">
-          Popular
-        </span>
+        <h2>Status Badges</h2>
 
       </div>
 
-      <div class="preview-box">
+      <div class="badge-showcase">
 
-        <span class="status-badge online">
-          ● Online
+        <span class="badge success">
+          Active
+        </span>
+
+        <span class="badge warning">
+          Pending
+        </span>
+
+        <span class="badge danger">
+          Failed
+        </span>
+
+        <span class="badge info">
+          Beta
         </span>
 
       </div>
-
-      <p>
-        Modern online/offline status
-        indicator badge component.
-      </p>
 
       <div class="card-actions">
 
-        <button class="view-btn">
+        <button onclick="toggleCode('code1')">
           View Code
         </button>
 
-        <button class="copy-btn">
+        <button onclick="copyCode('code1')">
           Copy
         </button>
 
       </div>
 
+      <pre class="code-block" id="code1">
+&lt;span class="badge success"&gt;Active&lt;/span&gt;
+&lt;span class="badge warning"&gt;Pending&lt;/span&gt;
+      </pre>
+
     </div>
 
     <!-- CARD -->
+
     <div class="badge-card">
 
       <div class="card-top">
 
-        <span class="card-label">
-          Gradient Badge
+        <span class="card-tag">
+          GRADIENT
         </span>
 
-        <span class="card-tag blue">
-          Trending
-        </span>
+        <h2>Gradient Badges</h2>
 
       </div>
 
-      <div class="preview-box dark">
+      <div class="badge-showcase">
 
-        <span class="gradient-badge">
+        <span class="badge gradient-orange">
           Premium
         </span>
 
-      </div>
+        <span class="badge gradient-purple">
+          Trending
+        </span>
 
-      <p>
-        Gradient modern pill badge
-        with glowing premium effect.
-      </p>
+        <span class="badge gradient-blue">
+          New
+        </span>
+
+      </div>
 
       <div class="card-actions">
 
-        <button class="view-btn">
+        <button onclick="toggleCode('code2')">
           View Code
         </button>
 
-        <button class="copy-btn">
+        <button onclick="copyCode('code2')">
           Copy
         </button>
 
       </div>
 
+      <pre class="code-block" id="code2">
+&lt;span class="badge gradient-purple"&gt;
+Trending
+&lt;/span&gt;
+      </pre>
+
     </div>
 
     <!-- CARD -->
+
     <div class="badge-card">
 
       <div class="card-top">
 
-        <span class="card-label">
-          Notification Badge
+        <span class="card-tag">
+          COUNTER
         </span>
 
-        <span class="card-tag pink">
-          Interactive
-        </span>
+        <h2>Notification Badges</h2>
 
       </div>
 
-      <div class="preview-box">
+      <div class="badge-showcase">
 
-        <div class="notification-wrapper">
+        <div class="notify">
 
           <i class="fa-solid fa-bell"></i>
 
-          <span class="notification-count">
-            9
+          <span class="notify-badge">
+            8
+          </span>
+
+        </div>
+
+        <div class="notify">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <span class="notify-badge purple">
+            14
           </span>
 
         </div>
 
       </div>
 
-      <p>
-        Notification counter badge
-        for apps and dashboards.
-      </p>
-
       <div class="card-actions">
 
-        <button class="view-btn">
+        <button onclick="toggleCode('code3')">
           View Code
         </button>
 
-        <button class="copy-btn">
+        <button onclick="copyCode('code3')">
           Copy
         </button>
 
       </div>
+
+      <pre class="code-block" id="code3">
+&lt;div class="notify"&gt;
+  &lt;i class="fa-solid fa-bell"&gt;&lt;/i&gt;
+  &lt;span class="notify-badge"&gt;8&lt;/span&gt;
+&lt;/div&gt;
+      </pre>
 
     </div>
 
     <!-- CARD -->
+
     <div class="badge-card">
 
       <div class="card-top">
 
-        <span class="card-label">
-          Pill Tag
+        <span class="card-tag">
+          PULSE
         </span>
 
-        <span class="card-tag yellow">
-          Modern
-        </span>
+        <h2>Pulse Badges</h2>
 
       </div>
 
-      <div class="preview-box dark">
+      <div class="badge-showcase">
 
-        <span class="pill-tag">
-          UI Component
+        <span class="badge pulse-green">
+          Online
+        </span>
+
+        <span class="badge pulse-red">
+          Live
         </span>
 
       </div>
-
-      <p>
-        Rounded modern tag badge
-        for labels and categories.
-      </p>
 
       <div class="card-actions">
 
-        <button class="view-btn">
+        <button onclick="toggleCode('code4')">
           View Code
         </button>
 
-        <button class="copy-btn">
+        <button onclick="copyCode('code4')">
           Copy
         </button>
 
       </div>
 
-    </div>
-
-    <!-- CARD -->
-    <div class="badge-card">
-
-      <div class="card-top">
-
-        <span class="card-label">
-          Glow Badge
-        </span>
-
-        <span class="card-tag purple">
-          Premium
-        </span>
-
-      </div>
-
-      <div class="preview-box">
-
-        <span class="glow-badge">
-          Verified
-        </span>
-
-      </div>
-
-      <p>
-        Soft glowing verification
-        badge with neon effect.
-      </p>
-
-      <div class="card-actions">
-
-        <button class="view-btn">
-          View Code
-        </button>
-
-        <button class="copy-btn">
-          Copy
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- CARD -->
-    <div class="badge-card">
-
-      <div class="card-top">
-
-        <span class="card-label">
-          Icon Badge
-        </span>
-
-        <span class="card-tag blue">
-          UI
-        </span>
-
-      </div>
-
-      <div class="preview-box dark">
-
-        <span class="icon-badge">
-
-          <i class="fa-solid fa-fire"></i>
-
-          Trending
-
-        </span>
-
-      </div>
-
-      <p>
-        Icon integrated modern badge
-        component for highlights.
-      </p>
-
-      <div class="card-actions">
-
-        <button class="view-btn">
-          View Code
-        </button>
-
-        <button class="copy-btn">
-          Copy
-        </button>
-
-      </div>
+      <pre class="code-block" id="code4">
+&lt;span class="badge pulse-green"&gt;
+Online
+&lt;/span&gt;
+      </pre>
 
     </div>
 
   </section>
 
 </main>
+
+<!-- COPY TOAST -->
+
+<div class="copy-toast" id="copyToast">
+  Copied to clipboard!
+</div>
 
 <script src="BADGES.JS"></script>
 
