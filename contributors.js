@@ -6,6 +6,15 @@ const API_URL =
 const CONTRIBUTORS_CACHE_KEY = 'ui-verse-contributors-v1';
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24; // 24 hours
 
+function safeUrl(value, fallback = '#') {
+  try {
+    const url = new URL(String(value || ''), window.location.href);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
 
 
 const labels = [
@@ -68,35 +77,40 @@ async function fetchContributors() {
       card.className =
         "contributor-card";
 
-      card.innerHTML = `
+      const img = document.createElement('img');
+      img.src = safeUrl(contributor.avatar_url);
+      img.alt = contributor.login || '';
+      img.className = 'contributor-avatar';
 
-        <img
-          src="${contributor.avatar_url}"
-          alt="${contributor.login}"
-          class="contributor-avatar"
-        />
+      const name = document.createElement('h3');
+      name.className = 'contributor-name';
+      name.textContent = contributor.login || '';
 
-        <h3 class="contributor-name">
-          ${contributor.login}
-        </h3>
+      const role = document.createElement('div');
+      role.className = 'contributor-role';
+      const roleIcon = document.createElement('i');
+      roleIcon.className = 'fa-solid fa-code';
+      const roleText = document.createTextNode(` ${labels[index % labels.length]}`);
+      role.appendChild(roleIcon);
+      role.appendChild(roleText);
 
-        <div class="contributor-role">
-          <i class="fa-solid fa-code"></i>
-          ${labels[index % labels.length]}
-        </div>
+      const br = document.createElement('br');
 
-        <br>
+      const link = document.createElement('a');
+      link.href = safeUrl(contributor.html_url);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.className = 'github-link';
+      const linkIcon = document.createElement('i');
+      linkIcon.className = 'fab fa-github';
+      link.appendChild(linkIcon);
+      link.appendChild(document.createTextNode(' View Profile'));
 
-        <a
-          href="${contributor.html_url}"
-          target="_blank"
-          class="github-link"
-        >
-          <i class="fab fa-github"></i>
-          View Profile
-        </a>
-
-      `;
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(role);
+      card.appendChild(br);
+      card.appendChild(link);
 
       grid.appendChild(card);
 
@@ -130,23 +144,51 @@ function renderContributors(grid, contributors) {
   contributors.forEach((contributor, index) => {
     const card = document.createElement('div');
     card.className = 'contributor-card';
-    card.innerHTML = `
-      <img src="${contributor.avatar_url}" alt="${contributor.login}" class="contributor-avatar" />
-      <h3 class="contributor-name">${contributor.login}</h3>
-      <div class="contributor-role"><i class="fa-solid fa-code"></i> ${labels[index % labels.length]}</div>
-      <br>
-      <a href="${contributor.html_url}" target="_blank" class="github-link"><i class="fab fa-github"></i> View Profile</a>
-    `;
+
+    const img = document.createElement('img');
+    img.className = 'contributor-avatar';
+    img.src = contributor.avatar_url || '';
+    img.alt = contributor.login || '';
+
+    const name = document.createElement('h3');
+    name.className = 'contributor-name';
+    name.textContent = contributor.login || '';
+
+    const role = document.createElement('div');
+    role.className = 'contributor-role';
+    const roleIcon = document.createElement('i');
+    roleIcon.className = 'fa-solid fa-code';
+    role.appendChild(roleIcon);
+    role.appendChild(document.createTextNode(` ${labels[index % labels.length]}`));
+
+    const br = document.createElement('br');
+
+    const link = document.createElement('a');
+    link.className = 'github-link';
+    link.href = contributor.html_url || '#';
+    link.target = '_blank';
+    link.innerHTML = '<i class="fab fa-github"></i> View Profile';
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(role);
+    card.appendChild(br);
+    card.appendChild(link);
+
     grid.appendChild(card);
   });
 }
 
 function showMessage(grid, message) {
-  grid.innerHTML = `
-    <div style="padding:24px;border-radius:12px;background:#fff3cd;color:#856404;font-weight:600;">
-      ${message}
-    </div>
-  `;
+  grid.innerHTML = '';
+  const box = document.createElement('div');
+  box.style.padding = '24px';
+  box.style.borderRadius = '12px';
+  box.style.background = '#fff3cd';
+  box.style.color = '#856404';
+  box.style.fontWeight = '600';
+  box.textContent = message;
+  grid.appendChild(box);
 }
 
 // On initial load, if we have a recent cache show it quickly while fetching fresh data

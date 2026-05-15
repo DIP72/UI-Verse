@@ -10,30 +10,10 @@
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- UIverse Modular CSS Architecture -->
-  <link rel="stylesheet" href="css/main.css">
 
   
   <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="command-palette.css">
-  <link rel="stylesheet" href="css/url-state.css">
-<!-- UIverse Modular Scripts -->
-    <script src="js/core/utils.js"></script>
-    <script src="js/features/toast.js"></script>
-    <script src="js/features/popup.js"></script>
-    <script src="js/features/code-tools.js"></script>
-    <script src="js/features/sidebar.js"></script>
-    <script src="js/features/search.js"></script>
-    <script src="js/features/theme.js"></script>
-    <script src="js/features/scroll.js"></script>
-    <script src="js/features/alerts.js"></script>
-    <script src="js/features/sandbox.js"></script>
-    <script src="js/features/accessibility.js"></script>
-    <script src="js/features/command-palette.js"></script>
-    <script src="js/features/url-state.js"></script>
-    <script src="js/features/url-state-integration.js"></script>
-<script src="js/bootstrap.js"></script>
-  </head>
+</head>
 
 <body>
 
@@ -163,12 +143,6 @@
         </a>
       </li>
       <li>
-  <a href="toasts.html">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <span>Toasts</span>
-  </a>
-</li>
-      <li>
         <a href="table.html">
           <i class="fa-solid fa-table"></i>
           <span>Table</span>
@@ -228,9 +202,9 @@
   </nav>
 
   <div class="sidebar-footer">
-    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://github.com/Tushar-sonawane06/UI-Verse" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+    <a href="https://twitter.com" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
   </div>
 </aside>
 
@@ -260,7 +234,6 @@
       Contributors
     </button>
     </a>
-    
     <button id="darkModeToggle" class="theme-toggle" title="Toggle Theme">
       <i class="fa-solid fa-moon"></i>
     </button>
@@ -527,9 +500,9 @@
       <h2 class="footer-logo">⬡ UIverse</h2>
       <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
       <div class="socials">
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com/Tushar-sonawane06/UI-Verse" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
 
@@ -547,10 +520,10 @@
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="howtocontribute.html">Contribute</a></li>
+        <li><a href="https://github.com/Tushar-sonawane06/UI-Verse" target="_blank" rel="noopener noreferrer">GitHub Repo</a></li>
+        <li><a href="community/community.html">Community</a></li>
       </ul>
     </div>
 
@@ -559,7 +532,7 @@
       <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="#">License</a></li>
+        <li><a href="license.html">License</a></li>
       </ul>
     </div>
 
@@ -579,19 +552,7 @@
   </div>
 </footer>
 
-<!-- UIverse Modular Scripts -->
-<script src="js/core/utils.js"></script>
-<script src="js/features/toast.js"></script>
-<script src="js/features/popup.js"></script>
-<script src="js/features/code-tools.js"></script>
-<script src="js/features/sidebar.js"></script>
-<script src="js/features/search.js"></script>
-<script src="js/features/theme.js"></script>
-<script src="js/features/scroll.js"></script>
-<script src="js/features/alerts.js"></script>
-<script src="js/features/sandbox.js"></script>
-<script src="js/features/accessibility.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="script.js"></script>
 <script>
   // Dark mode toggle
   const toggle = document.getElementById('darkModeToggle');
@@ -660,37 +621,5 @@
     }
   }
 </script>
-
-<!-- ================= COMMAND PALETTE ================= -->
-<div id="commandPaletteOverlay" class="command-palette-overlay">
-  <div class="command-palette-container">
-    <div class="command-palette-input-wrapper">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input 
-        type="text" 
-        id="commandPaletteInput" 
-        class="command-palette-input" 
-        placeholder="Search components... (Cmd+K)"
-        autocomplete="off"
-      />
-    </div>
-    <ul id="commandPaletteResults" class="command-palette-results"></ul>
-    <div class="command-palette-footer">
-      <div class="command-palette-footer-item">
-        <span class="command-palette-footer-kbd">↑↓</span>
-        <span>Navigate</span>
-      </div>
-      <div class="command-palette-footer-item">
-        <span class="command-palette-footer-kbd">⏎</span>
-        <span>Select</span>
-      </div>
-      <div class="command-palette-footer-item">
-        <span class="command-palette-footer-kbd">Esc</span>
-        <span>Close</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>

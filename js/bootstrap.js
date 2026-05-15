@@ -2,144 +2,144 @@
  * UIverse - JavaScript Bootstrap Module
  * 
  * Entry point for all JavaScript functionality
- * Initializes all features based on DOM presence
+ * Registers and initializes all features using the UIverse registry system
+ * with automatic dependency management
  * 
- * This file should be loaded after all feature modules:
- * - js/core/utils.js
- * - js/features/toast.js
- * - js/features/popup.js
- * - js/features/code-tools.js
- * - js/features/sidebar.js
- * - js/features/search.js
- * - js/features/theme.js
- * - js/features/scroll.js
- * - js/features/alerts.js
- * - js/features/sandbox.js
- * - js/features/accessibility.js
+ * All feature modules must be loaded before this script:
+ * - js/registry.js (UIverse registry)
+ * - js/core/*.js (core modules)
+ * - js/features/*.js (feature modules)
  */
 
 const Bootstrap = {
   /**
-   * Initialize all features
-   * Each feature is only initialized if its required elements exist in DOM
+   * Register all available modules with the UIverse registry
+   */
+  registerModules() {
+    // Register core modules
+    if (typeof Security !== 'undefined') {
+      UIverse.register('Security', Security);
+    }
+
+    if (typeof ComponentsRegistry !== 'undefined') {
+      UIverse.register('ComponentsRegistry', ComponentsRegistry);
+    }
+
+    // Register feature modules (with optional conditional initialization)
+    if (typeof Toast !== 'undefined') {
+      UIverse.register('Toast', Toast);
+    }
+
+    if (typeof Popup !== 'undefined') {
+      UIverse.register('Popup', Popup);
+    }
+
+    if (typeof CodeTools !== 'undefined') {
+      UIverse.register('CodeTools', CodeTools);
+    }
+
+    if (typeof Sidebar !== 'undefined') {
+      UIverse.register('Sidebar', Sidebar);
+    }
+
+    if (typeof Search !== 'undefined') {
+      UIverse.register('Search', Search, ['ComponentsRegistry']);
+    }
+
+    if (typeof Theme !== 'undefined') {
+      UIverse.register('Theme', Theme);
+    }
+
+    if (typeof Scroll !== 'undefined') {
+      UIverse.register('Scroll', Scroll);
+    }
+
+    if (typeof Alerts !== 'undefined') {
+      UIverse.register('Alerts', Alerts);
+    }
+
+    if (typeof Sandbox !== 'undefined') {
+      UIverse.register('Sandbox', Sandbox);
+    }
+
+    if (typeof Accessibility !== 'undefined') {
+      UIverse.register('Accessibility', Accessibility);
+    }
+
+    if (typeof CommandPalette !== 'undefined') {
+      UIverse.register('CommandPalette', CommandPalette);
+    }
+
+    if (typeof URLStateManager !== 'undefined') {
+      UIverse.register('URLStateManager', URLStateManager);
+    }
+
+    if (typeof ProfileEditor !== 'undefined') {
+      UIverse.register('ProfileEditor', ProfileEditor);
+    }
+
+    if (typeof ComponentGallery !== 'undefined') {
+      UIverse.register('ComponentGallery', ComponentGallery);
+    }
+
+    if (window.UIVERSE_DEBUG) {
+      console.info('[Bootstrap] All modules registered with UIverse registry');
+    }
+  },
+
+  /**
+   * Initialize all features with conditional DOM checks
    */
   init() {
-    // Initialize features in logical order
-    this.initCore();
-    this.initFeatures();
-    this.logStatus();
+    if (!window.UIverse) {
+      console.error('[Bootstrap] UIverse registry not found. Make sure js/registry.js is loaded first.');
+      return;
+    }
+
+    // Register all modules
+    this.registerModules();
+
+    // Initialize only modules with required DOM elements
+    this.initConditionalModules();
+
+    // Initialize all registered modules (with dependencies handled by registry)
+    const report = UIverse.initAll();
+
+    this.logStatus(report);
   },
 
   /**
-   * Initialize core utilities
+   * Initialize only modules that have required DOM elements
+   * This prevents errors from modules expecting specific page elements
    */
-  initCore() {
-    // Core utilities are passive and already loaded
-    // Initialize Security first to inject CSP and migrate inline handlers
-    if (typeof Security !== 'undefined') {
-      try { Security.init(); } catch (e) { console.warn('[Bootstrap] Security.init failed', e); }
-    } else {
-      // If not loaded yet, attempt to load it synchronously
-      try {
-        const script = document.createElement('script');
-        script.src = '/js/core/security.js';
-        script.onload = () => { try { Security.init(); } catch (e) {} };
-        document.head.appendChild(script);
-      } catch (e) {
-        console.warn('[Bootstrap] Unable to load security module', e);
-      }
-    }
-  },
-
-  /**
-   * Initialize all features
-   */
-  initFeatures() {
-    // Popup
-    if (typeof Popup !== 'undefined') {
-      Popup.init();
+  initConditionalModules() {
+    // Skip Sidebar if element not present
+    if (!document.querySelector(".sidebar")) {
+      UIverse.modules['Sidebar'] && (UIverse.modules['Sidebar'].module.init = () => {});
     }
 
-    // Toast (passive initialization)
-    if (typeof Toast !== 'undefined') {
-      Toast.init();
+    // Skip Sandbox if component cards not present
+    if (!document.querySelector(".component-card")) {
+      UIverse.modules['Sandbox'] && (UIverse.modules['Sandbox'].module.init = () => {});
+      UIverse.modules['ComponentGallery'] && (UIverse.modules['ComponentGallery'].module.init = () => {});
     }
 
-    // Code Tools (exposes to global)
-    if (typeof CodeTools !== 'undefined') {
-      CodeTools.init();
-    }
-
-    // Sidebar
-    if (typeof Sidebar !== 'undefined' && document.querySelector(".sidebar")) {
-      Sidebar.init();
-    }
-
-    // Search
-    if (typeof Search !== 'undefined') {
-      // Ensure the components registry is available before enabling search routing
-      if (typeof ComponentsRegistry === 'undefined') {
-        const script = document.createElement('script');
-        script.src = '/js/core/components-registry.js';
-        script.onload = () => {
-          try {
-            Search.init();
-          } catch (e) {
-            console.warn('[Bootstrap] Search.init failed after registry load', e);
-          }
-        };
-        script.onerror = () => {
-          console.warn('[Bootstrap] Failed to load components-registry.js, initializing search without registry');
-          try { Search.init(); } catch (e) { /* swallow */ }
-        };
-        document.head.appendChild(script);
-      } else {
-        Search.init();
-      }
-    }
-
-    // Theme
-    if (typeof Theme !== 'undefined') {
-      Theme.init();
-    }
-
-    // Scroll
-    if (typeof Scroll !== 'undefined') {
-      Scroll.init();
-    }
-
-    // Alerts
-    if (typeof Alerts !== 'undefined') {
-      Alerts.init();
-    }
-
-    // Live Sandbox (for component pages with editable code)
-    if (typeof Sandbox !== 'undefined' && document.querySelector(".component-card")) {
-      Sandbox.init();
-    }
-
-    // Accessibility hardening
-    if (typeof Accessibility !== 'undefined') {
-      Accessibility.init();
-    }
-
-    // Command Palette
-    if (typeof CommandPalette !== 'undefined') {
-      CommandPalette.init();
-    }
-
-    // URL State Manager (search filtering with URL persistence)
-    if (typeof URLStateManager !== 'undefined') {
-      URLStateManager.init();
+    // Skip ProfileEditor if profile button not present
+    if (!document.querySelector('.btnn')) {
+      UIverse.modules['ProfileEditor'] && (UIverse.modules['ProfileEditor'].module.init = () => {});
     }
   },
 
   /**
    * Log initialization status (development only)
    */
-  logStatus() {
-    if (typeof console !== 'undefined' && console.log) {
-      console.log('[UIverse] Bootstrap complete. All features initialized.');
+  logStatus(report) {
+    if (window.UIVERSE_DEBUG && typeof console !== 'undefined' && console.log) {
+      console.log('[UIverse] Bootstrap complete. Initialization report:', {
+        initialized: report.initialized.length,
+        failed: report.failed.length,
+        details: report
+      });
     }
   }
 };

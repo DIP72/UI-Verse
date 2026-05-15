@@ -6,6 +6,11 @@
  */
 
 const URLStateIntegration = {
+  _state: {
+    initialized: false,
+    stateChangeListener: null
+  },
+
   /**
    * Wrap an existing filter function to make it URL-aware
    */
@@ -59,11 +64,15 @@ const URLStateIntegration = {
    * Listen to URL state changes and update UI
    */
   observeStateChanges(callback) {
-    document.addEventListener('urlistatechange', (event) => {
+    if (this._state.stateChangeListener) return;
+
+    this._state.stateChangeListener = (event) => {
       if (callback && typeof callback === 'function') {
         callback(event.detail);
       }
-    });
+    };
+
+    document.addEventListener('urlistatechange', this._state.stateChangeListener);
   },
 
   /**
@@ -80,7 +89,7 @@ const URLStateIntegration = {
    * Create shareable URL with current filter state
    */
   getShareableURL() {
-    const baseURL = window.location.origin + window.location.pathname;
+    const baseURL = getNormalizedURL();
     const state = this.getCurrentState();
     const params = new URLSearchParams();
 
@@ -95,7 +104,9 @@ const URLStateIntegration = {
     }
 
     const queryString = params.toString();
-    return queryString ? baseURL + '?' + queryString : baseURL;
+    baseURL.search = queryString;
+    baseURL.hash = '';
+    return baseURL.href;
   },
 
   /**
@@ -118,19 +129,36 @@ const URLStateIntegration = {
   createShareButton() {
     const button = document.createElement('button');
     button.className = 'url-share-btn';
-    button.innerHTML = '<i class="fa-solid fa-share-nodes"></i> Share Filter';
     button.title = 'Copy shareable link with current filters';
+
+    const idleHtml = '<i class="fa-solid fa-share-nodes"></i> Share Filter';
+    const copiedHtml = '<i class="fa-solid fa-check"></i> Copied!';
+    let resetTimer = null;
+
+    const setIdleState = () => {
+      button.innerHTML = idleHtml;
+      button.classList.remove('copied');
+    };
+
+    const setCopiedState = () => {
+      button.innerHTML = copiedHtml;
+      button.classList.add('copied');
+    };
+
+    setIdleState();
 
     button.addEventListener('click', async () => {
       const result = await this.copyShareableURL();
       if (result.success) {
-        const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        button.classList.add('copied');
+        if (resetTimer) {
+          clearTimeout(resetTimer);
+        }
 
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.classList.remove('copied');
+        setCopiedState();
+
+        resetTimer = setTimeout(() => {
+          setIdleState();
+          resetTimer = null;
         }, 2000);
       }
     });
@@ -142,12 +170,15 @@ const URLStateIntegration = {
    * Initialize URL state integration
    */
   init() {
+    if (this._state.initialized) return;
+
     // Listen for URL state changes
     this.observeStateChanges((state) => {
-      console.log('[URLStateIntegration] State changed:', state);
+      if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] State changed:', state);
     });
 
-    console.log('[URLStateIntegration] Initialized');
+    if (window.UIVERSE_DEBUG) console.log('[URLStateIntegration] Initialized');
+    this._state.initialized = true;
   }
 };
 

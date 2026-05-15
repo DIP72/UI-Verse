@@ -428,4 +428,14 @@ body {
     display: none;
   }
 
+  .hero-title{
+    font-size: 50px;
+  }
+
+}
+
+@media (max-width: 480px){
+  .hero-title{
+    font-size: 40px;
+  }
 }
