@@ -574,3 +574,11 @@
     width: 100%;
   }
 }
+.support-card {
+  width: 100%;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
