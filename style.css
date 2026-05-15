@@ -59,12 +59,13 @@ html, body {
   color: #000000;
   transition: 0.3s;
   height: 1000px;
-  padding: 20px;
+  padding: 0px;
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
+  
 }
 
 body {
@@ -614,7 +615,7 @@ body.dark-mode .hero-left p {
   background: #2a2a2a;
   transform: translateY(-2px);
 }
-}
+
 /* ================= MAIN ================= */
 .main {
   margin-left: var(--sidebar-width);
@@ -728,7 +729,7 @@ body {
 }
 .nav-btn button:hover {
   background: #0b1a3e;
-}}
+}
 /* responsive-navbarpage */
 @media (max-width: 768px) {
 
@@ -1290,6 +1291,7 @@ video {
   margin-left: var(--sidebar-width);
   padding: 60px 20px;
   background: transparent;
+  width: calc(100% - var(--sidebar-width));
 }
 .search-bar input {
   width: 100%;
@@ -2030,6 +2032,7 @@ input[type="range"] {
   background: #ddd;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -6119,8 +6122,7 @@ body{
     width: 100%;
   }
 }
-    0 0 20px rgba(168,85,247,0.25);
-}
+  
 .card {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -6439,8 +6441,22 @@ table td{
 
 @media(max-width:900px){
   .sidebar{
-    display: none;
+     transform: translateX(-100%);
   }
+  .main-home {
+    margin-left: 0;
+    width: 100%;
+    padding: 16px;
+  }
+  .footer {        
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .main-home {
+    overflow-x: hidden;
+    padding: 16px !important;
+  }
+  
 }
 /* COLLAPSIBLE SIDEBAR */
 
