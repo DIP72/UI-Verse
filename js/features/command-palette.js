@@ -155,27 +155,54 @@ const CommandPalette = (function () {
     const resultsEl = document.getElementById('commandPaletteResults');
     if (!resultsEl) return;
 
+    resultsEl.innerHTML = '';
+
     if (_state.results.length === 0) {
       const input = document.getElementById('commandPaletteInput');
       const hasQuery = input && input.value.trim().length > 0;
-      
-      resultsEl.innerHTML = hasQuery 
-        ? '<li class="command-palette-empty">No components found. Try a different search.</li>'
-        : '<li class="command-palette-empty">Type to search for components...</li>';
+
+      const emptyItem = document.createElement('li');
+      emptyItem.className = 'command-palette-empty';
+      emptyItem.textContent = hasQuery
+        ? 'No components found. Try a different search.'
+        : 'Type to search for components...';
+      resultsEl.appendChild(emptyItem);
       return;
     }
 
-    resultsEl.innerHTML = _state.results.map((item, idx) => `
-      <li class="command-palette-item ${idx === _state.selectedIndex ? 'highlighted' : ''}" data-index="${idx}">
-        <div class="command-palette-item-icon">
-          <i class="${item.icon}"></i>
-        </div>
-        <div class="command-palette-item-content">
-          <div class="command-palette-item-title">${escapeHtml(item.title)}</div>
-          <div class="command-palette-item-category">${item.category}</div>
-        </div>
-      </li>
-    `).join('');
+    const fragment = document.createDocumentFragment();
+
+    _state.results.forEach((item, idx) => {
+      const resultItem = document.createElement('li');
+      resultItem.className = `command-palette-item ${idx === _state.selectedIndex ? 'highlighted' : ''}`;
+      resultItem.dataset.index = String(idx);
+
+      const iconWrap = document.createElement('div');
+      iconWrap.className = 'command-palette-item-icon';
+
+      const icon = document.createElement('i');
+      icon.className = item.icon;
+      iconWrap.appendChild(icon);
+
+      const content = document.createElement('div');
+      content.className = 'command-palette-item-content';
+
+      const title = document.createElement('div');
+      title.className = 'command-palette-item-title';
+      title.textContent = item.title;
+
+      const category = document.createElement('div');
+      category.className = 'command-palette-item-category';
+      category.textContent = item.category;
+
+      content.appendChild(title);
+      content.appendChild(category);
+      resultItem.appendChild(iconWrap);
+      resultItem.appendChild(content);
+      fragment.appendChild(resultItem);
+    });
+
+    resultsEl.appendChild(fragment);
 
     // Scroll highlighted item into view
     const highlightedItem = resultsEl.querySelector('.command-palette-item.highlighted');
