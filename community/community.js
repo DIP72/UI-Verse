@@ -13,51 +13,65 @@ function postComment(){
   const card = document.createElement("div");
   card.className = "comment-card";
 
-  card.innerHTML = `
+  const top = document.createElement("div");
+  top.className = "comment-top";
 
-    <div class="comment-top">
+  const profile = document.createElement("div");
+  profile.className = "comment-profile";
 
-      <div class="comment-profile">
+  const avatar = document.createElement("img");
+  avatar.src = "https://i.pravatar.cc/100?img=32";
+  avatar.alt = "";
 
-        <img
-          src="https://i.pravatar.cc/100?img=32"
-          alt=""
-        >
+  const profileText = document.createElement("div");
+  const title = document.createElement("h3");
+  title.textContent = "You";
+  const time = document.createElement("span");
+  time.textContent = "Just now";
+  profileText.appendChild(title);
+  profileText.appendChild(time);
 
-        <div>
-          <h3>You</h3>
-          <span>Just now</span>
-        </div>
+  profile.appendChild(avatar);
+  profile.appendChild(profileText);
 
-      </div>
+  const moreBtn = document.createElement("button");
+  moreBtn.className = "more-btn";
+  moreBtn.type = "button";
+  moreBtn.textContent = "⋮";
 
-      <button class="more-btn">
-        ⋮
-      </button>
+  top.appendChild(profile);
+  top.appendChild(moreBtn);
 
-    </div>
+  const commentText = document.createElement("p");
+  commentText.className = "comment-text";
+  commentText.textContent = text;
 
-    <p class="comment-text">
-      ${text}
-    </p>
+  const footer = document.createElement("div");
+  footer.className = "comment-footer";
 
-    <div class="comment-footer">
+  const likeBtn = document.createElement("button");
+  likeBtn.type = "button";
+  likeBtn.setAttribute("onclick", "likeComment(this)");
+  likeBtn.appendChild(document.createTextNode("❤️ "));
+  const likeCount = document.createElement("span");
+  likeCount.textContent = "0";
+  likeBtn.appendChild(likeCount);
 
-      <button onclick="likeComment(this)">
-        ❤️ <span>0</span>
-      </button>
+  const replyBtn = document.createElement("button");
+  replyBtn.type = "button";
+  replyBtn.textContent = "💬 Reply";
 
-      <button>
-        💬 Reply
-      </button>
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.textContent = "🔗 Share";
 
-      <button>
-        🔗 Share
-      </button>
+  footer.appendChild(likeBtn);
+  footer.appendChild(replyBtn);
+  footer.appendChild(shareBtn);
 
-    </div>
-
-  `;
+  card.appendChild(top);
+  card.appendChild(commentText);
+  card.appendChild(footer);
 
   wrapper.prepend(card);
 
