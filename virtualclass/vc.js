@@ -7,7 +7,10 @@ const chatInput =
 const messages =
   document.getElementById("messages");
 
-sendBtn.addEventListener("click", () => {
+if (!sendBtn || !chatInput || !messages) {
+  // Page does not include the virtual class chat widget.
+} else {
+  sendBtn.addEventListener("click", () => {
 
   const text = chatInput.value.trim();
 
@@ -28,7 +31,8 @@ sendBtn.addEventListener("click", () => {
 
   chatInput.value = "";
 
-  messages.scrollTop =
-    messages.scrollHeight;
+    messages.scrollTop =
+      messages.scrollHeight;
 
-});
+  });
+}

@@ -3,6 +3,10 @@ function postComment(){
   const input = document.getElementById("commentInput");
   const wrapper = document.getElementById("commentsWrapper");
 
+  if (!input || !wrapper) {
+    return;
+  }
+
   const text = input.value.trim();
 
   if(text === ""){
@@ -82,6 +86,8 @@ function postComment(){
 function likeComment(button){
 
   const span = button.querySelector("span");
+
+  if (!span) return;
 
   let count = parseInt(span.innerText);
 

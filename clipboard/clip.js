@@ -7,7 +7,10 @@ const clipboardInput =
 const clipboardList =
   document.getElementById("clipboardList");
 
-saveBtn.addEventListener("click", () => {
+if (!saveBtn || !clipboardInput || !clipboardList) {
+  // Page does not include the clipboard widget.
+} else {
+  saveBtn.addEventListener("click", () => {
 
   const text =
     clipboardInput.value.trim();
@@ -54,10 +57,11 @@ saveBtn.addEventListener("click", () => {
 
   });
 
-  deleteBtn.addEventListener("click", () => {
+    deleteBtn.addEventListener("click", () => {
 
-    card.remove();
+      card.remove();
+
+    });
 
   });
-
-});
+}

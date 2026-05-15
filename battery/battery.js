@@ -12,35 +12,39 @@ const toggleBtn =
 
 let charging = true;
 
-toggleBtn.addEventListener("click", () => {
+if (!batteryLevel || !batteryPercentage || !batteryStatus || !toggleBtn) {
+  // Page does not include the battery widget.
+} else {
+  toggleBtn.addEventListener("click", () => {
 
-  charging = !charging;
+    charging = !charging;
 
-  if(charging){
+    if(charging){
 
-    batteryLevel.style.width = "80%";
+      batteryLevel.style.width = "80%";
 
-    batteryLevel.style.background =
-      "#22c55e";
+      batteryLevel.style.background =
+        "#22c55e";
 
-    batteryPercentage.textContent =
-      "80%";
+      batteryPercentage.textContent =
+        "80%";
 
-    batteryStatus.textContent =
-      "Charging";
-  }
-  else{
+      batteryStatus.textContent =
+        "Charging";
+    }
+    else{
 
-    batteryLevel.style.width = "30%";
+      batteryLevel.style.width = "30%";
 
-    batteryLevel.style.background =
-      "#ef4444";
+      batteryLevel.style.background =
+        "#ef4444";
 
-    batteryPercentage.textContent =
-      "30%";
+      batteryPercentage.textContent =
+        "30%";
 
-    batteryStatus.textContent =
-      "Low Battery";
-  }
+      batteryStatus.textContent =
+        "Low Battery";
+    }
 
-});
+  });
+}
