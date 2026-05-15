@@ -594,13 +594,3 @@ select:focus {
   
 }
 
-.noti {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-.noti:hover {
-  background: rgba(108, 92, 231, 0.2);
-}
