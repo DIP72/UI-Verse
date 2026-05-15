@@ -1,95 +1,51 @@
-// =========================================================
-// FILTER ACTIVE
-// =========================================================
+function toggleCode(id){
 
-const filterBtns =
-  document.querySelectorAll(".filter-btn");
+  const block = document.getElementById(id);
 
-filterBtns.forEach((btn)=>{
+  block.classList.toggle("show");
+}
 
-  btn.addEventListener("click",()=>{
+function copyCode(id){
 
-    filterBtns.forEach((b)=>{
+  const text =
+    document.getElementById(id).innerText;
 
-      b.classList.remove("active");
+  navigator.clipboard.writeText(text);
+
+  const toast =
+    document.getElementById("copyToast");
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+
+    toast.classList.remove("show");
+
+  },2000);
+}
+
+/* SEARCH */
+
+const searchInput =
+  document.getElementById("searchInput");
+
+searchInput.addEventListener("input",e=>{
+
+  const value =
+    e.target.value.toLowerCase();
+
+  document
+    .querySelectorAll(".badge-card")
+    .forEach(card=>{
+
+      const text =
+        card.innerText.toLowerCase();
+
+      card.style.display =
+        text.includes(value)
+        ? "block"
+        : "none";
 
     });
 
-    btn.classList.add("active");
-
-  });
-
 });
-
-// =========================================================
-// SEARCH FILTER
-// =========================================================
-
-const searchInput =
-  document.getElementById("badgeSearch");
-
-const cards =
-  document.querySelectorAll(".badge-card");
-
-searchInput.addEventListener("keyup",()=>{
-
-  const value =
-    searchInput.value.toLowerCase();
-
-  cards.forEach((card)=>{
-
-    const text =
-      card.innerText.toLowerCase();
-
-    if(text.includes(value)){
-
-      card.style.display = "block";
-
-    }else{
-
-      card.style.display = "none";
-
-    }
-
-  });
-
-});
-
-// =========================================================
-// COPY BUTTON
-// =========================================================
-
-const copyBtns =
-  document.querySelectorAll(".copy-btn");
-
-copyBtns.forEach((btn)=>{
-
-  btn.addEventListener("click",()=>{
-
-    btn.innerText = "Copied!";
-
-    setTimeout(()=>{
-
-      btn.innerText = "Copy";
-
-    },1500);
-
-  });
-
-});
-
-// =========================================================
-// RANDOM NOTIFICATION COUNT
-// =========================================================
-
-const notification =
-  document.querySelector(".notification-count");
-
-setInterval(()=>{
-
-  const random =
-    Math.floor(Math.random() * 9) + 1;
-
-  notification.innerText = random;
-
-},3000);
