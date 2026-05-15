@@ -14,7 +14,10 @@ const Accessibility = {
     initialized: false,
     modeEnabled: false,
     toggleSelector: '[data-accessibility-toggle], #accessibilityToggle, #a11yToggle, #a11yModeToggle',
-    storageKey: 'uiverseAccessibilityMode'
+    storageKey: 'uiverseAccessibilityMode',
+    scrollLockCount: 0,
+    previousBodyOverflow: '',
+    activeModalCleanup: null
   },
 
   init() {
@@ -30,6 +33,131 @@ const Accessibility = {
     this.initAccessibilityMode();
 
     this._state.initialized = true;
+  },
+
+  openModal(container, options = {}) {
+    if (!container) return () => {};
+
+    container.setAttribute('role', container.getAttribute('role') || 'dialog');
+    container.setAttribute('aria-modal', 'true');
+
+    this.lockBodyScroll();
+
+    const cleanup = this._trapFocus(container, options);
+    this._state.activeModalCleanup = cleanup;
+    return cleanup;
+  },
+
+  closeModal(container) {
+    if (this._state.activeModalCleanup) {
+      this._state.activeModalCleanup();
+      this._state.activeModalCleanup = null;
+    }
+
+    this.unlockBodyScroll();
+
+    if (container && container.getAttribute('role') === 'dialog') {
+      container.removeAttribute('aria-modal');
+    }
+  },
+
+  lockBodyScroll() {
+    if (this._state.scrollLockCount === 0 && document.body) {
+      this._state.previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    }
+
+    this._state.scrollLockCount += 1;
+  },
+
+  unlockBodyScroll() {
+    this._state.scrollLockCount = Math.max(0, this._state.scrollLockCount - 1);
+
+    if (this._state.scrollLockCount === 0 && document.body) {
+      document.body.style.overflow = this._state.previousBodyOverflow || '';
+      this._state.previousBodyOverflow = '';
+    }
+  },
+
+  _trapFocus(container, options = {}) {
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const escapeHandler = typeof options.onEscape === 'function' ? options.onEscape : null;
+    const restoreTarget = options.restoreFocusTo instanceof HTMLElement ? options.restoreFocusTo : previousFocus;
+
+    const focusableSelector = [
+      'button:not([disabled])',
+      'a[href]',
+      'input:not([disabled])',
+      'textarea:not([disabled])',
+      'select:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])'
+    ].join(', ');
+
+    const getFocusableElements = () => Array.from(container.querySelectorAll(focusableSelector)).filter((el) => el.offsetParent !== null || el === document.activeElement);
+
+    const focusInitial = () => {
+      const target = typeof options.initialFocus === 'string'
+        ? container.querySelector(options.initialFocus)
+        : options.initialFocus;
+      const focusTarget = target instanceof HTMLElement ? target : getFocusableElements()[0] || container;
+
+      if (focusTarget === container && !container.hasAttribute('tabindex')) {
+        container.setAttribute('tabindex', '-1');
+      }
+
+      focusTarget.focus({ preventScroll: true });
+    };
+
+    const onKeydown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        if (escapeHandler) escapeHandler();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusables = getFocusableElements();
+      if (focusables.length === 0) {
+        event.preventDefault();
+        focusInitial();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey) {
+        if (active === first || active === container) {
+          event.preventDefault();
+          last.focus({ preventScroll: true });
+        }
+      } else if (active === last) {
+        event.preventDefault();
+        first.focus({ preventScroll: true });
+      }
+    };
+
+    const onFocusIn = (event) => {
+      if (!container.contains(event.target)) {
+        focusInitial();
+      }
+    };
+
+    document.addEventListener('keydown', onKeydown, true);
+    document.addEventListener('focusin', onFocusIn);
+
+    setTimeout(focusInitial, 0);
+
+    return () => {
+      document.removeEventListener('keydown', onKeydown, true);
+      document.removeEventListener('focusin', onFocusIn);
+
+      if (restoreTarget && document.contains(restoreTarget)) {
+        restoreTarget.focus({ preventScroll: true });
+      }
+    };
   },
 
   initAccessibilityMode() {
